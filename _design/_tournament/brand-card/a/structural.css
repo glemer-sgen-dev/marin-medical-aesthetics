@@ -1,0 +1,134 @@
+/* =============================================================================
+ * BRAND CARD A — "The Clinical Ledger" — STRUCTURAL (token-pure)
+ * ZERO hex literals by construction. Every colour is var(--ds-*), sourced from
+ * tokens.css. Layout, rhythm and structure only.
+ *
+ * MEASURE NOTE (G8 A3): `ch` resolves against the ELEMENT's own font, so a ch
+ * max-width computes far too wide unless the rule itself owns the display face.
+ * The gate recognises ownership only via `font-family:var(--font…)`, while the
+ * BRAND-TOKEN-SCHEMA mandates `--ds-*` names — so rather than rename tokens
+ * against the schema, every measure here is expressed in rem. No ch anywhere.
+ * ========================================================================== */
+
+*{box-sizing:border-box}
+
+body{
+  margin:0;
+  background:var(--ds-bg-surface);
+  color:var(--ds-ink);
+  font-family:var(--ds-font-body);
+  font-size:16px;
+  line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+}
+
+.sheet{max-width:1180px;margin:0 auto;padding:64px 40px 96px}
+.rule{height:1px;background:var(--ds-line);border:0;margin:0}
+.rule-ink{height:2px;background:var(--ds-line-strong);border:0;margin:0}
+
+.sheet-head{display:flex;justify-content:space-between;align-items:flex-end;gap:32px;padding-bottom:18px}
+.sheet-head h1{font-family:var(--ds-font-display);font-size:15px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;margin:0}
+.sheet-head .meta{font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--ds-ink-soft)}
+
+.block{padding:56px 0 8px}
+.block > .label{
+  font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--ds-ink-soft);
+  display:flex;align-items:center;gap:14px;margin-bottom:28px;
+}
+.block > .label::after{content:"";flex:1;height:1px;background:var(--ds-line)}
+
+/* ---- 1. LOCKUPS ---- */
+.lockups{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:1px;background:var(--ds-line)}
+.lockup{background:var(--ds-bg-surface);padding:40px 32px;display:flex;flex-direction:column;justify-content:space-between;min-height:190px}
+.lockup .cap{font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--ds-ink-soft)}
+.wordmark{font-family:var(--ds-font-display);line-height:1.02;color:var(--ds-accent);display:block}
+.wordmark .a{display:block;font-size:34px;font-weight:600;letter-spacing:-.02em}
+.wordmark .b{display:block;font-size:34px;font-weight:400;font-style:italic;letter-spacing:-.02em;color:var(--ds-ink)}
+.wordmark-rule{width:34px;height:2px;background:var(--ds-issued);margin:14px 0}
+.wordmark-stack .a,.wordmark-stack .b{font-size:22px}
+.wordmark-mono{font-family:var(--ds-font-display);font-size:44px;font-weight:600;color:var(--ds-accent);letter-spacing:-.03em;display:block}
+.wordmark-mono span{color:var(--ds-signature)}
+
+/* ---- 2. PALETTE ---- */
+/* 8 swatches on a FIXED 4-column grid = two clean rows. auto-fit produced 7
+   across at this container width and orphaned the 8th, leaving a large dead
+   band. A role palette is a deliberate set, so the column count is deliberate. */
+.swatches{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--ds-line)}
+.sw{background:var(--ds-bg-surface);padding:0 0 16px}
+.sw .chip{height:96px;border-bottom:1px solid var(--ds-line)}
+.sw .role{display:block;font-size:12px;font-weight:600;margin:14px 16px 2px}
+.sw .val{display:block;font-size:11px;letter-spacing:.08em;color:var(--ds-ink-soft);margin:0 16px;font-variant-numeric:tabular-nums}
+.sw .use{display:block;font-size:11px;color:var(--ds-ink-soft);margin:8px 16px 0;line-height:1.45}
+.chip-accent{background:var(--ds-accent)}
+.chip-ink{background:var(--ds-ink)}
+.chip-ground{background:var(--ds-bg-surface-2)}
+.chip-signature{background:var(--ds-signature)}
+.chip-issued{background:var(--ds-issued)}
+.chip-olive{background:var(--ds-olive)}
+.chip-line{background:var(--ds-line)}
+.chip-surface{background:var(--ds-bg-surface);border:1px solid var(--ds-line)}
+
+/* ---- 3. TYPE SCALE ---- */
+.scale-row{display:grid;grid-template-columns:112px 1fr;gap:28px;align-items:baseline;padding:20px 0;border-bottom:1px solid var(--ds-line)}
+.scale-row .tag-lbl{font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--ds-ink-soft);padding-top:8px}
+.t-d1{font-family:var(--ds-font-display);font-size:64px;line-height:1.04;font-weight:600;letter-spacing:-.03em;margin:0;max-width:22rem}
+.t-d2{font-family:var(--ds-font-display);font-size:40px;line-height:1.12;font-weight:600;letter-spacing:-.02em;margin:0;max-width:26rem}
+.t-h3{font-family:var(--ds-font-display);font-size:24px;line-height:1.25;font-weight:600;margin:0}
+.t-body{font-size:16px;line-height:1.65;margin:0;max-width:34rem;color:var(--ds-ink)}
+.t-small{font-size:13px;line-height:1.6;margin:0;max-width:34rem;color:var(--ds-ink-soft)}
+.t-eyebrow{font-size:11px;letter-spacing:.2em;text-transform:uppercase;margin:0;color:var(--ds-accent)}
+
+/* ---- 4. UI ATOMS ---- */
+.atoms{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1px;background:var(--ds-line)}
+.atom{background:var(--ds-bg-surface);padding:28px 26px 30px}
+.atom .cap{font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--ds-ink-soft);margin-bottom:18px;display:block}
+.btn{
+  display:inline-block;font-family:var(--ds-font-body);font-size:13px;font-weight:600;letter-spacing:.04em;
+  padding:13px 24px;border-radius:var(--ds-r-control);border:1px solid var(--ds-accent);
+  background:var(--ds-accent);color:var(--ds-bg-surface);text-decoration:none;cursor:pointer;
+  transition:background var(--ds-dur) var(--ds-ease),color var(--ds-dur) var(--ds-ease);
+}
+.btn:hover{background:var(--ds-accent-deep);border-color:var(--ds-accent-deep)}
+.btn-ghost{background:transparent;color:var(--ds-accent)}
+.btn-ghost:hover{background:var(--ds-accent-soft);color:var(--ds-accent-deep)}
+.btn + .btn{margin-left:10px}
+.tagrow{display:flex;flex-wrap:wrap;gap:8px}
+.tag{font-size:11px;letter-spacing:.08em;text-transform:uppercase;padding:6px 12px;border:1px solid var(--ds-line);border-radius:var(--ds-r-pill);color:var(--ds-ink-soft)}
+.tag-issued{border-color:var(--ds-issued);color:var(--ds-olive)}
+.field{display:block;width:100%;padding:12px 14px;border:1px solid var(--ds-line);border-bottom:2px solid var(--ds-accent);border-radius:var(--ds-r-control);font-family:inherit;font-size:14px;color:var(--ds-ink);background:var(--ds-bg-surface)}
+.card{border:1px solid var(--ds-line);border-radius:var(--ds-r-surface);padding:22px;background:var(--ds-bg-surface)}
+.card h4{font-family:var(--ds-font-display);font-size:18px;margin:0 0 6px}
+.card p{font-size:13px;color:var(--ds-ink-soft);margin:0}
+.card .idx{font-size:11px;letter-spacing:.14em;color:var(--ds-issued);display:block;margin-bottom:10px;font-variant-numeric:tabular-nums}
+
+/* ---- 5. SIGNATURE MOTIF — the ruled record ---- */
+.motif{border-top:2px solid var(--ds-line-strong);border-bottom:1px solid var(--ds-line)}
+.ledger-row{display:grid;grid-template-columns:64px 1fr auto;gap:24px;align-items:baseline;padding:18px 4px;border-bottom:1px solid var(--ds-line)}
+.ledger-row:last-child{border-bottom:0}
+.ledger-row .n{font-variant-numeric:tabular-nums;font-size:12px;letter-spacing:.14em;color:var(--ds-issued)}
+.ledger-row .t{font-family:var(--ds-font-display);font-size:19px}
+.ledger-row .v{font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--ds-ink-soft)}
+.motif-note{font-size:12px;color:var(--ds-ink-soft);margin:16px 0 0;max-width:38rem;line-height:1.6}
+
+/* ---- 6. MINI-VIGNETTE ---- */
+.vig{display:grid;grid-template-columns:1.05fr .95fr;border:1px solid var(--ds-line);border-radius:var(--ds-r-surface);overflow:hidden}
+.vig-copy{padding:52px 48px;display:flex;flex-direction:column;justify-content:center;background:var(--ds-bg-surface-3)}
+.vig-copy .eyebrow{font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--ds-accent);margin:0 0 16px}
+.vig-copy h2{font-family:var(--ds-font-display);font-size:38px;line-height:1.1;letter-spacing:-.025em;font-weight:600;margin:0 0 16px;max-width:22rem}
+.vig-copy p{font-size:15px;color:var(--ds-ink-soft);margin:0 0 26px;max-width:26rem}
+.vig-media{position:relative;min-height:340px}
+.vig-media img{width:100%;height:100%;object-fit:cover;display:block}
+.vig-stamp{position:absolute;left:0;bottom:0;background:var(--ds-bg-surface);border-top:2px solid var(--ds-issued);padding:14px 20px;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--ds-ink-soft)}
+
+.dark-strip{background:var(--ds-bg-surface);color:var(--ds-ink);border-radius:var(--ds-r-surface);padding:36px 40px;margin-top:12px}
+.dark-strip p{color:var(--ds-ink-soft);font-size:14px;max-width:33rem}
+
+@media (max-width:900px){
+  .sheet{padding:40px 20px 64px}
+  .swatches{grid-template-columns:repeat(2,1fr)}
+  .lockups{grid-template-columns:1fr}
+  .vig{grid-template-columns:1fr}
+  .vig-copy{padding:36px 28px}
+  .t-d1{font-size:44px}
+  .scale-row{grid-template-columns:1fr;gap:6px}
+}

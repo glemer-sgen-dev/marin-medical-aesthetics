@@ -1,0 +1,69 @@
+/* =============================================================================
+ * BRAND CARD A — "The Clinical Ledger" — TOKENS
+ * Marin Medical Aesthetics, San Anselmo CA.
+ *
+ * VALUES are the client's OWN measured brand (C6 tokens-spec), not invented and
+ * not lifted from a preset: navy #073772 is the real primary (138 uses on the
+ * live homepage, and the colour of the existing logo); cream #efede1 measured at
+ * 22.1% of the page; plum #9e7299 (38 uses); gold #c4ad67 (22); olive #5f5842 (11).
+ * The canvas is LIGHT by measurement — dark_ratio 0.000 across a 68-sample raster
+ * of the live 6,714px homepage (C7 §0 BRAND-SIGNATURE).
+ *
+ * ROLE MAP is picked from: Color theory presets #54 (HIPAA Medical — serious clinic).
+ * The preset supplies the role structure; the brand supplies the colour.
+ *
+ * This is the ONE sheet permitted to carry brand hex. structural.css is token-pure.
+ * ========================================================================== */
+
+:root{
+  /* ---- COLOUR ---- */
+  --ds-bg-surface:#ffffff;
+  --ds-bg-surface-2:#efede1;
+  --ds-bg-surface-3:#f7f6ef;
+  --ds-ink:#0f1b2d;
+  --ds-ink-soft:#5b6675;
+  --ds-accent:#073772;
+  --ds-accent-deep:#04213f;
+  --ds-accent-soft:#e4e2ed;
+  --ds-signature:#9e7299;
+  --ds-issued:#c4ad67;
+  --ds-olive:#5f5842;
+  --ds-line:#d8d4c4;
+  --ds-line-strong:#0f1b2d;
+  --ds-shadow:0 1px 0 0 #d8d4c4;
+
+  /* ---- RADIUS — the 3 constrained ROLE names only (BRAND-TOKEN-SCHEMA §Radius).
+         The ledger thesis sits at the restrained end: Surface patterns #1. ---- */
+  --ds-r-control:3px;
+  --ds-r-surface:6px;
+  --ds-r-pill:999px;
+
+  /* ---- TYPE — Playfair Display + Poppins are the MEASURED live brand (C6 §3);
+         set the way Typography pairings #43 sets a serif: gravitas, not decor. ---- */
+  --ds-font-display:"Playfair Display","Source Serif 4",Georgia,"Times New Roman",serif;
+  --ds-font-body:"Poppins","Inter",system-ui,-apple-system,"Segoe UI",sans-serif;
+
+  /* ---- MOTION (2 required) ---- */
+  --ds-ease:cubic-bezier(.2,.6,.2,1);
+  --ds-dur:220ms;
+}
+
+/* Dark-surface flip — the SAME vars, re-pointed. Every FLIP_REQUIRED family is
+   present: ACCENT, INK, SURFACE, LINE, SHADOW. A dark band is the same system,
+   never a second theme. */
+.surface-dark{
+  --ds-bg-surface:#04213f;
+  --ds-bg-surface-2:#073772;
+  --ds-bg-surface-3:#0a2c52;
+  --ds-ink:#f4f2e9;
+  --ds-ink-soft:#a9b6c6;
+  --ds-accent:#c4ad67;
+  --ds-accent-deep:#efede1;
+  --ds-accent-soft:#0a2c52;
+  --ds-signature:#c8a9c3;
+  --ds-issued:#c4ad67;
+  --ds-olive:#c9c2ab;
+  --ds-line:#1d4272;
+  --ds-line-strong:#c4ad67;
+  --ds-shadow:0 1px 0 0 #1d4272;
+}

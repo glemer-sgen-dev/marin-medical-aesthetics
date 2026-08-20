@@ -1,0 +1,62 @@
+[
+  {
+    "id": "hero-consult-room",
+    "prompt": "Interior photograph of a calm, light-filled medical consultation room in a private California practice. Soft natural daylight from a large window, warm cream walls, a simple desk with a notebook and pen, one upholstered chair, a small plant. Muted palette of cream, warm off-white and deep navy accents. Editorial architectural photography, shallow depth of field, natural light, no people, no faces, no text, no signage, no watermark, no logos.",
+    "image_size": "landscape_16_9",
+    "out": "assets/hero-consult-room.jpg"
+  },
+  {
+    "id": "treatment-room",
+    "prompt": "Interior photograph of a clean, modern medical aesthetics treatment room. A treatment chair with crisp white linen, a discreet unbranded device on a slim stand, cabinetry in warm cream, deep navy accent wall, soft indirect lighting. Calm and clinical but warm, not sterile. Editorial interior photography, natural light, no people, no faces, no text, no branding, no watermark.",
+    "image_size": "landscape_16_9",
+    "out": "assets/treatment-room.jpg"
+  },
+  {
+    "id": "reception-warm",
+    "prompt": "Interior photograph of a small, welcoming medical practice reception area. Warm cream walls, a light oak counter, a linen bench seat, a vase of dried grasses, soft morning light. Understated and residential rather than corporate. Muted cream, warm white and navy palette. Editorial interior photography, no people, no faces, no text, no signage, no watermark.",
+    "image_size": "landscape_16_9",
+    "out": "assets/reception-warm.jpg"
+  },
+  {
+    "id": "detail-window-light",
+    "prompt": "Abstract architectural detail photograph: soft daylight falling across a plain warm-cream plaster wall, gentle shadow gradient from a window frame. Minimal, quiet, textural. Cream and warm off-white with a faint cool shadow. Fine-art editorial photography, extremely simple composition, no objects, no people, no text, no watermark.",
+    "image_size": "landscape_16_9",
+    "out": "assets/detail-window-light.jpg"
+  },
+  {
+    "id": "texture-cream-band",
+    "prompt": "Seamless abstract texture: fine matte plaster surface in warm cream, very subtle tonal variation, soft even lighting, no pattern, no objects. Photographic macro texture for use as a quiet background band. Cream and warm off-white only. No text, no watermark, no logo.",
+    "image_size": "landscape_16_9",
+    "out": "assets/texture-cream-band.jpg"
+  },
+  {
+    "id": "texture-navy-band",
+    "prompt": "Seamless abstract texture: deep navy blue matte surface with very subtle tonal depth and soft directional light, no pattern, no objects. Photographic macro texture for use as a rich accent background band. Deep navy only. No text, no watermark, no logo.",
+    "image_size": "landscape_16_9",
+    "out": "assets/texture-navy-band.jpg"
+  },
+  {
+    "id": "skincare-still-life",
+    "prompt": "Still-life photograph of unbranded, unlabelled skincare containers in frosted glass and matte cream on a pale stone surface, beside a folded linen cloth and a sprig of eucalyptus. Soft diffused daylight, gentle shadows. Calm, clinical-luxury mood. Cream, warm white, muted plum accent. Editorial product photography, no labels, no text, no branding, no watermark, no people.",
+    "image_size": "landscape_4_3",
+    "out": "assets/skincare-still-life.jpg"
+  },
+  {
+    "id": "marin-landscape",
+    "prompt": "Landscape photograph of golden rolling hills and scattered oak trees in Marin County, Northern California, soft late-afternoon light, distant coastal ridge, quiet and open. Warm gold, olive green and soft blue sky. Natural editorial landscape photography, no people, no buildings, no text, no watermark.",
+    "image_size": "landscape_16_9",
+    "out": "assets/marin-landscape.jpg"
+  },
+  {
+    "id": "community-town",
+    "prompt": "Photograph of a small, leafy Northern California town street on a bright morning: low storefronts, mature street trees, wide sidewalk, parked bicycles, warm and unhurried. Soft natural light, warm neutral palette. Documentary editorial photography, no readable signage, no legible text, no faces, no watermark.",
+    "image_size": "landscape_16_9",
+    "out": "assets/community-town.jpg"
+  },
+  {
+    "id": "detail-linen-tray",
+    "prompt": "Close-up still-life photograph of a folded white linen towel and a simple stainless tray on a pale cream surface, soft daylight, minimal composition, quiet clinical calm. Cream, white and soft grey. Editorial detail photography, no instruments, no branding, no text, no people, no watermark.",
+    "image_size": "square_hd",
+    "out": "assets/detail-linen-tray.jpg"
+  }
+]

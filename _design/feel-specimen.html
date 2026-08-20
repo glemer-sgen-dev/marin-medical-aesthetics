@@ -1,0 +1,207 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Feel specimen: Marin Medical Aesthetics</title>
+
+<!-- ===================== DESIGN-SYSTEM CITATIONS =====================
+  THIS IS NOT A PAGE. It is three BAND FRAGMENTS that lock the body feel: figure/ground,
+  type-scale application, section rhythm, motion and surface treatment. There is no page
+  composition and no chrome. Derived from the LOCKED brand tokens (Brand Card C, owner-picked
+  2026-08-19), from C7, and from the v4 unified design system.
+
+  pick: HERO-COMPOSITIONS #1 (split-text-left + photo-right)
+   why: carries the practice's actual entry sequence. Concern-led copy needs room at display scale,
+        and a split keeps a real photograph adjacent to the text rather than behind it, which
+        protects legibility in a light-canvas brand.
+
+  pick: TRUST-STATS-SECTIONS (the counter band), run on the brand's DARK surface
+   why: C7's measured BRAND-SIGNATURE records "big-stat-bands" as an existing move of this brand, so
+        the band amplifies a measured fact. Running it dark supplies the figure/ground rhythm the
+        light canvas otherwise lacks, and it exercises the locked .surface-dark flip rather than
+        inventing a second theme.
+
+  pick: CARD-VARIATIONS #3 (minimal 3-up icon-top feature), run 4-up
+   why: the concern layer is the site's entry rail. It needs a card that carries a short label and
+        one plain line, without pretending to be a product tile.
+
+  pick: Color theory presets #54 (HIPAA Medical), as locked into the brand card
+   why: the role map the locked tokens already encode. Navy governs, gold is structural, the warm
+        sand ground carries the light band.
+
+  pick: Typography pairings #43 (serif authority + clean body)
+   why: Playfair Display at display scale, Poppins for body, exactly as the locked tokens define.
+
+  library: _MODERN-WOW-SPEC
+   why: the technique ceiling. Depth here is layered shadow plus a real grain texture on the dark
+        band, and the transition between light and dark is an organic arc rather than a hard edge.
+
+  blueprint: composition-medical-health
+   why: the per-vertical blueprint, applied as its named moves. A2 supplies the "circle up" arc
+        divider, which the blueprint records as the medical signature closing transition. E2 supplies
+        the oversized negative-tracked display. I1 the solid plus ghost CTA pair. I3 the trust
+        counter band. F4 the tinted-surface wash. G4 the concern grid.
+
+  NOTE ON IMAGERY: this fragment set PRECEDES the imagery stage and is exempt from the real-img
+  rule, but the photographs shown are already-real generated assets from P7.5, not placeholders.
+===================================================================== -->
+
+<link rel="stylesheet" href="marin-medical-aesthetics-tokens.css">
+
+<style>
+/* FEEL-ONLY layout. The structural sheet is held until SYSTEM sign-off, so band geometry lives
+   here for now. Every colour resolves from the locked tokens; no hex appears below. */
+*{box-sizing:border-box}
+body{margin:0;background:var(--ds-bg-surface);color:var(--ds-ink);font-family:var(--ds-font-body);font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased}
+.spec-note{max-width:1160px;margin:0 auto;padding:26px 40px 0;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--ds-ink-soft)}
+.spec-note b{color:var(--ds-accent);font-weight:600}
+.wrap{max-width:1160px;margin:0 auto;padding:0 40px}
+
+/* ---------- FRAGMENT 1: hero band ---------- */
+.f-hero{display:grid;grid-template-columns:1.08fr .92fr;align-items:stretch;border-top:3px solid var(--ds-accent);margin-top:14px}
+.f-hero-copy{padding:88px 56px 88px 0;display:flex;flex-direction:column;justify-content:center}
+.eyebrow{font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--ds-signature);margin:0 0 20px}
+.f-hero h1{font-family:var(--ds-font-display);font-size:76px;line-height:1;letter-spacing:-.04em;font-weight:700;color:var(--ds-accent);margin:0 0 22px;max-width:26rem}
+.f-hero .lede{font-size:17px;line-height:1.6;color:var(--ds-ink-soft);margin:0 0 32px;max-width:29rem}
+.cta-row{display:flex;gap:12px;flex-wrap:wrap;align-items:center}
+.btn{display:inline-block;font-size:13px;font-weight:700;letter-spacing:.03em;padding:16px 28px;border-radius:var(--ds-r-control);border:2px solid var(--ds-accent);background:var(--ds-accent);color:var(--ds-bg-surface);text-decoration:none;transition:background var(--ds-dur) var(--ds-ease),transform var(--ds-dur-fast) var(--ds-ease-out)}
+.btn:hover{background:var(--ds-accent-deep);transform:translateY(-1px)}
+.btn-ghost{background:transparent;color:var(--ds-accent)}
+.btn-ghost:hover{background:var(--ds-accent-soft)}
+/* real depth: a layered shadow, not a single soft blur */
+.f-hero-media{position:relative;min-height:520px;box-shadow:0 1px 2px rgba(10,25,41,.10),0 8px 20px rgba(10,25,41,.12),0 24px 48px rgba(10,25,41,.10)}
+.f-hero-media img{width:100%;height:100%;object-fit:cover;display:block}
+.media-rule{position:absolute;left:0;top:0;bottom:0;width:6px;background:var(--ds-issued);z-index:var(--ds-z-raised)}
+
+/* ---------- FRAGMENT 2: stat band, on the brand's DARK surface ---------- */
+.f-band{position:relative;background:var(--ds-bg-surface);padding:104px 0 88px}
+/* A2 "circle up" arc divider: the light band melts into the dark one on a curve */
+.arc{position:absolute;top:-1px;left:0;width:100%;height:64px;display:block;z-index:var(--ds-z-raised)}
+.arc path{fill:var(--ds-bg-surface)}
+.arc-outer{position:relative;overflow:hidden}
+/* material: a real grain texture, held low so the type stays clean */
+.grain{position:absolute;inset:0;background-image:url("../assets/texture-navy-band.jpg");background-size:cover;background-position:center;opacity:var(--ds-opacity-texture);pointer-events:none}
+.f-band-inner{position:relative;max-width:1160px;margin:0 auto;padding:0 40px;z-index:var(--ds-z-base)}
+.band-lead{font-family:var(--ds-font-display);font-size:34px;line-height:1.16;letter-spacing:-.025em;font-weight:600;color:var(--ds-accent);margin:0 0 46px;max-width:32rem}
+.stats{display:grid;grid-template-columns:repeat(3,1fr)}
+.stat{padding:0 32px;border-left:2px solid var(--ds-issued)}
+.stat:first-child{padding-left:0;border-left:0}
+.stat .lbl{display:block;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--ds-olive);margin-bottom:10px}
+.stat .fig{display:block;font-family:var(--ds-font-display);font-size:66px;line-height:1;font-weight:700;letter-spacing:-.04em;color:var(--ds-accent);margin-bottom:12px}
+.stat .sub{font-size:13px;line-height:1.55;color:var(--ds-ink-soft);margin:0;max-width:17rem}
+
+/* ---------- FRAGMENT 3: card row ---------- */
+.f-cards{padding:84px 0 96px}
+.row-head{display:flex;justify-content:space-between;align-items:baseline;gap:24px;border-bottom:1px solid var(--ds-line);padding-bottom:18px;margin-bottom:34px}
+.row-head h2{font-family:var(--ds-font-display);font-size:30px;letter-spacing:-.02em;font-weight:600;margin:0;color:var(--ds-ink)}
+.row-head .more{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--ds-accent);text-decoration:none}
+.cards{display:grid;grid-template-columns:repeat(4,1fr);border:1px solid var(--ds-line);border-right:0}
+.c{padding:32px 26px 34px;border-right:1px solid var(--ds-line);border-top:4px solid transparent;transition:border-top-color var(--ds-dur) var(--ds-ease),background var(--ds-dur) var(--ds-ease),box-shadow var(--ds-dur) var(--ds-ease)}
+.c:hover{border-top-color:var(--ds-issued);background:var(--ds-bg-surface-3);box-shadow:0 1px 2px rgba(10,25,41,.06),0 10px 24px rgba(10,25,41,.10)}
+.c .n{display:block;font-size:11px;letter-spacing:.16em;color:var(--ds-issued);margin-bottom:14px;font-variant-numeric:tabular-nums}
+.c h3{font-family:var(--ds-font-display);font-size:21px;margin:0 0 8px;color:var(--ds-accent)}
+.c p{font-size:13.5px;line-height:1.55;color:var(--ds-ink-soft);margin:0}
+
+@media (max-width:900px){
+  .wrap,.f-band-inner,.spec-note{padding-left:20px;padding-right:20px}
+  .f-hero{grid-template-columns:1fr}
+  .f-hero-copy{padding:52px 0 44px}
+  .f-hero h1{font-size:44px}
+  .f-hero-media{min-height:300px}
+  .stats,.cards{grid-template-columns:1fr}
+  .stat{border-left:0;border-top:2px solid var(--ds-issued);padding:24px 0 0;margin-top:24px}
+  .stat:first-child{margin-top:0;border-top:0;padding-top:0}
+  .c{border-right:0;border-bottom:1px solid var(--ds-line)}
+  .band-lead{font-size:26px}
+  .row-head{flex-direction:column;align-items:flex-start;gap:12px}
+  .row-head h2{font-size:26px}
+}
+</style>
+</head>
+<body>
+
+<p class="spec-note"><b>Feel specimen</b> &nbsp;/&nbsp; three band fragments, not a page &nbsp;/&nbsp; Marin Medical Aesthetics &nbsp;/&nbsp; from the locked Brand Card C tokens</p>
+
+<!-- FRAGMENT 1: hero band (HERO-COMPOSITIONS #1) -->
+<div class="wrap">
+  <section class="f-hero">
+    <div class="f-hero-copy">
+      <p class="eyebrow">San Anselmo &middot; Marin County</p>
+      <h1>An evaluation, not a menu</h1>
+      <p class="lede">Every treatment here begins with a physician health evaluation. It covers how you
+        feel and how you function, not only how something looks, and it ends in a written plan you keep.</p>
+      <div class="cta-row">
+        <a class="btn" href="#">Book a consultation</a>
+        <a class="btn btn-ghost" href="#">What to expect</a>
+      </div>
+    </div>
+    <div class="f-hero-media">
+      <span class="media-rule"></span>
+      <img src="../assets/hero-consult-room.jpg" alt="A quiet consultation room with natural daylight">
+    </div>
+  </section>
+</div>
+
+<!-- FRAGMENT 2: stat band on the brand's DARK surface, entered on an A2 arc divider -->
+<div class="arc-outer">
+  <svg class="arc" viewBox="0 0 1440 64" preserveAspectRatio="none" aria-hidden="true"><path d="M0,0 L1440,0 L1440,10 C1080,64 360,64 0,10 Z"></path></svg>
+  <section class="f-band surface-dark">
+    <span class="grain"></span>
+    <div class="f-band-inner">
+      <p class="band-lead">What is on the record, and nothing that is not.</p>
+      <div class="stats">
+        <div class="stat">
+          <span class="lbl">Google rating</span>
+          <span class="fig">4.8</span>
+          <p class="sub">Across 96 Google reviews, read on the practice's own Business Profile and verified live.</p>
+        </div>
+        <div class="stat">
+          <span class="lbl">Google reviews</span>
+          <span class="fig">96</span>
+          <p class="sub">The full published count, unrounded. Read live; the count is mirror-sourced, the rating is not.</p>
+        </div>
+        <div class="stat">
+          <span class="lbl">Every evaluation ends in</span>
+          <span class="fig">1</span>
+          <p class="sub">One written plan, yours to keep: what is appropriate, in what order, and what it involves.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- FRAGMENT 3: card row (CARD-VARIATIONS #3, the concern rail) -->
+<div class="wrap">
+  <section class="f-cards">
+    <div class="row-head">
+      <h2>Start from the concern, not the device</h2>
+      <a class="more" href="#">All areas of concern</a>
+    </div>
+    <div class="cards">
+      <div class="c">
+        <span class="n">01</span>
+        <h3>Skin</h3>
+        <p>Texture, pigment, redness and the changes that come with sun and time.</p>
+      </div>
+      <div class="c">
+        <span class="n">02</span>
+        <h3>Face and structure</h3>
+        <p>Volume, contour and the way the face carries expression.</p>
+      </div>
+      <div class="c">
+        <span class="n">03</span>
+        <h3>Body</h3>
+        <p>Shape, tone and the areas that do not respond to effort alone.</p>
+      </div>
+      <div class="c">
+        <span class="n">04</span>
+        <h3>Function</h3>
+        <p>Pelvic floor, continence and the concerns most practices do not list.</p>
+      </div>
+    </div>
+  </section>
+</div>
+
+</body>
+</html>

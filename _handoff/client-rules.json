@@ -1,0 +1,206 @@
+{
+  "_note": "C3 — per-client doctrine captured at P0 and carried to the build via the handoff seam. This skill hard-codes NO doctrine in any gate; everything here is THIS client's, derived from the 2026-08-13 audit. Checksummed by emit-handoff-receipt.mjs as client_rules_checksum.",
+  "slug": "marin-medical-aesthetics",
+  "generated_at": "2026-08-13",
+  "phase": "P0",
+  "provenance": "AGENT-DERIVED from 3 first-party crawls + a 5-of-7-lane off-site sweep. NOT owner-confirmed. Operator-approved on the practice's behalf 2026-08-13.",
+  "brand": {
+    "name": "Marin Medical Aesthetics",
+    "retired_names": [
+      "ClearSilk San Rafael",
+      "Marin Skin Rejuvenation"
+    ],
+    "provider": "Dr. Chris Bacchi, MD",
+    "provider_pronouns": "she/her",
+    "provider_legal_name_variants": [
+      "Chris Carlucci Bacchi",
+      "Christine Ciesielski-Carlucci"
+    ],
+    "clinic_address": "100 Sir Francis Drake Blvd., San Anselmo, CA 94960",
+    "market": "Marin County, CA (San Anselmo clinic; SF Bay Area reach)",
+    "vertical": "medical aesthetics (regulated — California medical advertising law applies)",
+    "business_model": "single-physician, quote-only, cash-pay medical aesthetics practice",
+    "founded": "2019 (BBB: business started 2019-12-01)"
+  },
+  "voice": {
+    "register": "hybrid — warm-humanist + clinically precise",
+    "exclamation_policy": "disallowed",
+    "emoji_policy": "disallowed on site",
+    "cta_verbs": [
+      "Book",
+      "Call",
+      "Explore",
+      "Read",
+      "Shop"
+    ],
+    "primary_cta": "Book a consultation",
+    "mirror": [
+      "approachable",
+      "kind",
+      "warm",
+      "professional",
+      "excellent knowledge",
+      "state of the art equipment"
+    ],
+    "avoid": [
+      "med spa (as primary self-description)",
+      "clinic",
+      "beauty (as primary frame)",
+      "anti-aging",
+      "girls",
+      "ladies"
+    ]
+  },
+  "banned_vocab": [
+    "The Most Trusted",
+    "Most Trusted Aesthetic Doctor",
+    "Award Winning",
+    "board certified",
+    "the best",
+    "#1",
+    "world-class",
+    "cutting-edge",
+    "anti-aging",
+    "results are guaranteed"
+  ],
+  "banned_claims": [
+    {
+      "claim": "The Most Trusted Aesthetic Doctor",
+      "reason": "Unsubstantiated superiority claim. California medical-advertising exposure.",
+      "status": "currently live on the flagship homepage — must be removed",
+      "unlock": "none — this claim cannot be substantiated"
+    },
+    {
+      "claim": "Award Winning / Award Winning Results",
+      "reason": "No award is named anywhere on any property.",
+      "status": "currently live on the flagship homepage",
+      "unlock": "owner names a specific, verifiable award + year"
+    },
+    {
+      "claim": "board certified",
+      "reason": "No board certification is publicly verifiable; Doximity's certification field is empty on BOTH name-variant profiles.",
+      "unlock": "owner produces a certificate from an ABMS member board"
+    },
+    {
+      "claim": "any implication of DERMATOLOGY board specialty",
+      "reason": "Sole NPPES taxonomy is Internal Medicine (207R00000X). Safe alternatives: physician, MD, Internal Medicine.",
+      "unlock": "none — the federal registry is authoritative"
+    },
+    {
+      "claim": "invited to author a chapter on the use of topical steroids (Fitzpatrick textbook)",
+      "reason": "Searched PubMed, PMC and general web under both name variants — no such chapter found.",
+      "unlock": "owner supplies the citation"
+    },
+    {
+      "claim": "Harvard/MGH dermatology training; NIH Bethesda; UC Berkeley master's; Cambridge bioethics certificate",
+      "reason": "Self-reported on the practice's own About page only; no independent corroboration in NPPES, Doximity or any reachable registry.",
+      "unlock": "owner supplies documentation"
+    },
+    {
+      "claim": "a physician for over 25 years",
+      "reason": "Stale frozen number; the verified CA licence dates from 1996, implying ~30 years as of 2026.",
+      "unlock": "compute from the licence date"
+    },
+    {
+      "claim": "works on any skin type / zero downtime (unqualified absolutes)",
+      "reason": "Unqualified absolute efficacy and outcome claims; the site's own FAQ contradicts the absolute framing.",
+      "unlock": "qualify with device-manufacturer-supported language"
+    },
+    {
+      "claim": "presenting third-party or manufacturer before/after photography as this practice's patient results",
+      "reason": "The retiring microsite does exactly this — 4 images headed 'COMPARE PATIENT RESULTS' are manufacturer stock, one carrying a burned-in credit to Antonio Campo-Voegeli, MD, PhD. FTC exposure.",
+      "unlock": "none — only released first-party patient photography may be used"
+    }
+  ],
+  "verified_credentials_safe_to_publish": {
+    "_source": "NPPES NPI 1346468014 + Doximity, fetched 2026-08-13",
+    "npi": "1346468014",
+    "credential": "MD",
+    "ca_license": "A60805",
+    "license_status": "UNVERIFIED — search.dca.ca.gov blocked by Cloudflare Turnstile; requires a manual check before publishing any licence claim",
+    "taxonomy": "Internal Medicine (207R00000X) — sole taxonomy on record",
+    "medical_school": "University of California San Francisco School of Medicine, Class of 1993",
+    "licensed_since": "1996",
+    "hospital_affiliation": "MarinHealth Medical Center (per Doximity; conflicting Kaiser listing exists — unresolved)"
+  },
+  "proof_policy": {
+    "strategy": "real-only",
+    "applies_to": [
+      "testimonials",
+      "reviews",
+      "before/after photography",
+      "credentials",
+      "awards",
+      "metrics",
+      "affiliations"
+    ],
+    "representative_content_allowed_for": [
+      "non-proof narrative copy only, visibly marked swappable"
+    ],
+    "rationale": "Regulated medical vertical with a live misattribution defect. The practice holds genuine proof, so real-only is achievable rather than merely principled.",
+    "verified_proof_available": {
+      "google": "4.8 stars / 96 reviews (read via the Birdeye Google-sourced mirror 2026-08-13; the GBP itself was NOT read)",
+      "yelp": "68 reviews (count read from the page title; star rating NOT verified — Yelp returned 403)",
+      "youtube": "at least one patient testimonial video exists",
+      "caveat": "With 96 reviews at a 4.8 average, sub-5-star reviews mathematically exist. None could be read. Do NOT represent sentiment as uniformly positive."
+    },
+    "photography_gate": "No before/after image ships without a documented patient release (§F7)."
+  },
+  "pricing_policy": {
+    "model": "quote-only / consultation-led",
+    "presentation": "consultation-led default; a single 'from $X' anchor permitted on high-intent treatment pages once a real ladder exists; NO full public price table; package/series framing preferred",
+    "real_price_data_available": false,
+    "warning": "Every price value in the spec is an explicitly-marked non-publishable placeholder. NOTHING may be published as a price until the owner supplies the ladder."
+  },
+  "nap": {
+    "status": "RESOLVED 2026-08-19 for PHONE + ADDRESS by owner decision. HOURS REMAIN OPEN.",
+    "canonical_phone": "(415) 785-4604",
+    "canonical_phone_source": "The Google Business Profile itself, read 2026-08-19 via the g.page share link hard-coded in the practice own site. Owner confirmed this is canonical. It is also the FLAGSHIP number, so the site of record already publishes it.",
+    "canonical_address": "100 Sir Francis Drake Blvd, San Anselmo, CA 94960",
+    "canonical_address_source": "Google Business Profile, read 2026-08-19, verbatim: \"100 Sir Francis Drake Blvd, San Anselmo, CA 94960, United States\". Matches the clinic_address already captured at P0.",
+    "retired_phones": [
+      "(415) 688-7060 [ClearSilk microsite — retired with the domain]",
+      "(415) 855-4050 [bodysculpt microsite — retired with the domain]"
+    ],
+    "stale_mailing_address": "807 D Street, San Rafael, CA 94901 — propagated into 4+ third-party citations including a manufacturer directory. MUST NOT be published. A citation clean-up is owner follow-up work, outside this build.",
+    "known_error_to_fix": "The flagship currently publishes a broken hybrid \"807 D Street, San Anselmo, CA 94901\" — 94901 is San Rafael ZIP. The canonical_address above replaces it.",
+    "hours": "⚠OWNER — STILL UNRESOLVED. Four hour-sets are in circulation and two directly conflict: the review mirror lists Sat 09:00-17:00 while the flagship lists Sat 09:00-13:00. The GBP render exposed only \"Closed - Opens 9 AM Wed\", not a full week. Hours ship as an OWNER PLACEHOLDER; no hour-set may be invented.",
+    "gbp_read": true,
+    "gbp_read_note": "Reading the GBP also retired the standing audit flag at EXISTING-A-MODEL.md line 214 (\"the Google Business Profile itself was never read\"). The GBP additionally states marinmedicalaesthetics.com and \"Identifies as women-owned\"."
+  },
+  "consolidation": {
+    "site_of_record": "marinmedicalaesthetics.com",
+    "retiring": [
+      {
+        "domain": "marinskinrejuvenation.com",
+        "pages": 4,
+        "redirect_to": "/treatments/clearsilk/",
+        "platform": "WordPress 5.8.14 (unpatched)"
+      },
+      {
+        "domain": "marinbodysculpt.com",
+        "pages": 3,
+        "redirect_to": "an Emsculpt NEO target",
+        "platform": "static HTML"
+      }
+    ],
+    "blocker": "Domain ownership is UNKNOWN (whois privacy-shielded). If Demand Boost Inc holds the domains, the 301 plan is not executable unilaterally. Must resolve before P3."
+  },
+  "bespoke_pages": [
+    "index",
+    "about",
+    "community"
+  ],
+  "must_fix_structural": [
+    "byte-identical duplicate pair: /treatments/vanquish/ = /treatments/vanquish-me/",
+    "byte-identical duplicate pair: /braintap-sessions/ = /treatments/braintap-sessions/",
+    "near-duplicate conversion pages: /consultation/ vs /book-an-appointment/",
+    "4-way keyword cannibalisation on 'skin tightening'",
+    "4 pages missing an H1: blog, emsculpt-neo-special, mommy-makeover, skin-tightening",
+    "4 pages missing a meta description",
+    "10+ meta descriptions over 160 characters",
+    "2 malformed titles ending on a dangling separator",
+    "21 areas-of-concern pages thin at 335-450 words",
+    "wrong-vertical legal copy: the disclaimer references 'chiropractic healthcare advice'"
+  ]
+}

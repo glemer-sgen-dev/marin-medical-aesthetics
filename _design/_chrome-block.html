@@ -1,0 +1,195 @@
+<!-- ============================================================================
+     _chrome-block.html — the LOCKED CHROME CARRIER (the ② CHROME winner).
+
+     Sourced from the OWNER-PICKED winner: _design/_tournament/chrome-a/preview.html
+     (direction A, "The Consulting Bar" — NAV-PATTERNS #3 + FOOTER-STYLES #14), picked 2026-08-20.
+
+     This is a SHELL-BODY carrier: the page body, holding exactly ONE real content slot. derive-shell.mjs
+     inlines the chrome VERBATIM and turns that slot into the CONTENT token, so the built pages' chrome
+     can never drift from what the owner approved. Edit the chrome HERE, never in a per-page copy
+     (verify-chrome-edit-at-carrier enforces that).
+
+     CAUTION, learned the hard way 2026-08-20: this comment must contain NO literal body or main tag
+     text. derive-shell locates the body span by matching the opening body tag, and that match is NOT
+     comment-safe: an earlier version of this header quoted those tags, so the derive took the match
+     INSIDE the comment as the body start and silently dropped the skip link, the header, the nav and
+     the whole mega panel from _build/_template.html. Keep tag names out of the prose here.
+
+     The chrome is a LOCKED BLOCK: deliberately NOT wrapped in the body's
+     section -> .container -> .row -> .col grammar, which governs the content slot only.
+
+     EVERY href below is a REAL slug from the C1 sitemap (_handoff/sitemap.yaml, 59 slugs), verified by
+     set-comparison. The first draft invented concerns-skin / concerns-body / what-to-expect /
+     real-results / treatments-injectables and three more; G-CHROME-LINKS caught them.
+
+     ONE LABEL CHANGE vs the approved preview, owner-acked 2026-08-20: "Real Results" now reads
+     "Success Stories" and points at success-stories.html. C1 has no real-results page, and with F7
+     waived (no patient before/after imagery ships at all) a nav item promising "results" would imply
+     photographs this build will not carry.
+     ============================================================================ -->
+<body>
+
+<a class="skip" href="#main">Skip to content</a>
+
+<!-- pick: NAV-PATTERNS.md #3 | considered: #2,#12 | why: the catalog scopes #3 to medical practices with a single practitioner, any vertical where the phone number is the primary conversion mechanic, which is this practice exactly; #2 centres the links and buries the number under a hero, and #12 spends its right cluster on a second front door a one-physician practice has not staffed. -->
+<header class="hdr">
+  <div class="hdr-in">
+    <a class="brand" href="index.html">Marin Medical<i>Aesthetics</i></a>
+    <nav class="nav" aria-label="Primary">
+
+      <div class="nav-item">
+        <a class="nav-link" href="areas-of-concern.html" aria-haspopup="true" aria-expanded="false">Areas of Concern <span class="caret"></span></a>
+        <div class="nav-panel">
+          <div class="mega">
+            <div class="mega-cols">
+              <a class="mega-card" href="areas-of-concern-acne-acne-scars.html"><span class="n">01</span><h4>Acne and acne scars</h4><p>Active breakouts and the texture they leave behind.</p></a>
+              <a class="mega-card" href="areas-of-concern-fine-lines.html"><span class="n">02</span><h4>Fine lines</h4><p>The early lines that follow expression and time.</p></a>
+              <a class="mega-card" href="areas-of-concern-sun-damage.html"><span class="n">03</span><h4>Sun damage</h4><p>Pigment, age spots and the marks of years outdoors.</p></a>
+              <a class="mega-card" href="areas-of-concern-rosacea.html"><span class="n">04</span><h4>Rosacea and redness</h4><p>Persistent flushing, redness and visible vessels.</p></a>
+            </div>
+            <div class="mega-feat">
+              <img src="../assets/hero-consult-room.jpg" alt="A quiet consultation room with natural daylight">
+              <span class="grade"></span>
+              <div class="inner">
+                <p class="eyebrow">Where every path starts</p>
+                <p class="line">The evaluation comes before the treatment, not after it.</p>
+                <a class="go" href="consultation.html">See what the appointment covers</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="nav-item">
+        <a class="nav-link" href="treatments.html" aria-haspopup="true" aria-expanded="false">Treatments <span class="caret"></span></a>
+        <div class="nav-panel">
+          <div class="drop">
+            <a href="treatments-botox-dysport.html">Botox and Dysport</a>
+            <a href="treatments-halo-laser-treatment.html">Halo laser</a>
+            <a href="treatments-microneedling.html">Microneedling</a>
+            <a href="treatments-clearsilk.html">ClearSilk</a>
+            <a href="treatments.html">All treatments</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="nav-item"><a class="nav-link" href="success-stories.html">Success Stories</a></div>
+      <div class="nav-item"><a class="nav-link" href="about.html">About</a></div>
+
+      <a class="phone" href="tel:+14157854604">(415) 785-4604</a>
+      <a class="btn" href="consultation.html">Book a consultation</a>
+    </nav>
+
+    <button class="site-header__hamburger" aria-controls="mobile-drawer" aria-expanded="false" aria-label="Open menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<main id="main">
+{{MAIN}}
+</main>
+
+<!-- The one dark band in this chrome. The owner-confirmed FEEL rhythm is light, arc, dark, light, so an
+     all-light chrome would drop the figure/ground contrast the feel was signed off on. The closing CTA
+     is where it is spent: the sector blueprint's section-11 final band. -->
+<!-- `precta` is a MARKER class, added 2026-08-20, carrying no styling of its own. G-DOM's
+     isChromeRegion() recognises the chrome pre-footer CTA by the class names precta / pre-cta /
+     prefooter. This band was named `.closing` only, so G-DOM did not know it was chrome and flagged
+     its children as R4 orphan-content, which would have failed EVERY assembled page at BULK. All
+     styling still comes from `.closing`; nothing renders differently. -->
+<section class="closing precta surface-dark">
+  <span class="glow"></span><span class="grain2"></span>
+  <div class="closing-in">
+    <h2>Start with the evaluation</h2>
+    <p class="sub">A physician health evaluation covering function as well as appearance, ending in a
+      written plan you keep.</p>
+    <p class="reassure">The evaluation decides whether a treatment is appropriate at all. If it is not,
+      you will be told so.</p>
+    <div class="cta-row">
+      <a class="btn" href="consultation.html">Book a consultation</a>
+      <a class="btn btn-ghost" href="contact.html">Contact the practice</a>
+    </div>
+  </div>
+</section>
+
+<!-- pick: FOOTER-STYLES.md #14 | considered: #1,#13 | why: a single-location clinic should close like a local business, and #14 puts hours and contact first, which is also the honest place to carry the unresolved hour-set placeholder in plain sight; #1 is the 4-col dark reflex the catalog itself flags as overused, and #13 embeds a map from an address the owner has not yet confirmed. -->
+<footer class="ftr">
+  <div class="ftr-in">
+    <div>
+      <h5>Visit</h5>
+      <p>100 Sir Francis Drake Blvd<br>San Anselmo, CA 94960</p>
+      <a href="tel:+14157854604">(415) 785-4604</a>
+    </div>
+    <div>
+      <h5>Hours</h5>
+      <div class="hours-row"><span>Monday to Friday</span><span>By appointment</span></div>
+      <div class="hours-row"><span>Saturday</span><span>By appointment</span></div>
+      <div class="hours-row"><span>Sunday</span><span>Closed</span></div>
+      <p class="hours-flag">Owner to confirm the published hour-set. Four sets are in circulation and
+        two conflict, so no specific times are shown here.</p>
+    </div>
+    <div>
+      <h5>Start here</h5>
+      <a href="consultation.html">Book a consultation</a>
+      <a href="areas-of-concern.html">Areas of concern</a>
+      <a href="treatments.html">Treatments</a>
+      <a href="contact.html">Contact</a>
+    </div>
+  </div>
+  <div class="ftr-legal">
+    <span>Marin Medical Aesthetics, San Anselmo, California</span>
+    <span>Individual experiences vary.</span>
+  </div>
+</footer>
+
+<div id="mobile-drawer" aria-hidden="true" aria-label="Menu">
+  <div class="drawer__head"><button class="drawer-close" aria-label="Close menu">&#215;</button></div>
+  <nav class="drawer__nav" aria-label="Mobile">
+    <a href="areas-of-concern.html">Areas of Concern</a>
+    <div class="acc__panel"><a href="areas-of-concern-acne-acne-scars.html">Acne and acne scars</a><a href="areas-of-concern-fine-lines.html">Fine lines</a><a href="areas-of-concern-sun-damage.html">Sun damage</a><a href="areas-of-concern-rosacea.html">Rosacea and redness</a></div>
+    <a href="treatments.html">Treatments</a>
+    <div class="acc__panel"><a href="treatments-botox-dysport.html">Botox and Dysport</a><a href="treatments-halo-laser-treatment.html">Halo laser</a><a href="treatments-microneedling.html">Microneedling</a><a href="treatments-clearsilk.html">ClearSilk</a></div>
+    <a href="success-stories.html">Success Stories</a>
+    <a href="about.html">About</a>
+    <a href="tel:+14157854604">(415) 785-4604</a>
+  </nav>
+  <div class="drawer__cta"><a class="btn" href="consultation.html">Book a consultation</a></div>
+</div>
+
+<script>
+/* HOVER-INTENT, the three parts that make a diagonal traverse survive the trigger-to-panel seam:
+   (a) a shared :hover / :focus-within scope on .nav-item, (b) the .nav-panel::before bridge across the
+   seam, and (c) this 240ms close-delay, cleared on re-enter. Measured on the winner: the panel holds at
+   opacity 1.0 across a 12-step diagonal crossing. */
+(function () {
+  var CLOSE_MS = 240;
+  document.querySelectorAll('.nav-item').forEach(function (item) {
+    var link = item.querySelector('.nav-link');
+    var panel = item.querySelector('.nav-panel');
+    if (!panel) return;
+    var t = null;
+    function open() { clearTimeout(t); item.classList.add('is-open'); if (link) link.setAttribute('aria-expanded', 'true'); }
+    function close() { t = setTimeout(function () { item.classList.remove('is-open'); if (link) link.setAttribute('aria-expanded', 'false'); }, CLOSE_MS); }
+    item.addEventListener('mouseenter', open);
+    item.addEventListener('mouseleave', close);
+    item.addEventListener('focusin', open);
+    item.addEventListener('focusout', function (e) { if (!item.contains(e.relatedTarget)) close(); });
+    if (link) link.addEventListener('keydown', function (e) { if (e.key === 'Escape') { clearTimeout(t); item.classList.remove('is-open'); link.setAttribute('aria-expanded', 'false'); link.focus(); } });
+  });
+
+  var burger = document.querySelector('.site-header__hamburger');
+  var drawer = document.getElementById('mobile-drawer');
+  var closeBtn = document.querySelector('.drawer-close');
+  function setDrawer(open) {
+    if (!drawer || !burger) return;
+    drawer.setAttribute('aria-hidden', open ? 'false' : 'true');
+    burger.setAttribute('aria-expanded', open ? 'true' : 'false');
+    if (open) { var f = drawer.querySelector('a, button'); if (f) f.focus(); } else { burger.focus(); }
+  }
+  if (burger) burger.addEventListener('click', function () { setDrawer(drawer.getAttribute('aria-hidden') === 'true'); });
+  if (closeBtn) closeBtn.addEventListener('click', function () { setDrawer(false); });
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && drawer && drawer.getAttribute('aria-hidden') === 'false') setDrawer(false); });
+})();
+</script>
+</body>

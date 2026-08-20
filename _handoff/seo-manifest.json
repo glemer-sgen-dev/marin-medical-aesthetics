@@ -1,0 +1,95 @@
+{
+  "_GATE": "G6 verify-brief-complete.mjs reads ready_for_briefs via manifestFlag() — must be the JSON literal boolean true. G5 verify-seo-complete.mjs gates seo-enrichment.md content itself (title<=60 with keyword in first 30, meta<=160, slug-status, keyword, intent per row + every 301 pair carries [LIVE]/[planned-warn]/[existing]), NOT this manifest. Written UTF-8, no BOM.",
+  "slug": "marin-medical-aesthetics",
+  "generated_at": "2026-08-18T12:26:00Z",
+  "registry_version": "1.0",
+  "phase": "P5_seo",
+  "families_filled": ["D-SEO"],
+  "artifact_md": "seo-enrichment.md",
+  "per_page": {
+    "rows_enriched": 59,
+    "page_count_reconciled": true,
+    "page_count_source": "page-inventory-manifest.json{page_count} = 59; the 59 slugs were extracted mechanically from page-inventory.md and diffed against the row set: missing=0, extra=0, dupes=0",
+    "titles_over_60ch": [],
+    "keyword_not_in_first_30": [],
+    "meta_over_160ch": [],
+    "max_title_len": 58,
+    "max_meta_len": 154,
+    "max_keyword_index": 0,
+    "duplicate_titles": 0,
+    "duplicate_metas": 0,
+    "slug_status_counts": { "R": 52, "U": 5, "N": 2 },
+    "status_call_basis": "Audited against _audit/_research/page-inventory.json. The 2 [N] rows are exactly the 2 slugs with no estate record. All 5 [U] rows pass all six G5 checks on the estate's own strings. Of the 52 [R] rows, 41 genuinely break the estate 60-char title cap or 160-char meta cap; the other 11 mechanically passed and are marked [R] as disclosed editorial or copy-law calls, never on a false failure claim."
+  },
+  "ordinance_301": {
+    "_note": "Every from-to pair carries a status code; only [LIVE] (curl-verified-live) pairs are deployable now.",
+    "pairs_mapped": 17,
+    "live": 0,
+    "planned_warn": 15,
+    "existing": 2,
+    "zero_live_is_a_finding": "No redirect in this map is in force today. Every 301 source in the capture still serves a 200 HTML document and the marinskinrejuvenation.com root self-canonicals, so claiming [LIVE] anywhere would be a false statement about production state.",
+    "f4_gated_pairs": 8,
+    "f4_note": "F4 (cross-domain authority) is unresolved, so the 8 cross-domain pairs are not executable unilaterally, and the existence of the treatments-emsculpt-neo page is conditional on it."
+  },
+  "copy_law": {
+    "banned_vocab_hits": 0,
+    "banned_claims_hits": 0,
+    "exclamation_marks": 0,
+    "emoji": 0,
+    "prices_awards_ratings_invented_stats": 0,
+    "f5_phone_numbers_in_titles_or_metas": 0,
+    "digits_in_row_set": "1 occurrence total: '1993' in about.meta, the verified UCSF School of Medicine class year from verified_credentials_safe_to_publish. It is a credential year, not a phone number.",
+    "constraint_f": "Holds on every row. Credentials describe the PROCESS (an evaluation decides whether a treatment is appropriate at all); no credential is framed as a safety or outcome guarantee.",
+    "d_offer_018": "No service the practice does not offer is named or implied. 'Mommy Makeover' always reads 'Non-Surgical Mommy Makeover'."
+  },
+  "estate_defects_addressed": {
+    "missing_meta_descriptions": {
+      "named_in_F_EST_9": 4,
+      "fixed_here": ["privacy-policy", "what-to-expect-during-your-med-spa-consultation-in-san-anselmo"],
+      "owed_no_row": ["exion-skin-tightening-in-the-bay-area", "non-surgical-neck-skin-tightening-in-san-anselmo"],
+      "owed_no_row_reason": "Both are 301 SOURCES, not surviving pages, so no P5 row is owed and none was written."
+    },
+    "metas_over_160ch": {
+      "count": 10,
+      "all_rewritten": true,
+      "note": "Nine were rewritten in place (consultation 163, local-community-support 162, uneven-skin-texture 167, muscle-development 172, urinary-incontinence 162, emface 163, medical-facial 174, exion-by-btl 181, media 167). The tenth, emsculpt-neo-special at 190 (the estate's longest), is superseded by the new treatments-emsculpt-neo page rather than edited in place."
+    },
+    "dangling_separator_titles": {
+      "count": 2,
+      "fixed": ["mommy-makeover"],
+      "retired_as_301_source": ["skin-tightening"]
+    },
+    "not_closed_by_P5": [
+      "4 pages with no H1 (blog, emsculpt-neo-special, mommy-makeover, skin-tightening) plus store's MULTI-H1(5) — body-structure defects a title and meta cannot touch",
+      "21 thin concern leaves (399-494 words)",
+      "disclaimer carries wrong-vertical 'chiropractic healthcare advice' body copy — SEQUENCING RISK: the legal-set redirect CONCENTRATES this defect onto the destination, so the body rewrite must land before or with that redirect"
+    ]
+  },
+  "carried_open": [
+    "before-after-photos and success-stories are TYPED but remain HARD-GATED on F7 plus Cal. B&P 651(b)(3)(B) and (C). This phase does not release them.",
+    "F4 unresolved — 8 of 17 ordinance pairs not executable unilaterally.",
+    "treatments-braintap-sessions carries P4's unresolved canonical-vs-nav inversion; if the live check inverts it the SLUG changes, but title/meta/keyword/intent stand either way.",
+    "emsculpt-neo-special and download-app are open OWNER decisions; download-app is verified nav-orphaned and deliberately left [U].",
+    "mommy-makeover's canonical has no trailing slash and whether the slug should become non-surgical-mommy-makeover is an open owner question; the row is written against the EXISTING slug and no redirect is minted.",
+    "NEW, WIDER THAN THE RECORD: a FIFTH phone number, (628) 285-3344, plus a live 'GET 40% OFF' promo, found on the mommy-makeover page. F5 is documented as FOUR competing numbers, so its scope is wider than currently recorded; the offer disposition is an owner call. Nothing of this reaches any row.",
+    "owner_intake_reviewed is still false — Dr. Bacchi has seen none of this, so all 59 rows are operator-approved on her behalf, not owner-confirmed."
+  ],
+  "gate_verification": {
+    "method": "A real PreToolUse(Write) payload was replayed through the actual .claude/skills/client-site-prep/scripts/verify-seo-complete.mjs four times.",
+    "as_written_exit_code": 0,
+    "negative_control_exit_code": 2,
+    "negative_control_detail": "One title (treatments-emsella) padded from 45 to 70 chars. Gate exit 2, stderr: \"page 'treatments-emsella': title 70ch > 60\" — proving the gate engaged on these exact bytes and reads the master table.",
+    "silent_skip_path_1_proven": "Removing the '| slug' header (with a deliberately broken row left in) => exit 0 SILENTLY. Confirms a file without that header passes unchecked.",
+    "silent_skip_path_2_proven": "Collapsing the master table to 3 cells per row with 200-char titles => exit 0 SILENTLY. Confirms rows under 5 cells are skipped entirely.",
+    "conclusion": "The as-written exit 0 is a genuine PASS, not a skip: the file carries the '| slug' header (scaffold-escape regex matches) and all 59 rows render 5 cells, and a single-character-class perturbation of that same file blocks with exit 2.",
+    "rows_gate_checked": 59,
+    "rows_skipped_under_5_cells": 0,
+    "arrow_path_lines_scanned": 17,
+    "arrow_path_lines_missing_status": 0
+  },
+  "totals": {
+    "validation_failures": []
+  },
+  "ready_for_briefs": true,
+  "_next_step": "ready_for_briefs is true, so G6 unblocks. Run P6 (per-page typed content briefs). Note the two F7-gated proof pages must not be released by P6."
+}

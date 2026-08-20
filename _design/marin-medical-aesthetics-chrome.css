@@ -1,0 +1,108 @@
+/* ============================================================================
+   marin-medical-aesthetics-chrome.css — the LOCKED CHROME sheet.
+   Sourced VERBATIM from the OWNER-PICKED chrome winner: _design/_tournament/chrome-a/preview.html
+   (direction A, "The Consulting Bar" — NAV-PATTERNS #3 + FOOTER-STYLES #14), owner pick 2026-08-20.
+
+   Chrome is a LOCKED BLOCK (SKILL.md, owner decision 2026-06-24): it is NOT wrapped in the body's
+   section -> .container -> .row -> .col grammar, and it must stay byte-faithful to the winner so the
+   render-diff guard (verify-chrome-parity) holds. Edit the CARRIER (_design/_chrome-block.html) and
+   this sheet, never a per-page copy.
+
+   Token-pure: ZERO hex literals. Colour comes only from var(--ds-*). The rgba() values are alpha
+   scrims over imagery (a legibility gradient needs alpha), matching the tokens sheet's own idiom.
+   Asset urls are SHEET-relative (../assets/), so they resolve from _design/ no matter which page
+   links the sheet.
+   ============================================================================ */
+
+.skip{position:absolute;left:-9999px;top:0;background:var(--ds-accent);color:var(--ds-bg-surface);padding:12px 18px;z-index:var(--ds-z-toast);border-radius:var(--ds-r-control)}
+.skip:focus{left:var(--ds-space-md);top:var(--ds-space-md)}
+
+.hdr{position:relative;background:var(--ds-bg-surface);border-bottom:1px solid var(--ds-line);z-index:var(--ds-z-sticky)}
+.hdr-in{max-width:var(--ds-container-max);margin:0 auto;padding:0 var(--ds-space-lg);height:84px;display:flex;align-items:center;gap:var(--ds-space-lg)}
+.brand{font-family:var(--ds-font-display);font-size:21px;font-weight:700;color:var(--ds-accent);letter-spacing:-.02em;text-decoration:none;line-height:1.05;white-space:nowrap}
+.brand i{display:block;font-style:italic;font-weight:400;font-size:15px;color:var(--ds-ink)}
+.nav{margin-left:auto;display:flex;align-items:center;gap:var(--ds-space-md)}
+.nav-item{position:relative}
+.nav-link{display:inline-flex;align-items:center;gap:6px;padding:30px 2px;font-size:14px;font-weight:600;color:var(--ds-ink);text-decoration:none;border-bottom:3px solid transparent;transition:color var(--ds-dur-fast) var(--ds-ease-out),border-color var(--ds-dur-fast) var(--ds-ease-out)}
+.nav-link:hover,.nav-item:focus-within > .nav-link,.nav-item.is-open > .nav-link{color:var(--ds-accent);border-bottom-color:var(--ds-issued)}
+.caret{width:8px;height:8px;border-right:2px solid currentColor;border-bottom:2px solid currentColor;transform:rotate(45deg) translateY(-2px);transition:transform var(--ds-dur-fast) var(--ds-ease-out)}
+.nav-item.is-open .caret{transform:rotate(-135deg) translateY(-2px)}
+.phone{display:inline-flex;align-items:center;gap:8px;padding:11px 18px;border:2px solid var(--ds-accent);border-radius:var(--ds-r-pill);font-size:13px;font-weight:700;color:var(--ds-accent);text-decoration:none;white-space:nowrap;transition:background var(--ds-dur-fast) var(--ds-ease-out),color var(--ds-dur-fast) var(--ds-ease-out)}
+.phone:hover{background:var(--ds-accent);color:var(--ds-bg-surface)}
+.hdr .btn{padding:13px 22px}
+
+/* HOVER-INTENT (a) shared :hover / :focus-within scope on .nav-item */
+.nav-panel{position:absolute;top:100%;left:50%;transform:translate(-50%,10px);opacity:0;visibility:hidden;
+  transition:opacity var(--ds-dur) var(--ds-ease),transform var(--ds-dur) var(--ds-ease),visibility 0s linear var(--ds-dur);z-index:var(--ds-z-overlay)}
+.nav-item:hover > .nav-panel,.nav-item:focus-within > .nav-panel,.nav-item.is-open > .nav-panel{opacity:1;visibility:visible;transform:translate(-50%,0);transition-delay:0s}
+/* HOVER-INTENT (b) the bridge: no un-hoverable pixel band across the seam */
+.nav-panel::before{content:"";position:absolute;left:0;right:0;top:-14px;height:14px}
+
+.mega{width:min(1060px,94vw);background:var(--ds-bg-surface);border:1px solid var(--ds-line);border-top:3px solid var(--ds-issued);border-radius:var(--ds-r-surface);
+  box-shadow:var(--ds-shadow-lift);overflow:hidden;display:grid;grid-template-columns:minmax(0,1.35fr) minmax(0,.95fr)}
+/* minmax(0,...), not a bare fr: a bare 1fr is minmax(AUTO,1fr), so the cards' min-content width
+   overrode the panel's declared width and pushed its left edge past the viewport. */
+.mega-cols{padding:var(--ds-space-lg);display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:var(--ds-space-sm)}
+.mega-card{display:block;padding:18px 18px 20px;border:1px solid var(--ds-line);border-radius:var(--ds-r-control);text-decoration:none;background:var(--ds-bg-surface);
+  transition:transform var(--ds-dur-fast) var(--ds-ease-out),box-shadow var(--ds-dur) var(--ds-ease),border-color var(--ds-dur) var(--ds-ease)}
+.mega-card:hover{transform:translateY(-3px);box-shadow:var(--ds-shadow-card);border-color:var(--ds-issued)}
+.mega-card .n{display:block;font-size:10px;letter-spacing:.18em;color:var(--ds-issued);margin-bottom:9px;font-variant-numeric:tabular-nums}
+.mega-card h4{font-family:var(--ds-font-display);font-size:18px;margin:0 0 5px;color:var(--ds-accent)}
+.mega-card p{font-size:12.5px;line-height:1.5;color:var(--ds-ink-soft);margin:0}
+.mega-card.is-active{border-color:var(--ds-issued);box-shadow:0 0 0 3px var(--ds-accent-soft),var(--ds-shadow-card)}
+.mega-feat{position:relative;min-height:290px;display:flex;flex-direction:column;justify-content:flex-end;padding:var(--ds-space-lg);overflow:hidden}
+.mega-feat img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.mega-feat .grade{position:absolute;inset:0;background:linear-gradient(180deg,rgba(4,33,63,.10) 0%,rgba(4,33,63,.58) 52%,rgba(4,33,63,.88) 100%)}
+.mega-feat .inner{position:relative;z-index:var(--ds-z-raised)}
+.mega-feat .eyebrow{font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:var(--ds-issued);margin:0 0 10px}
+.mega-feat p.line{font-family:var(--ds-font-display);font-size:23px;line-height:1.22;color:var(--ds-bg-surface);margin:0 0 14px;max-width:17rem}
+.mega-feat a.go{display:inline-flex;align-items:center;gap:8px;font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--ds-issued);text-decoration:none}
+.mega-feat a.go:hover{color:var(--ds-bg-surface)}
+
+.drop{min-width:264px;background:var(--ds-bg-surface);border:1px solid var(--ds-line);border-top:3px solid var(--ds-issued);border-radius:var(--ds-r-surface);box-shadow:var(--ds-shadow-lift);padding:10px}
+.drop a{display:block;padding:11px 14px;border-radius:var(--ds-r-control);font-size:13.5px;color:var(--ds-ink);text-decoration:none;transition:background var(--ds-dur-fast) var(--ds-ease-out),color var(--ds-dur-fast) var(--ds-ease-out)}
+.drop a:hover{background:var(--ds-bg-surface-3);color:var(--ds-accent)}
+
+.site-header__hamburger{display:none;margin-left:auto;width:46px;height:46px;border:2px solid var(--ds-accent);border-radius:var(--ds-r-control);background:transparent;cursor:pointer;align-items:center;justify-content:center;flex-direction:column;gap:5px}
+.site-header__hamburger span{display:block;width:20px;height:2px;background:var(--ds-accent)}
+#mobile-drawer{position:fixed;inset:0 0 0 auto;width:min(400px,86vw);background:var(--ds-bg-surface-3);border-left:3px solid var(--ds-issued);box-shadow:var(--ds-shadow-lift);padding:var(--ds-space-lg);z-index:var(--ds-z-drawer);transform:translateX(100%);transition:transform var(--ds-dur) var(--ds-ease);overflow-y:auto}
+#mobile-drawer[aria-hidden="false"]{transform:translateX(0)}
+.drawer__head{display:flex;justify-content:flex-end;margin-bottom:var(--ds-space-md)}
+.drawer-close{width:40px;height:40px;border:1px solid var(--ds-line);border-radius:var(--ds-r-control);background:transparent;color:var(--ds-ink);font-size:18px;cursor:pointer}
+.drawer__nav a{display:block;padding:14px 0;border-bottom:1px solid var(--ds-line);font-family:var(--ds-font-display);font-size:20px;color:var(--ds-accent);text-decoration:none}
+.acc__panel{padding:4px 0 14px 14px;border-bottom:1px solid var(--ds-line)}
+.acc__panel a{padding:7px 0;border:0;font-family:var(--ds-font-body);font-size:14px;color:var(--ds-ink-soft)}
+.drawer__cta{margin-top:var(--ds-space-lg)}
+
+.closing{position:relative;overflow:hidden;background:var(--ds-bg-surface);padding:96px 0 92px}
+.closing .glow{position:absolute;left:50%;top:-30%;width:820px;height:820px;transform:translateX(-50%);border-radius:var(--ds-r-pill);
+  background:radial-gradient(circle,rgba(196,173,103,.20) 0%,rgba(196,173,103,0) 62%);pointer-events:none}
+/* CREAM texture at --ds-opacity-faint, not the navy band at --ds-opacity-texture (.40): a 40% navy
+   wash over the white ground turned this band into a blue-grey slab and dropped the navy headline's
+   contrast with it. The brand canvas is measured light (dark_ratio 0.000), so the tooth stays warm. */
+.closing .grain2{position:absolute;inset:0;background-image:url("../assets/texture-cream-band.jpg");background-size:cover;opacity:var(--ds-opacity-faint);pointer-events:none}
+.closing-in{position:relative;z-index:var(--ds-z-base);max-width:var(--ds-container-max);margin:0 auto;padding:0 var(--ds-space-lg);text-align:center}
+.closing h2{font-family:var(--ds-font-display);font-size:56px;line-height:1.04;letter-spacing:-.035em;font-weight:700;color:var(--ds-accent);margin:0 auto 18px;max-width:24rem}
+.closing p.sub{font-size:16px;color:var(--ds-ink-soft);margin:0 auto 12px;max-width:33rem}
+.closing p.reassure{font-size:13px;color:var(--ds-olive);margin:0 auto 30px;max-width:33rem}
+.closing .cta-row{justify-content:center}
+
+.ftr{background:var(--ds-bg-surface-3);border-top:1px solid var(--ds-line);padding:var(--ds-section-py) 0 var(--ds-space-xl)}
+.ftr-in{max-width:var(--ds-container-max);margin:0 auto;padding:0 var(--ds-space-lg);display:grid;grid-template-columns:repeat(3,1fr);gap:var(--ds-space-xl)}
+.ftr h5{font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--ds-issued);margin:0 0 16px}
+.ftr p,.ftr a{font-size:14px;color:var(--ds-ink-soft);margin:0 0 8px;text-decoration:none;display:block}
+.ftr a:hover{color:var(--ds-accent)}
+.hours-row{display:flex;justify-content:space-between;gap:16px;padding:9px 0;border-bottom:1px solid var(--ds-line);font-size:13.5px;color:var(--ds-ink-soft)}
+.hours-flag{font-size:12.5px;color:var(--ds-signature);line-height:1.55;margin-top:12px}
+.ftr-legal{max-width:var(--ds-container-max);margin:var(--ds-space-xl) auto 0;padding:var(--ds-space-md) var(--ds-space-lg) 0;border-top:1px solid var(--ds-line);display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font-size:12px;color:var(--ds-ink-soft)}
+
+@media (max-width:900px){
+  /* Preview scaffolding only: stages 2 and 3 reserve vertical room for the open panels, but the nav is
+     hidden below 900px so those panels never render, leaving tall blank gaps. */
+  .nav{display:none}
+  .site-header__hamburger{display:flex}
+  .hdr-in{height:70px;gap:var(--ds-space-sm);padding-left:var(--ds-space-md);padding-right:var(--ds-space-2xs)}
+  .closing h2{font-size:34px}
+  .ftr-in{grid-template-columns:1fr;gap:var(--ds-space-lg)}
+  .mega{grid-template-columns:1fr}
+}

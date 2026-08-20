@@ -1,0 +1,254 @@
+# P4 — sitemap (build-skill NATIVE schema) — emitted FROM page-inventory.md
+# G4 counts ONLY slugs under `pages:` — funnels[]/templated[] are not counted.
+# pages[] count MUST equal page-inventory.md §1 total (59) and manifest page_count.
+
+site:    marin-medical-aesthetics
+brand:   "Marin Medical Aesthetics"
+design_system: design-system/
+
+# Canonical header nav — derived from architecture.md §1. Every page: is a pages[] slug.
+nav:
+  - { label: "Areas of Concern", page: areas-of-concern }
+  - { label: "Treatments", page: treatments }
+  - { label: "Real Results", page: before-after-photos }
+  - { label: "About", page: about }
+  - { label: "Contact", page: contact }
+  - { label: "Book a Consultation", page: consultation }
+
+pages:
+  - slug: index
+    tier: T0
+    title: "Medical Aesthetics in San Anselmo - Physician Evaluation"   # locked P5 title (seo-enrichment.md)
+    trace: "D-IA-023 (T0 foundation, click 0-1: /)"
+  - slug: consultation
+    tier: T0
+    title: "Medical Aesthetics Consultation in San Anselmo, CA"   # locked P5 title (seo-enrichment.md)
+    trace: "D-IA-003 (Consultation - single conversion endpoint at /consultation/) · D-IA-023 (T0 foundation)"
+  - slug: about
+    tier: T0
+    title: "Dr. Chris Bacchi, MD - Medical Aesthetics in San Anselmo"   # locked P5 title (seo-enrichment.md)
+    trace: "D-IA-005 (About - /about/ (Dr. Bacchi)) · D-IA-023 (T0 foundation)"
+  - slug: local-community-support
+    tier: T0
+    title: "Local Community Support in Marin County, CA"   # locked P5 title (seo-enrichment.md)
+    trace: "D-IA-005 (About group - /local-community-support/) · D-IA-023 (T0 foundation)"
+  - slug: areas-of-concern
+    tier: T1
+    title: "Areas of Concern in San Anselmo - Skin, Body & Function"   # locked P5 title (seo-enrichment.md)
+    trace: "D-IA-001 (Areas of Concern - concern-led entry layer, slug unchanged) · D-IA-024 (T1 hubs)"
+  - slug: treatments
+    tier: T1
+    title: "Aesthetic Treatments in San Anselmo, CA - Marin County"   # locked P5 title (seo-enrichment.md)
+    trace: "D-IA-002 (Treatments - device index KEPT at /treatments/, DEMOTED) · D-IA-024 (T1 hubs)"
+  - slug: before-after-photos
+    tier: T1
+    title: "Before and After Photos - San Anselmo, CA"   # locked P5 title (seo-enrichment.md)
+    trace: "D-IA-004 (Real Results - proof hub over /before-after-photos/ + /success-stories/) · D-IA-024 (T1 hubs)"
+  - slug: success-stories
+    tier: T1
+    title: "Patient Reviews and Testimonials - San Anselmo, CA"   # locked P5 title (seo-enrichment.md)
+    trace: "D-IA-004 (Real Results - proof hub over /before-after-photos/ + /success-stories/) · D-IA-024 (T1 hubs)"
+  - slug: contact
+    tier: T1
+    title: "Contact Marin Medical Aesthetics - San Anselmo, CA"   # locked P5 title (seo-enrichment.md)
+    trace: "D-IA-005 (About group - /contact/) · D-IA-024 (T1 hubs)"
+  - slug: areas-of-concern-acne-acne-scars
+    tier: T2
+    title: "Acne and Acne Scar Treatment in San Anselmo, CA"   # locked P5 title (seo-enrichment.md)
+    trace: "D-IA-018 (Concern group: Skin, 9 leaves) · D-IA-025 (T2 - 21 concern leaves)"
+  - slug: areas-of-concern-age-spots
+    tier: T2
+    title: "Age Spots Treatment in San Anselmo, CA - Marin County"   # locked P5 title (seo-enrichment.md)
+    trace: "D-IA-018 (Concern group: Skin, 9 leaves) · D-IA-025 (T2 - 21 concern leaves)"
+  - slug: areas-of-concern-hyperpigmentation
+    tier: T2
+    title: "Hyperpigmentation Treatment in San Anselmo, CA"   # locked P5 title (seo-enrichment.md)
+    trace: "D-IA-018 (Concern group: Skin, 9 leaves) · D-IA-025 (T2 - 21 concern leaves)"
+  - slug: areas-of-concern-melasma
+    tier: T2
+    title: "Melasma Treatment in San Anselmo, CA - Marin County"   # locked P5 title (seo-enrichment.md)
+    trace: "D-IA-018 (Concern group: Skin, 9 leaves) · D-IA-025 (T2 - 21 concern leaves)"
+  - slug: areas-of-concern-sun-damage
+    tier: T2
+    title: "Sun Damage Treatment in San Anselmo, CA - Marin"   # locked P5 title (seo-enrichment.md)
+    trace: "D-IA-018 (Concern group: Skin, 9 leaves) · D-IA-025 (T2 - 21 concern leaves)"
+  - slug: areas-of-concern-uneven-skin-texture
+    tier: T2
+    title: "Uneven Skin Texture Treatment in San Anselmo, CA"   # locked P5 title (seo-enrichment.md)
+    trace: "D-IA-018 (Concern group: Skin, 9 leaves) · D-IA-025 (T2 - 21 concern leaves)"
+  - slug: areas-of-concern-rosacea
+    tier: T2
+    title: "Rosacea Treatment in San Anselmo, CA - Marin County"   # locked P5 title (seo-enrichment.md)
+    trace: "D-IA-018 (Concern group: Skin, 9 leaves) · D-IA-025 (T2 - 21 concern leaves)"
+  - slug: areas-of-concern-broken-capillaries
+    tier: T2
+    title: "Broken Capillaries Treatment in San Anselmo, CA"   # locked P5 title (seo-enrichment.md)
+    trace: "D-IA-018 (Concern group: Skin, 9 leaves) · D-IA-025 (T2 - 21 concern leaves)"
+  - slug: areas-of-concern-spider-veins
+    tier: T2
+    title: "Spider Vein Treatment in San Anselmo, CA - Marin"   # locked P5 title (seo-enrichment.md)
+    trace: "D-IA-018 (Concern group: Skin, 9 leaves) · D-IA-025 (T2 - 21 concern leaves)"
+  - slug: areas-of-concern-fine-lines
+    tier: T2
+    title: "Fine Lines Treatment in San Anselmo, CA - Marin"   # locked P5 title (seo-enrichment.md)
+    trace: "D-IA-019 (Concern group: Face & structure, 6 leaves) · D-IA-025 (T2 - 21 concern leaves)"
+  - slug: areas-of-concern-wrinkles
+    tier: T2
+    title: "Wrinkle Treatment in San Anselmo, CA - Marin County"   # locked P5 title (seo-enrichment.md)
+    trace: "D-IA-019 (Concern group: Face & structure, 6 leaves) · D-IA-025 (T2 - 21 concern leaves)"
+  - slug: areas-of-concern-jowls
+    tier: T2
+    title: "Jowls Treatment in San Anselmo, CA - Marin County"   # locked P5 title (seo-enrichment.md)
+    trace: "D-IA-019 (Concern group: Face & structure, 6 leaves) · D-IA-025 (T2 - 21 concern leaves)"
+  - slug: areas-of-concern-turkey-neck
+    tier: T2
+    title: "Turkey Neck Treatment in San Anselmo, CA - Marin"   # locked P5 title (seo-enrichment.md)
+    trace: "D-IA-019 (Concern group: Face & structure, 6 leaves) · D-IA-025 (T2 - 21 concern leaves)"
+  - slug: areas-of-concern-double-chin
+    tier: T2
+    title: "Double Chin Treatment in San Anselmo, CA - Marin"   # locked P5 title (seo-enrichment.md)
+    trace: "D-IA-019 (Concern group: Face & structure, 6 leaves) · D-IA-025 (T2 - 21 concern leaves)"
+  - slug: areas-of-concern-loose-skin
+    tier: T2
+    title: "Loose Skin and Skin Laxity in San Anselmo, CA"   # locked P5 title (seo-enrichment.md)
+    trace: "D-IA-019 (Concern group: Face & structure, 6 leaves) · D-IA-025 (T2 - 21 concern leaves)"
+  - slug: areas-of-concern-cellulite
+    tier: T2
+    title: "Cellulite Treatment in San Anselmo, CA - Marin County"   # locked P5 title (seo-enrichment.md)
+    trace: "D-IA-020 (Concern group: Body, 4 leaves) · D-IA-025 (T2 - 21 concern leaves)"
+  - slug: areas-of-concern-stubborn-fat
+    tier: T2
+    title: "Stubborn Fat Treatment in San Anselmo, CA - Marin"   # locked P5 title (seo-enrichment.md)
+    trace: "D-IA-020 (Concern group: Body, 4 leaves) · D-IA-025 (T2 - 21 concern leaves)"
+  - slug: areas-of-concern-core-strength
+    tier: T2
+    title: "Core Strength and Abdominal Tone in San Anselmo, CA"   # locked P5 title (seo-enrichment.md)
+    trace: "D-IA-020 (Concern group: Body, 4 leaves) · D-IA-025 (T2 - 21 concern leaves)"
+  - slug: areas-of-concern-muscle-development
+    tier: T2
+    title: "Muscle Development and Tone in San Anselmo, CA"   # locked P5 title (seo-enrichment.md)
+    trace: "D-IA-020 (Concern group: Body, 4 leaves) · D-IA-025 (T2 - 21 concern leaves)"
+  - slug: areas-of-concern-urinary-incontinence
+    tier: T2
+    title: "Urinary Incontinence Treatment in San Anselmo, CA"   # locked P5 title (seo-enrichment.md)
+    trace: "D-IA-021 (Concern group: Function, 2 leaves) · D-IA-025 (T2 - 21 concern leaves)"
+  - slug: areas-of-concern-sexual-function-enhancement
+    tier: T2
+    title: "Sexual Function Enhancement in San Anselmo, CA"   # locked P5 title (seo-enrichment.md)
+    trace: "D-IA-021 (Concern group: Function, 2 leaves) · D-IA-025 (T2 - 21 concern leaves)"
+  - slug: treatments-botox-dysport
+    tier: T2
+    title: "Botox and Dysport Treatment in San Anselmo, CA"   # locked P5 title (seo-enrichment.md)
+    trace: "D-IA-014 (Treatments > Injectables - Botox and Dysport) · D-IA-025 (T2)"
+  - slug: treatments-clearsilk
+    tier: T2
+    title: "ClearSilk Laser Treatment in San Anselmo, CA"   # locked P5 title (seo-enrichment.md)
+    trace: "D-IA-015 (Treatments > Skin & Aesthetics) · D-IA-025 (T2)"
+  - slug: treatments-halo-laser-treatment
+    tier: T2
+    title: "Halo Laser Resurfacing in San Anselmo, CA"   # locked P5 title (seo-enrichment.md)
+    trace: "D-IA-015 (Treatments > Skin & Aesthetics) · D-IA-025 (T2)"
+  - slug: treatments-forever-young-bbl
+    tier: T2
+    title: "Forever Young BBL Treatment in San Anselmo"   # locked P5 title (seo-enrichment.md)
+    trace: "D-IA-015 (Treatments > Skin & Aesthetics) · D-IA-025 (T2)"
+  - slug: treatments-forever-clear-acne
+    tier: T2
+    title: "Forever Clear BBL for Acne in San Anselmo, CA"   # locked P5 title (seo-enrichment.md)
+    trace: "D-IA-015 (Treatments > Skin & Aesthetics) · D-IA-025 (T2)"
+  - slug: treatments-clear-v
+    tier: T2
+    title: "Clear V Laser for Veins in San Anselmo, CA"   # locked P5 title (seo-enrichment.md)
+    trace: "D-IA-015 (Treatments > Skin & Aesthetics) · D-IA-025 (T2)"
+  - slug: treatments-scarlet-rf
+    tier: T2
+    title: "Scarlet RF Microneedling in San Anselmo, CA"   # locked P5 title (seo-enrichment.md)
+    trace: "D-IA-015 (Treatments > Skin & Aesthetics) · D-IA-025 (T2)"
+  - slug: treatments-microneedling
+    tier: T2
+    title: "SkinPen Microneedling in San Anselmo, CA"   # locked P5 title (seo-enrichment.md)
+    trace: "D-IA-015 (Treatments > Skin & Aesthetics) · D-IA-025 (T2)"
+  - slug: treatments-emface
+    tier: T2
+    title: "EmFace Treatment in San Anselmo, CA"   # locked P5 title (seo-enrichment.md)
+    trace: "D-IA-015 (Treatments > Skin & Aesthetics) · D-IA-025 (T2)"
+  - slug: treatments-exion-by-btl
+    tier: T2
+    title: "EXION Skin Tightening in San Anselmo, CA"   # locked P5 title (seo-enrichment.md)
+    trace: "D-IA-022 (the 4-way 'skin tightening' cluster collapses to ONE device leaf at the EXISTING slug /treatments/ex"
+  - slug: treatments-medical-facial
+    tier: T2
+    title: "Medical Facial Treatment in San Anselmo, CA"   # locked P5 title (seo-enrichment.md)
+    trace: "D-IA-015 (Treatments > Skin & Aesthetics) · D-IA-025 (T2)"
+  - slug: treatments-obagi-skintrinsiq
+    tier: T2
+    title: "Obagi Skintrinsiq Facial in San Anselmo, CA"   # locked P5 title (seo-enrichment.md)
+    trace: "D-IA-015 (Treatments > Skin & Aesthetics) · D-IA-025 (T2)"
+  - slug: treatments-vanquish-me
+    tier: T2
+    title: "Vanquish ME Body Contouring in San Anselmo"   # locked P5 title (seo-enrichment.md)
+    trace: "D-IA-016 (Treatments > Body & Function) · D-IA-025 (T2)"
+  - slug: treatments-emtone
+    tier: T2
+    title: "Emtone Cellulite Treatment in San Anselmo, CA"   # locked P5 title (seo-enrichment.md)
+    trace: "D-IA-016 (Treatments > Body & Function) · D-IA-025 (T2)"
+  - slug: treatments-emsella
+    tier: T2
+    title: "Emsella Pelvic Floor Treatment in San Anselmo"   # locked P5 title (seo-enrichment.md)
+    trace: "D-IA-009 (Emsella / pelvic-floor - repoint the EXISTING nav slot ON-DOMAIN to a new /treatments/emsella/) · D-"
+  - slug: treatments-emsculpt-neo
+    tier: T2
+    title: "Emsculpt NEO Body Treatment in San Anselmo, CA"   # locked P5 title (seo-enrichment.md)
+    trace: "D-IA-010 (Emsculpt NEO - repoint from the promo page to a new /treatments/emsculpt-neo/) · D-IA-016 · D-IA-025"
+  - slug: treatments-braintap-sessions
+    tier: T2
+    title: "BrainTap Sessions in San Anselmo, CA"   # locked P5 title (seo-enrichment.md)
+    trace: "D-IA-017 (Treatments > Wellness) · D-IA-025 (T2)"
+  - slug: treatments-lightstim-red-light-therapy
+    tier: T2
+    title: "LightStim Red Light Therapy in San Anselmo, CA"   # locked P5 title (seo-enrichment.md)
+    trace: "D-IA-017 (Treatments > Wellness) · D-IA-025 (T2)"
+  - slug: treatments-lymphatic-drainage-massage
+    tier: T2
+    title: "Lymphatic Drainage Massage in San Anselmo, CA"   # locked P5 title (seo-enrichment.md)
+    trace: "D-IA-017 (Treatments > Wellness) · D-IA-025 (T2)"
+  - slug: mommy-makeover
+    tier: T2
+    title: "Non-Surgical Mommy Makeover in San Anselmo, CA"   # locked P5 title (seo-enrichment.md)
+    trace: "D-IA-011 (Mommy Makeover - RELABEL to 'Non-Surgical Mommy Makeover' and reduce to a SINGLE nav placement) · D-"
+  - slug: disclaimer
+    tier: T3
+    title: "Disclaimer - Marin Medical Aesthetics"   # locked P5 title (seo-enrichment.md)
+    trace: "D-IA-026 (T3 legal/utility/commerce terminal - /disclaimer/)"
+  - slug: privacy-policy
+    tier: T3
+    title: "Privacy Policy - Marin Medical Aesthetics"   # locked P5 title (seo-enrichment.md)
+    trace: "D-IA-026 (T3 legal/utility/commerce terminal - /privacy-policy/)"
+  - slug: accessibility
+    tier: T3
+    title: "Accessibility Statement - Marin Medical Aesthetics"   # locked P5 title (seo-enrichment.md)
+    trace: "D-IA-026 (T3 legal/utility/commerce terminal - /accessibility/)"
+  - slug: store
+    tier: T3
+    title: "Shop Skincare Products - Marin Medical Aesthetics"   # locked P5 title (seo-enrichment.md)
+    trace: "D-IA-006 (Patient Resources - /store/, kept OUT of primary nav) · D-IA-026 (T3 commerce terminal)"
+  - slug: blog
+    tier: T3
+    title: "Aesthetic & Skincare Blog - Marin Medical Aesthetics"   # locked P5 title (seo-enrichment.md)
+    trace: "D-IA-006 (Patient Resources - /blog/) · D-IA-026 (T3 terminal)"
+  - slug: media
+    tier: T3
+    title: "In the Media - Marin Medical Aesthetics"   # locked P5 title (seo-enrichment.md)
+    trace: "D-IA-006 (Patient Resources - /media/) · D-IA-026 (T3 terminal)"
+  - slug: category-events
+    tier: T3
+    title: "Events - Marin Medical Aesthetics"   # locked P5 title (seo-enrichment.md)
+    trace: "D-IA-013 (Events - /category/events/ kept, demoted out of primary nav into Patient Resources) · D-IA-026 (T3 t"
+  - slug: download-app
+    tier: T3
+    title: "Download the Marin Medical Aesthetics App - Stay Connected"   # locked P5 title (seo-enrichment.md)
+    trace: "D-IA-026 (T3 legal/utility/commerce terminal - /download-app/ (orphaned)) · owner-add: retained as an orphan p"
+  - slug: what-to-expect-during-your-med-spa-consultation-in-san-anselmo
+    tier: T3
+    title: "What to Expect at Your Consultation in San Anselmo"   # locked P5 title (seo-enrichment.md)
+    trace: "D-IA-006 (Patient Resources - the /blog/ content layer this article belongs to) · owner-add: RECONCILIATION GA"

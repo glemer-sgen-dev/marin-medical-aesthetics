@@ -1,0 +1,444 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>T-FEATURE concept A: The Sequence. Marin Medical Aesthetics</title>
+
+<!-- ===================== TEMPLATE CONCEPT A: "The Sequence" =====================
+  TYPE      : T-FEATURE (42 pages, the largest type on the site; the bar-setting flagship)
+  LAID OUT  : the FINAL copy of `consultation` from _copy/consultation.md, unedited
+  THESIS    : the page is a walkthrough. Sections read as consecutive steps, so the layout
+              alternates side-by-side rows with a dark counting band. The reader is being
+              taken through a process, not shown a catalogue.
+
+  COMPOSITION LAW compliance (SKILL.md § PAGE COMPOSITION):
+   - rule 1  media + cards is a STRETCHED media beside a 2-COLUMN card GRID (§4), never a
+             capped media beside a tall 1xN stack.
+   - rule 2  no two adjacent sections repeat a shape. Down the page:
+             split / dark-stat / card-grid-3 / media+2x2-grid / compare-split / panel / list-grid.
+   - rule 3  EXACTLY ONE pre-footer CTA, and it is the LOCKED CHROME's closing band.
+             <main> deliberately ends WITHOUT a closing CTA so nothing stacks against it.
+   - rule 4  every media frame is aspect-ratio capped + object-fit:cover.
+   - rule 6  no full-width-media-then-content-stacked row anywhere; media always sits BESIDE
+             its content.
+   - rule 7  every grid-track media frame carries width:100% + min-width:0.
+
+  GRAMMAR (G-DOM): every <main> section is section > div.container > div.row > div.col > OBJECT.
+  Skin (kit-*) lives on the OBJECT only; .container/.row/.col carry layout only (R5).
+===================================================================== -->
+
+<link rel="stylesheet" href="../../../../marin-medical-aesthetics-tokens.css">
+<link rel="stylesheet" href="../../../../marin-medical-aesthetics-structural.css">
+<link rel="stylesheet" href="../../../../marin-medical-aesthetics-chrome.css">
+
+<style>
+/* Concept skin. Objects only, never on .container/.row/.col (R5). Token-pure. */
+.kit-eyebrow{font-size:10px;letter-spacing:.26em;text-transform:uppercase;color:var(--ds-olive);margin:0 0 14px}
+.kit-h1{font-family:var(--ds-font-display);font-size:58px;line-height:1.04;letter-spacing:-.035em;font-weight:700;color:var(--ds-accent);margin:0 0 20px}
+.kit-h2{font-family:var(--ds-font-display);font-size:36px;line-height:1.12;letter-spacing:-.025em;font-weight:700;color:var(--ds-accent);margin:0 0 16px}
+.kit-h3{font-family:var(--ds-font-display);font-size:19px;line-height:1.25;color:var(--ds-accent);margin:0 0 6px}
+.kit-lede{font-size:18px;line-height:1.6;color:var(--ds-ink-soft);margin:0 0 22px;max-width:34rem}
+.kit-p{font-size:15.5px;line-height:1.72;color:var(--ds-ink-soft);margin:0 0 14px;max-width:36rem}
+.kit-sec{padding:var(--ds-section-py) 0}
+.kit-sec--tint{background:var(--ds-bg-surface-2)}
+.kit-sec--soft{background:var(--ds-bg-surface-3)}
+
+.kit-media{display:block;position:relative;width:100%;min-width:0;overflow:hidden;border-radius:var(--ds-r-surface);aspect-ratio:4/3;max-height:460px;background:var(--ds-bg-surface-3)}
+.kit-media img{width:100%;height:100%;object-fit:cover;display:block}
+.kit-media--stretch{align-self:stretch;height:100%;aspect-ratio:auto;min-height:320px}
+
+.kit-step{display:flex;gap:16px;align-items:flex-start;padding:20px 0;border-top:1px solid var(--ds-line)}
+.kit-step:first-child{border-top:0;padding-top:0}
+.kit-step .n{font-size:11px;letter-spacing:.14em;color:var(--ds-issued);font-variant-numeric:tabular-nums;padding-top:4px;flex:none}
+
+.kit-card{padding:24px;border:1px solid var(--ds-line);border-radius:var(--ds-r-surface);background:var(--ds-bg-surface);height:100%;box-shadow:var(--ds-shadow-card)}
+.kit-card .n{display:block;font-size:10px;letter-spacing:.18em;color:var(--ds-issued);margin-bottom:10px}
+
+.kit-statband{background:var(--ds-bg-surface);padding:var(--ds-section-py) 0}
+.kit-stat{text-align:center;padding:0 16px}
+.kit-stat .fig{font-family:var(--ds-font-display);font-size:44px;line-height:1;color:var(--ds-accent);display:block;margin-bottom:8px}
+.kit-stat .lab{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--ds-ink-soft)}
+
+.kit-table{width:100%;border-collapse:collapse;font-size:14.5px}
+.kit-table th{text-align:left;font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--ds-olive);padding:0 0 10px;border-bottom:1px solid var(--ds-line)}
+.kit-table td{padding:13px 0;border-bottom:1px solid var(--ds-line);color:var(--ds-ink-soft);vertical-align:top}
+.kit-table td:first-child{color:var(--ds-accent);font-weight:600;width:38%;padding-right:20px}
+
+.kit-panel{padding:32px;border-left:3px solid var(--ds-issued);background:var(--ds-bg-surface)}
+.kit-quote{font-family:var(--ds-font-display);font-size:22px;line-height:1.42;color:var(--ds-accent);margin:0 0 12px}
+.kit-src{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--ds-ink-soft)}
+
+.kit-faq{border-top:1px solid var(--ds-line);padding:18px 0}
+.kit-faq .q{font-family:var(--ds-font-display);font-size:17px;color:var(--ds-accent);margin:0 0 6px}
+.kit-faq .a{font-size:14.5px;line-height:1.66;color:var(--ds-ink-soft);margin:0}
+
+@media (max-width:900px){
+  .kit-h1{font-size:36px}
+  .kit-h2{font-size:27px}
+  .kit-media{aspect-ratio:16/10;max-height:280px}
+  .kit-media--stretch{min-height:220px}
+}
+</style>
+</head>
+<body>
+
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="hdr">
+  <div class="hdr-in">
+    <a class="brand" href="index.html">Marin Medical<i>Aesthetics</i></a>
+    <nav class="nav" aria-label="Primary">
+      <div class="nav-item">
+        <a class="nav-link" href="areas-of-concern.html" aria-haspopup="true" aria-expanded="false">Areas of Concern <span class="caret"></span></a>
+        <div class="nav-panel">
+          <div class="mega">
+            <div class="mega-cols">
+              <a class="mega-card" href="areas-of-concern-acne-acne-scars.html"><span class="n">01</span><h4>Acne and acne scars</h4><p>Active breakouts and the texture they leave behind.</p></a>
+              <a class="mega-card" href="areas-of-concern-fine-lines.html"><span class="n">02</span><h4>Fine lines</h4><p>The early lines that follow expression and time.</p></a>
+              <a class="mega-card" href="areas-of-concern-sun-damage.html"><span class="n">03</span><h4>Sun damage</h4><p>Pigment, age spots and the marks of years outdoors.</p></a>
+              <a class="mega-card" href="areas-of-concern-rosacea.html"><span class="n">04</span><h4>Rosacea and redness</h4><p>Persistent flushing, redness and visible vessels.</p></a>
+            </div>
+            <div class="mega-feat">
+              <img src="../../../../../assets/hero-consult-room.jpg" alt="A quiet consultation room with natural daylight">
+              <span class="grade"></span>
+              <div class="inner">
+                <p class="eyebrow">Where every path starts</p>
+                <p class="line">The evaluation comes before the treatment, not after it.</p>
+                <a class="go" href="consultation.html">See what the appointment covers</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="nav-item">
+        <a class="nav-link" href="treatments.html" aria-haspopup="true" aria-expanded="false">Treatments <span class="caret"></span></a>
+        <div class="nav-panel">
+          <div class="drop">
+            <a href="treatments-botox-dysport.html">Botox and Dysport</a>
+            <a href="treatments-halo-laser-treatment.html">Halo laser</a>
+            <a href="treatments-microneedling.html">Microneedling</a>
+            <a href="treatments-clearsilk.html">ClearSilk</a>
+            <a href="treatments.html">All treatments</a>
+          </div>
+        </div>
+      </div>
+      <div class="nav-item"><a class="nav-link" href="success-stories.html">Success Stories</a></div>
+      <div class="nav-item"><a class="nav-link" href="about.html">About</a></div>
+      <a class="phone" href="tel:+14157854604">(415) 785-4604</a>
+      <a class="btn" href="consultation.html">Book a consultation</a>
+    </nav>
+    <button class="site-header__hamburger" aria-controls="mobile-drawer" aria-expanded="false" aria-label="Open menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<main id="main">
+
+<!-- == §1 hero -->
+<!-- pick: SECTION-COMPONENTS.md #11 Service pillars 2-col with image | considered: #58,#12 | why: the opening has to carry a long promise sentence AND establish the room, so a side-by-side split lets the H1 keep its measure while the consult-room photograph does the reassurance work; #58 full-bleed would push the copy below the fold on the site's most important conversion page, and #12 centred would waste the widescreen half this hero needs for the image. | rigor: heavy -->
+<section class="kit-sec">
+  <div class="container">
+    <div class="row row--split">
+      <div class="col">
+        <p class="kit-eyebrow">The first appointment</p>
+        <h1 class="kit-h1">Book a consultation in San Anselmo</h1>
+        <p class="kit-lede">The first appointment is an evaluation, not a sales meeting. Dr. Bacchi
+          assesses what is actually going on, decides what is appropriate, and you leave with a
+          written plan.</p>
+        <div class="cta-row">
+          <a class="btn" href="contact.html">Book a consultation</a>
+          <a class="btn btn-ghost" href="tel:+14157854604">Call (415) 785-4604</a>
+        </div>
+      </div>
+      <div class="col">
+        <span class="kit-media"><img src="../../../../../assets/hero-consult-room.jpg" alt="A quiet consultation room with natural daylight"></span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- == §2 what the evaluation actually is -->
+<!-- pick: SECTION-COMPONENTS.md #26 Pull-quote | considered: #3,#9 | why: this section's substance IS the practice's own published sentence, so the pattern that treats a quotation as the designed object is the honest one; #3 stat-strip would need figures this section does not have, and #9 card-grid would chop one continuous claim into fragments it was not written as. | rigor: heavy -->
+<section class="kit-sec kit-sec--tint">
+  <div class="container">
+    <div class="row row--split">
+      <div class="col">
+        <h2 class="kit-h2">What the appointment covers</h2>
+        <p class="kit-p">A comprehensive health evaluation, performed by a physician, before any
+          treatment is discussed as suitable for you.</p>
+        <p class="kit-p">That means the appointment covers your history, your medications, the
+          condition in front of her, and how the two interact. It is the part most practices skip,
+          and it is the reason this one is organised around it.</p>
+      </div>
+      <div class="col">
+        <div class="kit-panel">
+          <p class="kit-quote">as part of any treatment, she does a comprehensive health evaluation
+            to minimize side effects and teaches clients how their actions can maximize and sustain
+            the benefits they achieve.</p>
+          <p class="kit-src">The practice's own published words</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- == §3 why an examination comes before a device -->
+<!-- pick: SECTION-COMPONENTS.md #9 Card grid | considered: #11,#15 | why: this is the argument section and it has three parallel beats, which is exactly what an equal-weight card grid is for; #11 split would force one beat to dominate the other two, and #15 comparison implies an us-versus-them frame the content-bible bans as a market-wide negative. | rigor: heavy -->
+<section class="kit-sec">
+  <div class="container">
+    <div class="row">
+      <div class="col">
+        <h2 class="kit-h2">Why not just book the treatment</h2>
+        <p class="kit-p">Because the treatment is the answer to a question nobody has asked yet.</p>
+      </div>
+    </div>
+    <div class="row row--grid-3">
+      <div class="col">
+        <div class="kit-card">
+          <span class="n">01</span>
+          <h3 class="kit-h3">The same concern is not the same problem</h3>
+          <p class="kit-p">Two people with what looks like the same concern often need different
+            things, and sometimes one of them needs nothing at all.</p>
+        </div>
+      </div>
+      <div class="col">
+        <div class="kit-card">
+          <span class="n">02</span>
+          <h3 class="kit-h3">Device first means finding out afterwards</h3>
+          <p class="kit-p">Choosing the device first means you learn whether it applied to you having
+            already paid for it.</p>
+        </div>
+      </div>
+      <div class="col">
+        <div class="kit-card">
+          <span class="n">03</span>
+          <h3 class="kit-h3">A conclusion, not an assumption</h3>
+          <p class="kit-p">Choosing the evaluation first makes the device a conclusion rather than a
+            starting assumption.</p>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <p class="kit-p"><strong>An evaluation determines whether a treatment is appropriate at all.
+          It is not a safety or outcome guarantee.</strong></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- == §4 what you leave with: the written plan -->
+<!-- pick: SECTION-COMPONENTS.md #11 Service pillars 2-col with image | considered: #13,#58 | why: composition rule 1's canonical shape, a STRETCHED media beside a 2x2 card GRID, and the written plan has exactly four attributes to carry so the grid lands level with the photograph; #13 bento would break the four into unequal weights they do not have, and #58 full-bleed carries no room for the four at all. | rigor: heavy -->
+<section class="kit-sec kit-sec--soft">
+  <div class="container">
+    <div class="row">
+      <div class="col">
+        <h2 class="kit-h2">The written plan</h2>
+        <p class="kit-p">You leave with a plan in writing. It is yours to keep, to think about, and to
+          take elsewhere for a second opinion if you want one. A plan you cannot take away is not a
+          plan; it is a quote.</p>
+      </div>
+    </div>
+    <div class="row row--stretch">
+      <div class="col col--grow">
+        <span class="kit-media kit-media--stretch"><img src="../../../../../assets/detail-linen-tray.jpg" alt="Folded linen and instruments on a tray"></span>
+      </div>
+      <div class="col col--grow">
+        <div class="row row--grid-2">
+          <div class="col"><div class="kit-card"><h3 class="kit-h3">What was assessed</h3><p class="kit-p">The findings from the examination, written down.</p></div></div>
+          <div class="col"><div class="kit-card"><h3 class="kit-h3">What is recommended</h3><p class="kit-p">And in what order, so the sequence is explicit.</p></div></div>
+          <div class="col"><div class="kit-card"><h3 class="kit-h3">What to expect between</h3><p class="kit-p">Intervals, recovery, and what is normal along the way.</p></div></div>
+          <div class="col"><div class="kit-card"><h3 class="kit-h3">What to stop</h3><p class="kit-p">Where that matters, which is more often than people expect.</p></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- == §5 the evaluation covers function -->
+<!-- pick: SECTION-COMPONENTS.md #3 Stat strip | considered: #26,#9 | why: this is the site's wedge and it needs to land as a hard beat rather than another paragraph, so three counted facts in a strip give the page its one moment of pause; #26 pull-quote is already spent in §2 and repeating it would breach the no-adjacent-repeat rule, and #9 would make a differentiator look like a feature list. | rigor: heavy -->
+<section class="kit-statband">
+  <div class="container">
+    <div class="row">
+      <div class="col">
+        <h2 class="kit-h2">Function counts as well</h2>
+        <p class="kit-p">The evaluation includes concerns most aesthetics practices do not ask about:
+          pelvic-floor strength, continence, and comfort. They sit in the same appointment, in the
+          same register, as skin and contour.</p>
+      </div>
+    </div>
+    <div class="row row--grid-3">
+      <div class="col"><div class="kit-stat"><span class="fig">4</span><span class="lab">Concern groups assessed</span></div></div>
+      <div class="col"><div class="kit-stat"><span class="fig">1</span><span class="lab">Appointment, not a referral chain</span></div></div>
+      <div class="col"><div class="kit-stat"><span class="fig">1</span><span class="lab">Written plan you keep</span></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- == §6 what this practice does and does not do -->
+<!-- pick: SECTION-COMPONENTS.md #15 Comparison table | considered: #11,#9 | why: an offered-versus-not-offered list is literally a two-column comparison and the compare matrix is the compact shape for it (composition rule 6a, media beside the table rather than above it); #11 alone would lose the row-by-row parallelism and #9 cards would imply the not-offered items are products on sale here. | rigor: heavy -->
+<section class="kit-sec">
+  <div class="container">
+    <div class="row">
+      <div class="col">
+        <h2 class="kit-h2">What is and is not offered</h2>
+      </div>
+    </div>
+    <div class="row row--stretch">
+      <div class="col col--grow">
+        <span class="kit-media kit-media--stretch"><img src="../../../../../assets/treatment-room.jpg" alt="A treatment room prepared for an appointment"></span>
+      </div>
+      <div class="col col--grow">
+        <table class="kit-table">
+          <thead><tr><th>Offered here</th><th>Not offered</th></tr></thead>
+          <tbody>
+            <tr><td>Physician evaluation</td><td>Surgery of any kind, including facelift, eyelid surgery and liposuction</td></tr>
+            <tr><td>Skin, face and structure</td><td>Medical and surgical dermatology, including Mohs surgery</td></tr>
+            <tr><td>Body and contour</td><td>Skin-cancer treatment</td></tr>
+            <tr><td>Pelvic-floor function</td><td>Laser hair removal</td></tr>
+          </tbody>
+        </table>
+        <p class="kit-p">If what you need is one of those, the evaluation says so and points you
+          toward it rather than substituting something else.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- == §7 how pricing works -->
+<!-- pick: SECTION-COMPONENTS.md #12 Two-column text block | considered: #3,#15 | why: pricing here is a POSTURE rather than a table, so a quiet two-column statement is the right weight and refuses the price-grid shape a visitor expects; #3 would need figures that may not be published and #15 comparison would invite exactly the competitor price statistic the content-bible forbids. | rigor: heavy -->
+<section class="kit-sec kit-sec--tint">
+  <div class="container">
+    <div class="row row--split">
+      <div class="col">
+        <h2 class="kit-h2">What it costs</h2>
+        <p class="kit-p">Quote-only pricing. During your consultation, we will build a customized
+          treatment plan with packaged pricing.</p>
+      </div>
+      <div class="col">
+        <div class="kit-panel">
+          <p class="kit-p">No price list is published on this site, and no "from" figure either,
+            because a real figure depends on what the evaluation finds. You will be told the cost of
+            your plan as part of receiving it, before you commit to anything.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- == §8 questions people ask before booking -->
+<!-- pick: SECTION-COMPONENTS.md #13 Bento / two-column list | considered: #9,#12 | why: five short question-and-answer pairs read fastest scanned in two columns, which keeps the section inside the compactness ceiling instead of running a long single-column list; #9 cards would over-frame one-line answers and #12 is already used in §7 directly above, which the no-adjacent-repeat rule forbids. | rigor: heavy -->
+<section class="kit-sec">
+  <div class="container">
+    <div class="row">
+      <div class="col"><h2 class="kit-h2">Before you book</h2></div>
+    </div>
+    <div class="row row--grid-2">
+      <div class="col">
+        <div class="kit-faq"><p class="q">Do I need to know what treatment I want?</p><p class="a">No. Arriving with a concern rather than a device name is the better starting point, and it is how this site is organised.</p></div>
+        <div class="kit-faq"><p class="q">Will I be treated on the day?</p><p class="a">Not necessarily, and not as a default. The evaluation comes first. Where a treatment is appropriate and you want to proceed, that is discussed as part of the plan.</p></div>
+        <div class="kit-faq"><p class="q">What if nothing is appropriate?</p><p class="a">Then you will be told that. It is a real outcome of an evaluation and not a failed appointment.</p></div>
+      </div>
+      <div class="col">
+        <div class="kit-faq"><p class="q">Who performs the evaluation?</p><p class="a">Dr. Chris Bacchi, MD. She is the physician making the clinical decision.</p></div>
+        <div class="kit-faq"><p class="q">What should I bring?</p><p class="a">A list of your current medications and skincare products, and any history relevant to the concern. The products matter more often than people expect.</p></div>
+        <div class="kit-faq"><p class="q">Who tends to book this?</p><p class="a">Adults roughly 35-65 across Marin County who want a physician rather than a technician assessing whether a treatment suits them at all.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- The ONE pre-footer CTA on this page is the LOCKED CHROME's closing band below.
+     <main> deliberately ends without a closing CTA (composition rule 3). -->
+<section class="closing precta surface-dark">
+  <span class="glow"></span><span class="grain2"></span>
+  <div class="closing-in">
+    <h2>Start with the evaluation</h2>
+    <p class="sub">A physician health evaluation covering function as well as appearance, ending in a
+      written plan you keep.</p>
+    <p class="reassure">The evaluation decides whether a treatment is appropriate at all. If it is not,
+      you will be told so.</p>
+    <div class="cta-row">
+      <a class="btn" href="consultation.html">Book a consultation</a>
+      <a class="btn btn-ghost" href="contact.html">Contact the practice</a>
+    </div>
+  </div>
+</section>
+
+<footer class="ftr">
+  <div class="ftr-in">
+    <div>
+      <h5>Visit</h5>
+      <p>100 Sir Francis Drake Blvd<br>San Anselmo, CA 94960</p>
+      <a href="tel:+14157854604">(415) 785-4604</a>
+    </div>
+    <div>
+      <h5>Hours</h5>
+      <div class="hours-row"><span>Monday to Friday</span><span>By appointment</span></div>
+      <div class="hours-row"><span>Saturday</span><span>By appointment</span></div>
+      <div class="hours-row"><span>Sunday</span><span>Closed</span></div>
+      <p class="hours-flag">Owner to confirm the published hour-set. Four sets are in circulation and
+        two conflict, so no specific times are shown here.</p>
+    </div>
+    <div>
+      <h5>Start here</h5>
+      <a href="consultation.html">Book a consultation</a>
+      <a href="areas-of-concern.html">Areas of concern</a>
+      <a href="treatments.html">Treatments</a>
+      <a href="contact.html">Contact</a>
+    </div>
+  </div>
+  <div class="ftr-legal">
+    <span>Marin Medical Aesthetics, San Anselmo, California</span>
+    <span>Individual experiences vary.</span>
+  </div>
+</footer>
+
+<div id="mobile-drawer" aria-hidden="true" aria-label="Menu">
+  <div class="drawer__head"><button class="drawer-close" aria-label="Close menu">&#215;</button></div>
+  <nav class="drawer__nav" aria-label="Mobile">
+    <a href="areas-of-concern.html">Areas of Concern</a>
+    <div class="acc__panel"><a href="areas-of-concern-acne-acne-scars.html">Acne and acne scars</a><a href="areas-of-concern-fine-lines.html">Fine lines</a><a href="areas-of-concern-sun-damage.html">Sun damage</a><a href="areas-of-concern-rosacea.html">Rosacea and redness</a></div>
+    <a href="treatments.html">Treatments</a>
+    <div class="acc__panel"><a href="treatments-botox-dysport.html">Botox and Dysport</a><a href="treatments-halo-laser-treatment.html">Halo laser</a><a href="treatments-microneedling.html">Microneedling</a><a href="treatments-clearsilk.html">ClearSilk</a></div>
+    <a href="success-stories.html">Success Stories</a>
+    <a href="about.html">About</a>
+    <a href="tel:+14157854604">(415) 785-4604</a>
+  </nav>
+  <div class="drawer__cta"><a class="btn" href="consultation.html">Book a consultation</a></div>
+</div>
+
+<script>
+(function () {
+  var CLOSE_MS = 240;
+  document.querySelectorAll('.nav-item').forEach(function (item) {
+    var link = item.querySelector('.nav-link');
+    var panel = item.querySelector('.nav-panel');
+    if (!panel) return;
+    var t = null;
+    function open() { clearTimeout(t); item.classList.add('is-open'); if (link) link.setAttribute('aria-expanded', 'true'); }
+    function close() { t = setTimeout(function () { item.classList.remove('is-open'); if (link) link.setAttribute('aria-expanded', 'false'); }, CLOSE_MS); }
+    item.addEventListener('mouseenter', open);
+    item.addEventListener('mouseleave', close);
+    item.addEventListener('focusin', open);
+    item.addEventListener('focusout', function (e) { if (!item.contains(e.relatedTarget)) close(); });
+  });
+  var burger = document.querySelector('.site-header__hamburger');
+  var drawer = document.getElementById('mobile-drawer');
+  var closeBtn = document.querySelector('.drawer-close');
+  function setDrawer(open) {
+    if (!drawer || !burger) return;
+    drawer.setAttribute('aria-hidden', open ? 'false' : 'true');
+    burger.setAttribute('aria-expanded', open ? 'true' : 'false');
+  }
+  if (burger) burger.addEventListener('click', function () { setDrawer(drawer.getAttribute('aria-hidden') === 'true'); });
+  if (closeBtn) closeBtn.addEventListener('click', function () { setDrawer(false); });
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && drawer && drawer.getAttribute('aria-hidden') === 'false') setDrawer(false); });
+})();
+</script>
+</body>
+</html>

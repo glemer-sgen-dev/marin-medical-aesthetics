@@ -1,0 +1,117 @@
+/* =============================================================================
+ * BRAND CARD B — "Warm Clinical / The Consulting Room" — STRUCTURAL (token-pure)
+ * ZERO hex literals. Every colour is var(--ds-*) from tokens.css.
+ * Measures in rem (see the A3 note in concept A): `ch` only resolves correctly
+ * on a rule that owns the display face via var(--font...), which the --ds-* token
+ * schema does not produce.
+ * ========================================================================== */
+
+*{box-sizing:border-box}
+
+body{
+  margin:0;background:var(--ds-bg-surface);color:var(--ds-ink);
+  font-family:var(--ds-font-body);font-size:16px;line-height:1.65;
+  -webkit-font-smoothing:antialiased;
+}
+
+.sheet{max-width:1140px;margin:0 auto;padding:72px 40px 104px}
+.rule-soft{height:1px;background:var(--ds-line);border:0;margin:0}
+
+.sheet-head{display:flex;justify-content:space-between;align-items:baseline;gap:32px;padding-bottom:22px}
+.sheet-head h1{font-family:var(--ds-font-display);font-size:17px;font-weight:600;letter-spacing:.06em;margin:0}
+.sheet-head .meta{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--ds-ink-soft)}
+
+.block{padding:60px 0 10px}
+.block > .label{font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--ds-signature);margin-bottom:26px;display:block}
+
+/* ---- 1. LOCKUPS — on soft rounded panels ---- */
+.lockups{display:grid;grid-template-columns:1.5fr 1fr 1fr;gap:18px}
+.lockup{background:var(--ds-bg-surface-3);border-radius:var(--ds-r-surface);padding:38px 34px;min-height:200px;display:flex;flex-direction:column;justify-content:space-between;box-shadow:var(--ds-shadow)}
+.lockup .cap{font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--ds-ink-soft)}
+.wordmark{font-family:var(--ds-font-display);display:block;line-height:1.05;color:var(--ds-accent)}
+.wordmark .a{display:block;font-size:32px;font-weight:600}
+.wordmark .b{display:block;font-size:32px;font-weight:400;font-style:italic;color:var(--ds-signature)}
+.dot{display:inline-block;width:8px;height:8px;border-radius:var(--ds-r-pill);background:var(--ds-issued);margin-right:8px;vertical-align:middle}
+.wordmark-stack .a,.wordmark-stack .b{font-size:21px}
+.wordmark-mono{font-family:var(--ds-font-display);font-size:40px;font-weight:600;color:var(--ds-accent);display:block}
+.wordmark-mono span{color:var(--ds-signature)}
+.note{font-size:12px;color:var(--ds-ink-soft);margin:18px 0 0;max-width:40rem;line-height:1.6}
+
+/* ---- 2. PALETTE — rounded chips, 4 across ---- */
+.swatches{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+.sw{background:var(--ds-bg-surface-3);border-radius:var(--ds-r-surface);overflow:hidden;box-shadow:var(--ds-shadow)}
+.sw .chip{height:104px}
+.sw .body{padding:16px 18px 20px}
+.sw .role{display:block;font-size:12px;font-weight:600;margin-bottom:2px}
+.sw .val{display:block;font-size:11px;letter-spacing:.08em;color:var(--ds-ink-soft);font-variant-numeric:tabular-nums}
+.sw .use{display:block;font-size:11px;color:var(--ds-ink-soft);margin-top:8px;line-height:1.5}
+.chip-accent{background:var(--ds-accent)}
+.chip-ink{background:var(--ds-ink)}
+.chip-ground{background:var(--ds-bg-surface-2)}
+.chip-signature{background:var(--ds-signature)}
+.chip-issued{background:var(--ds-issued)}
+.chip-olive{background:var(--ds-olive)}
+.chip-line{background:var(--ds-line)}
+.chip-surface{background:var(--ds-bg-surface-3);border-bottom:1px solid var(--ds-line)}
+
+/* ---- 3. TYPE SCALE ---- */
+.scale-row{display:grid;grid-template-columns:104px 1fr;gap:26px;align-items:baseline;padding:22px 0;border-bottom:1px solid var(--ds-line)}
+.scale-row .tag-lbl{font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--ds-ink-soft)}
+.t-d1{font-family:var(--ds-font-display);font-size:58px;line-height:1.08;font-weight:600;margin:0;max-width:32rem;color:var(--ds-accent)}
+.t-d2{font-family:var(--ds-font-display);font-size:36px;line-height:1.16;font-weight:600;margin:0;max-width:26rem}
+.t-h3{font-family:var(--ds-font-display);font-size:23px;font-weight:600;margin:0}
+.t-body{font-size:16px;margin:0;max-width:34rem}
+.t-small{font-size:13px;margin:0;max-width:34rem;color:var(--ds-ink-soft)}
+.t-eyebrow{font-size:11px;letter-spacing:.2em;text-transform:uppercase;margin:0;color:var(--ds-signature)}
+
+/* ---- 4. UI ATOMS ---- */
+.atoms{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:18px}
+.atom{background:var(--ds-bg-surface-3);border-radius:var(--ds-r-surface);padding:26px 24px 28px;box-shadow:var(--ds-shadow)}
+.atom .cap{font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--ds-ink-soft);margin-bottom:16px;display:block}
+.btn{display:inline-block;font-family:var(--ds-font-body);font-size:13px;font-weight:600;padding:14px 26px;border-radius:var(--ds-r-pill);border:1px solid var(--ds-accent);background:var(--ds-accent);color:var(--ds-bg-surface-3);text-decoration:none;transition:background var(--ds-dur) var(--ds-ease)}
+.btn:hover{background:var(--ds-accent-deep)}
+.btn-ghost{background:transparent;color:var(--ds-accent)}
+.btn-ghost:hover{background:var(--ds-accent-soft)}
+.btn + .btn{margin-left:10px}
+.tagrow{display:flex;flex-wrap:wrap;gap:8px}
+.tag{font-size:11px;padding:7px 14px;border-radius:var(--ds-r-pill);background:var(--ds-bg-surface-2);color:var(--ds-olive)}
+.tag-signature{background:var(--ds-accent-soft);color:var(--ds-accent)}
+.field{display:block;width:100%;padding:13px 16px;border:1px solid var(--ds-line);border-radius:var(--ds-r-control);font-family:inherit;font-size:14px;color:var(--ds-ink);background:var(--ds-bg-surface)}
+.card{background:var(--ds-bg-surface);border-radius:var(--ds-r-surface);padding:22px}
+.card h4{font-family:var(--ds-font-display);font-size:18px;margin:0 0 6px;color:var(--ds-accent)}
+.card p{font-size:13px;color:var(--ds-ink-soft);margin:0}
+
+/* ---- 5. SIGNATURE MOTIF — the circle-masked step (blueprint H2) ---- */
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:26px}
+.step{text-align:center}
+.step .circle{width:132px;height:132px;border-radius:var(--ds-r-pill);margin:0 auto 18px;overflow:hidden;position:relative;box-shadow:var(--ds-shadow)}
+.step .circle img{width:100%;height:100%;object-fit:cover;display:block}
+.step .n{display:inline-block;font-size:11px;letter-spacing:.14em;color:var(--ds-issued);margin-bottom:6px}
+.step h4{font-family:var(--ds-font-display);font-size:20px;margin:0 0 6px;color:var(--ds-accent)}
+.step p{font-size:13px;color:var(--ds-ink-soft);margin:0 auto;max-width:15rem}
+
+/* ---- 6. APPLIED BAND ---- */
+.vig{display:grid;grid-template-columns:1fr 1fr;gap:0;border-radius:var(--ds-r-surface);overflow:hidden;box-shadow:var(--ds-shadow);background:var(--ds-bg-surface-3)}
+.vig-copy{padding:56px 48px;display:flex;flex-direction:column;justify-content:center}
+.vig-copy .eyebrow{font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--ds-signature);margin:0 0 14px}
+.vig-copy h2{font-family:var(--ds-font-display);font-size:36px;line-height:1.14;font-weight:600;margin:0 0 16px;color:var(--ds-accent);max-width:20rem}
+.vig-copy p{font-size:15px;color:var(--ds-ink-soft);margin:0 0 26px;max-width:26rem}
+.vig-media{min-height:360px}
+.vig-media img{width:100%;height:100%;object-fit:cover;display:block}
+
+.hours{background:var(--ds-bg-surface);border-radius:var(--ds-r-surface);padding:30px 34px;margin-top:20px;display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.hours .h-item{font-size:13px;color:var(--ds-ink-soft)}
+.hours .h-item strong{display:block;color:var(--ds-ink);font-size:12px;letter-spacing:.12em;text-transform:uppercase;margin-bottom:6px}
+.hours .flag{color:var(--ds-signature);font-size:12px}
+
+.dark-strip{background:var(--ds-bg-surface);color:var(--ds-ink);border-radius:var(--ds-r-surface);padding:40px 44px;margin-top:20px}
+.dark-strip p{color:var(--ds-ink-soft);font-size:14px;max-width:34rem}
+
+@media (max-width:900px){
+  .sheet{padding:44px 20px 72px}
+  .lockups,.swatches,.steps,.vig,.hours{grid-template-columns:1fr}
+  .swatches{grid-template-columns:repeat(2,1fr)}
+  .vig-copy{padding:36px 26px}
+  .t-d1{font-size:40px}
+  .scale-row{grid-template-columns:1fr;gap:6px}
+}

@@ -1,0 +1,115 @@
+/* =============================================================================
+ * BRAND CARD C — "The Evaluation Grid" — STRUCTURAL (token-pure)
+ * ZERO hex literals. Every colour is var(--ds-*) from tokens.css.
+ * Measures in rem (see the A3 note in concept A).
+ * ========================================================================== */
+
+*{box-sizing:border-box}
+
+body{
+  margin:0;background:var(--ds-bg-surface);color:var(--ds-ink);
+  font-family:var(--ds-font-body);font-size:16px;line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+}
+
+.sheet{max-width:1240px;margin:0 auto;padding:0 0 96px}
+.wrap{max-width:1160px;margin:0 auto;padding:0 40px}
+
+.sheet-head{display:flex;justify-content:space-between;align-items:baseline;gap:24px;padding:36px 0 20px;border-bottom:3px solid var(--ds-line-strong)}
+.sheet-head h1{font-family:var(--ds-font-display);font-size:16px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;margin:0}
+.sheet-head .meta{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--ds-ink-soft)}
+
+.block{padding:64px 0 12px}
+.block > .label{font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--ds-ink-soft);margin-bottom:30px;display:block}
+.block > .label b{color:var(--ds-accent);font-weight:600}
+
+/* ---- 1. LOCKUPS — hard grid, no panels ---- */
+.lockups{display:grid;grid-template-columns:2fr 1fr 1fr;border:1px solid var(--ds-line)}
+.lockup{padding:44px 34px;border-right:1px solid var(--ds-line);min-height:210px;display:flex;flex-direction:column;justify-content:space-between}
+.lockup:last-child{border-right:0}
+.lockup .cap{font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--ds-ink-soft)}
+.wordmark{font-family:var(--ds-font-display);display:block;line-height:.96;color:var(--ds-accent);letter-spacing:-.03em}
+.wordmark .a{display:block;font-size:44px;font-weight:700}
+.wordmark .b{display:block;font-size:44px;font-weight:400;font-style:italic;color:var(--ds-ink)}
+.wordmark-stack .a,.wordmark-stack .b{font-size:24px}
+.wordmark-mono{font-family:var(--ds-font-display);font-size:52px;font-weight:700;color:var(--ds-accent);letter-spacing:-.05em;display:block}
+.wordmark-mono span{color:var(--ds-issued)}
+.note{font-size:12px;color:var(--ds-ink-soft);margin:18px 0 0;max-width:42rem;line-height:1.6}
+
+/* ---- 2. PALETTE — tall bands, role-first ---- */
+.swatches{display:grid;grid-template-columns:repeat(4,1fr);border:1px solid var(--ds-line);border-right:0}
+.sw{border-right:1px solid var(--ds-line);border-bottom:1px solid var(--ds-line)}
+.sw .chip{height:120px}
+.sw .body{padding:16px 18px 22px}
+.sw .role{display:block;font-size:12px;font-weight:700;letter-spacing:.02em;margin-bottom:3px}
+.sw .val{display:block;font-size:11px;letter-spacing:.1em;color:var(--ds-ink-soft);font-variant-numeric:tabular-nums}
+.sw .use{display:block;font-size:11px;color:var(--ds-ink-soft);margin-top:9px;line-height:1.5}
+.chip-accent{background:var(--ds-accent)}
+.chip-ink{background:var(--ds-ink)}
+.chip-ground{background:var(--ds-bg-surface-2)}
+.chip-signature{background:var(--ds-signature)}
+.chip-issued{background:var(--ds-issued)}
+.chip-olive{background:var(--ds-olive)}
+.chip-line{background:var(--ds-line)}
+.chip-surface{background:var(--ds-bg-surface);border-bottom:1px solid var(--ds-line)}
+
+/* ---- 3. TYPE SCALE — oversized display (blueprint E2) ---- */
+.scale-row{display:grid;grid-template-columns:96px 1fr;gap:24px;align-items:baseline;padding:24px 0;border-bottom:1px solid var(--ds-line)}
+.scale-row .tag-lbl{font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--ds-ink-soft)}
+.t-d1{font-family:var(--ds-font-display);font-size:82px;line-height:.98;font-weight:700;letter-spacing:-.04em;margin:0;max-width:30rem;color:var(--ds-accent)}
+.t-d2{font-family:var(--ds-font-display);font-size:44px;line-height:1.08;font-weight:600;letter-spacing:-.03em;margin:0;max-width:28rem}
+.t-h3{font-family:var(--ds-font-display);font-size:25px;font-weight:600;margin:0}
+.t-body{font-size:16px;margin:0;max-width:34rem}
+.t-small{font-size:13px;margin:0;max-width:34rem;color:var(--ds-ink-soft)}
+.t-eyebrow{font-size:11px;letter-spacing:.22em;text-transform:uppercase;margin:0;color:var(--ds-signature)}
+
+/* ---- 4. UI ATOMS ---- */
+.atoms{display:grid;grid-template-columns:repeat(4,1fr);border:1px solid var(--ds-line);border-right:0}
+.atom{padding:28px 24px 30px;border-right:1px solid var(--ds-line)}
+.atom .cap{font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--ds-ink-soft);margin-bottom:18px;display:block}
+.btn{display:inline-block;font-family:var(--ds-font-body);font-size:13px;font-weight:700;letter-spacing:.03em;padding:15px 26px;border-radius:var(--ds-r-control);border:2px solid var(--ds-accent);background:var(--ds-accent);color:var(--ds-bg-surface);text-decoration:none;transition:background var(--ds-dur) var(--ds-ease)}
+.btn:hover{background:var(--ds-accent-deep)}
+.btn-ghost{background:transparent;color:var(--ds-accent)}
+.btn-ghost:hover{background:var(--ds-accent-soft)}
+.btn + .btn{margin-left:10px}
+.tagrow{display:flex;flex-wrap:wrap;gap:8px}
+.tag{font-size:11px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;padding:7px 13px;border-radius:var(--ds-r-control);background:var(--ds-bg-surface-3);color:var(--ds-olive)}
+.tag-signature{background:var(--ds-signature);color:var(--ds-bg-surface)}
+.field{display:block;width:100%;padding:14px 16px;border:2px solid var(--ds-ink);border-radius:var(--ds-r-control);font-family:inherit;font-size:14px;color:var(--ds-ink);background:var(--ds-bg-surface)}
+.card{border:1px solid var(--ds-line);border-top:4px solid var(--ds-issued);border-radius:var(--ds-r-surface);padding:22px}
+.card h4{font-family:var(--ds-font-display);font-size:19px;margin:0 0 6px;color:var(--ds-accent)}
+.card p{font-size:13px;color:var(--ds-ink-soft);margin:0}
+
+/* ---- 5. SIGNATURE MOTIF — the stat band (blueprint I3 counters, F4 wash) ---- */
+.statband{background:var(--ds-bg-surface-2);padding:56px 0;margin-top:6px}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:0;max-width:1160px;margin:0 auto;padding:0 40px}
+.stat{padding:0 28px;border-left:2px solid var(--ds-issued)}
+.stat:first-child{padding-left:0;border-left:0}
+.stat .fig{font-family:var(--ds-font-display);font-size:64px;line-height:1;font-weight:700;letter-spacing:-.04em;color:var(--ds-accent);display:block;margin-bottom:10px}
+.stat .lbl{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--ds-olive);display:block;margin-bottom:8px}
+.stat .sub{font-size:13px;color:var(--ds-ink-soft);margin:0;max-width:17rem}
+
+/* ---- 6. APPLIED BAND ---- */
+.vig{display:grid;grid-template-columns:1.1fr .9fr;border:1px solid var(--ds-line);margin-top:8px}
+.vig-copy{padding:60px 48px;display:flex;flex-direction:column;justify-content:center;background:var(--ds-bg-surface)}
+.vig-copy .eyebrow{font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--ds-signature);margin:0 0 16px}
+.vig-copy h2{font-family:var(--ds-font-display);font-size:46px;line-height:1.04;letter-spacing:-.035em;font-weight:700;margin:0 0 18px;color:var(--ds-accent);max-width:20rem}
+.vig-copy p{font-size:15px;color:var(--ds-ink-soft);margin:0 0 28px;max-width:26rem}
+.vig-media{min-height:380px}
+.vig-media img{width:100%;height:100%;object-fit:cover;display:block}
+
+.dark-strip{background:var(--ds-bg-surface);color:var(--ds-ink);padding:48px 44px;margin-top:8px}
+.dark-strip p{color:var(--ds-ink-soft);font-size:14px;max-width:34rem}
+
+@media (max-width:900px){
+  .wrap{padding:0 20px}
+  .lockups,.atoms{grid-template-columns:1fr}
+  .lockup,.atom{border-right:0;border-bottom:1px solid var(--ds-line)}
+  .swatches{grid-template-columns:repeat(2,1fr)}
+  .stats,.vig{grid-template-columns:1fr}
+  .stat{border-left:0;border-top:2px solid var(--ds-issued);padding:22px 0 0;margin-top:22px}
+  .stat:first-child{margin-top:0;border-top:0;padding-top:0}
+  .vig-copy{padding:36px 24px}
+  .t-d1{font-size:48px}
+  .scale-row{grid-template-columns:1fr;gap:6px}
+}

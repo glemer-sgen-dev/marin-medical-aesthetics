@@ -1,0 +1,324 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Chrome A: The Consulting Bar. Marin Medical Aesthetics</title>
+
+<!-- ===================== DESIGN-SYSTEM CITATIONS =====================
+  pick: NAV-PATTERNS.md #3 Right-aligned link cluster + phone pill
+   why: the catalog names this archetype's use case exactly: "medical practices (single
+        practitioner) ... any vertical where the phone number is the primary conversion mechanic."
+        One physician, conversion is a booked consultation, and F5 resolved the canonical number so a
+        persistent phone pill is now publishable. Sticky behaviour per the archetype.
+
+  pick: FOOTER-STYLES.md #14 Hours-and-contact prominent
+   why: the catalog scopes it to "brick-and-mortar businesses ... small clinics". A single-location
+        practice should close like a local business. Deliberately NOT #1 (4-col dark), which the
+        catalog flags as the overused reflex. The hours column is also the honest place to carry the
+        unresolved-hours placeholder rather than hiding it.
+
+  library: _MODERN-WOW-SPEC
+   why: the technique ceiling. Glass nav surface, layered shadow and inset highlight on the mega
+        panel, accent-glow on the active column, reveal on open, hover-lift on cards.
+
+  blueprint: composition-medical-health
+   why: the sector blueprint. Its header contract (sticky nav, appointment CTA persistent) and I1
+        solid-plus-ghost CTA pair drive the bar; the closing CTA is its section-11 final band.
+===================================================================== -->
+
+<link rel="stylesheet" href="../../marin-medical-aesthetics-tokens.css">
+<link rel="stylesheet" href="../../marin-medical-aesthetics-structural.css">
+
+<style>
+.spec-label{max-width:var(--ds-container-max);margin:0 auto;padding:38px var(--ds-space-lg) 12px;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--ds-ink-soft)}
+.spec-label b{color:var(--ds-accent);font-weight:700}
+.spec-stage{position:relative;border-top:1px solid var(--ds-line)}
+
+.skip{position:absolute;left:-9999px;top:0;background:var(--ds-accent);color:var(--ds-bg-surface);padding:12px 18px;z-index:var(--ds-z-toast);border-radius:var(--ds-r-control)}
+.skip:focus{left:var(--ds-space-md);top:var(--ds-space-md)}
+
+.hdr{position:relative;background:var(--ds-bg-surface);border-bottom:1px solid var(--ds-line);z-index:var(--ds-z-sticky)}
+.hdr-in{max-width:var(--ds-container-max);margin:0 auto;padding:0 var(--ds-space-lg);height:84px;display:flex;align-items:center;gap:var(--ds-space-lg)}
+.brand{font-family:var(--ds-font-display);font-size:21px;font-weight:700;color:var(--ds-accent);letter-spacing:-.02em;text-decoration:none;line-height:1.05;white-space:nowrap}
+.brand i{display:block;font-style:italic;font-weight:400;font-size:15px;color:var(--ds-ink)}
+.nav{margin-left:auto;display:flex;align-items:center;gap:var(--ds-space-md)}
+.nav-item{position:relative}
+.nav-link{display:inline-flex;align-items:center;gap:6px;padding:30px 2px;font-size:14px;font-weight:600;color:var(--ds-ink);text-decoration:none;border-bottom:3px solid transparent;transition:color var(--ds-dur-fast) var(--ds-ease-out),border-color var(--ds-dur-fast) var(--ds-ease-out)}
+.nav-link:hover,.nav-item:focus-within > .nav-link,.nav-item.is-open > .nav-link{color:var(--ds-accent);border-bottom-color:var(--ds-issued)}
+.caret{width:8px;height:8px;border-right:2px solid currentColor;border-bottom:2px solid currentColor;transform:rotate(45deg) translateY(-2px);transition:transform var(--ds-dur-fast) var(--ds-ease-out)}
+.nav-item.is-open .caret{transform:rotate(-135deg) translateY(-2px)}
+.phone{display:inline-flex;align-items:center;gap:8px;padding:11px 18px;border:2px solid var(--ds-accent);border-radius:var(--ds-r-pill);font-size:13px;font-weight:700;color:var(--ds-accent);text-decoration:none;white-space:nowrap;transition:background var(--ds-dur-fast) var(--ds-ease-out),color var(--ds-dur-fast) var(--ds-ease-out)}
+.phone:hover{background:var(--ds-accent);color:var(--ds-bg-surface)}
+.hdr .btn{padding:13px 22px}
+
+/* HOVER-INTENT (a) shared :hover / :focus-within scope on .nav-item */
+.nav-panel{position:absolute;top:100%;left:50%;transform:translate(-50%,10px);opacity:0;visibility:hidden;
+  transition:opacity var(--ds-dur) var(--ds-ease),transform var(--ds-dur) var(--ds-ease),visibility 0s linear var(--ds-dur);z-index:var(--ds-z-overlay)}
+.nav-item:hover > .nav-panel,.nav-item:focus-within > .nav-panel,.nav-item.is-open > .nav-panel{opacity:1;visibility:visible;transform:translate(-50%,0);transition-delay:0s}
+/* HOVER-INTENT (b) the bridge: no un-hoverable pixel band across the seam */
+.nav-panel::before{content:"";position:absolute;left:0;right:0;top:-14px;height:14px}
+
+.mega{width:min(1060px,94vw);background:var(--ds-bg-surface);border:1px solid var(--ds-line);border-top:3px solid var(--ds-issued);border-radius:var(--ds-r-surface);
+  box-shadow:var(--ds-shadow-lift);overflow:hidden;display:grid;grid-template-columns:minmax(0,1.35fr) minmax(0,.95fr)}
+/* minmax(0,...), not a bare fr: a bare 1fr is minmax(AUTO,1fr), so the cards' min-content width
+   overrode the panel's declared width and pushed its left edge past the viewport. */
+.mega-cols{padding:var(--ds-space-lg);display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:var(--ds-space-sm)}
+.mega-card{display:block;padding:18px 18px 20px;border:1px solid var(--ds-line);border-radius:var(--ds-r-control);text-decoration:none;background:var(--ds-bg-surface);
+  transition:transform var(--ds-dur-fast) var(--ds-ease-out),box-shadow var(--ds-dur) var(--ds-ease),border-color var(--ds-dur) var(--ds-ease)}
+.mega-card:hover{transform:translateY(-3px);box-shadow:var(--ds-shadow-card);border-color:var(--ds-issued)}
+.mega-card .n{display:block;font-size:10px;letter-spacing:.18em;color:var(--ds-issued);margin-bottom:9px;font-variant-numeric:tabular-nums}
+.mega-card h4{font-family:var(--ds-font-display);font-size:18px;margin:0 0 5px;color:var(--ds-accent)}
+.mega-card p{font-size:12.5px;line-height:1.5;color:var(--ds-ink-soft);margin:0}
+.mega-card.is-active{border-color:var(--ds-issued);box-shadow:0 0 0 3px var(--ds-accent-soft),var(--ds-shadow-card)}
+.mega-feat{position:relative;min-height:290px;display:flex;flex-direction:column;justify-content:flex-end;padding:var(--ds-space-lg);overflow:hidden}
+.mega-feat img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.mega-feat .grade{position:absolute;inset:0;background:linear-gradient(180deg,rgba(4,33,63,.10) 0%,rgba(4,33,63,.58) 52%,rgba(4,33,63,.88) 100%)}
+.mega-feat .inner{position:relative;z-index:var(--ds-z-raised)}
+.mega-feat .eyebrow{font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:var(--ds-issued);margin:0 0 10px}
+.mega-feat p.line{font-family:var(--ds-font-display);font-size:23px;line-height:1.22;color:var(--ds-bg-surface);margin:0 0 14px;max-width:17rem}
+.mega-feat a.go{display:inline-flex;align-items:center;gap:8px;font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--ds-issued);text-decoration:none}
+.mega-feat a.go:hover{color:var(--ds-bg-surface)}
+
+.drop{min-width:264px;background:var(--ds-bg-surface);border:1px solid var(--ds-line);border-top:3px solid var(--ds-issued);border-radius:var(--ds-r-surface);box-shadow:var(--ds-shadow-lift);padding:10px}
+.drop a{display:block;padding:11px 14px;border-radius:var(--ds-r-control);font-size:13.5px;color:var(--ds-ink);text-decoration:none;transition:background var(--ds-dur-fast) var(--ds-ease-out),color var(--ds-dur-fast) var(--ds-ease-out)}
+.drop a:hover{background:var(--ds-bg-surface-3);color:var(--ds-accent)}
+
+.site-header__hamburger{display:none;margin-left:auto;width:46px;height:46px;border:2px solid var(--ds-accent);border-radius:var(--ds-r-control);background:transparent;cursor:pointer;align-items:center;justify-content:center;flex-direction:column;gap:5px}
+.site-header__hamburger span{display:block;width:20px;height:2px;background:var(--ds-accent)}
+#mobile-drawer{position:fixed;inset:0 0 0 auto;width:min(400px,86vw);background:var(--ds-bg-surface-3);border-left:3px solid var(--ds-issued);box-shadow:var(--ds-shadow-lift);padding:var(--ds-space-lg);z-index:var(--ds-z-drawer);transform:translateX(100%);transition:transform var(--ds-dur) var(--ds-ease);overflow-y:auto}
+#mobile-drawer[aria-hidden="false"]{transform:translateX(0)}
+.drawer__head{display:flex;justify-content:flex-end;margin-bottom:var(--ds-space-md)}
+.drawer-close{width:40px;height:40px;border:1px solid var(--ds-line);border-radius:var(--ds-r-control);background:transparent;color:var(--ds-ink);font-size:18px;cursor:pointer}
+.drawer__nav a{display:block;padding:14px 0;border-bottom:1px solid var(--ds-line);font-family:var(--ds-font-display);font-size:20px;color:var(--ds-accent);text-decoration:none}
+.acc__panel{padding:4px 0 14px 14px;border-bottom:1px solid var(--ds-line)}
+.acc__panel a{padding:7px 0;border:0;font-family:var(--ds-font-body);font-size:14px;color:var(--ds-ink-soft)}
+.drawer__cta{margin-top:var(--ds-space-lg)}
+
+.closing{position:relative;overflow:hidden;background:var(--ds-bg-surface);padding:96px 0 92px}
+.closing .glow{position:absolute;left:50%;top:-30%;width:820px;height:820px;transform:translateX(-50%);border-radius:var(--ds-r-pill);
+  background:radial-gradient(circle,rgba(196,173,103,.20) 0%,rgba(196,173,103,0) 62%);pointer-events:none}
+/* CREAM texture at --ds-opacity-faint, not the navy band at --ds-opacity-texture (.40): a 40% navy
+   wash over the white ground turned this band into a blue-grey slab and dropped the navy headline's
+   contrast with it. The brand canvas is measured light (dark_ratio 0.000), so the tooth stays warm. */
+.closing .grain2{position:absolute;inset:0;background-image:url("../../../assets/texture-cream-band.jpg");background-size:cover;opacity:var(--ds-opacity-faint);pointer-events:none}
+.closing-in{position:relative;z-index:var(--ds-z-base);max-width:var(--ds-container-max);margin:0 auto;padding:0 var(--ds-space-lg);text-align:center}
+.closing h2{font-family:var(--ds-font-display);font-size:56px;line-height:1.04;letter-spacing:-.035em;font-weight:700;color:var(--ds-accent);margin:0 auto 18px;max-width:24rem}
+.closing p.sub{font-size:16px;color:var(--ds-ink-soft);margin:0 auto 12px;max-width:33rem}
+.closing p.reassure{font-size:13px;color:var(--ds-olive);margin:0 auto 30px;max-width:33rem}
+.closing .cta-row{justify-content:center}
+
+.ftr{background:var(--ds-bg-surface-3);border-top:1px solid var(--ds-line);padding:var(--ds-section-py) 0 var(--ds-space-xl)}
+.ftr-in{max-width:var(--ds-container-max);margin:0 auto;padding:0 var(--ds-space-lg);display:grid;grid-template-columns:repeat(3,1fr);gap:var(--ds-space-xl)}
+.ftr h5{font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--ds-issued);margin:0 0 16px}
+.ftr p,.ftr a{font-size:14px;color:var(--ds-ink-soft);margin:0 0 8px;text-decoration:none;display:block}
+.ftr a:hover{color:var(--ds-accent)}
+.hours-row{display:flex;justify-content:space-between;gap:16px;padding:9px 0;border-bottom:1px solid var(--ds-line);font-size:13.5px;color:var(--ds-ink-soft)}
+.hours-flag{font-size:12.5px;color:var(--ds-signature);line-height:1.55;margin-top:12px}
+.ftr-legal{max-width:var(--ds-container-max);margin:var(--ds-space-xl) auto 0;padding:var(--ds-space-md) var(--ds-space-lg) 0;border-top:1px solid var(--ds-line);display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font-size:12px;color:var(--ds-ink-soft)}
+
+@media (max-width:900px){
+  /* Preview scaffolding only: stages 2 and 3 reserve vertical room for the open panels, but the nav is
+     hidden below 900px so those panels never render, leaving tall blank gaps. */
+  .spec-stage{padding-bottom:0 !important}
+  .nav{display:none}
+  .site-header__hamburger{display:flex}
+  .hdr-in{height:70px;gap:var(--ds-space-sm);padding-left:var(--ds-space-md);padding-right:var(--ds-space-2xs)}
+  .closing h2{font-size:34px}
+  .ftr-in{grid-template-columns:1fr;gap:var(--ds-space-lg)}
+  .mega{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<a class="skip" href="#main">Skip to content</a>
+
+<p class="spec-label"><b>Chrome A</b> &nbsp;/&nbsp; The Consulting Bar &nbsp;/&nbsp; NAV-PATTERNS #3 &nbsp;+&nbsp; FOOTER-STYLES #14</p>
+
+<!-- pick: NAV-PATTERNS.md #3 | considered: #2,#12 | why: the catalog scopes #3 to medical practices with a single practitioner, any vertical where the phone number is the primary conversion mechanic, which is this practice exactly; #2 centres the links and buries the number under a hero, and #12 spends its right cluster on a second front door a one-physician practice has not staffed. -->
+<p class="spec-label">1 &nbsp;Desktop bar</p>
+<div class="spec-stage">
+<header class="hdr">
+  <div class="hdr-in">
+    <a class="brand" href="#">Marin Medical<i>Aesthetics</i></a>
+    <nav class="nav" aria-label="Primary">
+      <div class="nav-item"><a class="nav-link" href="#" aria-haspopup="true" aria-expanded="false">Areas of Concern <span class="caret"></span></a></div>
+      <div class="nav-item"><a class="nav-link" href="#" aria-haspopup="true" aria-expanded="false">Treatments <span class="caret"></span></a></div>
+      <div class="nav-item"><a class="nav-link" href="#">Real Results</a></div>
+      <div class="nav-item"><a class="nav-link" href="#">About</a></div>
+      <a class="phone" href="tel:+14157854604">(415) 785-4604</a>
+      <a class="btn" href="#">Book a consultation</a>
+    </nav>
+    <button class="site-header__hamburger" aria-controls="mobile-drawer" aria-expanded="false" aria-label="Open menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+</div>
+
+<p class="spec-label">2 &nbsp;Mega-menu open (concern-led showcase)</p>
+<div class="spec-stage" style="padding-bottom:340px">
+<header class="hdr">
+  <div class="hdr-in">
+    <a class="brand" href="#">Marin Medical<i>Aesthetics</i></a>
+    <nav class="nav" aria-label="Primary">
+      <div class="nav-item is-open">
+        <a class="nav-link" href="#" aria-haspopup="true" aria-expanded="true">Areas of Concern <span class="caret"></span></a>
+        <div class="nav-panel">
+          <div class="mega">
+            <div class="mega-cols">
+              <a class="mega-card is-active" href="#"><span class="n">01</span><h4>Skin</h4><p>Texture, pigment, redness and the changes that come with sun and time.</p></a>
+              <a class="mega-card" href="#"><span class="n">02</span><h4>Face and structure</h4><p>Volume, contour and the way the face carries expression.</p></a>
+              <a class="mega-card" href="#"><span class="n">03</span><h4>Body</h4><p>Shape, tone and the areas that do not respond to effort alone.</p></a>
+              <a class="mega-card" href="#"><span class="n">04</span><h4>Function</h4><p>Pelvic floor, continence and the concerns most practices do not list.</p></a>
+            </div>
+            <div class="mega-feat">
+              <img src="../../../assets/hero-consult-room.jpg" alt="A quiet consultation room with natural daylight">
+              <span class="grade"></span>
+              <div class="inner">
+                <p class="eyebrow">Where every path starts</p>
+                <p class="line">The evaluation comes before the treatment, not after it.</p>
+                <a class="go" href="#">See what the appointment covers</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="nav-item"><a class="nav-link" href="#" aria-haspopup="true" aria-expanded="false">Treatments <span class="caret"></span></a></div>
+      <div class="nav-item"><a class="nav-link" href="#">Real Results</a></div>
+      <div class="nav-item"><a class="nav-link" href="#">About</a></div>
+      <a class="phone" href="tel:+14157854604">(415) 785-4604</a>
+      <a class="btn" href="#">Book a consultation</a>
+    </nav>
+  </div>
+</header>
+</div>
+
+<p class="spec-label">3 &nbsp;Dropdown open</p>
+<div class="spec-stage" style="padding-bottom:300px">
+<header class="hdr">
+  <div class="hdr-in">
+    <a class="brand" href="#">Marin Medical<i>Aesthetics</i></a>
+    <nav class="nav" aria-label="Primary">
+      <div class="nav-item"><a class="nav-link" href="#" aria-haspopup="true" aria-expanded="false">Areas of Concern <span class="caret"></span></a></div>
+      <div class="nav-item is-open">
+        <a class="nav-link" href="#" aria-haspopup="true" aria-expanded="true">Treatments <span class="caret"></span></a>
+        <div class="nav-panel">
+          <div class="drop">
+            <a href="#">Skin and laser</a>
+            <a href="#">Injectables</a>
+            <a href="#">Body and function</a>
+            <a href="#">Wellness</a>
+            <a href="#">All treatments</a>
+          </div>
+        </div>
+      </div>
+      <div class="nav-item"><a class="nav-link" href="#">Real Results</a></div>
+      <div class="nav-item"><a class="nav-link" href="#">About</a></div>
+      <a class="phone" href="tel:+14157854604">(415) 785-4604</a>
+      <a class="btn" href="#">Book a consultation</a>
+    </nav>
+  </div>
+</header>
+</div>
+
+<p class="spec-label">4 &nbsp;Closing CTA</p>
+<!-- The one dark band in this direction. The owner-confirmed FEEL rhythm is light, arc, dark, light,
+     so an all-light chrome would drop the figure/ground contrast the feel was signed off on. The
+     closing CTA is where it is spent: the blueprint's section-11 final band. -->
+<section class="closing surface-dark" id="main">
+  <span class="glow"></span><span class="grain2"></span>
+  <div class="closing-in">
+    <h2>Start with the evaluation</h2>
+    <p class="sub">A physician health evaluation covering function as well as appearance, ending in a
+      written plan you keep.</p>
+    <p class="reassure">The evaluation decides whether a treatment is appropriate at all. If it is not,
+      you will be told so.</p>
+    <div class="cta-row">
+      <a class="btn" href="#">Book a consultation</a>
+      <a class="btn btn-ghost" href="#">What to expect</a>
+    </div>
+  </div>
+</section>
+
+<!-- pick: FOOTER-STYLES.md #14 | considered: #1,#13 | why: a single-location clinic should close like a local business, and #14 puts hours and contact first, which is also the honest place to carry the unresolved hour-set placeholder in plain sight; #1 is the 4-col dark reflex the catalog itself flags as overused, and #13 embeds a map from an address the owner has not yet confirmed. -->
+<p class="spec-label">5 &nbsp;Footer (hours and contact prominent)</p>
+<footer class="ftr">
+  <div class="ftr-in">
+    <div>
+      <h5>Visit</h5>
+      <p>100 Sir Francis Drake Blvd<br>San Anselmo, CA 94960</p>
+      <a href="tel:+14157854604">(415) 785-4604</a>
+    </div>
+    <div>
+      <h5>Hours</h5>
+      <div class="hours-row"><span>Monday to Friday</span><span>By appointment</span></div>
+      <div class="hours-row"><span>Saturday</span><span>By appointment</span></div>
+      <div class="hours-row"><span>Sunday</span><span>Closed</span></div>
+      <p class="hours-flag">Owner to confirm the published hour-set. Four sets are in circulation and
+        two conflict, so no specific times are shown here.</p>
+    </div>
+    <div>
+      <h5>Start here</h5>
+      <a href="#">Book a consultation</a>
+      <a href="#">What to expect</a>
+      <a href="#">Areas of concern</a>
+      <a href="#">Contact</a>
+    </div>
+  </div>
+  <div class="ftr-legal">
+    <span>Marin Medical Aesthetics, San Anselmo, California</span>
+    <span>Individual experiences vary.</span>
+  </div>
+</footer>
+
+<div id="mobile-drawer" aria-hidden="true" aria-label="Menu">
+  <div class="drawer__head"><button class="drawer-close" aria-label="Close menu">&#215;</button></div>
+  <nav class="drawer__nav" aria-label="Mobile">
+    <a href="#">Areas of Concern</a>
+    <div class="acc__panel"><a href="#">Skin</a><a href="#">Face and structure</a><a href="#">Body</a><a href="#">Function</a></div>
+    <a href="#">Treatments</a>
+    <div class="acc__panel"><a href="#">Skin and laser</a><a href="#">Injectables</a><a href="#">Body and function</a><a href="#">Wellness</a></div>
+    <a href="#">Real Results</a>
+    <a href="#">About</a>
+    <a href="tel:+14157854604">(415) 785-4604</a>
+  </nav>
+  <div class="drawer__cta"><a class="btn" href="#">Book a consultation</a></div>
+</div>
+
+<script>
+/* HOVER-INTENT (c): 240ms close-delay, cleared on re-enter. With (a) the shared :hover scope and
+   (b) the .nav-panel::before bridge, a diagonal traverse from trigger to panel never collapses the menu. */
+(function () {
+  var CLOSE_MS = 240;
+  document.querySelectorAll('.nav-item').forEach(function (item) {
+    var link = item.querySelector('.nav-link');
+    var panel = item.querySelector('.nav-panel');
+    if (!panel) return;
+    var t = null;
+    function open() { clearTimeout(t); item.classList.add('is-open'); if (link) link.setAttribute('aria-expanded', 'true'); }
+    function close() { t = setTimeout(function () { item.classList.remove('is-open'); if (link) link.setAttribute('aria-expanded', 'false'); }, CLOSE_MS); }
+    item.addEventListener('mouseenter', open);
+    item.addEventListener('mouseleave', close);
+    item.addEventListener('focusin', open);
+    item.addEventListener('focusout', function (e) { if (!item.contains(e.relatedTarget)) close(); });
+    if (link) link.addEventListener('keydown', function (e) { if (e.key === 'Escape') { clearTimeout(t); item.classList.remove('is-open'); link.setAttribute('aria-expanded', 'false'); link.focus(); } });
+  });
+
+  var burger = document.querySelector('.site-header__hamburger');
+  var drawer = document.getElementById('mobile-drawer');
+  var closeBtn = document.querySelector('.drawer-close');
+  function setDrawer(open) {
+    if (!drawer || !burger) return;
+    drawer.setAttribute('aria-hidden', open ? 'false' : 'true');
+    burger.setAttribute('aria-expanded', open ? 'true' : 'false');
+    if (open) { var f = drawer.querySelector('a, button'); if (f) f.focus(); } else { burger.focus(); }
+  }
+  if (burger) burger.addEventListener('click', function () { setDrawer(drawer.getAttribute('aria-hidden') === 'true'); });
+  if (closeBtn) closeBtn.addEventListener('click', function () { setDrawer(false); });
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && drawer && drawer.getAttribute('aria-hidden') === 'false') setDrawer(false); });
+})();
+</script>
+</body>
+</html>

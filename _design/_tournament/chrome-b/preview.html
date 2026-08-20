@@ -1,0 +1,391 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Chrome B: The Physician's Emblem. Marin Medical Aesthetics</title>
+
+<!-- ===================== DESIGN-SYSTEM CITATIONS =====================
+  pick: NAV-PATTERNS.md #12 Ornate emblem + center links + multi-CTA
+   why: the catalog names "traditional medical practices" and "family-owned businesses" in its use case,
+        and its composition is an emblem left, CENTERED links with small uppercase tracking, and a RIGHT
+        cluster of TWO actions (outlined phone pill + circular icon button). That right-cluster is the
+        structural argument for this direction: a single physician has exactly two front doors, call or
+        write, and this is the only catalog pattern that gives both equal standing in the bar.
+        Sticky per the archetype: "mostly opaque from the start, persists sticky".
+
+  pick: FOOTER-STYLES.md #4 3-col centered brand
+   why: "centered brand block (logo + tagline) flanked by 2 link columns", stacking to one column at
+        <=900. The centered footer brand rhymes with the centered nav links, so the page opens and
+        closes on the same axis. Chosen over #1 (4-col dark) which the catalog flags as the reflex, and
+        over A's #14 so the two directions differ at the bottom of the page as well as the top.
+
+  library: _MODERN-WOW-SPEC
+   why: the technique ceiling. Hairline-ruled typographic mega panel, engraved letterpress emblem
+        treatment, serif centered drawer, hover-lift on the index rows.
+
+  blueprint: composition-medical-health
+   why: the sector blueprint's header contract (sticky nav, appointment CTA persistent) and its
+        section-11 final band. The dual phone/write cluster is its I1 solid-plus-ghost pair, re-cast.
+
+  STRUCTURAL NOTE on where the phone lives (differs from direction A on purpose): in archetype #3 the
+  phone pill is part of the right-aligned LINK cluster, so in direction A it is a nav item and appears in
+  the drawer's nav. In THIS archetype the phone belongs to the ACTIONS cluster, beside the icon button
+  and outside the centered link nav. It is therefore carried in the drawer's action block rather than its
+  nav list — the site nav is four items in both places, and the two conversion actions sit together at
+  the foot of the drawer where a thumb reaches them. NAV-PATTERNS #12's verified drawer (BeLawyer6) drops
+  the phone from the drawer entirely; this build does NOT reproduce that, because a number reachable on
+  desktop but not on mobile is the wrong trade for a practice whose conversion IS the call.
+===================================================================== -->
+
+<link rel="stylesheet" href="../../marin-medical-aesthetics-tokens.css">
+<link rel="stylesheet" href="../../marin-medical-aesthetics-structural.css">
+
+<style>
+.spec-label{max-width:var(--ds-container-max);margin:0 auto;padding:38px var(--ds-space-lg) 12px;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--ds-ink-soft)}
+.spec-label b{color:var(--ds-accent);font-weight:700}
+.spec-stage{position:relative;border-top:1px solid var(--ds-line)}
+
+.skip{position:absolute;left:-9999px;top:0;background:var(--ds-accent);color:var(--ds-bg-surface);padding:12px 18px;z-index:var(--ds-z-toast);border-radius:var(--ds-r-control)}
+.skip:focus{left:var(--ds-space-md);top:var(--ds-space-md)}
+
+/* ---- the bar: emblem left, centered links, two-action cluster right ---- */
+.hdr{position:relative;background:var(--ds-bg-surface-2);border-bottom:1px solid var(--ds-line);z-index:var(--ds-z-sticky)}
+.hdr::after{content:"";position:absolute;left:0;right:0;bottom:-1px;height:1px;background:linear-gradient(90deg,transparent,var(--ds-issued),transparent);opacity:.55}
+.hdr-in{max-width:var(--ds-container-max);margin:0 auto;padding:0 var(--ds-space-lg);height:96px;display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:var(--ds-space-md)}
+
+.emblem{display:flex;align-items:center;gap:13px;text-decoration:none;min-width:0}
+.emblem .crest{width:46px;height:46px;flex:none;color:var(--ds-accent);border:1.5px solid var(--ds-issued);border-radius:var(--ds-r-pill);display:grid;place-items:center;background:var(--ds-bg-surface);box-shadow:inset 0 1px 0 rgba(255,255,255,.7)}
+.emblem .crest svg{width:26px;height:26px}
+/* NOT nowrap: this name is long, and held on one line it overflowed its 1fr track and ran straight
+   under the centred nav links. It wraps to two lines inside a capped measure instead. */
+.emblem .word{font-family:var(--ds-font-display);font-size:17px;font-weight:700;color:var(--ds-accent);letter-spacing:-.015em;line-height:1.14;max-width:11rem}
+.emblem .word i{display:block;font-style:normal;font-weight:400;font-size:9.5px;letter-spacing:.26em;text-transform:uppercase;color:var(--ds-olive);margin-top:3px}
+
+.nav{display:flex;align-items:center;justify-content:center;gap:var(--ds-space-lg)}
+.nav-item{position:relative}
+.nav-link{display:inline-flex;align-items:center;gap:7px;padding:37px 0;font-size:11.5px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--ds-ink);text-decoration:none;position:relative;transition:color var(--ds-dur-fast) var(--ds-ease-out)}
+.nav-link::after{content:"";position:absolute;left:50%;right:50%;bottom:32px;height:1.5px;background:var(--ds-issued);transition:left var(--ds-dur) var(--ds-ease),right var(--ds-dur) var(--ds-ease)}
+.nav-link:hover,.nav-item:focus-within > .nav-link,.nav-item.is-open > .nav-link{color:var(--ds-accent)}
+.nav-link:hover::after,.nav-item:focus-within > .nav-link::after,.nav-item.is-open > .nav-link::after{left:0;right:0}
+.caret{width:6px;height:6px;border-right:1.5px solid currentColor;border-bottom:1.5px solid currentColor;transform:rotate(45deg) translateY(-2px);transition:transform var(--ds-dur-fast) var(--ds-ease-out)}
+.nav-item.is-open .caret{transform:rotate(-135deg) translateY(-1px)}
+
+.actions{display:flex;align-items:center;justify-content:flex-end;gap:10px}
+.phone{display:inline-flex;align-items:center;gap:8px;padding:12px 20px;border:1.5px solid var(--ds-accent);border-radius:var(--ds-r-pill);font-size:12.5px;font-weight:700;letter-spacing:.03em;color:var(--ds-accent);text-decoration:none;white-space:nowrap;background:var(--ds-bg-surface);transition:background var(--ds-dur-fast) var(--ds-ease-out),color var(--ds-dur-fast) var(--ds-ease-out)}
+.phone:hover{background:var(--ds-accent);color:var(--ds-bg-surface-2)}
+.icon-btn{width:44px;height:44px;flex:none;border-radius:var(--ds-r-pill);border:1.5px solid var(--ds-line-strong);background:var(--ds-accent);color:var(--ds-bg-surface-2);display:grid;place-items:center;text-decoration:none;transition:transform var(--ds-dur-fast) var(--ds-ease-out),background var(--ds-dur) var(--ds-ease)}
+.icon-btn:hover{transform:translateY(-2px);background:var(--ds-accent-deep)}
+.icon-btn svg{width:19px;height:19px}
+
+/* HOVER-INTENT (a) shared :hover/:focus-within scope; (b) the ::before bridge across the seam */
+.nav-panel{position:absolute;top:100%;left:50%;transform:translate(-50%,10px);opacity:0;visibility:hidden;
+  transition:opacity var(--ds-dur) var(--ds-ease),transform var(--ds-dur) var(--ds-ease),visibility 0s linear var(--ds-dur);z-index:var(--ds-z-overlay)}
+.nav-item:hover > .nav-panel,.nav-item:focus-within > .nav-panel,.nav-item.is-open > .nav-panel{opacity:1;visibility:visible;transform:translate(-50%,0);transition-delay:0s}
+.nav-panel::before{content:"";position:absolute;left:0;right:0;top:-18px;height:18px}
+
+/* the mega as a typographic INDEX, no photography: hairline rules, numbered rows, a ruled aside */
+.mega{width:min(940px,94vw);background:var(--ds-bg-surface);border:1px solid var(--ds-line);border-top:2px solid var(--ds-issued);
+  box-shadow:var(--ds-shadow-lift);display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr) auto 300px}
+.mega-col{padding:var(--ds-space-lg) var(--ds-space-md)}
+.mega-col:first-child{padding-left:var(--ds-space-lg)}
+.mega-col h5{font-size:9.5px;letter-spacing:.24em;text-transform:uppercase;color:var(--ds-olive);margin:0 0 14px;padding-bottom:9px;border-bottom:1px solid var(--ds-line)}
+.idx{display:flex;align-items:baseline;gap:12px;padding:11px 10px 11px 8px;border-radius:var(--ds-r-control);text-decoration:none;transition:background var(--ds-dur-fast) var(--ds-ease-out),transform var(--ds-dur-fast) var(--ds-ease-out)}
+.idx:hover{background:var(--ds-bg-surface-2);transform:translateX(3px)}
+.idx .n{font-size:10px;letter-spacing:.1em;color:var(--ds-issued);font-variant-numeric:tabular-nums;flex:none}
+.idx .t{font-family:var(--ds-font-display);font-size:16.5px;color:var(--ds-accent);line-height:1.25}
+.idx .d{display:block;font-family:var(--ds-font-body);font-size:11.5px;color:var(--ds-ink-soft);margin-top:2px}
+.mega-rule{width:1px;background:var(--ds-line);margin:var(--ds-space-lg) 0}
+.mega-note{padding:var(--ds-space-lg);background:var(--ds-bg-surface-3)}
+.mega-note .mark{font-family:var(--ds-font-display);font-size:34px;line-height:1;color:var(--ds-issued);display:block;margin-bottom:10px}
+.mega-note p{font-family:var(--ds-font-display);font-size:17px;line-height:1.38;color:var(--ds-accent);margin:0 0 14px}
+.mega-note span.by{display:block;font-size:11px;letter-spacing:.13em;text-transform:uppercase;color:var(--ds-ink-soft);padding-top:12px;border-top:1px solid var(--ds-line)}
+
+.drop{min-width:280px;background:var(--ds-bg-surface);border:1px solid var(--ds-line);border-top:2px solid var(--ds-issued);box-shadow:var(--ds-shadow-lift);padding:8px 0}
+.drop a{display:block;padding:12px 22px;font-size:13px;color:var(--ds-ink);text-decoration:none;border-left:2px solid transparent;transition:border-color var(--ds-dur-fast) var(--ds-ease-out),background var(--ds-dur-fast) var(--ds-ease-out),color var(--ds-dur-fast) var(--ds-ease-out)}
+.drop a:hover{background:var(--ds-bg-surface-2);border-left-color:var(--ds-issued);color:var(--ds-accent)}
+
+.site-header__hamburger{display:none;width:46px;height:46px;border:1.5px solid var(--ds-accent);border-radius:var(--ds-r-pill);background:transparent;cursor:pointer;align-items:center;justify-content:center;flex-direction:column;gap:5px}
+.site-header__hamburger span{display:block;width:19px;height:1.5px;background:var(--ds-accent)}
+
+/* drawer: serif links centered on both axes (the archetype's verified drawer), actions at the foot */
+#mobile-drawer{position:fixed;inset:0 0 0 auto;width:min(392px,88vw);padding:var(--ds-space-lg);z-index:var(--ds-z-drawer);
+  transform:translateX(100%);transition:transform var(--ds-dur) var(--ds-ease);overflow-y:auto;display:flex;flex-direction:column;
+  background:var(--ds-bg-surface);box-shadow:var(--ds-shadow-lift)}
+#mobile-drawer[aria-hidden="false"]{transform:translateX(0)}
+.drawer__head{display:flex;justify-content:flex-end}
+.drawer-close{width:40px;height:40px;border:1px solid var(--ds-line);border-radius:var(--ds-r-pill);background:transparent;color:var(--ds-ink);font-size:17px;cursor:pointer}
+.drawer__nav{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;gap:2px;padding:var(--ds-space-lg) 0}
+.drawer__nav > a{font-family:var(--ds-font-display);font-size:21px;letter-spacing:.03em;color:var(--ds-accent);text-decoration:none;padding:15px 6px;display:block}
+.acc__panel{display:flex;flex-direction:column;align-items:center;gap:3px;padding:2px 0 12px}
+.acc__panel a{font-family:var(--ds-font-body);font-size:12px;letter-spacing:.13em;text-transform:uppercase;color:var(--ds-ink-soft);text-decoration:none;padding:5px}
+.drawer__cta{padding-top:var(--ds-space-md);border-top:1px solid var(--ds-line);display:flex;flex-direction:column;gap:10px;text-align:center}
+.drawer__cta .phone{justify-content:center}
+
+.closing{position:relative;overflow:hidden;padding:100px 0 96px;background:var(--ds-bg-surface-2)}
+.closing .rule-top{position:absolute;left:50%;top:52px;width:1px;height:44px;background:var(--ds-issued);transform:translateX(-50%)}
+.closing-in{position:relative;z-index:var(--ds-z-base);max-width:var(--ds-container-max);margin:0 auto;padding:0 var(--ds-space-lg);text-align:center}
+.closing .eyebrow{font-size:10px;letter-spacing:.26em;text-transform:uppercase;color:var(--ds-olive);margin:44px 0 16px}
+.closing h2{font-family:var(--ds-font-display);font-size:52px;line-height:1.08;letter-spacing:-.03em;font-weight:700;color:var(--ds-accent);margin:0 auto 18px;max-width:20rem}
+.closing p.sub{font-size:15.5px;line-height:1.62;color:var(--ds-ink-soft);margin:0 auto 12px;max-width:32rem}
+.closing p.reassure{font-size:13px;color:var(--ds-olive);margin:0 auto 30px;max-width:32rem}
+.closing .cta-row{justify-content:center}
+
+/* footer #4: two link columns FLANKING a centered brand block */
+.ftr{position:relative;overflow:hidden;background:var(--ds-bg-surface);border-top:1px solid var(--ds-line);padding:var(--ds-space-xl) 0 var(--ds-space-md)}
+/* Letterpress tooth on the dark footer: real material so the band is not a flat navy slab. This is a
+   TEXTURE, not photography; the no-photography rule in this direction governs the mega index. */
+.ftr .grain{position:absolute;inset:0;background-image:url("../../../assets/texture-cream-band.jpg");background-size:cover;opacity:var(--ds-opacity-faint);pointer-events:none}
+.ftr-in,.ftr-legal{position:relative;z-index:var(--ds-z-raised)}
+.ftr-in{max-width:var(--ds-container-max);margin:0 auto;padding:0 var(--ds-space-lg);display:grid;grid-template-columns:1fr auto 1fr;gap:var(--ds-space-xl);align-items:start}
+.ftr h5{font-size:9.5px;letter-spacing:.24em;text-transform:uppercase;color:var(--ds-olive);margin:0 0 15px;padding-bottom:9px;border-bottom:1px solid var(--ds-line)}
+.ftr p,.ftr a{font-size:14px;line-height:1.7;color:var(--ds-ink-soft);margin:0 0 7px;text-decoration:none;display:block}
+.ftr a:hover{color:var(--ds-accent)}
+.ftr-brand{text-align:center;max-width:23rem;padding:0 var(--ds-space-md)}
+.ftr-brand .crest{width:58px;height:58px;margin:0 auto 16px;color:var(--ds-accent);border:1.5px solid var(--ds-issued);border-radius:var(--ds-r-pill);display:grid;place-items:center}
+.ftr-brand .crest svg{width:32px;height:32px}
+.ftr-brand .word{font-family:var(--ds-font-display);font-size:25px;font-weight:700;color:var(--ds-accent);letter-spacing:-.02em;line-height:1.12}
+.ftr-brand .mark-sub{font-family:var(--ds-font-display);font-style:italic;font-size:15px;line-height:1.55;color:var(--ds-ink-soft);margin-top:12px}
+.hours-row{display:flex;justify-content:space-between;gap:14px;padding:8px 0;border-bottom:1px solid var(--ds-line);font-size:13px;color:var(--ds-ink-soft)}
+.hours-flag{font-size:12px;line-height:1.6;color:var(--ds-signature);margin-top:12px}
+.ftr-legal{max-width:var(--ds-container-max);margin:var(--ds-space-xl) auto 0;padding:var(--ds-space-md) var(--ds-space-lg) 0;border-top:1px solid var(--ds-line);display:flex;justify-content:center;gap:22px;flex-wrap:wrap;font-size:12px;color:var(--ds-ink-soft);text-align:center}
+
+@media (max-width:1000px){
+  /* Preview scaffolding only: stages 2 and 3 reserve vertical room for the open panels, but the nav is
+     hidden below 1000px so those panels never render, leaving tall blank gaps. */
+  .spec-stage{padding-bottom:0 !important}
+  .nav{display:none}
+  .site-header__hamburger{display:flex}
+  /* minmax(0,1fr) + a wrapping wordmark: a nowrap display-face in a 1fr track cannot shrink, and it
+     pushed the whole actions cluster off the right edge (measured 478px against a 390px viewport). */
+  .hdr-in{grid-template-columns:minmax(0,1fr) auto;height:auto;padding:14px var(--ds-space-2xs) 14px var(--ds-space-md)}
+  .emblem{gap:10px}
+  .emblem .crest{width:38px;height:38px}
+  .emblem .crest svg{width:21px;height:21px}
+  .emblem .word{font-size:15px;line-height:1.15;max-width:none}
+  .emblem .word i{font-size:8.5px;letter-spacing:.2em;margin-top:2px}
+  .actions{gap:7px}
+  .actions .phone{display:none}
+  .closing h2{font-size:33px}
+  .ftr-in{grid-template-columns:1fr;gap:var(--ds-space-lg)}
+  .ftr-brand{margin:0 auto;order:-1}
+  .mega{grid-template-columns:1fr}
+  .mega-rule{display:none}
+}
+</style>
+</head>
+<body>
+
+<a class="skip" href="#main">Skip to content</a>
+
+<p class="spec-label"><b>Chrome B</b> &nbsp;/&nbsp; The Physician's Emblem &nbsp;/&nbsp; NAV-PATTERNS #12 &nbsp;+&nbsp; FOOTER-STYLES #4</p>
+
+<!-- pick: NAV-PATTERNS.md #12 | considered: #3,#4 | why: #12 is the only archetype that gives calling and writing equal standing in the bar, which fits a practice with one physician and two real front doors, and its heritage emblem register carries the Playfair and navy lockup honestly; #3 leads on the phone alone and #4 reads as a friendly consumer app rather than a physician's rooms. -->
+<p class="spec-label">1 &nbsp;Desktop bar</p>
+<div class="spec-stage">
+<header class="hdr">
+  <div class="hdr-in">
+    <a class="emblem" href="#">
+      <span class="crest" aria-hidden="true"><svg viewBox="0 0 32 32" fill="none"><path d="M16 5c-4.2 2.6-6.4 6.3-6.4 10.4 0 4.4 2.6 8.1 6.4 11.6 3.8-3.5 6.4-7.2 6.4-11.6C22.4 11.3 20.2 7.6 16 5Z" stroke="currentColor" stroke-width="1.1"/><path d="M16 11.4v9.4M12.4 15.4h7.2" stroke="var(--ds-issued)" stroke-width="1.1" stroke-linecap="round"/></svg></span>
+      <span class="word">Marin Medical Aesthetics<i>San Anselmo</i></span>
+    </a>
+    <nav class="nav" aria-label="Primary">
+      <div class="nav-item"><a class="nav-link" href="#" aria-haspopup="true" aria-expanded="false">Areas of Concern <span class="caret"></span></a></div>
+      <div class="nav-item"><a class="nav-link" href="#" aria-haspopup="true" aria-expanded="false">Treatments <span class="caret"></span></a></div>
+      <div class="nav-item"><a class="nav-link" href="#">Real Results</a></div>
+      <div class="nav-item"><a class="nav-link" href="#">About</a></div>
+    </nav>
+    <div class="actions">
+      <a class="phone" href="tel:+14157854604">(415) 785-4604</a>
+      <a class="btn icon-btn" href="#" aria-label="Write to the practice"><svg viewBox="0 0 24 24" fill="none"><rect x="3" y="5.5" width="18" height="13" rx="1.5" stroke="currentColor" stroke-width="1.5"/><path d="m3.8 6.6 8.2 6 8.2-6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></a>
+      <button class="site-header__hamburger" aria-controls="mobile-drawer" aria-expanded="false" aria-label="Open menu"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+</div>
+
+<p class="spec-label">2 &nbsp;Mega-menu open (typographic index, no photography)</p>
+<div class="spec-stage" style="padding-bottom:400px">
+<header class="hdr">
+  <div class="hdr-in">
+    <a class="emblem" href="#">
+      <span class="crest" aria-hidden="true"><svg viewBox="0 0 32 32" fill="none"><path d="M16 5c-4.2 2.6-6.4 6.3-6.4 10.4 0 4.4 2.6 8.1 6.4 11.6 3.8-3.5 6.4-7.2 6.4-11.6C22.4 11.3 20.2 7.6 16 5Z" stroke="currentColor" stroke-width="1.1"/><path d="M16 11.4v9.4M12.4 15.4h7.2" stroke="var(--ds-issued)" stroke-width="1.1" stroke-linecap="round"/></svg></span>
+      <span class="word">Marin Medical Aesthetics<i>San Anselmo</i></span>
+    </a>
+    <nav class="nav" aria-label="Primary">
+      <div class="nav-item is-open">
+        <a class="nav-link" href="#" aria-haspopup="true" aria-expanded="true">Areas of Concern <span class="caret"></span></a>
+        <div class="nav-panel">
+          <div class="mega">
+            <div class="mega-col">
+              <h5>Appearance</h5>
+              <a class="idx" href="#"><span class="n">01</span><span class="t">Skin<span class="d">Texture, pigment, redness</span></span></a>
+              <a class="idx" href="#"><span class="n">02</span><span class="t">Face and structure<span class="d">Volume, contour, expression</span></span></a>
+            </div>
+            <div class="mega-col">
+              <h5>Body and function</h5>
+              <a class="idx" href="#"><span class="n">03</span><span class="t">Body<span class="d">Shape, tone, stubborn areas</span></span></a>
+              <a class="idx" href="#"><span class="n">04</span><span class="t">Function<span class="d">Pelvic floor, continence</span></span></a>
+            </div>
+            <div class="mega-rule"></div>
+            <div class="mega-note">
+              <span class="mark">&ldquo;</span>
+              <p>Every path on this list starts at the same place: an evaluation by the physician, not a
+                treatment menu.</p>
+              <span class="by">How this practice works</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="nav-item"><a class="nav-link" href="#" aria-haspopup="true" aria-expanded="false">Treatments <span class="caret"></span></a></div>
+      <div class="nav-item"><a class="nav-link" href="#">Real Results</a></div>
+      <div class="nav-item"><a class="nav-link" href="#">About</a></div>
+    </nav>
+    <div class="actions">
+      <a class="phone" href="tel:+14157854604">(415) 785-4604</a>
+      <a class="btn icon-btn" href="#" aria-label="Write to the practice"><svg viewBox="0 0 24 24" fill="none"><rect x="3" y="5.5" width="18" height="13" rx="1.5" stroke="currentColor" stroke-width="1.5"/><path d="m3.8 6.6 8.2 6 8.2-6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></a>
+    </div>
+  </div>
+</header>
+</div>
+
+<p class="spec-label">3 &nbsp;Dropdown open</p>
+<div class="spec-stage" style="padding-bottom:320px">
+<header class="hdr">
+  <div class="hdr-in">
+    <a class="emblem" href="#">
+      <span class="crest" aria-hidden="true"><svg viewBox="0 0 32 32" fill="none"><path d="M16 5c-4.2 2.6-6.4 6.3-6.4 10.4 0 4.4 2.6 8.1 6.4 11.6 3.8-3.5 6.4-7.2 6.4-11.6C22.4 11.3 20.2 7.6 16 5Z" stroke="currentColor" stroke-width="1.1"/><path d="M16 11.4v9.4M12.4 15.4h7.2" stroke="var(--ds-issued)" stroke-width="1.1" stroke-linecap="round"/></svg></span>
+      <span class="word">Marin Medical Aesthetics<i>San Anselmo</i></span>
+    </a>
+    <nav class="nav" aria-label="Primary">
+      <div class="nav-item"><a class="nav-link" href="#" aria-haspopup="true" aria-expanded="false">Areas of Concern <span class="caret"></span></a></div>
+      <div class="nav-item is-open">
+        <a class="nav-link" href="#" aria-haspopup="true" aria-expanded="true">Treatments <span class="caret"></span></a>
+        <div class="nav-panel">
+          <div class="drop">
+            <a href="#">Skin and laser</a>
+            <a href="#">Injectables</a>
+            <a href="#">Body and function</a>
+            <a href="#">Wellness</a>
+            <a href="#">All treatments</a>
+          </div>
+        </div>
+      </div>
+      <div class="nav-item"><a class="nav-link" href="#">Real Results</a></div>
+      <div class="nav-item"><a class="nav-link" href="#">About</a></div>
+    </nav>
+    <div class="actions">
+      <a class="phone" href="tel:+14157854604">(415) 785-4604</a>
+      <a class="btn icon-btn" href="#" aria-label="Write to the practice"><svg viewBox="0 0 24 24" fill="none"><rect x="3" y="5.5" width="18" height="13" rx="1.5" stroke="currentColor" stroke-width="1.5"/><path d="m3.8 6.6 8.2 6 8.2-6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></a>
+    </div>
+  </div>
+</header>
+</div>
+
+<p class="spec-label">4 &nbsp;Closing CTA</p>
+<section class="closing" id="main">
+  <span class="rule-top"></span>
+  <div class="closing-in">
+    <p class="eyebrow">The first appointment</p>
+    <h2>Start with the evaluation</h2>
+    <p class="sub">A physician health evaluation covering function as well as appearance, ending in a
+      written plan you keep.</p>
+    <p class="reassure">The evaluation decides whether a treatment is appropriate at all. If it is not,
+      you will be told so.</p>
+    <div class="cta-row">
+      <a class="btn" href="#">Book a consultation</a>
+      <a class="btn btn-ghost" href="#">What to expect</a>
+    </div>
+  </div>
+</section>
+
+<!-- pick: FOOTER-STYLES.md #4 | considered: #14,#24 | why: the centred brand block rhymes with the centred nav so the page opens and closes on one axis, which is the whole argument of this direction; #14 is already spent on direction A, and #24 is a heritage timeline that would invite a founding-year claim this practice cannot publish while its licence figure is recorded unverified. -->
+<!-- The one dark band in this direction, spent on the FOOTER rather than the closing CTA so B does not
+     repeat A's rhythm: the centred brand block lands on navy as the last impression. The crest strokes
+     are currentColor / --ds-issued rather than hardcoded navy, so the mark survives the flip instead of
+     rendering navy-on-navy. -->
+<p class="spec-label">5 &nbsp;Footer (centered brand flanked by two columns)</p>
+<footer class="ftr surface-dark">
+  <span class="grain"></span>
+  <div class="ftr-in">
+    <div>
+      <h5>Visit and hours</h5>
+      <p>100 Sir Francis Drake Blvd<br>San Anselmo, CA 94960</p>
+      <a href="tel:+14157854604">(415) 785-4604</a>
+      <div class="hours-row"><span>Monday to Friday</span><span>By appointment</span></div>
+      <div class="hours-row"><span>Saturday</span><span>By appointment</span></div>
+      <div class="hours-row"><span>Sunday</span><span>Closed</span></div>
+      <p class="hours-flag">Owner to confirm the published hour-set. Four sets are in circulation and two
+        conflict, so no specific times are shown.</p>
+    </div>
+    <div class="ftr-brand">
+      <span class="crest" aria-hidden="true"><svg viewBox="0 0 32 32" fill="none"><path d="M16 5c-4.2 2.6-6.4 6.3-6.4 10.4 0 4.4 2.6 8.1 6.4 11.6 3.8-3.5 6.4-7.2 6.4-11.6C22.4 11.3 20.2 7.6 16 5Z" stroke="currentColor" stroke-width="1.1"/><path d="M16 11.4v9.4M12.4 15.4h7.2" stroke="var(--ds-issued)" stroke-width="1.1" stroke-linecap="round"/></svg></span>
+      <div class="word">Marin Medical Aesthetics</div>
+      <p class="mark-sub">One physician. One room. An evaluation before a treatment, every time.</p>
+    </div>
+    <div>
+      <h5>Start here</h5>
+      <a href="#">Book a consultation</a>
+      <a href="#">What to expect</a>
+      <a href="#">Areas of concern</a>
+      <a href="#">Treatments</a>
+      <a href="#">Contact</a>
+    </div>
+  </div>
+  <div class="ftr-legal">
+    <span>Marin Medical Aesthetics, San Anselmo, California</span>
+    <span>Individual experiences vary.</span>
+  </div>
+</footer>
+
+<div id="mobile-drawer" aria-hidden="true" aria-label="Menu">
+  <div class="drawer__head"><button class="drawer-close" aria-label="Close menu">&#215;</button></div>
+  <nav class="drawer__nav" aria-label="Mobile">
+    <a href="#">Areas of Concern</a>
+    <div class="acc__panel"><a href="#">Skin</a><a href="#">Face and structure</a><a href="#">Body</a><a href="#">Function</a></div>
+    <a href="#">Treatments</a>
+    <div class="acc__panel"><a href="#">Skin and laser</a><a href="#">Injectables</a><a href="#">Body and function</a><a href="#">Wellness</a></div>
+    <a href="#">Real Results</a>
+    <a href="#">About</a>
+  </nav>
+  <div class="drawer__cta">
+    <a class="btn" href="#">Book a consultation</a>
+    <a class="phone" href="tel:+14157854604">(415) 785-4604</a>
+  </div>
+</div>
+
+<script>
+/* HOVER-INTENT (c): 240ms close-delay cleared on re-enter. With (a) the shared :hover scope on .nav-item
+   and (b) the .nav-panel::before bridge, a diagonal traverse from trigger to panel never collapses the menu. */
+(function () {
+  var CLOSE_MS = 240;
+  document.querySelectorAll('.nav-item').forEach(function (item) {
+    var link = item.querySelector('.nav-link');
+    var panel = item.querySelector('.nav-panel');
+    if (!panel) return;
+    var t = null;
+    function open() { clearTimeout(t); item.classList.add('is-open'); if (link) link.setAttribute('aria-expanded', 'true'); }
+    function close() { t = setTimeout(function () { item.classList.remove('is-open'); if (link) link.setAttribute('aria-expanded', 'false'); }, CLOSE_MS); }
+    item.addEventListener('mouseenter', open);
+    item.addEventListener('mouseleave', close);
+    item.addEventListener('focusin', open);
+    item.addEventListener('focusout', function (e) { if (!item.contains(e.relatedTarget)) close(); });
+    if (link) link.addEventListener('keydown', function (e) { if (e.key === 'Escape') { clearTimeout(t); item.classList.remove('is-open'); link.setAttribute('aria-expanded', 'false'); link.focus(); } });
+  });
+
+  var burger = document.querySelector('.site-header__hamburger');
+  var drawer = document.getElementById('mobile-drawer');
+  var closeBtn = document.querySelector('.drawer-close');
+  function setDrawer(open) {
+    if (!drawer || !burger) return;
+    drawer.setAttribute('aria-hidden', open ? 'false' : 'true');
+    burger.setAttribute('aria-expanded', open ? 'true' : 'false');
+    if (open) { var f = drawer.querySelector('a, button'); if (f) f.focus(); } else { burger.focus(); }
+  }
+  if (burger) burger.addEventListener('click', function () { setDrawer(drawer.getAttribute('aria-hidden') === 'true'); });
+  if (closeBtn) closeBtn.addEventListener('click', function () { setDrawer(false); });
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && drawer && drawer.getAttribute('aria-hidden') === 'false') setDrawer(false); });
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,62 @@
+/* =============================================================================
+ * BRAND CARD C — "The Evaluation Grid" — TOKENS
+ * Marin Medical Aesthetics, San Anselmo CA.
+ *
+ * THESIS: C7's measured BRAND-SIGNATURE records energy as BOLD, with the
+ * signature moves "big-stat-bands" and "large-display-type". Concepts A and B
+ * are both quieter than that measurement. This concept takes the measurement
+ * literally: oversized display type (blueprint E2, negative-tracked), decisive
+ * tinted bands (blueprint F4 wash), a real stat band (blueprint I3 counters),
+ * and the plum/gold pairing used with confidence rather than as trim.
+ *
+ * It stays a PHYSICIAN'S practice: navy still governs, nothing drifts to
+ * consumer-beauty, and no claim is made anywhere in the specimen copy.
+ *
+ * VALUES are the client's OWN measured brand (C6).
+ * ROLE MAP picked from Color theory presets #54 (HIPAA Medical), pushed.
+ * ========================================================================== */
+
+:root{
+  --ds-bg-surface:#ffffff;
+  --ds-bg-surface-2:#f2ebd6;
+  --ds-bg-surface-3:#efede1;
+  --ds-ink:#0a1929;
+  --ds-ink-soft:#5c6472;
+  --ds-accent:#073772;
+  --ds-accent-deep:#04213f;
+  --ds-accent-soft:#e4e2ed;
+  --ds-signature:#9e7299;
+  --ds-issued:#c4ad67;
+  --ds-olive:#5f5842;
+  --ds-line:#cfc9b4;
+  --ds-line-strong:#073772;
+  --ds-shadow:0 0 0 1px rgba(7,55,114,.08);
+
+  /* ---- RADIUS — near-square controls, modest surfaces: structure over softness ---- */
+  --ds-r-control:4px;
+  --ds-r-surface:10px;
+  --ds-r-pill:999px;
+
+  --ds-font-display:"Playfair Display",Georgia,"Times New Roman",serif;
+  --ds-font-body:"Poppins","Inter",system-ui,-apple-system,"Segoe UI",sans-serif;
+
+  --ds-ease:cubic-bezier(.16,.84,.44,1);
+  --ds-dur:200ms;
+}
+
+.surface-dark{
+  --ds-bg-surface:#04213f;
+  --ds-bg-surface-2:#073772;
+  --ds-bg-surface-3:#0a2c52;
+  --ds-ink:#f4f2e9;
+  --ds-ink-soft:#9fb0c6;
+  --ds-accent:#c4ad67;
+  --ds-accent-deep:#efede1;
+  --ds-accent-soft:#0a2c52;
+  --ds-signature:#c8a9c3;
+  --ds-issued:#c4ad67;
+  --ds-olive:#c9c2ab;
+  --ds-line:#1d4272;
+  --ds-line-strong:#c4ad67;
+  --ds-shadow:0 0 0 1px rgba(196,173,103,.22);
+}

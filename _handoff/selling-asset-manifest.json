@@ -1,0 +1,33 @@
+{
+  "_notes": "C9 — selling/proof asset catalogue for marin-medical-aesthetics. This manifest exists to make the ABSENCE of an owner-supplied selling kit explicit and auditable, rather than silent. UTF-8, no BOM.",
+  "_GATE": "verify-selling-assets-catalogued.mjs fires on the P7 readiness write. It enforces intake_provided_proof:true plus >=3 'present' proof_categories ONLY WHEN selling/proof source material actually exists in _inbox/. Here _inbox/ is empty (0 files, verified 2026-08-19), so the gate passes early with 'no selling/proof source material - nothing to catalogue (PASS)'. The file is still required to exist by verify-handoff-complete PHASE A (C9 of C1-C12), which is why it is written.",
+  "slug": "marin-medical-aesthetics",
+  "generated_at": "2026-08-19",
+  "phase": "P6_late",
+  "intake_provided_proof": false,
+  "_intake_provided_proof_basis": "The owner supplied NO selling or proof source material. _inbox/ contains 0 files (verified by directory walk 2026-08-19). There is no pitch deck, no flyer, no call transcript, no before/after scan export, and no press kit. This is a factual record of what was supplied, not a judgement about whether such material exists somewhere.",
+  "sources_in_inbox": [],
+  "proof_categories": {
+    "scale_stats": { "status": "absent", "note": "No owner-supplied statistics. No patient-volume, outcome or scale figure has been provided or verified. None may be authored." },
+    "before_after": { "status": "absent_from_intake", "note": "No owner-supplied before/after set. Before/after images DO exist inside the crawled estate (e.g. halo-1-before-after.png), but they are crawled site assets of unestablished rights and unestablished provenance - NOT an owner-supplied, consent-cleared proof set. Using them as proof requires owner confirmation of both rights and patient consent." },
+    "fcp": { "status": "absent", "note": "No first-contact-proof material supplied." },
+    "results": { "status": "absent", "note": "No owner-supplied treatment results documentation." },
+    "press_logos": { "status": "absent", "note": "No press kit or logo rights supplied. The estate publishes 'Award Winning' with no named award; that phrase is BANNED (C6 section 5.3) precisely because nothing substantiates it." },
+    "website_showcase": { "status": "absent", "note": "Not applicable - this IS the website project." },
+    "testimonials": { "status": "researched_not_supplied", "note": "Real, attributable third-party review language was found during P1 research and is recorded in intake-brief.md D-BRAND-RAILS-018 with named sources (Google reviews incl. Brian Ruthruff and Esme S.; an Alignable recommendation; the practice's own Instagram caption 2024-09-30). The live homepage surfaces a 4.8-star / 96-review signal. These are RESEARCHED, not owner-supplied, and the homepage testimonial text itself is JS-rendered and could NOT be verified from the snapshot. They may be used ONLY as attributed quotation, never as site voice." }
+  },
+  "categories_present_count": 0,
+  "real_imagery": {
+    "_note": "Imagery is catalogued in C7 visual-direction.md section 6, not here. Recorded for cross-reference only.",
+    "unique_valid_images_in_estate": 607,
+    "rights_established": false,
+    "vector_logo_available": false
+  },
+  "consequence_for_build": "Every brief that needs a proof number, a statistic, an award, or a consented before/after pair has NO sourced value to draw on. Those remain owner placeholders and travel to the build as such. A builder must NOT invent them: real_only is binding, and in this vertical a fabricated outcome claim is a regulatory exposure, not just an inaccuracy.",
+  "shopping_list_refs": [
+    "OWNER-DATA: consent-cleared before/after set with documented patient consent",
+    "OWNER-DATA: vector logo master (only a 16KB raster PNG exists across all 622 flagship assets)",
+    "OWNER-DECISION: confirm re-publication rights for the 607 crawled estate images",
+    "OWNER-DATA: any award actually held, if 'Award Winning' is ever to be substantiated rather than dropped"
+  ]
+}

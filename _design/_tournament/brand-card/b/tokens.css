@@ -1,0 +1,64 @@
+/* =============================================================================
+ * BRAND CARD B — "Warm Clinical / The Consulting Room" — TOKENS
+ * Marin Medical Aesthetics, San Anselmo CA.
+ *
+ * THESIS: the measured canvas is genuinely light and genuinely warm (cream at
+ * 22.1% of the live page), so this concept makes CREAM the ground rather than
+ * white, and reserves navy for ink and one deep anchoring band. Plum carries the
+ * human moments. Geometry is softer than concept A: larger surface radius, and
+ * circle-masked imagery per blueprint H2, which A declined.
+ *
+ * VALUES are the client's OWN measured brand (C6): navy #073772 (138 uses),
+ * plum #9e7299 (38), gold #c4ad67 (22), cream #efede1, olive #5f5842.
+ * ROLE MAP picked from Color theory presets #54 (HIPAA Medical), warmed.
+ *
+ * This is the ONE sheet permitted to carry brand hex.
+ * ========================================================================== */
+
+:root{
+  /* ---- COLOUR — cream-led ---- */
+  --ds-bg-surface:#f7f5ec;
+  --ds-bg-surface-2:#efede1;
+  --ds-bg-surface-3:#ffffff;
+  --ds-ink:#12243a;
+  --ds-ink-soft:#6a6f78;
+  --ds-accent:#073772;
+  --ds-accent-deep:#04213f;
+  --ds-accent-soft:#e7e4ee;
+  --ds-signature:#9e7299;
+  --ds-issued:#c4ad67;
+  --ds-olive:#5f5842;
+  --ds-line:#ddd8c6;
+  --ds-line-strong:#9e7299;
+  --ds-shadow:0 2px 10px rgba(18,36,58,.06);
+
+  /* ---- RADIUS — softer than A. Surface patterns #2 register. ---- */
+  --ds-r-control:8px;
+  --ds-r-surface:18px;
+  --ds-r-pill:999px;
+
+  /* ---- TYPE ---- */
+  --ds-font-display:"Playfair Display",Georgia,"Times New Roman",serif;
+  --ds-font-body:"Poppins","Inter",system-ui,-apple-system,"Segoe UI",sans-serif;
+
+  /* ---- MOTION ---- */
+  --ds-ease:cubic-bezier(.22,.61,.36,1);
+  --ds-dur:260ms;
+}
+
+.surface-dark{
+  --ds-bg-surface:#073772;
+  --ds-bg-surface-2:#04213f;
+  --ds-bg-surface-3:#0b3f80;
+  --ds-ink:#f7f5ec;
+  --ds-ink-soft:#b6c2d4;
+  --ds-accent:#c4ad67;
+  --ds-accent-deep:#efede1;
+  --ds-accent-soft:#0b3f80;
+  --ds-signature:#cbaac6;
+  --ds-issued:#c4ad67;
+  --ds-olive:#cdc6b0;
+  --ds-line:#1f4a80;
+  --ds-line-strong:#c4ad67;
+  --ds-shadow:0 2px 10px rgba(0,0,0,.28);
+}

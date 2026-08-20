@@ -1,0 +1,74 @@
+{
+  "schema": "handoff-receipt/v1",
+  "slug": "marin-medical-aesthetics",
+  "copied_at": "2026-08-20T07:46:18.880Z",
+  "prep_spec_root": "Code/client-site-prep/marin-medical-aesthetics/_spec",
+  "spec_manifest_checksum": "3c798d24fcfc0fcae0704795b8d93060771003639008e4fe68bf963c343b38a9",
+  "decisions_ledger_checksum": "391b08bb1a79ae5b7c1db7e2d41568a04ab7aaaae64917335556d9f1296a1d90",
+  "client_rules_checksum": "73b93a40b2911f592ea23efa0a714a9c95e033ba5bf6f9dd39cc6eeb5bcc8f62",
+  "visual_direction_checksum": "dcfb71b1fbe72b7e1b200df73a1b89d87912b815aad73ab889d46a3d365342d4",
+  "files": [
+    {
+      "id": "C1",
+      "path": "sitemap.yaml",
+      "sha256": "20278cd31e8fa3e05e4484ba6410e6121dd879672d5f306cac1e7c3725086a7d"
+    },
+    {
+      "id": "C2",
+      "path": "briefs/",
+      "sha256": "bc9f0241af02c491bf081f9287fe13d9805631156b93d06db6bb4735f5b47147"
+    },
+    {
+      "id": "C3",
+      "path": "client-rules.json",
+      "sha256": "73b93a40b2911f592ea23efa0a714a9c95e033ba5bf6f9dd39cc6eeb5bcc8f62"
+    },
+    {
+      "id": "C4",
+      "path": "content-bible.md",
+      "sha256": "c88ecac4e3d78c7409970db0b1dcd7ff54f70d9e0b51672a9588e61ba36ec3b2"
+    },
+    {
+      "id": "C5",
+      "path": "decisions-ledger.md",
+      "sha256": "391b08bb1a79ae5b7c1db7e2d41568a04ab7aaaae64917335556d9f1296a1d90"
+    },
+    {
+      "id": "C6",
+      "path": "marin-medical-aesthetics-tokens-spec.md",
+      "sha256": "033068ad0ad9e3337347443049288e59f5c5cfecb588a0bd79b6d9b7d8a8bbd7"
+    },
+    {
+      "id": "C7",
+      "path": "visual-direction.md",
+      "sha256": "dcfb71b1fbe72b7e1b200df73a1b89d87912b815aad73ab889d46a3d365342d4"
+    },
+    {
+      "id": "C8",
+      "path": "link-funnel-map.md",
+      "sha256": "a3169ca6445f275af81fade3b30584c731d403f3b082209ab374118f49629448"
+    },
+    {
+      "id": "C9",
+      "path": "selling-asset-manifest.json",
+      "sha256": "a25f78df9de9337a9d3786a33efb30f27037c9a5a1be9a871b88b638d41dc0df"
+    },
+    {
+      "id": "C10",
+      "path": "seo-manifest.json",
+      "sha256": "33fcb6d438bc4e5c0e794b046b6ffcd08575e4559f19335b3f8fc405fdbcee3a"
+    },
+    {
+      "id": "C11",
+      "path": "seo-enrichment.md",
+      "sha256": "12096e25c530b1cf100d205d6cdb1259660bae0b7e6d0d406ab786bef86ce3bc"
+    },
+    {
+      "id": "C12",
+      "path": "fact-registry.json",
+      "sha256": "f7e434d0205eb12511f74a9bc39397a30a9cf459cf19c197d3dd7bf76ecc90b5"
+    }
+  ],
+  "concat_sha256": "bc9f0241af02c491bf081f9287fe13d9805631156b93d06db6bb4735f5b47147",
+  "handoff_kickoff_checksum": null
+}
