@@ -33,8 +33,7 @@ suitable for you. In the practice's own published words:
 > teaches clients how their actions can maximize and sustain the benefits they achieve.
 
 That means the appointment covers your history, your medications, the condition in front of her, and
-how the two interact. It is the part most practices skip, and it is the reason this one is organised
-around it.
+how the two interact. It is the part this practice is organised around.
 
 ---
 
@@ -70,9 +69,8 @@ plan you cannot take away is not a plan; it is a quote.
 
 **Section heading:** Function counts as well
 
-The evaluation includes concerns most aesthetics practices do not ask about: pelvic-floor strength,
-continence, and comfort. These sit in the same appointment, in the same register, as skin and
-contour.
+The evaluation includes pelvic-floor strength, continence, and comfort. These sit in the same
+appointment, in the same register, as skin and contour.
 
 They are among the most common reasons people book and among the least often raised out loud, which
 is precisely why this practice raises them first.

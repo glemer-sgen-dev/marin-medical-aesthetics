@@ -107,9 +107,8 @@ the same weight, as everything above.
 | Urinary incontinence | Leaking with a cough, a laugh, a lift, or on the way to the bathroom. | `areas-of-concern-urinary-incontinence` |
 | Sexual function enhancement | Changes in comfort, sensation, or pelvic-floor strength. | `areas-of-concern-sexual-function-enhancement` |
 
-Most practices in this category do not list these at all. This one does, plainly and without
-euphemism, because they are among the most common reasons people book and among the least often
-named out loud.
+These are listed here plainly and without euphemism, because they are among the most common reasons
+people book and among the least often named out loud.
 
 ---
 

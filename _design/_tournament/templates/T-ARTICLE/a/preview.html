@@ -1,0 +1,388 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>T-ARTICLE concept A: The Sequence. Marin Medical Aesthetics</title>
+
+<!-- ===================== TEMPLATE CONCEPT A: "The Sequence" =====================
+  TYPE      : T-ARTICLE (2 pages: what-to-expect-during-your-med-spa-consultation-in-san-anselmo,
+              download-app). BOTH declare an IDENTICAL section_seq, so one template serves both.
+  LAID OUT  : the FINAL copy of what-to-expect-... from _copy/, unedited.
+
+  HOW THIS TYPE IS GOVERNED, verified in the gate source rather than assumed:
+    - there is NO T-ARTICLE composition gate. Nothing named T-ARTICLE appears in any verify-*.mjs,
+      so the general stack governs: G-DOM, G-DENSITY, G-SVAR, CTA singularity, brief-consumed.
+    - T-ARTICLE is NOT in verify-applied-design's IMAGERY_FLOOR_TYPES, so the CWB-063 floor of 3
+      does NOT apply, exactly as for T-LEGAL and T-CONTACT.
+    - both slugs fail verify-not-flat's MARQUEE_SLUG_RE, so heuristics (c) NO-IMAGERY,
+      (d) NO-DIVIDERS and (e) NO-DARK-RHYTHM do not fire either. Only (a) MONOTONY and
+      (b) EMPTY-PLACEHOLDER apply, and those are always-wrong regardless.
+    The locked T-LEGAL and T-INDEX templates both ship zero images and zero dark bands on the
+    same basis. That freedom is USED here rather than ignored: the asset pool holds 8 photographs
+    for 59 pages (recorded in _design/imagery-system.md), so a page with no imagery floor should
+    not spend one. This concept spends nothing.
+
+  THESIS    : the reader's hesitation is not fear and not price, it is not knowing what the
+              appointment IS. The copy answers that with a five-step sequence. So the sequence IS
+              the page: it gets the numbered spine, the full editorial weight, and everything else
+              is approach and exit. A reader who scrolls past the numbers has still learned the
+              whole shape of the appointment.
+
+  THE TRADE, STATED SO THE OWNER CAN REJECT IT: this is the most literal of the three. It answers
+  the question in the title and does not try to be more than that. If the owner wants the page to
+  do persuasive work as well as informative work, concept B leads with the objection instead.
+
+  GRAMMAR (G-DOM): section then div.container then div.row then div.col then OBJECT throughout.
+  NAMESPACE: art-, verified absent from the shared sheet before authoring (0 occurrences).
+===================================================================== -->
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap">
+<link rel="stylesheet" href="../../../../marin-medical-aesthetics-tokens.css">
+<link rel="stylesheet" href="../../../../marin-medical-aesthetics-structural.css">
+<link rel="stylesheet" href="../../../../marin-medical-aesthetics-chrome.css">
+
+<!-- The T-ARTICLE skin now lives in marin-medical-aesthetics-structural.css (linked above),
+     migrated at the LOCK step. Keeping a duplicate <style> here would let the preview and the
+     shipped page drift apart, which is exactly what this preview exists to prevent. -->
+</head>
+<body>
+
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="hdr">
+  <div class="hdr-in">
+    <a class="brand" href="index.html">Marin Medical<i>Aesthetics</i></a>
+    <nav class="nav" aria-label="Primary">
+      <div class="nav-item">
+        <a class="nav-link" href="areas-of-concern.html" aria-haspopup="true" aria-expanded="false">Areas of Concern <span class="caret"></span></a>
+        <div class="nav-panel">
+          <div class="mega">
+            <div class="mega-cols">
+              <a class="mega-card" href="areas-of-concern-acne-acne-scars.html"><span class="n">01</span><h4>Acne and acne scars</h4><p>Active breakouts and the texture they leave behind.</p></a>
+              <a class="mega-card" href="areas-of-concern-fine-lines.html"><span class="n">02</span><h4>Fine lines</h4><p>The early lines that follow expression and time.</p></a>
+              <a class="mega-card" href="areas-of-concern-sun-damage.html"><span class="n">03</span><h4>Sun damage</h4><p>Pigment, age spots and the marks of years outdoors.</p></a>
+              <a class="mega-card" href="areas-of-concern-rosacea.html"><span class="n">04</span><h4>Rosacea and redness</h4><p>Persistent flushing, redness and visible vessels.</p></a>
+            </div>
+            <div class="mega-feat">
+              <img src="../../../../../assets/hero-consult-room.jpg" alt="A quiet consultation room with natural daylight">
+              <span class="grade"></span>
+              <div class="inner">
+                <p class="eyebrow">Where every path starts</p>
+                <p class="line">The evaluation comes before the treatment, not after it.</p>
+                <a class="go" href="consultation.html">See what the appointment covers</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="nav-item">
+        <a class="nav-link" href="treatments.html" aria-haspopup="true" aria-expanded="false">Treatments <span class="caret"></span></a>
+        <div class="nav-panel">
+          <div class="drop">
+            <a href="treatments-botox-dysport.html">Botox and Dysport</a>
+            <a href="treatments-halo-laser-treatment.html">Halo laser</a>
+            <a href="treatments-microneedling.html">Microneedling</a>
+            <a href="treatments-clearsilk.html">ClearSilk</a>
+            <a href="treatments.html">All treatments</a>
+          </div>
+        </div>
+      </div>
+      <div class="nav-item"><a class="nav-link" href="success-stories.html">Success Stories</a></div>
+      <div class="nav-item"><a class="nav-link" href="about.html">About</a></div>
+      <a class="phone" href="tel:+14157854604">(415) 785-4604</a>
+      <a class="btn" href="consultation.html">Book a consultation</a>
+    </nav>
+    <button class="site-header__hamburger" aria-controls="mobile-drawer" aria-expanded="false" aria-label="Open menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<main id="main">
+
+<!-- == section 1 hero -->
+<!-- src: D-IA-006 --> <!-- Patient Resources group -->
+<!-- src: D-IA-026 --> <!-- T3 terminal tier -->
+<!-- pick: HERO-COMPOSITIONS.md #9 Cinematic letterbox hero (narrow band), text above the band rather than over it | considered: #10,#5 | why: the brief scopes this hero to one H1 in the reader's words plus a single orienting sub-line with NO claim, price or outcome, so the type has to lead and the image cannot carry copy; #9 is the only composition that lets a photograph in WITHOUT giving it the headline, which is why the band sits under the sub-line rather than behind it. The photograph is the consultation room itself, the single most useful image on a page titled what to expect at your consultation, and it earns its place rather than filling a slot. #10 headline-only was authored first and is the runner-up carried into concept B; #5 full-bleed-image-plus-overlay would put text on the photograph and force a claim-scale headline the brief forbids. | rigor: heavy -->
+<section class="art-top hero">
+  <div class="container">
+    <div class="row">
+      <div class="col">
+        <p class="art-top__kicker">Patient resources</p>
+        <h1 class="art-top__h">What to expect at your consultation</h1>
+        <p class="art-top__sub">If you have not booked because you do not know what the appointment
+          involves, this is the whole sequence, written out.</p>
+        <span class="art-top__band"><img src="../../../../../assets/hero-consult-room.jpg" alt="The consultation room: a desk, one chair, and daylight through a tall window"></span>
+        <p class="art-top__cap">The room the appointment happens in</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- == section 2 body-or-challenge -->
+<!-- src: D-OFFER-013 --> <!-- target customer / job-to-be-done -->
+<!-- src: D-BRAND-RAILS-016 --> <!-- the live baseline capture, rewritten rather than re-published -->
+<!-- pick: SECTION-COMPONENTS.md #7 Problem framing, as a heading-left / reasoning-right split with the consequence landing on a hairline below | considered: #8,#26 | why: the brief asks this section to state why people put the appointment off and to do it without fear-selling, which is exactly the job #7 is scoped to; the split keeps the claim short enough to read as a statement rather than a pitch, and the consequence line sits under a rule so the section ends on the cost of the hesitation instead of trailing off. #8 manifesto is a belief statement and this is an observation about the reader, not a creed; #26 pull-quote has no quotation to carry here. | rigor: heavy -->
+<section class="art-frame body-or-challenge surface-warm" style="background-image:url(../../../../../assets/texture-cream-band.jpg)">
+  <div class="container">
+    <div class="row row--frame">
+      <div class="col">
+        <h2 class="art-frame__h">The reason people put this off</h2>
+      </div>
+      <div class="col">
+        <p class="art-frame__p">Usually not cost, and usually not nerves about a treatment. It is not
+          knowing what the appointment actually is. There is a widespread and reasonable expectation
+          that a consultation at an aesthetics practice is a sales meeting with a device catalogue,
+          and that saying yes to the appointment is most of the way to saying yes to a treatment.</p>
+        <p class="art-frame__land">So people wait, research alone, and arrive months later with a
+          device name they picked themselves.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- == section 3 solution-or-detail: the spine -->
+<!-- src: D-OFFER-014 --> <!-- the practice's own published positioning, quoted in full and never excerpted -->
+<!-- src: D-OFFER-009 --> <!-- the consultation is the entry offer -->
+<!-- pick: SECTION-COMPONENTS.md #27 Numbered process steps (1-2-3-4), taken to five and set as a hairline register rather than cards | considered: #28,#12 | why: the copy for this section IS an ordered sequence of five beats with a bold lead-in each, so the catalog entry scoped to numbered process steps is the literal match and the numbering is content, not decoration; a hairline register rather than a card grid because five cards of prose would trip MONOTONY and would make step 2, which carries the published verbatim as a blockquote, structurally identical to steps that carry one sentence. #28 horizontal timeline cannot hold a paragraph plus a quotation per beat at this width, and #12 feature-row-with-screenshot needs a screenshot. | rigor: heavy -->
+<section class="art-seq solution-or-detail">
+  <div class="container">
+    <div class="row">
+      <div class="col">
+        <h2 class="art-seq__h">The sequence, step by step</h2>
+
+        <div class="art-step">
+          <span class="art-step__n">01</span>
+          <div>
+            <p class="art-step__lead">You describe the concern in your own words.</p>
+            <p class="art-step__p">Not a treatment name. What you have noticed, how long it has been
+              there, what changes it, and what you have already tried.</p>
+          </div>
+        </div>
+
+        <div class="art-step">
+          <span class="art-step__n">02</span>
+          <div>
+            <p class="art-step__lead">Dr. Bacchi performs a physician health evaluation.</p>
+            <p class="art-step__p">This covers your history, your medications and other conditions,
+              and the concern itself. It looks at function as well as appearance, so pelvic-floor
+              strength and continence are asked about in the same appointment as skin and contour.
+              In the practice's own published words:</p>
+            <blockquote class="art-quote">
+              <p>as part of any treatment, she does a comprehensive health evaluation to minimize
+                side effects and teaches clients how their actions can maximize and sustain the
+                benefits they achieve.</p>
+              <cite>The practice's own published words</cite>
+            </blockquote>
+          </div>
+        </div>
+
+        <div class="art-step">
+          <span class="art-step__n">03</span>
+          <div>
+            <p class="art-step__lead">Your current products and routine are reviewed.</p>
+            <p class="art-step__p">This matters more often than people expect, and the first
+              recommendation is frequently to stop something rather than to start something.</p>
+          </div>
+        </div>
+
+        <div class="art-step">
+          <span class="art-step__n">04</span>
+          <div>
+            <p class="art-step__lead">You are told what is appropriate, and what is not.</p>
+            <p class="art-step__p">Including, sometimes, that nothing here is, or that another kind
+              of doctor is the right next step.</p>
+          </div>
+        </div>
+
+        <div class="art-step">
+          <span class="art-step__n">05</span>
+          <div>
+            <p class="art-step__lead">You leave with a written plan.</p>
+            <p class="art-step__p">What was assessed, what is recommended, in what order, and what to
+              expect in between. It is yours to keep, to think about, and to take elsewhere for a
+              second opinion.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- == section 4 result-or-takeaway -->
+<!-- src: D-OFFER-007 --> <!-- quote-only / consultation-led pricing, the practice's own published line -->
+<!-- src: D-OFFER-008 --> <!-- the price ladder is a non-publishable placeholder: no figure appears -->
+<!-- pick: SECTION-COMPONENTS.md #33 Custom-quote driver, paired with two bordered notes for the two practical questions | considered: #6,#31 | why: the brief forbids any price, any from-X and any package figure, and scopes the ONLY publishable cost language to the practice's own verbatim sentence, which is precisely the custom-quote-driver shape: it states how pricing is arrived at instead of showing a number. The two notes beside it answer what a reader still needs before booking, cost and what to bring, without turning either into a card grid. #31 pricing-3-tier would require figures that are non-publishable, and #6 is-this-for-me is a qualifier rather than a commitment statement. | rigor: heavy -->
+<section class="art-commit result-or-takeaway surface-warm" style="background-image:url(../../../../../assets/texture-cream-band.jpg)">
+  <div class="container">
+    <div class="row row--pair">
+      <div class="col">
+        <h2 class="art-commit__h">What you are committing to</h2>
+        <p class="art-commit__p">The people who book this appointment are typically adults roughly
+          35-65 across Marin County who want visible improvement in skin, body contour or
+          pelvic-floor function, and who want a physician evaluating whether a treatment is
+          appropriate for them at all.</p>
+        <p class="art-commit__hard">Booking the consultation commits you to the consultation.
+          Nothing else.</p>
+        <p class="art-commit__p">You are not required to book a treatment on the day, and treatment
+          is not the default outcome of the appointment. An evaluation determines whether a treatment
+          is appropriate at all. It is not a safety or outcome guarantee.</p>
+      </div>
+      <div class="col">
+        <div class="art-note wow-lift">
+          <span class="art-note__k">On cost</span>
+          <p class="art-note__p">Quote-only pricing. During your consultation, we will build a
+            customized treatment plan with packaged pricing. No price list is published here because
+            a real figure depends on what the evaluation finds.</p>
+        </div>
+        <div class="art-note wow-lift">
+          <span class="art-note__k">What to bring</span>
+          <p class="art-note__p">A list of your current medications and the skincare products you are
+            actually using, plus any history relevant to the concern.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- == section 5 cross-links -->
+<!-- src: D-IA-001 --> <!-- the /areas-of-concern/ hub, the concern-led entry layer -->
+<!-- src: D-IA-003 --> <!-- the Consultation endpoint, the single conversion point -->
+<!-- pick: SECTION-COMPONENTS.md #50 Topic columns, three across with a gold rule over each | considered: #40,#45 | why: the brief scopes this to XS and asks for ONE line of context per link, which is a topic-column list and not a call-to-action band; #50 keeps each route legible as a choice the reader makes rather than a push. #40 pre-footer CTA band would be a SECOND closing band on a page whose one closing band is the locked chrome below, which verify-cta-singularity reads directly off any *cta* class on a main section in the tail, and #45 category chips strips the one line of context the brief requires. | rigor: heavy -->
+<section class="art-exits cross-links">
+  <div class="container">
+    <div class="row">
+      <div class="col">
+        <h2 class="art-exits__h">Next</h2>
+      </div>
+    </div>
+    <div class="row row--exits">
+      <div class="col">
+        <a class="art-exit" href="consultation.html">
+          <span class="art-exit__t">Book a consultation</span>
+          <span class="art-exit__p">The appointment this page describes.</span>
+        </a>
+      </div>
+      <div class="col">
+        <a class="art-exit" href="areas-of-concern.html">
+          <span class="art-exit__t">Explore areas of concern</span>
+          <span class="art-exit__p">If you would rather start from what you have noticed.</span>
+        </a>
+      </div>
+      <div class="col">
+        <a class="art-exit" href="treatments.html">
+          <span class="art-exit__t">Browse treatments</span>
+          <span class="art-exit__p">If you already know the device name.</span>
+        </a>
+      </div>
+      <div class="col">
+        <a class="art-exit" href="about.html">
+          <span class="art-exit__t">Meet Dr. Bacchi</span>
+          <span class="art-exit__p">The physician who performs the evaluation.</span>
+        </a>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <a class="art-tel" href="tel:+14157854604">Call (415) 785-4604</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- The ONE pre-footer CTA on this page is the LOCKED CHROME's closing band below.
+     main deliberately ends without a closing CTA section (composition rule 3). -->
+<section class="closing precta surface-dark">
+  <span class="glow"></span><span class="grain2"></span>
+  <div class="closing-in">
+    <h2>Start with the evaluation</h2>
+    <p class="sub">A physician health evaluation covering function as well as appearance, ending in a
+      written plan you keep.</p>
+    <p class="reassure">The evaluation decides whether a treatment is appropriate at all. If it is not,
+      you will be told so.</p>
+    <div class="cta-row">
+      <a class="btn" href="consultation.html">Book a consultation</a>
+      <a class="btn btn-ghost" href="contact.html">Contact the practice</a>
+    </div>
+  </div>
+</section>
+
+<footer class="ftr">
+  <div class="ftr-in">
+    <div>
+      <h5>Visit</h5>
+      <p>100 Sir Francis Drake Blvd<br>San Anselmo, CA 94960</p>
+      <a href="tel:+14157854604">(415) 785-4604</a>
+    </div>
+    <div>
+      <h5>Hours</h5>
+      <div class="hours-row"><span>Monday to Friday</span><span>By appointment</span></div>
+      <div class="hours-row"><span>Saturday</span><span>By appointment</span></div>
+      <div class="hours-row"><span>Sunday</span><span>Closed</span></div>
+      <p class="hours-flag">Owner to confirm the published hour-set. Four sets are in circulation and
+        two conflict, so no specific times are shown here.</p>
+    </div>
+    <div>
+      <h5>Start here</h5>
+      <a href="consultation.html">Book a consultation</a>
+      <a href="areas-of-concern.html">Areas of concern</a>
+      <a href="treatments.html">Treatments</a>
+      <a href="contact.html">Contact</a>
+    </div>
+  </div>
+  <div class="ftr-legal">
+    <span>Marin Medical Aesthetics, San Anselmo, California</span>
+    <span>Individual experiences vary.</span>
+  </div>
+</footer>
+
+<div id="mobile-drawer" aria-hidden="true" aria-label="Menu">
+  <div class="drawer__head"><button class="drawer-close" aria-label="Close menu">&#215;</button></div>
+  <nav class="drawer__nav" aria-label="Mobile">
+    <a href="areas-of-concern.html">Areas of Concern</a>
+    <div class="acc__panel"><a href="areas-of-concern-acne-acne-scars.html">Acne and acne scars</a><a href="areas-of-concern-fine-lines.html">Fine lines</a><a href="areas-of-concern-sun-damage.html">Sun damage</a><a href="areas-of-concern-rosacea.html">Rosacea and redness</a></div>
+    <a href="treatments.html">Treatments</a>
+    <div class="acc__panel"><a href="treatments-botox-dysport.html">Botox and Dysport</a><a href="treatments-halo-laser-treatment.html">Halo laser</a><a href="treatments-microneedling.html">Microneedling</a><a href="treatments-clearsilk.html">ClearSilk</a></div>
+    <a href="success-stories.html">Success Stories</a>
+    <a href="about.html">About</a>
+    <a href="tel:+14157854604">(415) 785-4604</a>
+  </nav>
+  <div class="drawer__cta"><a class="btn" href="consultation.html">Book a consultation</a></div>
+</div>
+
+<script>
+(function () {
+  var CLOSE_MS = 240;
+  document.querySelectorAll('.nav-item').forEach(function (item) {
+    var link = item.querySelector('.nav-link');
+    var panel = item.querySelector('.nav-panel');
+    if (!panel) return;
+    var t = null;
+    function open() { clearTimeout(t); item.classList.add('is-open'); if (link) link.setAttribute('aria-expanded', 'true'); }
+    function close() { t = setTimeout(function () { item.classList.remove('is-open'); if (link) link.setAttribute('aria-expanded', 'false'); }, CLOSE_MS); }
+    item.addEventListener('mouseenter', open);
+    item.addEventListener('mouseleave', close);
+    item.addEventListener('focusin', open);
+    item.addEventListener('focusout', function (e) { if (!item.contains(e.relatedTarget)) close(); });
+  });
+  var burger = document.querySelector('.site-header__hamburger');
+  var drawer = document.getElementById('mobile-drawer');
+  var closeBtn = document.querySelector('.drawer-close');
+  function setDrawer(open) {
+    if (!drawer || !burger) return;
+    drawer.setAttribute('aria-hidden', open ? 'false' : 'true');
+    burger.setAttribute('aria-expanded', open ? 'true' : 'false');
+  }
+  if (burger) burger.addEventListener('click', function () { setDrawer(drawer.getAttribute('aria-hidden') === 'true'); });
+  if (closeBtn) closeBtn.addEventListener('click', function () { setDrawer(false); });
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && drawer && drawer.getAttribute('aria-hidden') === 'false') setDrawer(false); });
+})();
+</script>
+</body>
+</html>

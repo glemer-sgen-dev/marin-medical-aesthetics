@@ -1,0 +1,432 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>T-HUB concept C: Four Doors. Marin Medical Aesthetics</title>
+
+<!-- ===================== TEMPLATE CONCEPT C: "Four Doors" =====================
+  TYPE      : T-HUB (4 pages: areas-of-concern, treatments, before-after-photos, success-stories)
+  LAID OUT  : the FINAL copy of `areas-of-concern` from _copy/areas-of-concern.md, unedited
+  THESIS    : the visitor arriving at the site's front door is often NOT yet ready to name a
+              concern precisely; they know roughly where the problem is. So the routing layer is
+              four large photographic DOORS in one row — skin, face and structure, body, function —
+              each carrying its own concerns inside the card. You choose the room first and the
+              word second. Concept A files by group and concept B puts the whole filing cabinet on
+              one spread; this one asks a bigger, softer question and lets the photographs answer it.
+
+  THE TRADE, STATED SO THE OWNER CAN REJECT IT: this is the most photographic of the three and
+  therefore the most expensive against an eight-photograph pool (see _design/imagery-system.md §3).
+  It spends five images on one page and every T-HUB page after it will want the same. It is also
+  the slowest to scan: a visitor who already knows the word "melasma" has to open a door to find
+  it, which is exactly the reader concept B optimises for.
+
+  CROSS-TYPE DISTINCTNESS (G14): the locked T-FEATURE template is a nine-section paragraph-dense
+  argument page. This is a four-section page whose middle is a single image-dense card grid.
+
+  COMPOSITION LAW compliance (SKILL.md § PAGE COMPOSITION):
+   - rule 2  no two adjacent sections repeat a shape: letterbox hero / dark split order-rail /
+             four-across photographic door row / routing cluster.
+   - rule 5  the doors were a 2x2 in the first draft and rendered 1.8vh against the 1.65vh
+             ceiling at density 371. G-DENSITY caught it; four across halved the height.
+   - rule 3  EXACTLY ONE pre-footer CTA, and it is the LOCKED CHROME's closing band. The copy's
+             section 8 closing lines ride INSIDE the routing band, never as a second section
+             (G-CTA1 counts any *cta* class on a main section in the tail as a second band).
+   - rule 4  every media frame is aspect-ratio capped + object-fit:cover, hero included.
+   - rule 7  every grid-track media frame carries width:100% + min-width:0.
+
+  ROUTING INTEGRITY: all 23 links_to targets are real hrefs (21 concerns + consultation +
+  treatments), every one inside its door.
+
+  GRAMMAR (G-DOM): section > div.container > div.row > div.col > OBJECT throughout.
+===================================================================== -->
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap">
+<link rel="stylesheet" href="../../../../marin-medical-aesthetics-tokens.css">
+<link rel="stylesheet" href="../../../../marin-medical-aesthetics-structural.css">
+<link rel="stylesheet" href="../../../../marin-medical-aesthetics-chrome.css">
+
+<style>
+/* T-HUB concept C skin. Objects only, never on .container/.row/.col (R5). Token-pure, zero hex. */
+
+/* --- structure modifiers (layout only, no skin) --- */
+.row--order{display:grid;grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr);gap:var(--ds-space-2xl);align-items:start}
+.row--doors{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:var(--ds-space-md);align-items:stretch}
+
+/* --- section grounds --- */
+.kit-cover2{padding:0 0 calc(var(--ds-section-py) * .85)}
+.kit-rail{position:relative;overflow:hidden;background:var(--ds-bg-surface);padding:calc(var(--ds-section-py) * .9) 0;background-size:cover;background-position:center;background-blend-mode:soft-light}
+.kit-rail .container{position:relative}
+.kit-doors{padding:var(--ds-section-py) 0;background:var(--ds-bg-surface-2)}
+.kit-out{padding:calc(var(--ds-section-py) * .9) 0;background:var(--ds-bg-surface-3);border-top:1px solid var(--ds-line)}
+
+/* --- the threshold band --- */
+.kit-wide{display:block;position:relative;width:100%;min-width:0;overflow:hidden;aspect-ratio:16/6;max-height:520px;background:var(--ds-accent)}
+.kit-wide img{width:100%;height:100%;object-fit:cover;display:block}
+.kit-wide .veil{position:absolute;inset:0;background:var(--ds-accent);opacity:var(--ds-opacity-scrim);pointer-events:none}
+.kit-wide .set{position:absolute;left:0;right:0;bottom:0;padding:0 var(--ds-space-lg) var(--ds-space-xl)}
+.kit-wide .set > *{max-width:var(--ds-container-max);margin-inline:auto}
+.kit-over{font-family:var(--ds-font-display);font-size:62px;line-height:1.02;letter-spacing:-.04em;font-weight:700;color:var(--ds-bg-surface);margin:0;max-width:16ch}
+.kit-overlab{font-size:10px;letter-spacing:.3em;text-transform:uppercase;color:var(--ds-issued);margin:0 0 14px}
+.kit-under{font-size:18.5px;line-height:1.62;color:var(--ds-ink-soft);margin:var(--ds-space-lg) 0 0;max-width:44rem}
+
+/* --- the order rail --- */
+.kit-mark{border-left:3px solid var(--ds-issued);padding:2px 0 2px 20px;margin-bottom:var(--ds-space-md)}
+.kit-mark .n{display:block;font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--ds-issued);margin-bottom:6px}
+.kit-mark .t{display:block;font-family:var(--ds-font-display);font-size:19px;line-height:1.26;color:var(--ds-accent);margin-bottom:5px}
+.kit-mark .d{display:block;font-size:14.5px;line-height:1.64;color:var(--ds-ink-soft)}
+.kit-evidence{font-family:var(--ds-font-display);font-size:21px;line-height:1.46;color:var(--ds-accent);margin:0 0 10px;max-width:40rem}
+.kit-evsrc{font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--ds-olive);margin:0 0 var(--ds-space-md)}
+.kit-limit{padding-top:14px;border-top:1px solid var(--ds-line);font-size:13.5px;line-height:1.66;color:var(--ds-ink-soft);max-width:44rem}
+
+/* --- the doors --- */
+.kit-door{display:block;height:100%;overflow:hidden;border-radius:var(--ds-r-surface);background:var(--ds-bg-surface);box-shadow:var(--ds-shadow-card)}
+.kit-doorpic{display:block;position:relative;width:100%;min-width:0;overflow:hidden;aspect-ratio:16/9;max-height:150px;background:var(--ds-bg-surface-3)}
+.kit-doorpic img{width:100%;height:100%;object-fit:cover;display:block}
+.kit-doorbody{padding:20px 20px 22px}
+.kit-doorname{font-family:var(--ds-font-display);font-size:23px;line-height:1.14;letter-spacing:-.018em;color:var(--ds-accent);margin:0 0 6px}
+.kit-doorsub{font-size:14.5px;line-height:1.6;color:var(--ds-ink-soft);margin:0 0 16px}
+.kit-doorlink{display:block;padding:8px 0;border-top:1px solid var(--ds-line);font-size:14px;line-height:1.3;color:var(--ds-accent);text-decoration:none;transition:color var(--ds-dur-fast) var(--ds-ease),border-color var(--ds-dur-fast) var(--ds-ease)}
+.kit-doorlink:hover,.kit-doorlink:focus-visible{color:var(--ds-issued);border-top-color:var(--ds-issued)}
+.kit-doornote{margin:16px 0 0;padding-top:14px;border-top:2px solid var(--ds-issued);font-size:13.5px;line-height:1.64;color:var(--ds-ink-soft)}
+
+/* --- routing --- */
+.kit-outp{font-size:16.5px;line-height:1.7;color:var(--ds-ink-soft);margin:0 0 var(--ds-space-md);max-width:46rem}
+.kit-last{margin:var(--ds-space-lg) 0 0;padding-top:var(--ds-space-md);border-top:2px solid var(--ds-issued)}
+.kit-last .h{font-family:var(--ds-font-display);font-size:25px;line-height:1.2;color:var(--ds-accent);margin:0 0 10px}
+.kit-last .s{font-size:15.5px;line-height:1.7;color:var(--ds-ink-soft);margin:0 0 18px;max-width:42rem}
+
+/* Geometry-SAFE globals overlay (verify-globals-overlay): colour/shadow/motion only, never geometry. */
+.wow-lift{transition:transform var(--ds-dur-fast) var(--ds-ease-out),box-shadow var(--ds-dur-fast) var(--ds-ease-out)}
+.wow-lift:hover,.wow-lift:focus-within{transform:translateY(-4px);box-shadow:var(--ds-shadow-lift)}
+@media (prefers-reduced-motion:reduce){.wow-lift{transition:none}.wow-lift:hover,.wow-lift:focus-within{transform:none}}
+
+@media (max-width:640px){
+  .row--doors{grid-template-columns:minmax(0,1fr)}
+}
+@media (max-width:900px){
+  .row--order{grid-template-columns:minmax(0,1fr);gap:var(--ds-space-md)}
+  .row--doors{grid-template-columns:repeat(2,minmax(0,1fr));gap:var(--ds-space-sm)}
+  .kit-wide{aspect-ratio:4/3;max-height:340px}
+  .kit-wide .set{padding:0 var(--ds-space-sm) var(--ds-space-md)}
+  .kit-over{font-size:31px;max-width:none}
+  .kit-doorpic{aspect-ratio:16/9;max-height:180px}
+  .kit-doorname{font-size:22px}
+  .kit-evidence{font-size:18px}
+}
+</style>
+</head>
+<body>
+
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="hdr">
+  <div class="hdr-in">
+    <a class="brand" href="index.html">Marin Medical<i>Aesthetics</i></a>
+    <nav class="nav" aria-label="Primary">
+      <div class="nav-item">
+        <a class="nav-link" href="areas-of-concern.html" aria-haspopup="true" aria-expanded="false">Areas of Concern <span class="caret"></span></a>
+        <div class="nav-panel">
+          <div class="mega">
+            <div class="mega-cols">
+              <a class="mega-card" href="areas-of-concern-acne-acne-scars.html"><span class="n">01</span><h4>Acne and acne scars</h4><p>Active breakouts and the texture they leave behind.</p></a>
+              <a class="mega-card" href="areas-of-concern-fine-lines.html"><span class="n">02</span><h4>Fine lines</h4><p>The early lines that follow expression and time.</p></a>
+              <a class="mega-card" href="areas-of-concern-sun-damage.html"><span class="n">03</span><h4>Sun damage</h4><p>Pigment, age spots and the marks of years outdoors.</p></a>
+              <a class="mega-card" href="areas-of-concern-rosacea.html"><span class="n">04</span><h4>Rosacea and redness</h4><p>Persistent flushing, redness and visible vessels.</p></a>
+            </div>
+            <div class="mega-feat">
+              <img src="../../../../../assets/hero-consult-room.jpg" alt="A quiet consultation room with natural daylight">
+              <span class="grade"></span>
+              <div class="inner">
+                <p class="eyebrow">Where every path starts</p>
+                <p class="line">The evaluation comes before the treatment, not after it.</p>
+                <a class="go" href="consultation.html">See what the appointment covers</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="nav-item">
+        <a class="nav-link" href="treatments.html" aria-haspopup="true" aria-expanded="false">Treatments <span class="caret"></span></a>
+        <div class="nav-panel">
+          <div class="drop">
+            <a href="treatments-botox-dysport.html">Botox and Dysport</a>
+            <a href="treatments-halo-laser-treatment.html">Halo laser</a>
+            <a href="treatments-microneedling.html">Microneedling</a>
+            <a href="treatments-clearsilk.html">ClearSilk</a>
+            <a href="treatments.html">All treatments</a>
+          </div>
+        </div>
+      </div>
+      <div class="nav-item"><a class="nav-link" href="success-stories.html">Success Stories</a></div>
+      <div class="nav-item"><a class="nav-link" href="about.html">About</a></div>
+      <a class="phone" href="tel:+14157854604">(415) 785-4604</a>
+      <a class="btn" href="consultation.html">Book a consultation</a>
+    </nav>
+    <button class="site-header__hamburger" aria-controls="mobile-drawer" aria-expanded="false" aria-label="Open menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<main id="main">
+
+<!-- == §1 hero: start from the concern -->
+<!-- src: D-IA-001 --> <!-- Areas of Concern is the concern-led entry layer, slug unchanged -->
+<!-- src: D-IA-024 --> <!-- T1 hub tier -->
+<!-- pick: HERO-COMPOSITIONS.md #9 Cinematic letterbox hero (narrow band) | considered: #5,#1 | why: this concept routes by ROOM rather than by word, so the hero has to establish that the rooms are real before the four doors appear, and a letterbox band does that in a third of the height a full-bleed hero would take on the site front door; #5 full-bleed pushes the doors below the fold and #1 split-with-photo spends half the width on type this page states more briefly underneath. | rigor: heavy -->
+<section class="kit-cover2 hero-category-outcome">
+  <div class="container container--full">
+    <div class="row">
+      <div class="col">
+        <span class="kit-wide" style="aspect-ratio:16/6;max-height:520px;overflow:hidden">
+          <img src="../../../../../assets/treatment-room.jpg" alt="A treatment room set up and waiting, lit by daylight" style="width:100%;height:100%;object-fit:cover">
+          <span class="veil"></span>
+          <span class="set">
+            <p class="kit-overlab">Start from what you have noticed</p>
+            <h1 class="kit-over">Areas of concern in San Anselmo</h1>
+          </span>
+        </span>
+      </div>
+    </div>
+  </div>
+  <div class="container">
+    <div class="row">
+      <div class="col">
+        <p class="kit-under">Start here, with what you have actually noticed. This page is the front
+          door of the site, and it comes before the treatment index on purpose: naming the concern is
+          the first step, and choosing a device is a later one that belongs to the physician.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- == §2 why the concern comes before the device -->
+<!-- src: D-OFFER-014 --> <!-- the held-positioning verbatim, quoted in full and unexcerpted -->
+<!-- pick: SECTION-COMPONENTS.md #12 Feature row with screenshot, inverted so the ORDER is the figure and the evidence the ground | considered: #8,#3 | why: the copy states an order and then supports it with the practice own published sentence, which is a figure-and-ground relationship rather than three equal beats, so the order marks sit left and the evidence sits right where it reads as support rather than as a fourth step; #8 manifesto flattens the order into a creed and #3 stat-strip has no counted figure. | rigor: heavy -->
+<section class="kit-rail why-this-area-wedge surface-dark" style="background-image:url(../../../../../assets/texture-navy-band.jpg)">
+  <div class="container">
+    <div class="row row--order">
+      <div class="col">
+        <h2 class="kit-h2">Concern first, then evaluation, then a plan</h2>
+        <div class="kit-mark"><span class="n">Step one</span><span class="t">You name it</span><span class="d">You name what is bothering you.</span></div>
+        <div class="kit-mark"><span class="n">Step two</span><span class="t">A physician evaluates it</span><span class="d">A physician evaluates what is actually going on and decides what is appropriate.</span></div>
+        <div class="kit-mark"><span class="n">Step three</span><span class="t">You leave with a plan</span><span class="d">The output is a written plan you keep.</span></div>
+      </div>
+      <div class="col">
+        <p class="kit-p">That order is the whole architecture of this practice, and it is why the
+          concern list, not the device list, is the thing you meet first.</p>
+        <p class="kit-evidence">as part of any treatment, she does a comprehensive health evaluation
+          to minimize side effects and teaches clients how their actions can maximize and sustain the
+          benefits they achieve.</p>
+        <p class="kit-evsrc">The practice's own published words, on the evaluation reaching further than the mirror</p>
+        <p class="kit-limit">An evaluation determines whether a treatment is appropriate at all. It is
+          not a safety or outcome guarantee.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- == §3-§6 the four doors -->
+<!-- src: D-IA-018 --> <!-- concern group: Skin -->
+<!-- src: D-IA-019 --> <!-- concern group: Face and structure -->
+<!-- src: D-IA-020 --> <!-- concern group: Body -->
+<!-- src: D-IA-021 --> <!-- concern group: Function, 2 leaves -->
+<!-- pick: CARD-VARIATIONS.md #1 Image-top card, run as a four-across row of full-height DOORS | considered: #9,#11 | why: this concept routes by room rather than by word, and an image-top card is the only shape that lets a photograph introduce a group and its concerns live inside the same object, so the four groups stay siblings at equal weight in one viewport; #9 services-3-col cannot hold nine concerns per card and #11 media-and-list would force four separate bands, which is concept A. | rigor: heavy -->
+<section class="kit-doors sub-area-skin sub-area-face-structure sub-area-body sub-area-function surface-warm">
+  <div class="container">
+    <div class="row">
+      <div class="col">
+        <p class="kit-label">Four groups, twenty-one concerns</p>
+        <h2 class="kit-h2">Choose the area, then the word</h2>
+      </div>
+    </div>
+    <div class="row row--doors">
+      <div class="col">
+        <div class="kit-door wow-lift">
+          <span class="kit-doorpic"><img src="../../../../../assets/skincare-still-life.jpg" alt="Unbranded skincare containers in frosted glass on a pale surface"></span>
+          <div class="kit-doorbody">
+            <p class="kit-doorname">Skin</p>
+            <p class="kit-doorsub">Texture, pigment, redness, and the changes that follow sun and time.</p>
+            <a class="kit-doorlink" href="areas-of-concern-acne-acne-scars.html">Acne and acne scars</a>
+            <a class="kit-doorlink" href="areas-of-concern-age-spots.html">Age spots</a>
+            <a class="kit-doorlink" href="areas-of-concern-hyperpigmentation.html">Hyperpigmentation</a>
+            <a class="kit-doorlink" href="areas-of-concern-melasma.html">Melasma</a>
+            <a class="kit-doorlink" href="areas-of-concern-sun-damage.html">Sun damage</a>
+            <a class="kit-doorlink" href="areas-of-concern-uneven-skin-texture.html">Uneven skin texture</a>
+            <a class="kit-doorlink" href="areas-of-concern-rosacea.html">Rosacea</a>
+            <a class="kit-doorlink" href="areas-of-concern-broken-capillaries.html">Broken capillaries</a>
+            <a class="kit-doorlink" href="areas-of-concern-spider-veins.html">Spider veins</a>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="kit-door wow-lift">
+          <span class="kit-doorpic"><img src="../../../../../assets/detail-linen-tray.jpg" alt="A folded linen towel and a stainless tray on a pale surface"></span>
+          <div class="kit-doorbody">
+            <p class="kit-doorname">Face and structure</p>
+            <p class="kit-doorsub">Volume, contour, and the way the face carries expression.</p>
+            <a class="kit-doorlink" href="areas-of-concern-fine-lines.html">Fine lines</a>
+            <a class="kit-doorlink" href="areas-of-concern-wrinkles.html">Wrinkles</a>
+            <a class="kit-doorlink" href="areas-of-concern-jowls.html">Jowls</a>
+            <a class="kit-doorlink" href="areas-of-concern-turkey-neck.html">Turkey neck</a>
+            <a class="kit-doorlink" href="areas-of-concern-double-chin.html">Double chin</a>
+            <a class="kit-doorlink" href="areas-of-concern-loose-skin.html">Loose skin</a>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="kit-door wow-lift">
+          <span class="kit-doorpic"><img src="../../../../../assets/marin-landscape.jpg" alt="Golden rolling hills and scattered oaks in Marin County"></span>
+          <div class="kit-doorbody">
+            <p class="kit-doorname">Body</p>
+            <p class="kit-doorsub">Shape, tone, and the areas that do not respond to effort alone.</p>
+            <a class="kit-doorlink" href="areas-of-concern-cellulite.html">Cellulite</a>
+            <a class="kit-doorlink" href="areas-of-concern-stubborn-fat.html">Stubborn fat</a>
+            <a class="kit-doorlink" href="areas-of-concern-core-strength.html">Core strength</a>
+            <a class="kit-doorlink" href="areas-of-concern-muscle-development.html">Muscle development</a>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="kit-door wow-lift">
+          <span class="kit-doorpic"><img src="../../../../../assets/reception-warm.jpg" alt="A warm reception area with a linen bench and morning light"></span>
+          <div class="kit-doorbody">
+            <p class="kit-doorname">Function</p>
+            <p class="kit-doorsub">Some of what changes is not visible at all. These concerns are
+              treated here in the same register, at the same weight, as everything above.</p>
+            <a class="kit-doorlink" href="areas-of-concern-urinary-incontinence.html">Urinary incontinence</a>
+            <a class="kit-doorlink" href="areas-of-concern-sexual-function-enhancement.html">Sexual function enhancement</a>
+            <p class="kit-doornote">Listed here plainly and without euphemism, because they are among
+              the most common reasons people book and among the least often named out loud.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- == §7 routing band, carrying the copy's section 8 closing lines inline -->
+<!-- src: D-OFFER-006 --> <!-- primary conversion goal: book a consultation -->
+<!-- pick: CTA-PATTERNS.md #7 Multi-CTA cluster (primary + secondary horizontal) | considered: #11,#6 | why: the page ends on a genuine fork (book the evaluation, or go to the treatment index if you already know the device name) and a primary-plus-secondary cluster presents a fork without ranking one route as a mistake; #11 full-width band CTA would read as a second closing band against the locked chrome precta, and #6 ghost text-link is too quiet to close the site front door. | rigor: heavy -->
+<section class="kit-out routing-band surface-warm">
+  <div class="container">
+    <div class="row">
+      <div class="col">
+        <h2 class="kit-h2">How this works</h2>
+        <p class="kit-outp">Pick the concern that fits. It routes to a physician evaluation, and the
+          evaluation produces the plan. If you already know the device name and would rather start
+          there, the treatment index is the other way in.</p>
+        <div class="cta-row">
+          <a class="btn" href="consultation.html">Book a consultation</a>
+          <a class="btn btn-ghost" href="treatments.html">Browse treatments</a>
+        </div>
+        <div class="kit-last closing-cta">
+          <p class="h">Start with the evaluation</p>
+          <p class="s">A physician health evaluation covering function as well as appearance, ending in
+            a written plan you keep.</p>
+          <div class="cta-row">
+            <a class="btn" href="consultation.html">Book a consultation</a>
+            <a class="btn btn-ghost" href="treatments.html">Explore treatments</a>
+            <a class="btn btn-ghost" href="tel:+14157854604">Call (415) 785-4604</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- The ONE pre-footer CTA on this page is the LOCKED CHROME's closing band below.
+     main deliberately ends without a closing CTA section (composition rule 3). -->
+<section class="closing precta surface-dark">
+  <span class="glow"></span><span class="grain2"></span>
+  <div class="closing-in">
+    <h2>Start with the evaluation</h2>
+    <p class="sub">A physician health evaluation covering function as well as appearance, ending in a
+      written plan you keep.</p>
+    <p class="reassure">The evaluation decides whether a treatment is appropriate at all. If it is not,
+      you will be told so.</p>
+    <div class="cta-row">
+      <a class="btn" href="consultation.html">Book a consultation</a>
+      <a class="btn btn-ghost" href="contact.html">Contact the practice</a>
+    </div>
+  </div>
+</section>
+
+<footer class="ftr">
+  <div class="ftr-in">
+    <div>
+      <h5>Visit</h5>
+      <p>100 Sir Francis Drake Blvd<br>San Anselmo, CA 94960</p>
+      <a href="tel:+14157854604">(415) 785-4604</a>
+    </div>
+    <div>
+      <h5>Hours</h5>
+      <div class="hours-row"><span>Monday to Friday</span><span>By appointment</span></div>
+      <div class="hours-row"><span>Saturday</span><span>By appointment</span></div>
+      <div class="hours-row"><span>Sunday</span><span>Closed</span></div>
+      <p class="hours-flag">Owner to confirm the published hour-set. Four sets are in circulation and
+        two conflict, so no specific times are shown here.</p>
+    </div>
+    <div>
+      <h5>Start here</h5>
+      <a href="consultation.html">Book a consultation</a>
+      <a href="areas-of-concern.html">Areas of concern</a>
+      <a href="treatments.html">Treatments</a>
+      <a href="contact.html">Contact</a>
+    </div>
+  </div>
+  <div class="ftr-legal">
+    <span>Marin Medical Aesthetics, San Anselmo, California</span>
+    <span>Individual experiences vary.</span>
+  </div>
+</footer>
+
+<div id="mobile-drawer" aria-hidden="true" aria-label="Menu">
+  <div class="drawer__head"><button class="drawer-close" aria-label="Close menu">&#215;</button></div>
+  <nav class="drawer__nav" aria-label="Mobile">
+    <a href="areas-of-concern.html">Areas of Concern</a>
+    <div class="acc__panel"><a href="areas-of-concern-acne-acne-scars.html">Acne and acne scars</a><a href="areas-of-concern-fine-lines.html">Fine lines</a><a href="areas-of-concern-sun-damage.html">Sun damage</a><a href="areas-of-concern-rosacea.html">Rosacea and redness</a></div>
+    <a href="treatments.html">Treatments</a>
+    <div class="acc__panel"><a href="treatments-botox-dysport.html">Botox and Dysport</a><a href="treatments-halo-laser-treatment.html">Halo laser</a><a href="treatments-microneedling.html">Microneedling</a><a href="treatments-clearsilk.html">ClearSilk</a></div>
+    <a href="success-stories.html">Success Stories</a>
+    <a href="about.html">About</a>
+    <a href="tel:+14157854604">(415) 785-4604</a>
+  </nav>
+  <div class="drawer__cta"><a class="btn" href="consultation.html">Book a consultation</a></div>
+</div>
+
+<script>
+(function () {
+  var CLOSE_MS = 240;
+  document.querySelectorAll('.nav-item').forEach(function (item) {
+    var link = item.querySelector('.nav-link');
+    var panel = item.querySelector('.nav-panel');
+    if (!panel) return;
+    var t = null;
+    function open() { clearTimeout(t); item.classList.add('is-open'); if (link) link.setAttribute('aria-expanded', 'true'); }
+    function close() { t = setTimeout(function () { item.classList.remove('is-open'); if (link) link.setAttribute('aria-expanded', 'false'); }, CLOSE_MS); }
+    item.addEventListener('mouseenter', open);
+    item.addEventListener('mouseleave', close);
+    item.addEventListener('focusin', open);
+    item.addEventListener('focusout', function (e) { if (!item.contains(e.relatedTarget)) close(); });
+  });
+  var burger = document.querySelector('.site-header__hamburger');
+  var drawer = document.getElementById('mobile-drawer');
+  var closeBtn = document.querySelector('.drawer-close');
+  function setDrawer(open) {
+    if (!drawer || !burger) return;
+    drawer.setAttribute('aria-hidden', open ? 'false' : 'true');
+    burger.setAttribute('aria-expanded', open ? 'true' : 'false');
+  }
+  if (burger) burger.addEventListener('click', function () { setDrawer(drawer.getAttribute('aria-hidden') === 'true'); });
+  if (closeBtn) closeBtn.addEventListener('click', function () { setDrawer(false); });
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && drawer && drawer.getAttribute('aria-hidden') === 'false') setDrawer(false); });
+})();
+</script>
+</body>
+</html>

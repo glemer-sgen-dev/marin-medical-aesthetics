@@ -1,0 +1,322 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>T-LEGAL concept C: Settled First. Marin Medical Aesthetics</title>
+
+<!-- ===================== TEMPLATE CONCEPT C: "Settled First" =====================
+  TYPE      : T-LEGAL (3 pages: disclaimer, privacy-policy, accessibility)
+  LAID OUT  : the FINAL copy of `disclaimer` from _copy/disclaimer.md, unedited
+  THE TYPE'S OWN LAW: LEGAL-SECTIONS.md + G-LEGAL-DOC — one calm reading measure of flowing
+              prose, anchored headings, a jump index, NO imagery.
+  THESIS    : concepts A and B both present the document in clause order, which means a reader
+              meets eight empty clauses before reaching the two that actually say something.
+              This one INVERTS the order of encounter: what is SETTLED comes first, at document
+              scale, because those two sentences are the only binding text on the page and they
+              are the practice's own honest ceiling. The ten clauses then follow as a single
+              numbered REGISTER where each row is both the index entry and the clause itself, so
+              the document needs no separate table of contents at all.
+
+  THE TRADE, STATED SO THE OWNER CAN REJECT IT: this is the least conventional legal page of the
+  three. A reader who expects a policy to start at clause 1 will find it starts with a statement
+  instead. That is a deliberate bet that honesty about what is settled beats the convention of
+  clause order while the document is incomplete, and it is a bet that gets WEAKER the day counsel
+  returns full text, at which point concept A or B is the better long-term shape.
+
+  RULE 3: the copy's §4 contact line is FOLDED IN as register entry 10 rather than given its own
+  section, because a standalone contact section in the pre-footer zone reads to G-CTA1 as a
+  second closing band and the locked chrome .precta is the only one.
+
+  NO SCAFFOLD WORDS RENDER: the pending state is said in finished document language; the owner
+  instruction lives in an HTML comment.
+
+  GRAMMAR (G-DOM): section > div.container > div.row > div.col > OBJECT throughout.
+===================================================================== -->
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap">
+<link rel="stylesheet" href="../../../../marin-medical-aesthetics-tokens.css">
+<link rel="stylesheet" href="../../../../marin-medical-aesthetics-structural.css">
+<link rel="stylesheet" href="../../../../marin-medical-aesthetics-chrome.css">
+
+<style>
+/* T-LEGAL concept C skin. The LEGAL-SECTIONS document vocabulary only. Token-pure, zero hex. */
+
+.doc-open{padding:calc(var(--ds-section-py) * .8) 0 calc(var(--ds-section-py) * .4)}
+.doc-settled{padding:calc(var(--ds-section-py) * .7) 0;background:var(--ds-bg-surface-2);border-top:1px solid var(--ds-line);border-bottom:1px solid var(--ds-line)}
+.doc-register{padding:var(--ds-section-py) 0}
+
+/* --- the reading measure (LEGAL-SECTIONS #1) --- */
+.bw-legal{max-width:47rem;font-size:16px;line-height:1.78;color:var(--ds-ink-soft)}
+.bw-legal h2{font-family:var(--ds-font-display);font-size:25px;line-height:1.2;letter-spacing:-.015em;color:var(--ds-accent);margin:var(--ds-space-lg) 0 12px;scroll-margin-top:120px}
+.bw-legal h2:first-child{margin-top:0}
+.bw-legal p{margin:0 0 15px;max-width:68ch}
+.bw-legal a{color:var(--ds-accent);text-decoration:underline;text-underline-offset:3px}
+.bw-legal address{font-style:normal;font-size:15px;line-height:1.75;color:var(--ds-ink-soft);margin:14px 0 0}
+.bw-legal__title{font-family:var(--ds-font-display);font-size:48px;line-height:1.06;letter-spacing:-.03em;font-weight:700;color:var(--ds-accent);margin:0 0 12px}
+.bw-legal__effective{font-size:12.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--ds-olive);margin:0;font-variant-numeric:tabular-nums}
+.bw-legal__callout{margin:var(--ds-space-md) 0 0;padding:18px 22px;border-left:3px solid var(--ds-accent);background:var(--ds-bg-surface-2);font-size:14.5px;line-height:1.7;color:var(--ds-ink);max-width:60ch}
+
+/* --- what is settled, at document scale --- */
+.doc-settled .bw-legal{max-width:52rem}
+.bw-fixed{font-family:var(--ds-font-display);font-size:26px;line-height:1.42;color:var(--ds-accent);margin:0 0 var(--ds-space-md);padding-left:24px;border-left:3px solid var(--ds-issued);max-width:40ch}
+.bw-fixed:last-of-type{margin-bottom:0}
+.bw-settledlab{font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:var(--ds-olive);margin:0 0 var(--ds-space-md)}
+.bw-deleted{margin:var(--ds-space-lg) 0 0;padding-top:16px;border-top:1px solid var(--ds-line);font-size:14.5px;line-height:1.72;color:var(--ds-ink-soft);max-width:62ch}
+
+/* --- the register: each row is BOTH the index entry and the clause --- */
+.bw-toc{max-width:47rem}
+.bw-toc__title{font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:var(--ds-olive);margin:0 0 var(--ds-space-md)}
+.bw-toc__list{list-style:none;margin:0;padding:0;counter-reset:reg;border-top:1px solid var(--ds-line-strong)}
+.bw-toc__item{counter-increment:reg;border-bottom:1px solid var(--ds-line);padding:16px 0;scroll-margin-top:120px}
+.bw-toc__link{display:block;font-family:var(--ds-font-display);font-size:19px;line-height:1.26;color:var(--ds-accent);text-decoration:none;margin-bottom:6px}
+.bw-toc__link::before{content:counter(reg,decimal-leading-zero);display:inline-block;width:34px;font-family:var(--ds-font-body);font-size:11px;letter-spacing:.12em;color:var(--ds-olive);font-variant-numeric:tabular-nums}
+.bw-toc__link:hover,.bw-toc__link:focus-visible{color:var(--ds-issued)}
+.bw-toc__item .body{margin-left:34px;font-size:14.5px;line-height:1.7;color:var(--ds-ink-soft);max-width:62ch}
+.bw-toc__item .body p{margin:0 0 10px}
+.bw-toc__item .body p:last-child{margin-bottom:0}
+.bw-toc__item .state{display:inline-block;font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--ds-olive);border:1px dashed var(--ds-line-strong);border-radius:var(--ds-r-pill);padding:3px 10px;margin-left:34px}
+.contact-request-line{margin-top:var(--ds-space-lg);padding-top:var(--ds-space-md);border-top:2px solid var(--ds-line-strong)}
+
+@media (max-width:900px){
+  .bw-legal__title{font-size:31px}
+  .bw-fixed{font-size:21px;max-width:none}
+  .bw-toc__item .body,.bw-toc__item .state{margin-left:0}
+}
+</style>
+</head>
+<body>
+
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="hdr">
+  <div class="hdr-in">
+    <a class="brand" href="index.html">Marin Medical<i>Aesthetics</i></a>
+    <nav class="nav" aria-label="Primary">
+      <div class="nav-item">
+        <a class="nav-link" href="areas-of-concern.html" aria-haspopup="true" aria-expanded="false">Areas of Concern <span class="caret"></span></a>
+        <div class="nav-panel">
+          <div class="mega">
+            <div class="mega-cols">
+              <a class="mega-card" href="areas-of-concern-acne-acne-scars.html"><span class="n">01</span><h4>Acne and acne scars</h4><p>Active breakouts and the texture they leave behind.</p></a>
+              <a class="mega-card" href="areas-of-concern-fine-lines.html"><span class="n">02</span><h4>Fine lines</h4><p>The early lines that follow expression and time.</p></a>
+              <a class="mega-card" href="areas-of-concern-sun-damage.html"><span class="n">03</span><h4>Sun damage</h4><p>Pigment, age spots and the marks of years outdoors.</p></a>
+              <a class="mega-card" href="areas-of-concern-rosacea.html"><span class="n">04</span><h4>Rosacea and redness</h4><p>Persistent flushing, redness and visible vessels.</p></a>
+            </div>
+            <div class="mega-feat">
+              <img src="../../../../../assets/hero-consult-room.jpg" alt="A quiet consultation room with natural daylight">
+              <span class="grade"></span>
+              <div class="inner">
+                <p class="eyebrow">Where every path starts</p>
+                <p class="line">The evaluation comes before the treatment, not after it.</p>
+                <a class="go" href="consultation.html">See what the appointment covers</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="nav-item">
+        <a class="nav-link" href="treatments.html" aria-haspopup="true" aria-expanded="false">Treatments <span class="caret"></span></a>
+        <div class="nav-panel">
+          <div class="drop">
+            <a href="treatments-botox-dysport.html">Botox and Dysport</a>
+            <a href="treatments-halo-laser-treatment.html">Halo laser</a>
+            <a href="treatments-microneedling.html">Microneedling</a>
+            <a href="treatments-clearsilk.html">ClearSilk</a>
+            <a href="treatments.html">All treatments</a>
+          </div>
+        </div>
+      </div>
+      <div class="nav-item"><a class="nav-link" href="success-stories.html">Success Stories</a></div>
+      <div class="nav-item"><a class="nav-link" href="about.html">About</a></div>
+      <a class="phone" href="tel:+14157854604">(415) 785-4604</a>
+      <a class="btn" href="consultation.html">Book a consultation</a>
+    </nav>
+    <button class="site-header__hamburger" aria-controls="mobile-drawer" aria-expanded="false" aria-label="Open menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<main id="main">
+
+<!-- == §1 title and effective date -->
+<!-- src: D-IA-026 --> <!-- T-LEGAL tier placement, chrome-only, terminal -->
+<!-- src: D-SEO-301-PAIR --> <!-- the retiring property's disclaimer redirects here -->
+<!-- pick: LEGAL-SECTIONS.md #1 Prose-document container, single measure | considered: #2,#3 | why: the title and the effective-date line belong inside the reading measure because the moment a legal page grows a masthead it stops reading as a document, which is the drift G-LEGAL-DOC exists to catch; #2 and #3 are index treatments rather than title patterns, and this concept dissolves the separate index into the register below anyway. | rigor: heavy -->
+<section class="doc-open title-effective-date">
+  <div class="container">
+    <div class="row">
+      <div class="col">
+        <div class="bw-legal">
+          <h1 class="bw-legal__title">Disclaimer</h1>
+          <!-- OWNER: the effective date is not set. No date is invented here; counsel sets it when
+               the text is finalised. Said below in finished prose because verify-no-unfilled-slots
+               and verify-fabricated-honesty both ban the scaffold word from rendering. -->
+          <p class="bw-legal__effective">Effective date: not yet set &#183; counsel sets it when the text is finalised</p>
+          <p class="bw-legal__callout">This document is with counsel. Two sentences are fixed
+            upstream and appear below in full; the remaining clauses are headings whose text is not
+            drafted here. Nothing on this page is asserted as binding legal text.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- == §2 what is settled, first -->
+<!-- src: D-OFFER-023 --> <!-- the banned-claims list this document must not breach -->
+<!-- pick: LEGAL-SECTIONS.md #1 Prose-document container, single measure, opened on the settled text rather than on clause one | considered: #2,#3 | why: the two fixed sentences are the only binding words on the page and they are the practice's own honest ceiling, so meeting them first is the whole inversion this concept is testing; both index patterns are wayfinding shapes and neither can carry a statement at this scale. The tinted ground marks the settled text as a different KIND of content from the register below without breaking the single measure. | rigor: heavy -->
+<section class="doc-settled document-body">
+  <div class="container">
+    <div class="row">
+      <div class="col">
+        <div class="bw-legal">
+          <p class="bw-settledlab">What is settled</p>
+          <p class="bw-fixed" id="c3">Results are not guaranteed and may vary from person to person.</p>
+          <p class="bw-fixed" id="c4">An evaluation determines whether a treatment is appropriate at
+            all, which is a decision about suitability rather than a safety guarantee.</p>
+          <p class="bw-deleted">These two sentences are fixed upstream and must survive whatever
+            counsel returns. What the appointment itself covers is described on the
+            <a href="consultation.html">consultation page</a> rather than in this document. Separately,
+            the retiring property's disclaimer was adapted from a chiropractic template: that language
+            is deleted, not rewritten, because a medical aesthetics practice does not carry another
+            discipline's disclaimer text.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- == §3 the register: index and clauses in one -->
+<!-- pick: LEGAL-SECTIONS.md #2 Inline anchored table-of-contents, dissolved so each index row IS its clause | considered: #1,#3 | why: with eight of ten clauses still awaiting text, a separate index above a separate body would make the reader traverse the same ten empty headings twice, so the index and the document collapse into one numbered register where a row carries its own clause inline; #1 alone drops the jump index the brief section_seq requires, and #3 is a rail for a long drafted policy rather than a short register. | rigor: heavy -->
+<section class="doc-register anchored-toc">
+  <div class="container">
+    <div class="row">
+      <div class="col">
+        <nav class="bw-toc" aria-label="Contents">
+          <p class="bw-toc__title">The clauses, in order</p>
+          <ol class="bw-toc__list">
+            <li class="bw-toc__item" id="c1"><a class="bw-toc__link" href="#c1">About this website</a><span class="state">With counsel</span></li>
+            <li class="bw-toc__item" id="c2"><a class="bw-toc__link" href="#c2">Not medical advice</a><span class="state">With counsel</span></li>
+            <li class="bw-toc__item"><a class="bw-toc__link" href="#c3">Results and individual variation</a><div class="body"><p>Settled. The fixed sentence appears above.</p></div></li>
+            <li class="bw-toc__item"><a class="bw-toc__link" href="#c4">The scope of an evaluation</a><div class="body"><p>Settled. The fixed sentence appears above.</p></div></li>
+            <li class="bw-toc__item" id="c5"><a class="bw-toc__link" href="#c5">Treatments, suitability and risk</a><span class="state">With counsel</span></li>
+            <li class="bw-toc__item" id="c6"><a class="bw-toc__link" href="#c6">Photography and testimonials</a><div class="body"><p>With counsel. See also the <a href="before-after-photos.html">results page</a>, which ships no patient photography until releases exist.</p></div></li>
+            <li class="bw-toc__item" id="c7"><a class="bw-toc__link" href="#c7">Third-party links and services</a><span class="state">With counsel</span></li>
+            <li class="bw-toc__item" id="c8"><a class="bw-toc__link" href="#c8">Promotions and offers</a><div class="body"><p>With counsel. A promotion published on a retiring property has restrictions that live on a separate page; it either retires with that domain or republishes with its terms adjacent and legible.</p></div></li>
+            <li class="bw-toc__item" id="c9"><a class="bw-toc__link" href="#c9">Changes to this disclaimer</a><span class="state">With counsel</span></li>
+            <li class="bw-toc__item" id="c10"><a class="bw-toc__link" href="#c10">How to ask about this document</a><div class="body"><p>Settled. The contact clause closes the document below.</p></div></li>
+          </ol>
+        </nav>
+
+        <!-- == §4 how to ask: register entry 10, folded in rather than given its own section,
+             because a standalone contact section in the pre-footer zone reads to G-CTA1 as a
+             second closing band and the locked chrome .precta is the only one. -->
+        <!-- src: D-OFFER-006 --> <!-- primary conversion goal: the practice's contact route -->
+        <div class="bw-legal contact-request-line">
+          <h2>Questions about this disclaimer</h2>
+          <p>Write to the practice through the <a href="contact.html">contact page</a>, or call
+            <a href="tel:+14157854604">(415) 785-4604</a>.</p>
+          <address>Marin Medical Aesthetics<br>100 Sir Francis Drake Blvd<br>San Anselmo, CA 94960</address>
+          <p>Related documents: <a href="privacy-policy.html">privacy policy</a> and
+            <a href="accessibility.html">accessibility</a>.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- The ONE pre-footer CTA on this page is the LOCKED CHROME's closing band below.
+     main deliberately ends without a closing CTA section (composition rule 3). -->
+<section class="closing precta surface-dark">
+  <span class="glow"></span><span class="grain2"></span>
+  <div class="closing-in">
+    <h2>Start with the evaluation</h2>
+    <p class="sub">A physician health evaluation covering function as well as appearance, ending in a
+      written plan you keep.</p>
+    <p class="reassure">The evaluation decides whether a treatment is appropriate at all. If it is not,
+      you will be told so.</p>
+    <div class="cta-row">
+      <a class="btn" href="consultation.html">Book a consultation</a>
+      <a class="btn btn-ghost" href="contact.html">Contact the practice</a>
+    </div>
+  </div>
+</section>
+
+<footer class="ftr">
+  <div class="ftr-in">
+    <div>
+      <h5>Visit</h5>
+      <p>100 Sir Francis Drake Blvd<br>San Anselmo, CA 94960</p>
+      <a href="tel:+14157854604">(415) 785-4604</a>
+    </div>
+    <div>
+      <h5>Hours</h5>
+      <div class="hours-row"><span>Monday to Friday</span><span>By appointment</span></div>
+      <div class="hours-row"><span>Saturday</span><span>By appointment</span></div>
+      <div class="hours-row"><span>Sunday</span><span>Closed</span></div>
+      <p class="hours-flag">Owner to confirm the published hour-set. Four sets are in circulation and
+        two conflict, so no specific times are shown here.</p>
+    </div>
+    <div>
+      <h5>Start here</h5>
+      <a href="consultation.html">Book a consultation</a>
+      <a href="areas-of-concern.html">Areas of concern</a>
+      <a href="treatments.html">Treatments</a>
+      <a href="contact.html">Contact</a>
+    </div>
+  </div>
+  <div class="ftr-legal">
+    <span>Marin Medical Aesthetics, San Anselmo, California</span>
+    <span>Individual experiences vary.</span>
+  </div>
+</footer>
+
+<div id="mobile-drawer" aria-hidden="true" aria-label="Menu">
+  <div class="drawer__head"><button class="drawer-close" aria-label="Close menu">&#215;</button></div>
+  <nav class="drawer__nav" aria-label="Mobile">
+    <a href="areas-of-concern.html">Areas of Concern</a>
+    <div class="acc__panel"><a href="areas-of-concern-acne-acne-scars.html">Acne and acne scars</a><a href="areas-of-concern-fine-lines.html">Fine lines</a><a href="areas-of-concern-sun-damage.html">Sun damage</a><a href="areas-of-concern-rosacea.html">Rosacea and redness</a></div>
+    <a href="treatments.html">Treatments</a>
+    <div class="acc__panel"><a href="treatments-botox-dysport.html">Botox and Dysport</a><a href="treatments-halo-laser-treatment.html">Halo laser</a><a href="treatments-microneedling.html">Microneedling</a><a href="treatments-clearsilk.html">ClearSilk</a></div>
+    <a href="success-stories.html">Success Stories</a>
+    <a href="about.html">About</a>
+    <a href="tel:+14157854604">(415) 785-4604</a>
+  </nav>
+  <div class="drawer__cta"><a class="btn" href="consultation.html">Book a consultation</a></div>
+</div>
+
+<script>
+(function () {
+  var CLOSE_MS = 240;
+  document.querySelectorAll('.nav-item').forEach(function (item) {
+    var link = item.querySelector('.nav-link');
+    var panel = item.querySelector('.nav-panel');
+    if (!panel) return;
+    var t = null;
+    function open() { clearTimeout(t); item.classList.add('is-open'); if (link) link.setAttribute('aria-expanded', 'true'); }
+    function close() { t = setTimeout(function () { item.classList.remove('is-open'); if (link) link.setAttribute('aria-expanded', 'false'); }, CLOSE_MS); }
+    item.addEventListener('mouseenter', open);
+    item.addEventListener('mouseleave', close);
+    item.addEventListener('focusin', open);
+    item.addEventListener('focusout', function (e) { if (!item.contains(e.relatedTarget)) close(); });
+  });
+  var burger = document.querySelector('.site-header__hamburger');
+  var drawer = document.getElementById('mobile-drawer');
+  var closeBtn = document.querySelector('.drawer-close');
+  function setDrawer(open) {
+    if (!drawer || !burger) return;
+    drawer.setAttribute('aria-hidden', open ? 'false' : 'true');
+    burger.setAttribute('aria-expanded', open ? 'true' : 'false');
+  }
+  if (burger) burger.addEventListener('click', function () { setDrawer(drawer.getAttribute('aria-hidden') === 'true'); });
+  if (closeBtn) closeBtn.addEventListener('click', function () { setDrawer(false); });
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && drawer && drawer.getAttribute('aria-hidden') === 'false') setDrawer(false); });
+})();
+</script>
+</body>
+</html>

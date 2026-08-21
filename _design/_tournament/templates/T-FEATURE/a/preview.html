@@ -18,16 +18,19 @@
    - rule 2  no two adjacent sections repeat a shape. Down the page:
              split / dark-stat / card-grid-3 / media+2x2-grid / compare-split / panel / list-grid.
    - rule 3  EXACTLY ONE pre-footer CTA, and it is the LOCKED CHROME's closing band.
-             <main> deliberately ends WITHOUT a closing CTA so nothing stacks against it.
+             this main deliberately ends WITHOUT a closing CTA so nothing stacks against it.
    - rule 4  every media frame is aspect-ratio capped + object-fit:cover.
    - rule 6  no full-width-media-then-content-stacked row anywhere; media always sits BESIDE
              its content.
    - rule 7  every grid-track media frame carries width:100% + min-width:0.
 
-  GRAMMAR (G-DOM): every <main> section is section > div.container > div.row > div.col > OBJECT.
+  GRAMMAR (G-DOM): every main section is section > div.container > div.row > div.col > OBJECT.
   Skin (kit-*) lives on the OBJECT only; .container/.row/.col carry layout only (R5).
 ===================================================================== -->
 
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap">
 <link rel="stylesheet" href="../../../../marin-medical-aesthetics-tokens.css">
 <link rel="stylesheet" href="../../../../marin-medical-aesthetics-structural.css">
 <link rel="stylesheet" href="../../../../marin-medical-aesthetics-chrome.css">
@@ -47,18 +50,32 @@
 .kit-media{display:block;position:relative;width:100%;min-width:0;overflow:hidden;border-radius:var(--ds-r-surface);aspect-ratio:4/3;max-height:460px;background:var(--ds-bg-surface-3)}
 .kit-media img{width:100%;height:100%;object-fit:cover;display:block}
 .kit-media--stretch{align-self:stretch;height:100%;aspect-ratio:auto;min-height:320px}
+/* rule 1: both columns must end LEVEL. The grid fills its stretched track so no void
+   opens under the cards when the media is the taller element. */
+.kit-sec--soft .row--stretch > .col--grow{display:flex}
+.kit-sec--soft .row--stretch > .col--grow > .row--grid-2{flex:1 1 auto;align-content:stretch;width:100%}
+.kit-sec--soft .row--stretch > .col--grow > .kit-media--stretch{flex:1 1 auto}
 
 .kit-step{display:flex;gap:16px;align-items:flex-start;padding:20px 0;border-top:1px solid var(--ds-line)}
 .kit-step:first-child{border-top:0;padding-top:0}
-.kit-step .n{font-size:11px;letter-spacing:.14em;color:var(--ds-issued);font-variant-numeric:tabular-nums;padding-top:4px;flex:none}
+.kit-step .n{font-size:11px;letter-spacing:.14em;color:var(--ds-olive);font-variant-numeric:tabular-nums;padding-top:4px;flex:none}
 
 .kit-card{padding:24px;border:1px solid var(--ds-line);border-radius:var(--ds-r-surface);background:var(--ds-bg-surface);height:100%;box-shadow:var(--ds-shadow-card)}
-.kit-card .n{display:block;font-size:10px;letter-spacing:.18em;color:var(--ds-issued);margin-bottom:10px}
+.kit-card .n{display:block;font-size:10px;letter-spacing:.18em;color:var(--ds-olive);margin-bottom:10px}
 
-.kit-statband{background:var(--ds-bg-surface);padding:var(--ds-section-py) 0}
-.kit-stat{text-align:center;padding:0 16px}
-.kit-stat .fig{font-family:var(--ds-font-display);font-size:44px;line-height:1;color:var(--ds-accent);display:block;margin-bottom:8px}
-.kit-stat .lab{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--ds-ink-soft)}
+/* The one ANCHORED dark moment inside the page body (the chrome .precta is the other; COHESIVE
+   FLOW allows 2-3, not a flip on every row). It carries .surface-dark so the tokens invert:
+   --ds-bg-surface becomes navy and --ds-accent becomes gold. Declaring the background as
+   var(--ds-bg-surface) WITHOUT .surface-dark on the section rendered white-on-white and the
+   band disappeared entirely. That was this section defect on first render. */
+.kit-statband{position:relative;background:var(--ds-bg-surface);padding:var(--ds-section-py) 0;overflow:hidden}
+.kit-statband .tex{position:absolute;inset:0;background-image:url("../../../../../assets/texture-navy-band.jpg");background-size:cover;background-position:center;opacity:var(--ds-opacity-texture);pointer-events:none}
+.kit-statband .container{position:relative}
+.kit-statband .kit-p{color:var(--ds-ink)}
+.kit-stat{text-align:center;padding:0 16px;border-left:1px solid var(--ds-line)}
+.kit-stat--first{border-left:0}
+.kit-stat .fig{font-family:var(--ds-font-display);font-size:76px;line-height:1;color:var(--ds-accent);display:block;margin-bottom:10px}
+.kit-stat .lab{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--ds-olive)}
 
 .kit-table{width:100%;border-collapse:collapse;font-size:14.5px}
 .kit-table th{text-align:left;font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--ds-olive);padding:0 0 10px;border-bottom:1px solid var(--ds-line)}
@@ -78,6 +95,8 @@
   .kit-h2{font-size:27px}
   .kit-media{aspect-ratio:16/10;max-height:280px}
   .kit-media--stretch{min-height:220px}
+  .kit-stat{border-left:0;padding:14px 0}
+  .kit-stat .fig{font-size:48px}
 }
 </style>
 </head>
@@ -169,8 +188,8 @@
         <p class="kit-p">A comprehensive health evaluation, performed by a physician, before any
           treatment is discussed as suitable for you.</p>
         <p class="kit-p">That means the appointment covers your history, your medications, the
-          condition in front of her, and how the two interact. It is the part most practices skip,
-          and it is the reason this one is organised around it.</p>
+          condition in front of her, and how the two interact. It is the part this practice is
+          organised around.</p>
       </div>
       <div class="col">
         <div class="kit-panel">
@@ -207,7 +226,7 @@
         <div class="kit-card">
           <span class="n">02</span>
           <h3 class="kit-h3">Device first means finding out afterwards</h3>
-          <p class="kit-p">Choosing the device first means you learn whether it applied to you having
+          <p class="kit-p">Choosing the device first means you find that out afterwards, having
             already paid for it.</p>
         </div>
       </div>
@@ -215,8 +234,8 @@
         <div class="kit-card">
           <span class="n">03</span>
           <h3 class="kit-h3">A conclusion, not an assumption</h3>
-          <p class="kit-p">Choosing the evaluation first makes the device a conclusion rather than a
-            starting assumption.</p>
+          <p class="kit-p">Choosing the evaluation first means the device is a conclusion rather than
+            a starting assumption.</p>
         </div>
       </div>
     </div>
@@ -239,6 +258,8 @@
         <p class="kit-p">You leave with a plan in writing. It is yours to keep, to think about, and to
           take elsewhere for a second opinion if you want one. A plan you cannot take away is not a
           plan; it is a quote.</p>
+        <p class="kit-p">It says what was assessed, what is recommended, in what order, and what to
+          expect between appointments. It also says what to stop doing where that matters.</p>
       </div>
     </div>
     <div class="row row--stretch">
@@ -247,10 +268,10 @@
       </div>
       <div class="col col--grow">
         <div class="row row--grid-2">
-          <div class="col"><div class="kit-card"><h3 class="kit-h3">What was assessed</h3><p class="kit-p">The findings from the examination, written down.</p></div></div>
-          <div class="col"><div class="kit-card"><h3 class="kit-h3">What is recommended</h3><p class="kit-p">And in what order, so the sequence is explicit.</p></div></div>
-          <div class="col"><div class="kit-card"><h3 class="kit-h3">What to expect between</h3><p class="kit-p">Intervals, recovery, and what is normal along the way.</p></div></div>
-          <div class="col"><div class="kit-card"><h3 class="kit-h3">What to stop</h3><p class="kit-p">Where that matters, which is more often than people expect.</p></div></div>
+          <div class="col"><div class="kit-card"><span class="n">01</span><h3 class="kit-h3">What was assessed</h3></div></div>
+          <div class="col"><div class="kit-card"><span class="n">02</span><h3 class="kit-h3">What is recommended, and in what order</h3></div></div>
+          <div class="col"><div class="kit-card"><span class="n">03</span><h3 class="kit-h3">What to expect between appointments</h3></div></div>
+          <div class="col"><div class="kit-card"><span class="n">04</span><h3 class="kit-h3">What to stop doing, where that matters</h3></div></div>
         </div>
       </div>
     </div>
@@ -259,19 +280,19 @@
 
 <!-- == §5 the evaluation covers function -->
 <!-- pick: SECTION-COMPONENTS.md #3 Stat strip | considered: #26,#9 | why: this is the site's wedge and it needs to land as a hard beat rather than another paragraph, so three counted facts in a strip give the page its one moment of pause; #26 pull-quote is already spent in §2 and repeating it would breach the no-adjacent-repeat rule, and #9 would make a differentiator look like a feature list. | rigor: heavy -->
-<section class="kit-statband">
+<section class="kit-statband surface-dark">
+  <span class="tex"></span>
   <div class="container">
     <div class="row">
       <div class="col">
         <h2 class="kit-h2">Function counts as well</h2>
-        <p class="kit-p">The evaluation includes concerns most aesthetics practices do not ask about:
-          pelvic-floor strength, continence, and comfort. They sit in the same appointment, in the
-          same register, as skin and contour.</p>
+        <p class="kit-p">The evaluation includes pelvic-floor strength, continence, and comfort.
+          They sit in the same appointment, in the same register, as skin and contour.</p>
       </div>
     </div>
     <div class="row row--grid-3">
-      <div class="col"><div class="kit-stat"><span class="fig">4</span><span class="lab">Concern groups assessed</span></div></div>
-      <div class="col"><div class="kit-stat"><span class="fig">1</span><span class="lab">Appointment, not a referral chain</span></div></div>
+      <div class="col"><div class="kit-stat kit-stat--first"><span class="fig">4</span><span class="lab">Concern groups assessed</span></div></div>
+      <div class="col"><div class="kit-stat"><span class="fig">1</span><span class="lab">Appointment, all four</span></div></div>
       <div class="col"><div class="kit-stat"><span class="fig">1</span><span class="lab">Written plan you keep</span></div></div>
     </div>
   </div>
@@ -296,8 +317,7 @@
           <tbody>
             <tr><td>Physician evaluation</td><td>Surgery of any kind, including facelift, eyelid surgery and liposuction</td></tr>
             <tr><td>Skin, face and structure</td><td>Medical and surgical dermatology, including Mohs surgery</td></tr>
-            <tr><td>Body and contour</td><td>Skin-cancer treatment</td></tr>
-            <tr><td>Pelvic-floor function</td><td>Laser hair removal</td></tr>
+            <tr><td>Body, contour and function</td><td>Skin-cancer treatment</td></tr>
           </tbody>
         </table>
         <p class="kit-p">If what you need is one of those, the evaluation says so and points you
@@ -344,7 +364,6 @@
       <div class="col">
         <div class="kit-faq"><p class="q">Who performs the evaluation?</p><p class="a">Dr. Chris Bacchi, MD. She is the physician making the clinical decision.</p></div>
         <div class="kit-faq"><p class="q">What should I bring?</p><p class="a">A list of your current medications and skincare products, and any history relevant to the concern. The products matter more often than people expect.</p></div>
-        <div class="kit-faq"><p class="q">Who tends to book this?</p><p class="a">Adults roughly 35-65 across Marin County who want a physician rather than a technician assessing whether a treatment suits them at all.</p></div>
       </div>
     </div>
   </div>
@@ -353,7 +372,7 @@
 </main>
 
 <!-- The ONE pre-footer CTA on this page is the LOCKED CHROME's closing band below.
-     <main> deliberately ends without a closing CTA (composition rule 3). -->
+     this main deliberately ends without a closing CTA (composition rule 3). -->
 <section class="closing precta surface-dark">
   <span class="glow"></span><span class="grain2"></span>
   <div class="closing-in">

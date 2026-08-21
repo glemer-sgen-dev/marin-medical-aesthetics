@@ -1,0 +1,382 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>T-CONTACT concept B: The Form Is The Page. Marin Medical Aesthetics</title>
+
+<!-- ===================== TEMPLATE CONCEPT B: "The Form Is The Page" =====================
+  TYPE      : T-CONTACT (1 page: contact). terminal:true.
+  LAID OUT  : the FINAL copy of contact from _copy/contact.md, unedited.
+
+  THESIS    : the brief calls the form "the page's job" and says submitting it is the terminal
+              action with nothing downstream to chase. This concept takes that literally: the form
+              is lifted onto a panel directly under a one-line opening, given two-up field rows so
+              the whole thing is visible without scrolling on a laptop, and everything else on the
+              page is reduced to a strip. A reader who came here to write a message never has to
+              look for where to do it.
+
+  THE TRADE, STATED SO THE OWNER CAN REJECT IT: compressing the routing block to a strip means the
+  address, phone and booking link get less weight than concept A gives them, on a page whose stated
+  problem is a practice that publishes several conflicting addresses and numbers. If being the
+  single authoritative record matters more than conversion, A is the better page.
+
+  THE HOURS ARE HONESTLY ABSENT, NOT FAKED, and the form carries data-form-waiver, for the reasons
+  set out at length in concept A's header. Both apply identically here.
+
+  GRAMMAR (G-DOM): section then div.container then div.row then div.col then OBJECT throughout.
+===================================================================== -->
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap">
+<link rel="stylesheet" href="../../../../marin-medical-aesthetics-tokens.css">
+<link rel="stylesheet" href="../../../../marin-medical-aesthetics-structural.css">
+<link rel="stylesheet" href="../../../../marin-medical-aesthetics-chrome.css">
+
+<style>
+/* T-CONTACT concept B skin. Token-pure, zero hex, zero url(). */
+
+.row--pair2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 var(--ds-space-lg)}
+.row--pair2>.col--full{grid-column:1 / -1}
+.row--strip{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:var(--ds-space-lg)}
+.row--tail{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,.8fr);gap:var(--ds-space-2xl);align-items:start}
+
+/* 1. one line, then straight into the form */
+.ct-open{position:relative;overflow:hidden;padding:calc(var(--ds-section-py) * .72) 0;background:var(--ds-bg-surface);background-size:cover;background-position:center;background-blend-mode:soft-light}
+.ct-open .container{position:relative}
+.ct-open__h{font-family:var(--ds-font-display);font-size:42px;line-height:1.12;letter-spacing:-.03em;font-weight:700;color:var(--ds-accent);margin:0 0 14px;max-width:20ch}
+.ct-open__sub{font-size:17.5px;line-height:1.6;color:var(--ds-ink);margin:0;max-width:40rem}
+
+/* 2. the form, on a panel, two-up */
+.ct-panel{padding:var(--ds-section-py) 0;background:var(--ds-bg-surface)}
+.ct-panel__h{font-family:var(--ds-font-display);font-size:29px;line-height:1.18;letter-spacing:-.022em;color:var(--ds-accent);margin:0 0 12px}
+.ct-panel__lede{font-size:16.5px;line-height:1.72;color:var(--ds-ink-soft);margin:0 0 var(--ds-space-lg);max-width:40rem}
+.ct-card{padding:var(--ds-space-lg);border:1px solid var(--ds-line);border-top:3px solid var(--ds-issued);border-radius:var(--ds-r-surface);background:var(--ds-bg-surface);box-shadow:var(--ds-shadow-card)}
+.ct-f{margin-bottom:18px}
+.ct-f--wide{grid-column:1 / -1}
+.ct-f label{display:block;font-size:13px;font-weight:600;letter-spacing:.02em;color:var(--ds-accent);margin:0 0 6px}
+.ct-f input,.ct-f textarea,.ct-f select{display:block;width:100%;box-sizing:border-box;font-family:var(--ds-font-body);font-size:15.5px;line-height:1.5;color:var(--ds-ink);background:var(--ds-bg-surface);border:1px solid var(--ds-line);border-radius:var(--ds-r-input);padding:11px 13px}
+.ct-f textarea{min-height:112px;resize:vertical}
+.ct-f input:focus-visible,.ct-f textarea:focus-visible,.ct-f select:focus-visible{outline:2px solid var(--ds-accent);outline-offset:2px;border-color:var(--ds-accent)}
+.ct-hint{display:block;font-size:12.5px;line-height:1.55;color:var(--ds-olive);margin:6px 0 0}
+.ct-foot{display:flex;flex-wrap:wrap;gap:var(--ds-space-md);align-items:center;padding-top:4px}
+.ct-foot p{font-size:14px;line-height:1.6;color:var(--ds-ink-soft);margin:0;max-width:30rem}
+
+/* 3. the routing strip */
+.ct-strip{position:relative;overflow:hidden;padding:calc(var(--ds-section-py) * .85) 0;background:var(--ds-bg-surface-2);background-size:cover;background-position:center;background-blend-mode:multiply}
+.ct-strip .container{position:relative}
+.ct-strip__h{font-family:var(--ds-font-display);font-size:26px;line-height:1.2;color:var(--ds-accent);margin:0 0 var(--ds-space-md)}
+.ct-cell{display:block;padding-top:13px;border-top:2px solid var(--ds-issued)}
+.ct-cell__k{display:block;font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--ds-olive);margin:0 0 8px}
+.ct-cell__v{font-family:var(--ds-font-display);font-size:19px;line-height:1.4;color:var(--ds-accent);margin:0}
+.ct-cell__v a{color:var(--ds-accent);text-decoration:underline;text-underline-offset:3px}
+.ct-cell__n{display:block;margin-top:6px;font-family:var(--ds-font-body);font-size:13.5px;line-height:1.65;color:var(--ds-ink-soft)}
+.ct-hours{margin:var(--ds-space-lg) 0 0;padding-top:14px;border-top:1px solid var(--ds-line);font-size:14.5px;line-height:1.7;color:var(--ds-ink);max-width:52rem}
+
+/* 4. what happens next */
+.ct-tail{padding:calc(var(--ds-section-py) * .8) 0;background:var(--ds-bg-surface)}
+.ct-tail__h{font-family:var(--ds-font-display);font-size:26px;line-height:1.2;color:var(--ds-accent);margin:0 0 14px;max-width:14ch}
+.ct-tail__p{font-size:16px;line-height:1.74;color:var(--ds-ink-soft);margin:0;max-width:40rem}
+.ct-tail__ceiling{font-size:15.5px;line-height:1.7;color:var(--ds-ink);margin:0;padding:16px 18px;border-left:3px solid var(--ds-issued);background:var(--ds-bg-surface-2)}
+
+/* Geometry-SAFE globals overlay (verify-globals-overlay): colour/shadow/motion only. */
+.wow-lift{transition:transform var(--ds-dur-fast) var(--ds-ease-out),box-shadow var(--ds-dur-fast) var(--ds-ease-out)}
+.wow-lift:hover,.wow-lift:focus-within{transform:translateY(-3px);box-shadow:var(--ds-shadow-lift)}
+@media (prefers-reduced-motion:reduce){.wow-lift{transition:none}.wow-lift:hover,.wow-lift:focus-within{transform:none}}
+
+@media (max-width:900px){
+  .row--pair2,.row--tail{grid-template-columns:minmax(0,1fr);gap:var(--ds-space-md)}
+  .row--strip{grid-template-columns:minmax(0,1fr);gap:var(--ds-space-md)}
+  .ct-open__h{font-size:28px;max-width:none}
+  .ct-panel__h{font-size:24px}
+  .ct-strip__h,.ct-tail__h{font-size:22px;max-width:none}
+  .ct-card{padding:var(--ds-space-md)}
+}
+</style>
+</head>
+<body>
+
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="hdr">
+  <div class="hdr-in">
+    <a class="brand" href="index.html">Marin Medical<i>Aesthetics</i></a>
+    <nav class="nav" aria-label="Primary">
+      <div class="nav-item">
+        <a class="nav-link" href="areas-of-concern.html" aria-haspopup="true" aria-expanded="false">Areas of Concern <span class="caret"></span></a>
+        <div class="nav-panel">
+          <div class="mega">
+            <div class="mega-cols">
+              <a class="mega-card" href="areas-of-concern-acne-acne-scars.html"><span class="n">01</span><h4>Acne and acne scars</h4><p>Active breakouts and the texture they leave behind.</p></a>
+              <a class="mega-card" href="areas-of-concern-fine-lines.html"><span class="n">02</span><h4>Fine lines</h4><p>The early lines that follow expression and time.</p></a>
+              <a class="mega-card" href="areas-of-concern-sun-damage.html"><span class="n">03</span><h4>Sun damage</h4><p>Pigment, age spots and the marks of years outdoors.</p></a>
+              <a class="mega-card" href="areas-of-concern-rosacea.html"><span class="n">04</span><h4>Rosacea and redness</h4><p>Persistent flushing, redness and visible vessels.</p></a>
+            </div>
+            <div class="mega-feat">
+              <img src="../../../../../assets/hero-consult-room.jpg" alt="A quiet consultation room with natural daylight">
+              <span class="grade"></span>
+              <div class="inner">
+                <p class="eyebrow">Where every path starts</p>
+                <p class="line">The evaluation comes before the treatment, not after it.</p>
+                <a class="go" href="consultation.html">See what the appointment covers</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="nav-item">
+        <a class="nav-link" href="treatments.html" aria-haspopup="true" aria-expanded="false">Treatments <span class="caret"></span></a>
+        <div class="nav-panel">
+          <div class="drop">
+            <a href="treatments-botox-dysport.html">Botox and Dysport</a>
+            <a href="treatments-halo-laser-treatment.html">Halo laser</a>
+            <a href="treatments-microneedling.html">Microneedling</a>
+            <a href="treatments-clearsilk.html">ClearSilk</a>
+            <a href="treatments.html">All treatments</a>
+          </div>
+        </div>
+      </div>
+      <div class="nav-item"><a class="nav-link" href="success-stories.html">Success Stories</a></div>
+      <div class="nav-item"><a class="nav-link" href="about.html">About</a></div>
+      <a class="phone" href="tel:+14157854604">(415) 785-4604</a>
+      <a class="btn" href="consultation.html">Book a consultation</a>
+    </nav>
+    <button class="site-header__hamburger" aria-controls="mobile-drawer" aria-expanded="false" aria-label="Open menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<main id="main">
+
+<!-- == section 1 hero -->
+<!-- src: D-IA-005 --> <!-- the About nav group; contact is member 3 of it -->
+<!-- pick: HERO-COMPOSITIONS.md #9 Cinematic letterbox hero (narrow band), reduced to a shallow type band so the form clears the fold | considered: #10,#25 | why: on this concept the hero's only job is to get out of the way, so it takes the catalog's shallowest composition and gives back the vertical space to the form panel below; the navy texture ground makes it read as a deliberate band rather than a truncated hero, and its recorded purpose in _design/imagery-system.md is exactly a quiet anchored surface. #10 headline-only is concept A's pick and sits at full section height; #25 embedded lead-capture form hero would pull the form INTO the hero and collapse two of the brief's four declared section_seq slots into one. | rigor: heavy -->
+<section class="ct-open hero surface-dark" style="background-image:url(../../../../../assets/texture-navy-band.jpg)">
+  <div class="container">
+    <div class="row">
+      <div class="col">
+        <h1 class="ct-open__h">Contact Marin Medical Aesthetics in San Anselmo</h1>
+        <p class="ct-open__sub">Send a message here, or book a consultation directly. Either one
+          reaches the same practice, and the same physician reads what you write.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- == section 2 the message form -->
+<!-- src: D-OFFER-006 --> <!-- primary conversion goal; the estate's only conversion actions are /consultation/, the retired /book-an-appointment/, and phone -->
+<!-- pick: FORM-LAYOUTS.md #3 2-up field rows (denser desktop layout), on a bordered panel, with the free-text concern spanning both columns | considered: #1,#11 | why: this concept's bet is that the whole form should be visible at once on a laptop rather than scrolled through, and two-up rows are the only layout in the catalog that buys that without hiding anything; the four short fields pair naturally (name with email, phone with preferred method) and the one field that actually matters, the free-text description of a concern, spans the full width so it is never the smaller half of a pair. #1 single-column is concept A's pick and runs longer; #11 modal-triggered form hides the page's entire job behind a button, which on a terminal page is the worst available choice. | rigor: heavy -->
+<section class="ct-panel form">
+  <div class="container">
+    <div class="row">
+      <div class="col">
+        <h2 class="ct-panel__h">Send a message</h2>
+        <p class="ct-panel__lede">Tell us what you would like help with. You do not need to know which
+          treatment you want, or whether one applies to you at all. That is what the evaluation is
+          for.</p>
+        <form class="ct-card" data-form-waiver="Endpoint not yet migrated. The estate's existing lead-capture forms are vendor-hosted third-party embeds and the leads land in that third party's system; the endpoint must be migrated deliberately and the processor named in the privacy policy before a real action URL can be published. Owner item, carried from the brief and the copy.">
+          <div class="row row--pair2">
+            <div class="col">
+              <div class="ct-f">
+                <label for="ctb-name">Your name</label>
+                <input id="ctb-name" name="name" type="text" autocomplete="name" required>
+              </div>
+            </div>
+            <div class="col">
+              <div class="ct-f">
+                <label for="ctb-email">Email</label>
+                <input id="ctb-email" name="email" type="email" autocomplete="email" required aria-describedby="ctb-email-help">
+                <span class="ct-hint" id="ctb-email-help">Where a reply should go.</span>
+              </div>
+            </div>
+            <div class="col">
+              <div class="ct-f">
+                <label for="ctb-phone">Phone (optional)</label>
+                <input id="ctb-phone" name="phone" type="tel" autocomplete="tel" aria-describedby="ctb-phone-help">
+                <span class="ct-hint" id="ctb-phone-help">Only if you would rather be called than emailed.</span>
+              </div>
+            </div>
+            <div class="col">
+              <div class="ct-f">
+                <label for="ctb-preferred">Preferred contact method</label>
+                <select id="ctb-preferred" name="preferred">
+                  <option>Email</option>
+                  <option>Phone</option>
+                </select>
+              </div>
+            </div>
+            <div class="col--full">
+              <div class="ct-f">
+                <label for="ctb-message">What would you like help with?</label>
+                <textarea id="ctb-message" name="message" required aria-describedby="ctb-message-help"></textarea>
+                <span class="ct-hint" id="ctb-message-help">Describe the concern in your own words. A symptom, an area, or a question is enough.</span>
+              </div>
+            </div>
+          </div>
+          <div class="ct-foot">
+            <button class="btn" type="submit">Send message</button>
+            <p>Sending this does not book an appointment. It starts a conversation.</p>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- == section 3 the routing block -->
+<!-- src: D-BRAND-RAILS-009 --> <!-- CTA verb convention by intent: Book for the consultation, Call for the phone line. F5 RESOLVED 2026-08-19 -->
+<!-- src: D-BRAND-RAILS-016 --> <!-- the live baseline capture, where the competing addresses, hours and numbers were measured -->
+<!-- pick: SECTION-COMPONENTS.md #45 Category chips / nav, taken as a three-cell routing strip rather than chips | considered: #51,#52 | why: on this concept the routing block has to answer address, phone and booking in one glance and then get out of the way, and a three-cell strip under a gold rule is the lightest shape in the catalog that still gives each answer its own labelled cell; the hours answer sits BELOW the strip on its own rule because it is the one line here that needs a sentence rather than a value. #51 locations grid is concept A's pick and gives the record a full band, which is the opposite of this concept's bet; #52 map embed plus contact is explicitly held by the brief until the address is owner-confirmed. | rigor: heavy -->
+<section class="ct-strip routing-block surface-warm" style="background-image:url(../../../../../assets/texture-cream-band.jpg)">
+  <div class="container">
+    <div class="row">
+      <div class="col">
+        <h2 class="ct-strip__h">Where to find us</h2>
+      </div>
+    </div>
+    <div class="row row--strip">
+      <div class="col">
+        <span class="ct-cell wow-lift">
+          <span class="ct-cell__k">Address</span>
+          <p class="ct-cell__v">100 Sir Francis Drake Blvd<span class="ct-cell__n">San Anselmo, CA 94960</span></p>
+        </span>
+      </div>
+      <div class="col">
+        <span class="ct-cell wow-lift">
+          <span class="ct-cell__k">Phone</span>
+          <p class="ct-cell__v"><a href="tel:+14157854604">(415) 785-4604</a><span class="ct-cell__n">Call the practice.</span></p>
+        </span>
+      </div>
+      <div class="col">
+        <span class="ct-cell wow-lift">
+          <span class="ct-cell__k">Consultation</span>
+          <p class="ct-cell__v"><a href="consultation.html">Book a consultation</a><span class="ct-cell__n">The physician health evaluation every treatment plan starts from.</span></p>
+        </span>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <p class="ct-hours"><b>Hours: by appointment.</b> Four different sets of opening hours are in
+          circulation across the practice's own properties and two of them directly conflict, so no
+          hour set is published here and none has been invented.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- == section 4 what happens after you send it -->
+<!-- src: D-OFFER-014 --> <!-- held positioning, verbatim and sourced; the evaluation is what the visitor is routed toward -->
+<!-- pick: SECTION-COMPONENTS.md #7 Problem framing, inverted to frame the ANSWER rather than the problem | considered: #41,#8 | why: the brief scopes this to XS and to setting an expectation without promising a response time nobody has confirmed, and #7's heading-beside-body shape is the smallest editorial unit that still gives the ceiling sentence somewhere to sit apart from the answer; the ceiling gets its own bordered block so the page ends on the limit rather than on a promise. #41 closing CTA would be a SECOND closing band against the locked chrome's one, and this TYPE is terminal so it is exempt from chasing a CTA at all; #8 manifesto is concept A's pick and overweights a deliberately plain paragraph. | rigor: heavy -->
+<section class="ct-tail trust-response-line">
+  <div class="container">
+    <div class="row row--tail">
+      <div class="col">
+        <h2 class="ct-tail__h">What happens next</h2>
+        <p class="ct-tail__p">Your message is read by the practice and routed to a consultation,
+          which is where a plan actually gets made. The consultation is a physician health evaluation
+          covering function as well as appearance, and it ends in a written plan you keep.</p>
+      </div>
+      <div class="col">
+        <p class="ct-tail__ceiling">An evaluation determines whether a treatment is appropriate at
+          all. It is not a safety or outcome guarantee.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- The ONE pre-footer CTA on this page is the LOCKED CHROME's closing band below, shipped VERBATIM.
+     Its second button points at contact.html, a self-link on THIS page. NOT hand-patched here: the
+     chrome is a locked shared block and the fix belongs in _design/_chrome-block.html followed by a
+     re-assemble. Raised for the owner instead. -->
+<section class="closing precta surface-dark">
+  <span class="glow"></span><span class="grain2"></span>
+  <div class="closing-in">
+    <h2>Start with the evaluation</h2>
+    <p class="sub">A physician health evaluation covering function as well as appearance, ending in a
+      written plan you keep.</p>
+    <p class="reassure">The evaluation decides whether a treatment is appropriate at all. If it is not,
+      you will be told so.</p>
+    <div class="cta-row">
+      <a class="btn" href="consultation.html">Book a consultation</a>
+      <a class="btn btn-ghost" href="contact.html">Contact the practice</a>
+    </div>
+  </div>
+</section>
+
+<footer class="ftr">
+  <div class="ftr-in">
+    <div>
+      <h5>Visit</h5>
+      <p>100 Sir Francis Drake Blvd<br>San Anselmo, CA 94960</p>
+      <a href="tel:+14157854604">(415) 785-4604</a>
+    </div>
+    <div>
+      <h5>Hours</h5>
+      <div class="hours-row"><span>Monday to Friday</span><span>By appointment</span></div>
+      <div class="hours-row"><span>Saturday</span><span>By appointment</span></div>
+      <div class="hours-row"><span>Sunday</span><span>Closed</span></div>
+      <p class="hours-flag">Owner to confirm the published hour-set. Four sets are in circulation and
+        two conflict, so no specific times are shown here.</p>
+    </div>
+    <div>
+      <h5>Start here</h5>
+      <a href="consultation.html">Book a consultation</a>
+      <a href="areas-of-concern.html">Areas of concern</a>
+      <a href="treatments.html">Treatments</a>
+      <a href="contact.html">Contact</a>
+    </div>
+  </div>
+  <div class="ftr-legal">
+    <span>Marin Medical Aesthetics, San Anselmo, California</span>
+    <span>Individual experiences vary.</span>
+  </div>
+</footer>
+
+<div id="mobile-drawer" aria-hidden="true" aria-label="Menu">
+  <div class="drawer__head"><button class="drawer-close" aria-label="Close menu">&#215;</button></div>
+  <nav class="drawer__nav" aria-label="Mobile">
+    <a href="areas-of-concern.html">Areas of Concern</a>
+    <div class="acc__panel"><a href="areas-of-concern-acne-acne-scars.html">Acne and acne scars</a><a href="areas-of-concern-fine-lines.html">Fine lines</a><a href="areas-of-concern-sun-damage.html">Sun damage</a><a href="areas-of-concern-rosacea.html">Rosacea and redness</a></div>
+    <a href="treatments.html">Treatments</a>
+    <div class="acc__panel"><a href="treatments-botox-dysport.html">Botox and Dysport</a><a href="treatments-halo-laser-treatment.html">Halo laser</a><a href="treatments-microneedling.html">Microneedling</a><a href="treatments-clearsilk.html">ClearSilk</a></div>
+    <a href="success-stories.html">Success Stories</a>
+    <a href="about.html">About</a>
+    <a href="tel:+14157854604">(415) 785-4604</a>
+  </nav>
+  <div class="drawer__cta"><a class="btn" href="consultation.html">Book a consultation</a></div>
+</div>
+
+<script>
+(function () {
+  var CLOSE_MS = 240;
+  document.querySelectorAll('.nav-item').forEach(function (item) {
+    var link = item.querySelector('.nav-link');
+    var panel = item.querySelector('.nav-panel');
+    if (!panel) return;
+    var t = null;
+    function open() { clearTimeout(t); item.classList.add('is-open'); if (link) link.setAttribute('aria-expanded', 'true'); }
+    function close() { t = setTimeout(function () { item.classList.remove('is-open'); if (link) link.setAttribute('aria-expanded', 'false'); }, CLOSE_MS); }
+    item.addEventListener('mouseenter', open);
+    item.addEventListener('mouseleave', close);
+    item.addEventListener('focusin', open);
+    item.addEventListener('focusout', function (e) { if (!item.contains(e.relatedTarget)) close(); });
+  });
+  var burger = document.querySelector('.site-header__hamburger');
+  var drawer = document.getElementById('mobile-drawer');
+  var closeBtn = document.querySelector('.drawer-close');
+  function setDrawer(open) {
+    if (!drawer || !burger) return;
+    drawer.setAttribute('aria-hidden', open ? 'false' : 'true');
+    burger.setAttribute('aria-expanded', open ? 'true' : 'false');
+  }
+  if (burger) burger.addEventListener('click', function () { setDrawer(drawer.getAttribute('aria-hidden') === 'true'); });
+  if (closeBtn) closeBtn.addEventListener('click', function () { setDrawer(false); });
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && drawer && drawer.getAttribute('aria-hidden') === 'false') setDrawer(false); });
+})();
+</script>
+</body>
+</html>

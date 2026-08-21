@@ -66,8 +66,8 @@ evaluation.
 **Section heading:** Who tends to come here for this
 
 Adults roughly 35-65 across Marin County who want visible improvement in skin, body contour or
-pelvic-floor function, and who specifically want a physician rather than a technician assessing
-whether a treatment suits them at all.
+pelvic-floor function, and who want a physician evaluating whether a treatment is appropriate for
+them at all.
 
 This is also the concern people most often arrive having never discussed with anyone, including their
 own doctor.

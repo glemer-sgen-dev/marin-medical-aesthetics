@@ -63,8 +63,8 @@ evaluation.
 **Section heading:** Who it suits, and what is claimed
 
 This practice's patients are typically adults roughly 35-65 across Marin County who want visible
-improvement in skin, body contour or pelvic-floor function, and who specifically want a physician
-rather than a technician assessing whether a treatment suits them at all.
+improvement in skin, body contour or pelvic-floor function, and who want a physician evaluating
+whether a treatment is appropriate for them at all.
 
 No success rate, percentage or patient count is published here. Manufacturer figures are not this
 practice's figures, and no outcome figure has been verified for this practice, so none is claimed.

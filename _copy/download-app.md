@@ -31,10 +31,10 @@ app is where the practical side of that lives.
 **It is not a way to become a patient.** If you have not been seen yet, the app is not the starting
 point and installing it will not get you an appointment sooner. The starting point is a consultation.
 
-The people this practice sees are typically adults roughly 35-65 across Marin County who want visible
-improvement in skin, body contour or pelvic-floor function, and who specifically want a physician
-rather than a technician assessing whether a treatment suits them at all. If that describes you and
-you have not booked yet, book rather than download.
+The people this practice sees are typically adults roughly 35-65 across Marin County who want
+visible improvement in skin, body contour or pelvic-floor function, and who want a physician
+evaluating whether a treatment is appropriate for them at all. If that describes you and you have
+not booked yet, book rather than download.
 
 ---
 

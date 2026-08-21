@@ -57,8 +57,8 @@ Any benefit is cumulative, so it is used repeatedly rather than as a single even
 **Section heading:** Who it suits, and what is claimed
 
 This practice's patients are typically adults roughly 35-65 across Marin County who want visible
-improvement in skin, body contour or pelvic-floor function, and who specifically want a physician
-rather than a technician assessing whether a treatment suits them at all.
+improvement in skin, body contour or pelvic-floor function, and who want a physician evaluating
+whether a treatment is appropriate for them at all.
 
 No outcome figures and no before and after photographs are published, because none is on file with a
 documented patient release.

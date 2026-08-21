@@ -1,0 +1,363 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>T-COMPANY concept B: In Her Own Words. Marin Medical Aesthetics</title>
+
+<!-- ===================== TEMPLATE CONCEPT B: "In Her Own Words" =====================
+  TYPE      : T-COMPANY (2 pages: about, local-community-support)
+  LAID OUT  : the FINAL copy of `about` from _copy/about.md, unedited
+
+  THE TYPE'S OWN LAW: G-COMPANY requires an EDITORIAL spine from COMPANY-SECTIONS
+              (founder / manifesto / timeline / team / press), never the service row vocabulary.
+              NAMESPACE: the gate's stripNamespace KEEPS `kit-`, so components here use `mm-`,
+              which strips to bare `founder` / `manifesto` as the gate expects.
+
+  WHAT IS UNAVAILABLE, and why (identical to every concept for this type): no portrait has been
+              supplied and no generated likeness of a real named physician is acceptable; no
+              founder narrative was ever captured so there is no timeline; one physician, not a
+              duo, so no team grid; and no verifiable third-party coverage, which the catalog says
+              to OMIT rather than fabricate.
+
+  THESIS    : concept A opens on the credential record, which is the most VERIFIABLE thing the
+              page has. This one opens on the most DISTINCTIVE thing it has: the practice's own
+              published description of how it works, which the copy itself calls the most
+              distinctive voice anywhere in its existing material. A visitor deciding whether to
+              hand their face to a stranger is not, first, checking a licence number; they are
+              asking what it will be like in the room. So the register leads at creed scale and
+              the credentials follow as a compact strip that settles the question the voice raises.
+
+  THE TRADE, STATED SO THE OWNER CAN REJECT IT: opening on voice rather than credentials is the
+  warmer page and the less defensible one. Every word of the creed is the practice's own published
+  language, but it is language ABOUT the experience, and a reader who came to check qualifications
+  meets an atmosphere first. If the owner wants the physician's record to be the first thing on
+  the page, concept A is that page and this one is not.
+
+  THE `cta` TRAP: the brief's section_seq ends with a slot literally named `cta`, which
+  verify-cta-singularity reads as a closing band on a main section in the tail. It rides a
+  non-section element here.
+
+  GRAMMAR (G-DOM): section then div.container then div.row then div.col then OBJECT throughout.
+===================================================================== -->
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap">
+<link rel="stylesheet" href="../../../../marin-medical-aesthetics-tokens.css">
+<link rel="stylesheet" href="../../../../marin-medical-aesthetics-structural.css">
+<link rel="stylesheet" href="../../../../marin-medical-aesthetics-chrome.css">
+
+<style>
+/* T-COMPANY concept B skin. COMPANY-SECTIONS vocabulary, mm- namespace. Token-pure, zero hex. */
+
+.row--strip3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:var(--ds-space-lg)}
+.row--whysplit{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:var(--ds-space-2xl);align-items:center}
+
+/* 2. manifesto creed, leading (catalog #2) */
+.mm-manifesto{position:relative;overflow:hidden;background:var(--ds-bg-surface);background-size:cover;background-position:center;background-blend-mode:soft-light;padding:calc(var(--ds-section-py) * 1.05) 0}
+.mm-manifesto .container{position:relative}
+.mm-manifesto__lab{font-size:10px;letter-spacing:.28em;text-transform:uppercase;color:var(--ds-issued);margin:0 0 var(--ds-space-md)}
+.mm-manifesto__voice{font-family:var(--ds-font-display);font-size:40px;line-height:1.26;letter-spacing:-.026em;color:var(--ds-accent);margin:0 0 var(--ds-space-md);max-width:22ch}
+.mm-manifesto__after{font-size:16.5px;line-height:1.72;color:var(--ds-ink);margin:0 0 14px;max-width:40rem}
+.mm-manifesto__sig{font-size:11.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--ds-olive);margin:var(--ds-space-md) 0 0;padding-top:14px;border-top:1px solid var(--ds-line);display:inline-block}
+
+/* 1. founder, answering the creed (catalog #1) */
+.mm-founder{padding:var(--ds-section-py) 0}
+.mm-founder__name{font-family:var(--ds-font-display);font-size:42px;line-height:1.08;letter-spacing:-.03em;font-weight:700;color:var(--ds-accent);margin:0 0 14px;max-width:18ch}
+.mm-founder__line{font-size:17.5px;line-height:1.66;color:var(--ds-ink-soft);margin:0 0 var(--ds-space-lg);max-width:44rem}
+.mm-cred{border-top:2px solid var(--ds-issued);padding-top:16px}
+.mm-cred__k{display:block;font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--ds-olive);margin-bottom:8px}
+.mm-cred__v{display:block;font-family:var(--ds-font-display);font-size:20px;line-height:1.26;color:var(--ds-accent)}
+.mm-cred__n{display:block;margin-top:7px;font-size:13px;line-height:1.6;color:var(--ds-ink-soft)}
+.mm-founder__rec{margin:var(--ds-space-lg) 0 0;padding-top:16px;border-top:1px solid var(--ds-line);font-size:14px;line-height:1.72;color:var(--ds-ink-soft);max-width:60ch}
+
+/* the why */
+.mm-why{position:relative;overflow:hidden;background:var(--ds-bg-surface-2);border-top:1px solid var(--ds-line);background-size:cover;background-position:center;background-blend-mode:soft-light;padding:var(--ds-section-py) 0}
+.mm-why .container{position:relative}
+.mm-why__h{font-family:var(--ds-font-display);font-size:32px;line-height:1.2;letter-spacing:-.022em;color:var(--ds-accent);margin:0 0 16px;max-width:18ch}
+.mm-why__q{font-family:var(--ds-font-display);font-size:22px;line-height:1.48;color:var(--ds-ink);margin:0 0 12px;padding-left:22px;border-left:3px solid var(--ds-issued)}
+.mm-why__src{font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--ds-olive);margin:0 0 16px}
+.mm-why__p{font-size:16px;line-height:1.72;color:var(--ds-ink);margin:0 0 14px;max-width:38rem}
+.mm-why__shot{display:block;position:relative;width:100%;min-width:0;overflow:hidden;border-radius:var(--ds-r-surface);aspect-ratio:5/4;max-height:360px;background:var(--ds-bg-surface-3)}
+.mm-why__shot img{width:100%;height:100%;object-fit:cover;display:block}
+
+/* the ceiling */
+.mm-ceiling{position:relative;overflow:hidden;padding:calc(var(--ds-section-py) * .85) 0;background:var(--ds-bg-surface);background-size:cover;background-position:center;background-blend-mode:soft-light;border-top:1px solid var(--ds-line)}
+.mm-ceiling .container{position:relative}
+.mm-ceiling__h{font-family:var(--ds-font-display);font-size:27px;line-height:1.2;color:var(--ds-accent);margin:0 0 14px}
+.mm-ceiling__p{font-size:15.5px;line-height:1.74;color:var(--ds-ink-soft);margin:0 0 14px;max-width:58ch}
+.mm-ceiling__p a{color:var(--ds-accent);text-decoration:underline;text-underline-offset:3px}
+.mm-close{margin:var(--ds-space-lg) 0 0;padding-top:var(--ds-space-md);border-top:2px solid var(--ds-issued)}
+.mm-close__h{font-family:var(--ds-font-display);font-size:23px;line-height:1.2;color:var(--ds-accent);margin:0 0 14px}
+
+/* Geometry-SAFE globals overlay (verify-globals-overlay): colour/shadow/motion only. */
+.wow-lift{transition:transform var(--ds-dur-fast) var(--ds-ease-out),box-shadow var(--ds-dur-fast) var(--ds-ease-out)}
+.wow-lift:hover,.wow-lift:focus-within{transform:translateY(-3px);box-shadow:var(--ds-shadow-lift)}
+@media (prefers-reduced-motion:reduce){.wow-lift{transition:none}.wow-lift:hover,.wow-lift:focus-within{transform:none}}
+
+@media (max-width:900px){
+  .row--strip3,.row--whysplit{grid-template-columns:minmax(0,1fr);gap:var(--ds-space-md)}
+  .mm-manifesto__voice{font-size:27px;max-width:none}
+  .mm-founder__name{font-size:29px;max-width:none}
+  .mm-why__h{font-size:24px;max-width:none}
+  .mm-why__shot{aspect-ratio:16/10;max-height:230px}
+}
+</style>
+</head>
+<body>
+
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="hdr">
+  <div class="hdr-in">
+    <a class="brand" href="index.html">Marin Medical<i>Aesthetics</i></a>
+    <nav class="nav" aria-label="Primary">
+      <div class="nav-item">
+        <a class="nav-link" href="areas-of-concern.html" aria-haspopup="true" aria-expanded="false">Areas of Concern <span class="caret"></span></a>
+        <div class="nav-panel">
+          <div class="mega">
+            <div class="mega-cols">
+              <a class="mega-card" href="areas-of-concern-acne-acne-scars.html"><span class="n">01</span><h4>Acne and acne scars</h4><p>Active breakouts and the texture they leave behind.</p></a>
+              <a class="mega-card" href="areas-of-concern-fine-lines.html"><span class="n">02</span><h4>Fine lines</h4><p>The early lines that follow expression and time.</p></a>
+              <a class="mega-card" href="areas-of-concern-sun-damage.html"><span class="n">03</span><h4>Sun damage</h4><p>Pigment, age spots and the marks of years outdoors.</p></a>
+              <a class="mega-card" href="areas-of-concern-rosacea.html"><span class="n">04</span><h4>Rosacea and redness</h4><p>Persistent flushing, redness and visible vessels.</p></a>
+            </div>
+            <div class="mega-feat">
+              <img src="../../../../../assets/hero-consult-room.jpg" alt="A quiet consultation room with natural daylight">
+              <span class="grade"></span>
+              <div class="inner">
+                <p class="eyebrow">Where every path starts</p>
+                <p class="line">The evaluation comes before the treatment, not after it.</p>
+                <a class="go" href="consultation.html">See what the appointment covers</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="nav-item">
+        <a class="nav-link" href="treatments.html" aria-haspopup="true" aria-expanded="false">Treatments <span class="caret"></span></a>
+        <div class="nav-panel">
+          <div class="drop">
+            <a href="treatments-botox-dysport.html">Botox and Dysport</a>
+            <a href="treatments-halo-laser-treatment.html">Halo laser</a>
+            <a href="treatments-microneedling.html">Microneedling</a>
+            <a href="treatments-clearsilk.html">ClearSilk</a>
+            <a href="treatments.html">All treatments</a>
+          </div>
+        </div>
+      </div>
+      <div class="nav-item"><a class="nav-link" href="success-stories.html">Success Stories</a></div>
+      <div class="nav-item"><a class="nav-link" href="about.html">About</a></div>
+      <a class="phone" href="tel:+14157854604">(415) 785-4604</a>
+      <a class="btn" href="consultation.html">Book a consultation</a>
+    </nav>
+    <button class="site-header__hamburger" aria-controls="mobile-drawer" aria-expanded="false" aria-label="Open menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<main id="main">
+
+<!-- == section 1 hero: the practice's own register, at creed scale -->
+<!-- src: D-IA-005 --> <!-- About is the practice/physician page at /about/ -->
+<!-- src: D-BRAND-RAILS-010 --> <!-- the practice's own warm-humanist register, its most distinctive voice -->
+<!-- pick: COMPANY-SECTIONS.md #2 Manifesto / values creed type-block, used as the OPENING rather than as a mid-page beat | considered: #1,#4 | why: this concept's whole bet is that the most distinctive thing this page owns is the practice's own published description of how it works, so it opens at creed scale where the catalog scopes #2 to oversized hairline-separated value statements; #1 founder hero opens on the person and is concept A's move, and #4 team--duo needs two founders where there is one physician. The dark ground makes the voice the page's first anchored moment rather than an afterthought below the fold. | rigor: heavy -->
+<section class="mm-manifesto hero team-values surface-dark" style="background-image:url(../../../../../assets/texture-navy-band.jpg)">
+  <div class="container">
+    <div class="row">
+      <div class="col">
+        <p class="mm-manifesto__lab">How she works</p>
+        <p class="mm-manifesto__voice">Dr. Bacchi welcomes clients in a comfortable, gentle and
+          affirming environment.</p>
+        <p class="mm-manifesto__after">The practice describes its own register that way:
+          collaborating with each one to bring their inner beauty to the surface using highly
+          individualised treatments.</p>
+        <p class="mm-manifesto__after">That is the warm, plain register this practice actually has,
+          and it is the most distinctive voice anywhere in its existing material.</p>
+        <p class="mm-manifesto__sig">The practice's own published words</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- == section 2 the story, told only from what is documented -->
+<!-- src: D-OFFER-023 --> <!-- the banned-claims list this page observes above all others -->
+<!-- pick: COMPANY-SECTIONS.md #1 Founder / company editorial hero, arriving SECOND to answer the voice above it | considered: #3,#4 | why: a reader who has just met a register wants to know who is speaking, so the founder block names her and settles the credentials in one compact three-across strip rather than a full table, which is concept A's treatment; #3 origin timeline has no captured narrative to put on a spine and would have to invent one, and #4 needs a duo. No portrait ships: none has been supplied and no generated likeness of a real named physician is acceptable. | rigor: heavy -->
+<section class="mm-founder company-story">
+  <div class="container">
+    <div class="row">
+      <div class="col">
+        <h1 class="mm-founder__name">Meet Dr. Chris Bacchi, MD</h1>
+        <p class="mm-founder__line">She is the physician who runs this practice in San Anselmo and
+          the one who performs the evaluation that every treatment plan starts from.</p>
+      </div>
+    </div>
+    <div class="row row--strip3">
+      <div class="col"><div class="mm-cred"><span class="mm-cred__k">Qualification</span><span class="mm-cred__v">MD</span><span class="mm-cred__n">UCSF School of Medicine, class of 1993.</span></div></div>
+      <div class="col"><div class="mm-cred"><span class="mm-cred__k">Taxonomy of record</span><span class="mm-cred__v">Internal Medicine</span><span class="mm-cred__n">Her sole taxonomy of record.</span></div></div>
+      <div class="col"><div class="mm-cred"><span class="mm-cred__k">California licence</span><span class="mm-cred__v">A60805</span><span class="mm-cred__n">The number is on the record. The tenure date is held until it is confirmed against the state's own lookup.</span></div></div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <p class="mm-founder__rec">Dr. Chris Bacchi is a physician. She holds an MD and graduated
+          from UCSF School of Medicine, class of 1993. Her sole taxonomy of record is Internal
+          Medicine. Her California medical licence is A60805.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- == section 3 the why: an evaluation that reaches further than the mirror -->
+<!-- src: D-OFFER-014 --> <!-- the held-positioning verbatim, quoted in full and unexcerpted -->
+<!-- pick: COMPANY-SECTIONS.md #2 Manifesto / values creed type-block, in its quieter split form beside the room | considered: #1,#5 | why: the creed shape returns for the second value statement because that is what this content is, but on a light ground and beside a photograph so it reads as the calmer companion to the opening rather than a second shout; #1 is spent on the founder block above and #5 press has no verifiable coverage, which the catalog says to OMIT rather than fabricate. | rigor: heavy -->
+<section class="mm-why the-why surface-warm" style="background-image:url(../../../../../assets/texture-cream-band.jpg)">
+  <div class="container">
+    <div class="row row--whysplit">
+      <div class="col">
+        <span class="mm-why__shot wow-lift"><img src="../../../../../assets/hero-consult-room.jpg" alt="A quiet consultation room with natural daylight"></span>
+      </div>
+      <div class="col">
+        <h2 class="mm-why__h">Why an evaluation comes first</h2>
+        <p class="mm-why__p">This practice is built around a health evaluation rather than a
+          treatment menu, and the evaluation's scope covers function as well as appearance. In the
+          practice's own published words, carried in full:</p>
+        <blockquote class="mm-why__q">as part of any treatment, she does a comprehensive health
+          evaluation to minimize side effects and teaches clients how their actions can maximize and
+          sustain the benefits they achieve.</blockquote>
+        <p class="mm-why__src">The practice's own published words</p>
+        <p class="mm-why__p">That is what the first appointment is for. It ends in a written plan
+          you keep.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- == section 5 what this page will not claim, with section 6 folded in -->
+<!-- src: D-INCUMBENT-009 --> <!-- V13 internal ceiling: a credential is never a safety guarantee -->
+<!-- src: D-OFFER-006 --> <!-- primary conversion goal: book a consultation -->
+<!-- pick: COMPANY-SECTIONS.md #2 Manifesto / values creed type-block, inverted to carry the page's CEILING | considered: #5,#4 | why: a page that opens on warmth has to close on the limit of what warmth entitles it to claim, in the same plain register and at the same weight, and the creed shape is the only one in the catalog that holds a statement that way without carding it; #5 press is omitted for want of verifiable coverage and #4 needs a duo. The closing lines ride INSIDE this section on a non-section element, because the brief's own slot is literally named cta and verify-cta-singularity reads any such class on a main section in the tail as a second closing band. | rigor: heavy -->
+<section class="mm-ceiling proof-logos surface-dark" style="background-image:url(../../../../../assets/texture-navy-band.jpg)">
+  <div class="container">
+    <div class="row">
+      <div class="col">
+        <h2 class="mm-ceiling__h">What this page does not claim</h2>
+        <p class="mm-ceiling__p">An evaluation determines whether a treatment is appropriate at all.
+          It is not a safety or outcome guarantee.</p>
+        <p class="mm-ceiling__p">That distinction is deliberate and it is the ceiling on everything
+          above. A physician deciding whether a treatment suits you is a judgement about suitability.
+          It is not a promise about the result, and a credential is never offered here as one: harm
+          has occurred with both licensed and unlicensed injectors, so no licence, degree or title is
+          presented on this site as a safety guarantee.</p>
+        <p class="mm-ceiling__p">No claim of professional superiority appears anywhere on this page,
+          and the indefinite article is used throughout for that reason.</p>
+        <div class="mm-close cta">
+          <p class="mm-close__h">Start with the evaluation</p>
+          <div class="cta-row">
+            <a class="btn" href="consultation.html">Book a consultation</a>
+            <a class="btn btn-ghost" href="local-community-support.html">Explore local community support</a>
+            <a class="btn btn-ghost" href="tel:+14157854604">Call (415) 785-4604</a>
+          </div>
+          <p class="mm-ceiling__p">Or start from <a href="areas-of-concern.html">a concern</a>, from
+            <a href="treatments.html">a treatment</a>, from
+            <a href="success-stories.html">what patients have said</a>, or
+            <a href="contact.html">contact the practice</a>.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- The ONE pre-footer CTA on this page is the LOCKED CHROME's closing band below.
+     main deliberately ends without a closing CTA section (composition rule 3). -->
+<section class="closing precta surface-dark">
+  <span class="glow"></span><span class="grain2"></span>
+  <div class="closing-in">
+    <h2>Start with the evaluation</h2>
+    <p class="sub">A physician health evaluation covering function as well as appearance, ending in a
+      written plan you keep.</p>
+    <p class="reassure">The evaluation decides whether a treatment is appropriate at all. If it is not,
+      you will be told so.</p>
+    <div class="cta-row">
+      <a class="btn" href="consultation.html">Book a consultation</a>
+      <a class="btn btn-ghost" href="contact.html">Contact the practice</a>
+    </div>
+  </div>
+</section>
+
+<footer class="ftr">
+  <div class="ftr-in">
+    <div>
+      <h5>Visit</h5>
+      <p>100 Sir Francis Drake Blvd<br>San Anselmo, CA 94960</p>
+      <a href="tel:+14157854604">(415) 785-4604</a>
+    </div>
+    <div>
+      <h5>Hours</h5>
+      <div class="hours-row"><span>Monday to Friday</span><span>By appointment</span></div>
+      <div class="hours-row"><span>Saturday</span><span>By appointment</span></div>
+      <div class="hours-row"><span>Sunday</span><span>Closed</span></div>
+      <p class="hours-flag">Owner to confirm the published hour-set. Four sets are in circulation and
+        two conflict, so no specific times are shown here.</p>
+    </div>
+    <div>
+      <h5>Start here</h5>
+      <a href="consultation.html">Book a consultation</a>
+      <a href="areas-of-concern.html">Areas of concern</a>
+      <a href="treatments.html">Treatments</a>
+      <a href="contact.html">Contact</a>
+    </div>
+  </div>
+  <div class="ftr-legal">
+    <span>Marin Medical Aesthetics, San Anselmo, California</span>
+    <span>Individual experiences vary.</span>
+  </div>
+</footer>
+
+<div id="mobile-drawer" aria-hidden="true" aria-label="Menu">
+  <div class="drawer__head"><button class="drawer-close" aria-label="Close menu">&#215;</button></div>
+  <nav class="drawer__nav" aria-label="Mobile">
+    <a href="areas-of-concern.html">Areas of Concern</a>
+    <div class="acc__panel"><a href="areas-of-concern-acne-acne-scars.html">Acne and acne scars</a><a href="areas-of-concern-fine-lines.html">Fine lines</a><a href="areas-of-concern-sun-damage.html">Sun damage</a><a href="areas-of-concern-rosacea.html">Rosacea and redness</a></div>
+    <a href="treatments.html">Treatments</a>
+    <div class="acc__panel"><a href="treatments-botox-dysport.html">Botox and Dysport</a><a href="treatments-halo-laser-treatment.html">Halo laser</a><a href="treatments-microneedling.html">Microneedling</a><a href="treatments-clearsilk.html">ClearSilk</a></div>
+    <a href="success-stories.html">Success Stories</a>
+    <a href="about.html">About</a>
+    <a href="tel:+14157854604">(415) 785-4604</a>
+  </nav>
+  <div class="drawer__cta"><a class="btn" href="consultation.html">Book a consultation</a></div>
+</div>
+
+<script>
+(function () {
+  var CLOSE_MS = 240;
+  document.querySelectorAll('.nav-item').forEach(function (item) {
+    var link = item.querySelector('.nav-link');
+    var panel = item.querySelector('.nav-panel');
+    if (!panel) return;
+    var t = null;
+    function open() { clearTimeout(t); item.classList.add('is-open'); if (link) link.setAttribute('aria-expanded', 'true'); }
+    function close() { t = setTimeout(function () { item.classList.remove('is-open'); if (link) link.setAttribute('aria-expanded', 'false'); }, CLOSE_MS); }
+    item.addEventListener('mouseenter', open);
+    item.addEventListener('mouseleave', close);
+    item.addEventListener('focusin', open);
+    item.addEventListener('focusout', function (e) { if (!item.contains(e.relatedTarget)) close(); });
+  });
+  var burger = document.querySelector('.site-header__hamburger');
+  var drawer = document.getElementById('mobile-drawer');
+  var closeBtn = document.querySelector('.drawer-close');
+  function setDrawer(open) {
+    if (!drawer || !burger) return;
+    drawer.setAttribute('aria-hidden', open ? 'false' : 'true');
+    burger.setAttribute('aria-expanded', open ? 'true' : 'false');
+  }
+  if (burger) burger.addEventListener('click', function () { setDrawer(drawer.getAttribute('aria-hidden') === 'true'); });
+  if (closeBtn) closeBtn.addEventListener('click', function () { setDrawer(false); });
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && drawer && drawer.getAttribute('aria-hidden') === 'false') setDrawer(false); });
+})();
+</script>
+</body>
+</html>

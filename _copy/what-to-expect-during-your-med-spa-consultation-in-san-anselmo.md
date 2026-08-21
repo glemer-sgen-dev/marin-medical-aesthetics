@@ -62,9 +62,9 @@ expect in between. It is yours to keep, to think about, and to take elsewhere fo
 
 **Section heading:** What you are committing to
 
-The people who book this appointment are typically adults roughly 35-65 across Marin County who want
-visible improvement in skin, body contour or pelvic-floor function, and who specifically want a
-physician rather than a technician assessing whether a treatment suits them at all.
+The people who book this appointment are typically adults roughly 35-65 across Marin County who
+want visible improvement in skin, body contour or pelvic-floor function, and who want a physician
+evaluating whether a treatment is appropriate for them at all.
 
 Booking the consultation commits you to the consultation. Nothing else.
 

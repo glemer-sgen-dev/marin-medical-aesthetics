@@ -1,0 +1,413 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>T-ARTICLE concept B: The Objection. Marin Medical Aesthetics</title>
+
+<!-- ===================== TEMPLATE CONCEPT B: "The Objection" =====================
+  TYPE      : T-ARTICLE (2 pages, both declaring an IDENTICAL section_seq).
+  LAID OUT  : the FINAL copy of what-to-expect-... from _copy/, unedited.
+
+  THESIS    : concept A answers the question in the title. This one answers the BELIEF underneath
+              it. The copy is explicit that what stops people is "a widespread and reasonable
+              expectation that a consultation at an aesthetics practice is a sales meeting with a
+              device catalogue" -- so that expectation is named at creed scale in the second band,
+              before a single step of the sequence is described, and everything after it reads as
+              the rebuttal. The hero is type alone: one line, no image, no ornament, because an
+              article that opens by conceding the reader's suspicion should not open by selling.
+
+  THE TRADE, STATED SO THE OWNER CAN REJECT IT: naming the objection in the practice's own voice
+  means printing an unflattering expectation about aesthetics practices in large type on the
+  practice's own site. It is the copy's own framing and it is NOT a claim about any competitor
+  (the brief bans naming, ranking or characterising one, and no practice is named or implied).
+  But an owner who wants the page to stay purely informational should pick A.
+
+  GRAMMAR (G-DOM): section then div.container then div.row then div.col then OBJECT throughout.
+  NAMESPACE: art- (shared with the other concepts of this tournament; only ONE of the three is
+  migrated into the shared sheet at the lock, so there is no collision risk between them).
+===================================================================== -->
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap">
+<link rel="stylesheet" href="../../../../marin-medical-aesthetics-tokens.css">
+<link rel="stylesheet" href="../../../../marin-medical-aesthetics-structural.css">
+<link rel="stylesheet" href="../../../../marin-medical-aesthetics-chrome.css">
+
+<style>
+/* T-ARTICLE concept B skin. Token-pure, zero hex, zero url(). */
+
+.row--creedsplit{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,.82fr);gap:var(--ds-space-2xl);align-items:start}
+.row--beats{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:var(--ds-space-md)}
+.row--qual{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1fr);gap:var(--ds-space-2xl);align-items:start}
+
+/* 1. type-only opening */
+.art-open.hero{display:block;grid-template-columns:none;border-top:0}
+.art-open{position:relative;overflow:hidden;padding:calc(var(--ds-section-py) * 1.05) 0;background:var(--ds-bg-surface);background-size:cover;background-position:center;background-blend-mode:soft-light}
+.art-open .container{position:relative}
+.art-open__h{font-family:var(--ds-font-display);font-size:50px;line-height:1.1;letter-spacing:-.032em;font-weight:700;color:var(--ds-accent);margin:0 0 20px;max-width:18ch}
+.art-open__sub{font-size:18.5px;line-height:1.62;color:var(--ds-ink);margin:0;max-width:42rem}
+
+/* 2. the belief, at creed scale */
+.art-belief{position:relative;overflow:hidden;padding:var(--ds-section-py) 0;background:var(--ds-bg-surface);background-size:cover;background-position:center;background-blend-mode:multiply}
+.art-belief .container{position:relative}
+.art-belief__lab{font-size:10px;letter-spacing:.24em;text-transform:uppercase;color:var(--ds-olive);margin:0 0 14px}
+.art-belief__creed{font-family:var(--ds-font-display);font-size:33px;line-height:1.22;letter-spacing:-.026em;color:var(--ds-accent);margin:0 0 16px}
+.art-belief__p{font-size:16px;line-height:1.74;color:var(--ds-ink-soft);margin:0 0 14px;max-width:38rem}
+.art-belief__land{font-size:16px;line-height:1.7;color:var(--ds-ink);margin:0;padding:16px 18px;border-left:3px solid var(--ds-issued);background:var(--ds-bg-surface-2)}
+
+/* 3. the sequence as a beat rail over a reading measure */
+.art-run{position:relative;overflow:hidden;padding:var(--ds-section-py) 0;background:var(--ds-bg-surface-2);background-size:cover;background-position:center;background-blend-mode:multiply}
+.art-run .container{position:relative}
+.art-run__h{font-family:var(--ds-font-display);font-size:29px;line-height:1.18;letter-spacing:-.022em;color:var(--ds-accent);margin:0 0 var(--ds-space-lg)}
+.art-beat-item{display:block;padding-top:12px;border-top:2px solid var(--ds-issued)}
+.art-beat-item__n{display:block;font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--ds-olive);margin:0 0 7px}
+.art-beat-item__t{display:block;font-family:var(--ds-font-display);font-size:16.5px;line-height:1.32;color:var(--ds-accent)}
+.art-run__body{margin-top:var(--ds-space-lg);max-width:46rem;margin-inline:auto}
+.art-run__p{font-size:16px;line-height:1.76;color:var(--ds-ink);margin:0 0 15px}
+.art-run__p b{font-weight:600;color:var(--ds-accent)}
+.art-run__q{margin:0 0 15px;padding-left:22px;border-left:3px solid var(--ds-issued)}
+.art-run__q p{font-family:var(--ds-font-display);font-size:19px;line-height:1.52;color:var(--ds-accent);margin:0 0 8px}
+.art-run__q cite{display:block;font-family:var(--ds-font-body);font-style:normal;font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--ds-olive)}
+
+/* 4. the qualifier */
+.art-qual{padding:var(--ds-section-py) 0;background:var(--ds-bg-surface)}
+.art-qual__h{font-family:var(--ds-font-display);font-size:29px;line-height:1.18;letter-spacing:-.022em;color:var(--ds-accent);margin:0 0 var(--ds-space-md);max-width:15ch}
+.art-qual__p{font-size:16px;line-height:1.74;color:var(--ds-ink-soft);margin:0 0 14px;max-width:38rem}
+.art-qual__hard{font-family:var(--ds-font-display);font-size:23px;line-height:1.42;color:var(--ds-accent);margin:0 0 16px;max-width:24ch}
+.art-fact{padding:15px 0;border-top:1px solid var(--ds-line)}
+.art-fact:last-of-type{border-bottom:1px solid var(--ds-line)}
+.art-fact__k{display:block;font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--ds-olive);margin:0 0 7px}
+.art-fact__p{font-size:15px;line-height:1.7;color:var(--ds-ink);margin:0}
+
+/* 5. the exits, as ghost text-links */
+.art-out{padding:calc(var(--ds-section-py) * .78) 0;background:var(--ds-bg-surface-2)}
+.art-out__h{font-family:var(--ds-font-display);font-size:24px;line-height:1.2;color:var(--ds-accent);margin:0 0 var(--ds-space-md)}
+.art-go{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:var(--ds-space-md);align-items:baseline;padding:15px 0;border-top:1px solid var(--ds-line);text-decoration:none}
+.art-go:last-of-type{border-bottom:1px solid var(--ds-line)}
+.art-go__t{font-family:var(--ds-font-display);font-size:19px;line-height:1.3;color:var(--ds-accent)}
+.art-go__p{display:block;margin-top:5px;font-family:var(--ds-font-body);font-size:14px;line-height:1.6;color:var(--ds-ink-soft)}
+.art-go__arw{font-size:15px;color:var(--ds-olive)}
+.art-go:hover .art-go__t,.art-go:focus-visible .art-go__t{color:var(--ds-olive)}
+.art-tel{display:inline-block;margin-top:var(--ds-space-md);font-size:15px;color:var(--ds-accent);text-decoration:underline;text-underline-offset:3px}
+
+/* Geometry-SAFE globals overlay (verify-globals-overlay): colour/shadow/motion only. */
+.wow-lift{transition:transform var(--ds-dur-fast) var(--ds-ease-out),box-shadow var(--ds-dur-fast) var(--ds-ease-out)}
+.wow-lift:hover,.wow-lift:focus-within{transform:translateY(-3px);box-shadow:var(--ds-shadow-lift)}
+@media (prefers-reduced-motion:reduce){.wow-lift{transition:none}.wow-lift:hover,.wow-lift:focus-within{transform:none}}
+
+@media (max-width:900px){
+  .row--creedsplit,.row--qual{grid-template-columns:minmax(0,1fr);gap:var(--ds-space-md)}
+  .row--beats{grid-template-columns:repeat(2,minmax(0,1fr));gap:var(--ds-space-md)}
+  .art-open__h{font-size:30px;max-width:none}
+  .art-open__sub{font-size:16.5px}
+  .art-belief__creed{font-size:25px}
+  .art-run__h,.art-qual__h{font-size:24px;max-width:none}
+  .art-qual__hard{font-size:20px;max-width:none}
+  .art-go{grid-template-columns:minmax(0,1fr)}
+}
+</style>
+</head>
+<body>
+
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="hdr">
+  <div class="hdr-in">
+    <a class="brand" href="index.html">Marin Medical<i>Aesthetics</i></a>
+    <nav class="nav" aria-label="Primary">
+      <div class="nav-item">
+        <a class="nav-link" href="areas-of-concern.html" aria-haspopup="true" aria-expanded="false">Areas of Concern <span class="caret"></span></a>
+        <div class="nav-panel">
+          <div class="mega">
+            <div class="mega-cols">
+              <a class="mega-card" href="areas-of-concern-acne-acne-scars.html"><span class="n">01</span><h4>Acne and acne scars</h4><p>Active breakouts and the texture they leave behind.</p></a>
+              <a class="mega-card" href="areas-of-concern-fine-lines.html"><span class="n">02</span><h4>Fine lines</h4><p>The early lines that follow expression and time.</p></a>
+              <a class="mega-card" href="areas-of-concern-sun-damage.html"><span class="n">03</span><h4>Sun damage</h4><p>Pigment, age spots and the marks of years outdoors.</p></a>
+              <a class="mega-card" href="areas-of-concern-rosacea.html"><span class="n">04</span><h4>Rosacea and redness</h4><p>Persistent flushing, redness and visible vessels.</p></a>
+            </div>
+            <div class="mega-feat">
+              <img src="../../../../../assets/hero-consult-room.jpg" alt="A quiet consultation room with natural daylight">
+              <span class="grade"></span>
+              <div class="inner">
+                <p class="eyebrow">Where every path starts</p>
+                <p class="line">The evaluation comes before the treatment, not after it.</p>
+                <a class="go" href="consultation.html">See what the appointment covers</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="nav-item">
+        <a class="nav-link" href="treatments.html" aria-haspopup="true" aria-expanded="false">Treatments <span class="caret"></span></a>
+        <div class="nav-panel">
+          <div class="drop">
+            <a href="treatments-botox-dysport.html">Botox and Dysport</a>
+            <a href="treatments-halo-laser-treatment.html">Halo laser</a>
+            <a href="treatments-microneedling.html">Microneedling</a>
+            <a href="treatments-clearsilk.html">ClearSilk</a>
+            <a href="treatments.html">All treatments</a>
+          </div>
+        </div>
+      </div>
+      <div class="nav-item"><a class="nav-link" href="success-stories.html">Success Stories</a></div>
+      <div class="nav-item"><a class="nav-link" href="about.html">About</a></div>
+      <a class="phone" href="tel:+14157854604">(415) 785-4604</a>
+      <a class="btn" href="consultation.html">Book a consultation</a>
+    </nav>
+    <button class="site-header__hamburger" aria-controls="mobile-drawer" aria-expanded="false" aria-label="Open menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<main id="main">
+
+<!-- == section 1 hero -->
+<!-- src: D-IA-006 --> <!-- Patient Resources group -->
+<!-- src: D-IA-026 --> <!-- T3 terminal tier -->
+<!-- pick: HERO-COMPOSITIONS.md #10 Centered headline only (text-driven, no hero photo), set left to the locked chrome measure and reduced to ONE sub-line | considered: #9,#5 | why: this concept's whole bet is that the page should concede the reader's suspicion before it shows them anything, and an opening that leads with a photograph of the practice is the opposite of conceding; #10 is the only catalog composition that carries a hero on type alone, and the brief already scopes this hero to one H1 plus a single orienting sub-line with no claim, price or outcome. The band ground is the navy texture, whose recorded purpose in _design/imagery-system.md is exactly a quiet anchored surface, so the section reads as a band without spending one of the eight photographs. #9 letterbox is concept A's pick; #5 full-bleed-plus-overlay would force a claim-scale headline. | rigor: heavy -->
+<section class="art-open hero surface-dark" style="background-image:url(../../../../../assets/texture-navy-band.jpg)">
+  <div class="container">
+    <div class="row">
+      <div class="col">
+        <h1 class="art-open__h">What to expect at your consultation</h1>
+        <p class="art-open__sub">If you have not booked because you do not know what the appointment
+          involves, this is the whole sequence, written out.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- == section 2 body-or-challenge: the belief, named -->
+<!-- src: D-OFFER-013 --> <!-- target customer / job-to-be-done -->
+<!-- src: D-BRAND-RAILS-016 --> <!-- the live baseline capture, rewritten rather than re-published -->
+<!-- pick: SECTION-COMPONENTS.md #8 Manifesto / belief statement, inverted to state the READER's belief rather than the practice's | considered: #7,#15 | why: the copy for this section is not a description of a problem, it is a named expectation held by the reader, and #8 is the catalog's only oversized-statement shape, which is what lets the expectation be printed at a size that reads as conceded rather than dismissed; the answer then lands in a bordered block beneath so the section closes on the consequence. #7 problem framing is concept A's pick and states the problem at body scale, and #15 comparison-table us-versus-them is unusable here because the brief bans naming, ranking or characterising any competitor. | rigor: heavy -->
+<section class="art-belief body-or-challenge" style="background-image:url(../../../../../assets/texture-cream-band.jpg)">
+  <div class="container">
+    <div class="row row--creedsplit">
+      <div class="col">
+        <p class="art-belief__lab">The reason people put this off</p>
+        <h2 class="art-belief__creed">A consultation at an aesthetics practice is a sales meeting
+          with a device catalogue.</h2>
+        <p class="art-belief__p">That is the widespread and reasonable expectation, and saying yes to
+          the appointment is assumed to be most of the way to saying yes to a treatment.</p>
+      </div>
+      <div class="col">
+        <p class="art-belief__p">The hesitation is usually not cost, and usually not nerves about a
+          treatment. It is not knowing what the appointment actually is.</p>
+        <p class="art-belief__land">So people wait, research alone, and arrive months later with a
+          device name they picked themselves.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- == section 3 solution-or-detail: the rebuttal, in order -->
+<!-- src: D-OFFER-014 --> <!-- the practice's own published positioning, quoted in full and never excerpted -->
+<!-- src: D-OFFER-009 --> <!-- the consultation is the entry offer -->
+<!-- pick: SECTION-COMPONENTS.md #28 Process timeline horizontal, five beats across as LABELS ONLY, with the prose running beneath in a single measure | considered: #27,#36 | why: on this concept the sequence has to be graspable before it is read, because a reader who has just been shown their own suspicion in large type needs to see the whole shape of the appointment at a glance to know it is being answered; a horizontal beat rail does that and the reading measure underneath carries the detail a rail cannot hold, including the published verbatim as a blockquote. #27 numbered process steps is concept A's pick and interleaves label and prose, which defers the shape; #36 sticky-sidebar topic nav is a navigation device for a long document and this section is one screen. | rigor: heavy -->
+<section class="art-run solution-or-detail surface-warm" style="background-image:url(../../../../../assets/texture-cream-band.jpg)">
+  <div class="container">
+    <div class="row">
+      <div class="col">
+        <h2 class="art-run__h">The sequence, step by step</h2>
+      </div>
+    </div>
+    <div class="row row--beats">
+      <div class="col"><span class="art-beat-item"><span class="art-beat-item__n">01</span><span class="art-beat-item__t">You describe the concern</span></span></div>
+      <div class="col"><span class="art-beat-item"><span class="art-beat-item__n">02</span><span class="art-beat-item__t">The health evaluation</span></span></div>
+      <div class="col"><span class="art-beat-item"><span class="art-beat-item__n">03</span><span class="art-beat-item__t">Your routine reviewed</span></span></div>
+      <div class="col"><span class="art-beat-item"><span class="art-beat-item__n">04</span><span class="art-beat-item__t">What is appropriate</span></span></div>
+      <div class="col"><span class="art-beat-item"><span class="art-beat-item__n">05</span><span class="art-beat-item__t">The written plan</span></span></div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <div class="art-run__body">
+          <p class="art-run__p"><b>You describe the concern in your own words.</b> Not a treatment
+            name. What you have noticed, how long it has been there, what changes it, and what you
+            have already tried.</p>
+          <p class="art-run__p"><b>Dr. Bacchi performs a physician health evaluation.</b> This covers
+            your history, your medications and other conditions, and the concern itself. It looks at
+            function as well as appearance, so pelvic-floor strength and continence are asked about
+            in the same appointment as skin and contour. In the practice's own published words:</p>
+          <blockquote class="art-run__q">
+            <p>as part of any treatment, she does a comprehensive health evaluation to minimize side
+              effects and teaches clients how their actions can maximize and sustain the benefits
+              they achieve.</p>
+            <cite>The practice's own published words</cite>
+          </blockquote>
+          <p class="art-run__p"><b>Your current products and routine are reviewed.</b> This matters
+            more often than people expect, and the first recommendation is frequently to stop
+            something rather than to start something.</p>
+          <p class="art-run__p"><b>You are told what is appropriate, and what is not.</b> Including,
+            sometimes, that nothing here is, or that another kind of doctor is the right next step.</p>
+          <p class="art-run__p"><b>You leave with a written plan.</b> What was assessed, what is
+            recommended, in what order, and what to expect in between. It is yours to keep, to think
+            about, and to take elsewhere for a second opinion.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- == section 4 result-or-takeaway -->
+<!-- src: D-OFFER-007 --> <!-- quote-only / consultation-led pricing, the practice's own published line -->
+<!-- src: D-OFFER-008 --> <!-- the price ladder is a non-publishable placeholder: no figure appears -->
+<!-- pick: SECTION-COMPONENTS.md #6 "Is this for me" qualifier, with the two practical answers set as a hairline fact list beside it | considered: #33,#41 | why: having named the reader's suspicion, this concept owes them a direct answer to whether the appointment is for them and what saying yes actually costs them, which is the qualifier's exact job; the commitment sentence carries at display scale because it is the single line that dismantles the belief stated in section 2. The cost answer is the practice's own verbatim sentence and nothing else, because the price ladder is non-publishable and waiver F1 is open, so no figure, no from-X and no package number appears. #33 custom-quote driver is concept A's pick, and #41 closing CTA would be a SECOND closing band against the locked chrome's one. | rigor: heavy -->
+<section class="art-qual result-or-takeaway">
+  <div class="container">
+    <div class="row row--qual">
+      <div class="col">
+        <h2 class="art-qual__h">What you are committing to</h2>
+        <p class="art-qual__hard">Booking the consultation commits you to the consultation. Nothing
+          else.</p>
+        <p class="art-qual__p">You are not required to book a treatment on the day, and treatment is
+          not the default outcome of the appointment. An evaluation determines whether a treatment is
+          appropriate at all. It is not a safety or outcome guarantee.</p>
+      </div>
+      <div class="col">
+        <p class="art-qual__p">The people who book this appointment are typically adults roughly
+          35-65 across Marin County who want visible improvement in skin, body contour or
+          pelvic-floor function, and who want a physician evaluating whether a treatment is
+          appropriate for them at all.</p>
+        <div class="art-fact">
+          <span class="art-fact__k">On cost</span>
+          <p class="art-fact__p">Quote-only pricing. During your consultation, we will build a
+            customized treatment plan with packaged pricing. No price list is published here because
+            a real figure depends on what the evaluation finds.</p>
+        </div>
+        <div class="art-fact">
+          <span class="art-fact__k">What to bring</span>
+          <p class="art-fact__p">A list of your current medications and the skincare products you are
+            actually using, plus any history relevant to the concern.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- == section 5 cross-links -->
+<!-- src: D-IA-001 --> <!-- the /areas-of-concern/ hub, the concern-led entry layer -->
+<!-- src: D-IA-003 --> <!-- the Consultation endpoint, the single conversion point -->
+<!-- pick: CTA-PATTERNS.md #6 Ghost text-link with arrow, stacked as hairline rows | considered: #11,#7 | why: the brief scopes this to XS with one line of context per link, and a ghost text-link is the lightest affordance in the catalog, which keeps the exits reading as choices rather than as a second push after a page that has just argued the reader is under no obligation; making them loud here would undercut the section above it. #11 full-width band CTA and #7 multi-CTA cluster both read as a closing band, and the locked chrome already carries the page's one closing band directly below. | rigor: heavy -->
+<section class="art-out cross-links surface-warm">
+  <div class="container">
+    <div class="row">
+      <div class="col">
+        <h2 class="art-out__h">Next</h2>
+        <a class="art-go" href="consultation.html">
+          <span class="art-go__t">Book a consultation<span class="art-go__p">The appointment this page describes.</span></span>
+          <span class="art-go__arw">&#8594;</span>
+        </a>
+        <a class="art-go" href="areas-of-concern.html">
+          <span class="art-go__t">Explore areas of concern<span class="art-go__p">If you would rather start from what you have noticed.</span></span>
+          <span class="art-go__arw">&#8594;</span>
+        </a>
+        <a class="art-go" href="treatments.html">
+          <span class="art-go__t">Browse treatments<span class="art-go__p">If you already know the device name.</span></span>
+          <span class="art-go__arw">&#8594;</span>
+        </a>
+        <a class="art-go" href="about.html">
+          <span class="art-go__t">Meet Dr. Bacchi<span class="art-go__p">The physician who performs the evaluation.</span></span>
+          <span class="art-go__arw">&#8594;</span>
+        </a>
+        <a class="art-tel" href="tel:+14157854604">Call (415) 785-4604</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- The ONE pre-footer CTA on this page is the LOCKED CHROME's closing band below.
+     main deliberately ends without a closing CTA section (composition rule 3). -->
+<section class="closing precta surface-dark">
+  <span class="glow"></span><span class="grain2"></span>
+  <div class="closing-in">
+    <h2>Start with the evaluation</h2>
+    <p class="sub">A physician health evaluation covering function as well as appearance, ending in a
+      written plan you keep.</p>
+    <p class="reassure">The evaluation decides whether a treatment is appropriate at all. If it is not,
+      you will be told so.</p>
+    <div class="cta-row">
+      <a class="btn" href="consultation.html">Book a consultation</a>
+      <a class="btn btn-ghost" href="contact.html">Contact the practice</a>
+    </div>
+  </div>
+</section>
+
+<footer class="ftr">
+  <div class="ftr-in">
+    <div>
+      <h5>Visit</h5>
+      <p>100 Sir Francis Drake Blvd<br>San Anselmo, CA 94960</p>
+      <a href="tel:+14157854604">(415) 785-4604</a>
+    </div>
+    <div>
+      <h5>Hours</h5>
+      <div class="hours-row"><span>Monday to Friday</span><span>By appointment</span></div>
+      <div class="hours-row"><span>Saturday</span><span>By appointment</span></div>
+      <div class="hours-row"><span>Sunday</span><span>Closed</span></div>
+      <p class="hours-flag">Owner to confirm the published hour-set. Four sets are in circulation and
+        two conflict, so no specific times are shown here.</p>
+    </div>
+    <div>
+      <h5>Start here</h5>
+      <a href="consultation.html">Book a consultation</a>
+      <a href="areas-of-concern.html">Areas of concern</a>
+      <a href="treatments.html">Treatments</a>
+      <a href="contact.html">Contact</a>
+    </div>
+  </div>
+  <div class="ftr-legal">
+    <span>Marin Medical Aesthetics, San Anselmo, California</span>
+    <span>Individual experiences vary.</span>
+  </div>
+</footer>
+
+<div id="mobile-drawer" aria-hidden="true" aria-label="Menu">
+  <div class="drawer__head"><button class="drawer-close" aria-label="Close menu">&#215;</button></div>
+  <nav class="drawer__nav" aria-label="Mobile">
+    <a href="areas-of-concern.html">Areas of Concern</a>
+    <div class="acc__panel"><a href="areas-of-concern-acne-acne-scars.html">Acne and acne scars</a><a href="areas-of-concern-fine-lines.html">Fine lines</a><a href="areas-of-concern-sun-damage.html">Sun damage</a><a href="areas-of-concern-rosacea.html">Rosacea and redness</a></div>
+    <a href="treatments.html">Treatments</a>
+    <div class="acc__panel"><a href="treatments-botox-dysport.html">Botox and Dysport</a><a href="treatments-halo-laser-treatment.html">Halo laser</a><a href="treatments-microneedling.html">Microneedling</a><a href="treatments-clearsilk.html">ClearSilk</a></div>
+    <a href="success-stories.html">Success Stories</a>
+    <a href="about.html">About</a>
+    <a href="tel:+14157854604">(415) 785-4604</a>
+  </nav>
+  <div class="drawer__cta"><a class="btn" href="consultation.html">Book a consultation</a></div>
+</div>
+
+<script>
+(function () {
+  var CLOSE_MS = 240;
+  document.querySelectorAll('.nav-item').forEach(function (item) {
+    var link = item.querySelector('.nav-link');
+    var panel = item.querySelector('.nav-panel');
+    if (!panel) return;
+    var t = null;
+    function open() { clearTimeout(t); item.classList.add('is-open'); if (link) link.setAttribute('aria-expanded', 'true'); }
+    function close() { t = setTimeout(function () { item.classList.remove('is-open'); if (link) link.setAttribute('aria-expanded', 'false'); }, CLOSE_MS); }
+    item.addEventListener('mouseenter', open);
+    item.addEventListener('mouseleave', close);
+    item.addEventListener('focusin', open);
+    item.addEventListener('focusout', function (e) { if (!item.contains(e.relatedTarget)) close(); });
+  });
+  var burger = document.querySelector('.site-header__hamburger');
+  var drawer = document.getElementById('mobile-drawer');
+  var closeBtn = document.querySelector('.drawer-close');
+  function setDrawer(open) {
+    if (!drawer || !burger) return;
+    drawer.setAttribute('aria-hidden', open ? 'false' : 'true');
+    burger.setAttribute('aria-expanded', open ? 'true' : 'false');
+  }
+  if (burger) burger.addEventListener('click', function () { setDrawer(drawer.getAttribute('aria-hidden') === 'true'); });
+  if (closeBtn) closeBtn.addEventListener('click', function () { setDrawer(false); });
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && drawer && drawer.getAttribute('aria-hidden') === 'false') setDrawer(false); });
+})();
+</script>
+</body>
+</html>

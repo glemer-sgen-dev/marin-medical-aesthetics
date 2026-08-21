@@ -1,0 +1,506 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>T-HUB concept A: The Directory. Marin Medical Aesthetics</title>
+
+<!-- ===================== TEMPLATE CONCEPT A: "The Directory" =====================
+  TYPE      : T-HUB (4 pages: areas-of-concern, treatments, before-after-photos, success-stories)
+  LAID OUT  : the FINAL copy of `areas-of-concern` from _copy/areas-of-concern.md, unedited
+  THESIS    : a hub is a ROUTING page, not an argument page. Its job is to get someone from
+              "here is what I have noticed" to the right one of twenty-one doors in as few
+              moves as possible. Each of the four concern groups gets its OWN band, and each
+              band takes a shape SIZED TO HOW MANY CONCERNS IT HOLDS rather than one shell
+              repeated four times. Where T-FEATURE argues, this page files.
+
+  CORRECTED AFTER A GATE CAUGHT IT: the first draft did use one shell four times and merely
+  MIRRORED the media side between bands. G-SVAR blocked it ("this is a repeat of the row above
+  it") and the rhythm gate found a four-section flat-light run with no middle anchor. Mirroring
+  changes the SIDE, not the SHAPE. The four bands are now genuinely different compositions.
+
+  CROSS-TYPE DISTINCTNESS (G14): the locked T-FEATURE template is an argument page of nine
+  paragraph-dense sections; this is a seven-section routing page whose spine is link-dense
+  grids. That difference in KIND is the honest reason the two do not read alike.
+
+  COMPOSITION LAW compliance (SKILL.md § PAGE COMPOSITION):
+   - rule 1  where a band pairs media with a card set it is a STRETCHED media beside a GRID,
+             never a capped media beside a tall 1xN stack.
+   - rule 2  no two adjacent sections repeat a shape. Down the four groups:
+             skin (9 concerns)     stretched media + 2-col hairline links   light ground
+             face (6 concerns)     3-col hairline links, NO media           warm ground
+             body (4 concerns)     narrow media panel + 2x2 tiles           light ground
+             function (2 concerns) 2 tiles + the standing note + media      warm ground
+             Grounds alternate so no flat-light run forms and a non-light anchor lands mid-page.
+   - rule 3  EXACTLY ONE pre-footer CTA, and it is the LOCKED CHROME's closing band. The copy's
+             section 8 closing-cta rides the routing band's own action row, NOT a second
+             section, because G-CTA1 counts any *cta* class on a main section in the tail as a
+             second closing band (learned at the T-FEATURE lock).
+   - rule 4  every media frame is aspect-ratio capped + object-fit:cover.
+   - rule 6  media always sits BESIDE its content, never stacked above it.
+   - rule 7  every grid-track media frame carries width:100% + min-width:0.
+
+  ROUTING INTEGRITY: all 23 of the brief's links_to targets appear as real hrefs (21 concern
+  pages + consultation + treatments). This is a hub; a hub that does not route is broken.
+
+  CONTENT-BIBLE: the function group is stated affirmatively. The copy's earlier "Most practices
+  in this category do not list these at all" was a row 19/20 no-name market negative and was
+  rewritten at the copy layer on 2026-08-21; nothing here points at anyone.
+
+  GRAMMAR (G-DOM): every main section is section > div.container > div.row > div.col > OBJECT.
+  Type-register classes (.kit-h2 / .kit-p / .kit-label) are the LOCKED shared vocabulary from
+  the structural sheet; only the hub-specific components are new.
+===================================================================== -->
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap">
+<link rel="stylesheet" href="../../../../marin-medical-aesthetics-tokens.css">
+<link rel="stylesheet" href="../../../../marin-medical-aesthetics-structural.css">
+<link rel="stylesheet" href="../../../../marin-medical-aesthetics-chrome.css">
+
+<style>
+/* T-HUB concept A skin. Objects only, never on .container/.row/.col (R5). Token-pure, zero hex.
+   Reuses the locked type register (.kit-h2/.kit-p/.kit-label) already in the structural sheet. */
+
+/* --- structure modifiers (layout only, no skin) --- */
+.row--group{display:grid;grid-template-columns:minmax(0,.62fr) minmax(0,1fr);gap:var(--ds-space-lg);align-items:stretch}
+.row--group-flip{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,.62fr);gap:var(--ds-space-lg);align-items:stretch}
+.row--links{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 var(--ds-space-lg)}
+.row--steps{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:var(--ds-space-md)}
+
+/* --- section grounds --- */
+.kit-front{position:relative;overflow:hidden;padding:calc(var(--ds-section-py) * 1.05) 0 var(--ds-section-py);background-size:cover;background-position:center;background-blend-mode:soft-light}
+.kit-front .container{position:relative}
+.kit-wedge{position:relative;overflow:hidden;background:var(--ds-bg-surface);padding:calc(var(--ds-section-py) * .95) 0;background-size:cover;background-position:center;background-blend-mode:soft-light}
+.kit-wedge .container{position:relative}
+.kit-group{padding:calc(var(--ds-section-py) * .82) 0}
+.kit-group--tint{background:var(--ds-bg-surface-2)}
+.kit-group--soft{background:var(--ds-bg-surface-3)}
+.kit-route{padding:var(--ds-section-py) 0;background:var(--ds-bg-surface-3);border-top:1px solid var(--ds-line)}
+
+/* --- hero --- */
+.kit-front .kit-h1{font-family:var(--ds-font-display);font-size:58px;line-height:1.04;letter-spacing:-.036em;font-weight:700;color:var(--ds-accent);margin:0 0 20px;max-width:18ch}
+.kit-front .kit-lede{font-size:18.5px;line-height:1.62;color:var(--ds-ink-soft);margin:0 0 26px;max-width:44rem}
+.kit-count{display:inline-block;font-size:10px;letter-spacing:.24em;text-transform:uppercase;color:var(--ds-olive);border-top:2px solid var(--ds-issued);padding-top:10px}
+
+.row--front{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,.62fr);gap:var(--ds-space-2xl);align-items:end}
+.kit-jump{border-top:2px solid var(--ds-issued);padding-top:16px}
+.kit-jump .k{font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:var(--ds-olive);margin:0 0 10px}
+.kit-jump .j{display:flex;align-items:baseline;justify-content:space-between;gap:16px;padding:12px 0;border-bottom:1px solid var(--ds-line);text-decoration:none;transition:border-color var(--ds-dur-fast) var(--ds-ease)}
+.kit-jump .j .t{font-family:var(--ds-font-display);font-size:18px;line-height:1.2;color:var(--ds-accent)}
+.kit-jump .j .n{font-size:12px;letter-spacing:.1em;color:var(--ds-olive);font-variant-numeric:tabular-nums}
+.kit-jump .j:hover,.kit-jump .j:focus-visible{border-bottom-color:var(--ds-issued)}
+.kit-jump .j:hover .t,.kit-jump .j:focus-visible .t{color:var(--ds-issued)}
+
+/* --- wedge: three numbered steps + the verbatim --- */
+.kit-step3{border-top:2px solid var(--ds-issued);padding:16px 0 0}
+.kit-step3 .n{display:block;font-family:var(--ds-font-display);font-size:34px;line-height:1;color:var(--ds-olive);margin-bottom:10px}
+.kit-step3 .t{display:block;font-family:var(--ds-font-display);font-size:18px;line-height:1.28;color:var(--ds-accent);margin-bottom:8px}
+.kit-step3 .d{display:block;font-size:14.5px;line-height:1.66;color:var(--ds-ink-soft)}
+.kit-said{margin:var(--ds-space-lg) 0 0;padding:22px 26px;background:var(--ds-bg-surface-2);border-left:3px solid var(--ds-issued)}
+.kit-said .q{font-family:var(--ds-font-display);font-size:19px;line-height:1.46;color:var(--ds-accent);margin:0 0 10px}
+.kit-said .src{font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--ds-ink-soft);margin:0}
+.kit-ceiling{margin:18px 0 0;padding-top:14px;border-top:1px solid var(--ds-line);font-size:13.5px;line-height:1.66;color:var(--ds-ink-soft);max-width:44rem}
+
+/* --- group bands: stretched media + 2-col hairline link grid --- */
+.kit-shot{display:block;position:relative;width:100%;min-width:0;align-self:stretch;height:100%;min-height:300px;overflow:hidden;border-radius:var(--ds-r-surface);background:var(--ds-bg-surface-3)}
+.kit-shot img{width:100%;height:100%;object-fit:cover;display:block}
+.kit-groupname{font-family:var(--ds-font-display);font-size:30px;line-height:1.12;letter-spacing:-.02em;color:var(--ds-accent);margin:0 0 8px}
+.kit-groupsub{font-size:15.5px;line-height:1.66;color:var(--ds-ink-soft);margin:0 0 var(--ds-space-md);max-width:40rem}
+.kit-link{display:block;padding:14px 0;border-top:1px solid var(--ds-line);text-decoration:none;transition:border-color var(--ds-dur-fast) var(--ds-ease)}
+.kit-link .t{display:block;font-family:var(--ds-font-display);font-size:17px;line-height:1.24;color:var(--ds-accent);margin-bottom:3px}
+.kit-link .d{display:block;font-size:13.5px;line-height:1.6;color:var(--ds-ink-soft)}
+.kit-link:hover,.kit-link:focus-visible{border-top-color:var(--ds-issued)}
+.kit-link:hover .t,.kit-link:focus-visible .t{color:var(--ds-issued)}
+
+/* --- varied group shapes (composition rule 2: no two adjacent bands share a shape) --- */
+.row--links3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0 var(--ds-space-lg)}
+.row--banner4{display:grid;grid-template-columns:minmax(0,.3fr) minmax(0,1fr);gap:var(--ds-space-lg);align-items:stretch}
+.row--links4{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:var(--ds-space-sm)}
+.kit-panelshot{display:block;position:relative;width:100%;min-width:0;align-self:stretch;height:100%;min-height:260px;overflow:hidden;border-radius:var(--ds-r-surface);background:var(--ds-bg-surface-3)}
+.kit-panelshot img{width:100%;height:100%;object-fit:cover;display:block}
+.kit-tile{display:block;height:100%;padding:20px;border:1px solid var(--ds-line);border-radius:var(--ds-r-surface);background:var(--ds-bg-surface);text-decoration:none;transition:border-color var(--ds-dur-fast) var(--ds-ease),box-shadow var(--ds-dur-fast) var(--ds-ease)}
+.kit-tile .t{display:block;font-family:var(--ds-font-display);font-size:17px;line-height:1.24;color:var(--ds-accent);margin-bottom:5px}
+.kit-tile .d{display:block;font-size:13.5px;line-height:1.6;color:var(--ds-ink-soft)}
+.kit-tile:hover,.kit-tile:focus-visible{border-color:var(--ds-issued);box-shadow:var(--ds-shadow-card)}
+.kit-tile:hover .t,.kit-tile:focus-visible .t{color:var(--ds-issued)}
+
+/* Geometry-SAFE globals overlay (verify-globals-overlay): colour/shadow/motion only, never geometry. */
+.wow-lift{transition:transform var(--ds-dur-fast) var(--ds-ease-out),box-shadow var(--ds-dur-fast) var(--ds-ease-out)}
+.wow-lift:hover,.wow-lift:focus-within{transform:translateY(-3px);box-shadow:var(--ds-shadow-lift)}
+@media (prefers-reduced-motion:reduce){.wow-lift{transition:none}.wow-lift:hover,.wow-lift:focus-within{transform:none}}
+
+/* --- routing band --- */
+.kit-route .kit-h2{margin-bottom:14px}
+.kit-routep{font-size:16.5px;line-height:1.7;color:var(--ds-ink-soft);margin:0 0 var(--ds-space-md);max-width:46rem}
+.kit-closing{margin:var(--ds-space-lg) 0 0;padding-top:var(--ds-space-md);border-top:2px solid var(--ds-issued)}
+.kit-closing .h{font-family:var(--ds-font-display);font-size:26px;line-height:1.2;color:var(--ds-accent);margin:0 0 10px}
+.kit-closing .s{font-size:15.5px;line-height:1.7;color:var(--ds-ink-soft);margin:0 0 18px;max-width:42rem}
+
+@media (max-width:900px){
+  .row--group,.row--group-flip,.row--front{grid-template-columns:minmax(0,1fr);gap:var(--ds-space-md)}
+  .row--links,.row--links3,.row--links4{grid-template-columns:minmax(0,1fr);gap:var(--ds-space-sm)}
+  .row--banner4{grid-template-columns:minmax(0,1fr)}
+  .kit-panelshot{min-height:180px}
+  .row--steps{grid-template-columns:minmax(0,1fr);gap:var(--ds-space-sm)}
+  .kit-front .kit-h1{font-size:34px;max-width:none}
+  .kit-groupname{font-size:24px}
+  .kit-shot{min-height:200px}
+}
+</style>
+</head>
+<body>
+
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="hdr">
+  <div class="hdr-in">
+    <a class="brand" href="index.html">Marin Medical<i>Aesthetics</i></a>
+    <nav class="nav" aria-label="Primary">
+      <div class="nav-item">
+        <a class="nav-link" href="areas-of-concern.html" aria-haspopup="true" aria-expanded="false">Areas of Concern <span class="caret"></span></a>
+        <div class="nav-panel">
+          <div class="mega">
+            <div class="mega-cols">
+              <a class="mega-card" href="areas-of-concern-acne-acne-scars.html"><span class="n">01</span><h4>Acne and acne scars</h4><p>Active breakouts and the texture they leave behind.</p></a>
+              <a class="mega-card" href="areas-of-concern-fine-lines.html"><span class="n">02</span><h4>Fine lines</h4><p>The early lines that follow expression and time.</p></a>
+              <a class="mega-card" href="areas-of-concern-sun-damage.html"><span class="n">03</span><h4>Sun damage</h4><p>Pigment, age spots and the marks of years outdoors.</p></a>
+              <a class="mega-card" href="areas-of-concern-rosacea.html"><span class="n">04</span><h4>Rosacea and redness</h4><p>Persistent flushing, redness and visible vessels.</p></a>
+            </div>
+            <div class="mega-feat">
+              <img src="../../../../../assets/hero-consult-room.jpg" alt="A quiet consultation room with natural daylight">
+              <span class="grade"></span>
+              <div class="inner">
+                <p class="eyebrow">Where every path starts</p>
+                <p class="line">The evaluation comes before the treatment, not after it.</p>
+                <a class="go" href="consultation.html">See what the appointment covers</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="nav-item">
+        <a class="nav-link" href="treatments.html" aria-haspopup="true" aria-expanded="false">Treatments <span class="caret"></span></a>
+        <div class="nav-panel">
+          <div class="drop">
+            <a href="treatments-botox-dysport.html">Botox and Dysport</a>
+            <a href="treatments-halo-laser-treatment.html">Halo laser</a>
+            <a href="treatments-microneedling.html">Microneedling</a>
+            <a href="treatments-clearsilk.html">ClearSilk</a>
+            <a href="treatments.html">All treatments</a>
+          </div>
+        </div>
+      </div>
+      <div class="nav-item"><a class="nav-link" href="success-stories.html">Success Stories</a></div>
+      <div class="nav-item"><a class="nav-link" href="about.html">About</a></div>
+      <a class="phone" href="tel:+14157854604">(415) 785-4604</a>
+      <a class="btn" href="consultation.html">Book a consultation</a>
+    </nav>
+    <button class="site-header__hamburger" aria-controls="mobile-drawer" aria-expanded="false" aria-label="Open menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<main id="main">
+
+<!-- == §1 hero: start from the concern -->
+<!-- src: D-IA-001 --> <!-- Areas of Concern is the concern-led entry layer, slug unchanged -->
+<!-- src: D-IA-024 --> <!-- T1 hub tier -->
+<!-- pick: HERO-COMPOSITIONS.md #10 Centered headline only (text-driven, no hero photo), held to a LEFT-set type block over a quiet textured ground | considered: #1,#22 | why: a hub's hero must get out of the way of the twenty-one doors below it, so the type states the instruction and the cream plaster texture carries the ground without spending a photograph that a concern group will need; #1 split-with-photo would push the first concern group a full screen further down on the site's front door, and #22 stats-heavy has no counted fact this page owns. | rigor: heavy -->
+<section class="kit-front hero-category-outcome" style="background-image:url(../../../../../assets/texture-cream-band.jpg)">
+  <div class="container">
+    <div class="row row--front">
+      <div class="col">
+        <p class="kit-label">Start from what you have noticed</p>
+        <h1 class="kit-h1">Areas of concern in San Anselmo</h1>
+        <p class="kit-lede">Start here, with what you have actually noticed. This page is the front
+          door of the site, and it comes before the treatment index on purpose: naming the concern is
+          the first step, and choosing a device is a later one that belongs to the physician.</p>
+        <p class="kit-count">Twenty-one concerns, four groups, one evaluation</p>
+      </div>
+      <div class="col">
+        <div class="kit-jump">
+          <p class="k">Jump to a group</p>
+          <a class="j" href="#g-skin"><span class="t">Skin</span><span class="n">9</span></a>
+          <a class="j" href="#g-face"><span class="t">Face and structure</span><span class="n">6</span></a>
+          <a class="j" href="#g-body"><span class="t">Body</span><span class="n">4</span></a>
+          <a class="j" href="#g-function"><span class="t">Function</span><span class="n">2</span></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- == §2 why the concern comes before the device -->
+<!-- src: D-OFFER-014 --> <!-- the held-positioning verbatim, quoted in full and unexcerpted -->
+<!-- pick: SECTION-COMPONENTS.md #14 Tabbed content, resolved as a three-step numbered rail rather than tabs | considered: #8,#26 | why: the copy states an ORDER (name it, have it evaluated, leave with a plan) and a three-across numbered rail is the shape an order already has, with the practice's own published sentence set beneath as the evidence for step two; #8 manifesto would state the order without showing it, and #26 pull-quote would make the quotation the whole section when it is really the support for one step. | rigor: heavy -->
+<section class="kit-wedge why-this-area-wedge surface-dark" style="background-image:url(../../../../../assets/texture-navy-band.jpg)">
+  <div class="container">
+    <div class="row">
+      <div class="col">
+        <h2 class="kit-h2">Concern first, then evaluation, then a plan</h2>
+      </div>
+    </div>
+    <div class="row row--steps">
+      <div class="col">
+        <div class="kit-step3"><span class="n">01</span><span class="t">You name it</span><span class="d">You name what is bothering you.</span></div>
+      </div>
+      <div class="col">
+        <div class="kit-step3"><span class="n">02</span><span class="t">A physician evaluates it</span><span class="d">A physician evaluates what is actually going on and decides what is appropriate.</span></div>
+      </div>
+      <div class="col">
+        <div class="kit-step3"><span class="n">03</span><span class="t">You leave with a plan</span><span class="d">The output is a written plan you keep.</span></div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <p class="kit-p">That order is the whole architecture of this practice, and it is why the
+          concern list, not the device list, is the thing you meet first.</p>
+        <div class="kit-said">
+          <p class="q">as part of any treatment, she does a comprehensive health evaluation to
+            minimize side effects and teaches clients how their actions can maximize and sustain the
+            benefits they achieve.</p>
+          <p class="src">The practice's own published words, on the evaluation reaching further than the mirror</p>
+        </div>
+        <p class="kit-ceiling">An evaluation determines whether a treatment is appropriate at all. It
+          is not a safety or outcome guarantee.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- == §3 Skin -->
+<!-- src: D-IA-018 --> <!-- concern group: Skin -->
+<!-- pick: SECTION-COMPONENTS.md #11 Service pillars 2-col with image, in composition rule 1's STRETCHED-media + 2-COLUMN-GRID form | considered: #9,#13 | why: nine concerns is too many for a card grid to stay compact, so hairline link rows in two columns keep the whole group in one viewport while the stretched photograph holds the band's left edge and stops it reading as a bare list; #9 cards would triple the height for nine items and #13 bento would rank concerns the copy ranks equally. | rigor: heavy -->
+<section class="kit-group sub-area-skin" id="g-skin">
+  <div class="container">
+    <div class="row row--group">
+      <div class="col">
+        <span class="kit-shot"><img src="../../../../../assets/skincare-still-life.jpg" alt="Unbranded skincare containers in frosted glass on a pale surface"></span>
+      </div>
+      <div class="col">
+        <h2 class="kit-groupname">Skin</h2>
+        <p class="kit-groupsub">Texture, pigment, redness, and the changes that follow sun and time.</p>
+        <div class="row row--links">
+          <div class="col">
+            <a class="kit-link" href="areas-of-concern-acne-acne-scars.html"><span class="t">Acne and acne scars</span><span class="d">Active breakouts, and the texture they leave behind once they settle.</span></a>
+            <a class="kit-link" href="areas-of-concern-age-spots.html"><span class="t">Age spots</span><span class="d">Discrete darker marks, usually where the sun reached most often.</span></a>
+            <a class="kit-link" href="areas-of-concern-hyperpigmentation.html"><span class="t">Hyperpigmentation</span><span class="d">Patches of deeper colour that sit unevenly against the surrounding skin.</span></a>
+            <a class="kit-link" href="areas-of-concern-melasma.html"><span class="t">Melasma</span><span class="d">A patterned, often symmetrical pigment change that behaves differently from sun spots.</span></a>
+            <a class="kit-link" href="areas-of-concern-sun-damage.html"><span class="t">Sun damage</span><span class="d">The cumulative record of years outdoors, in tone and in texture.</span></a>
+          </div>
+          <div class="col">
+            <a class="kit-link" href="areas-of-concern-uneven-skin-texture.html"><span class="t">Uneven skin texture</span><span class="d">Roughness, enlarged pores, and a surface that no longer reflects light evenly.</span></a>
+            <a class="kit-link" href="areas-of-concern-rosacea.html"><span class="t">Rosacea</span><span class="d">Persistent flushing and redness that comes and goes on its own schedule.</span></a>
+            <a class="kit-link" href="areas-of-concern-broken-capillaries.html"><span class="t">Broken capillaries</span><span class="d">Fine visible vessels, most often around the nose and cheeks.</span></a>
+            <a class="kit-link" href="areas-of-concern-spider-veins.html"><span class="t">Spider veins</span><span class="d">Threadlike vessels close to the surface, on the face or the legs.</span></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- == §4 Face and structure -->
+<!-- src: D-IA-019 --> <!-- concern group: Face and structure -->
+<!-- pick: SECTION-COMPONENTS.md #10 Services 4-col compact, run as a THREE-column hairline link grid with no media | considered: #11,#9 | why: composition rule 2 forbids repeating the shape of the row above, and six evenly weighted concerns fit a three-across grid exactly, so dropping the photograph here both varies the band and lets the group sit in half the height the skin band needed; #11 would stamp the previous row shape again, and #9 cards would inflate six one-line entries into six boxes. | rigor: heavy -->
+<section class="kit-group kit-group--tint sub-area-face-structure surface-warm" id="g-face">
+  <div class="container">
+    <div class="row">
+      <div class="col">
+        <h2 class="kit-groupname">Face and structure</h2>
+        <p class="kit-groupsub">Volume, contour, and the way the face carries expression.</p>
+      </div>
+    </div>
+    <div class="row row--links3">
+      <div class="col">
+        <a class="kit-link" href="areas-of-concern-fine-lines.html"><span class="t">Fine lines</span><span class="d">The earliest lines, usually where the face moves most.</span></a>
+        <a class="kit-link" href="areas-of-concern-turkey-neck.html"><span class="t">Turkey neck</span><span class="d">Loosening and banding through the front of the neck.</span></a>
+      </div>
+      <div class="col">
+        <a class="kit-link" href="areas-of-concern-wrinkles.html"><span class="t">Wrinkles</span><span class="d">Lines that stay visible when the face is at rest.</span></a>
+        <a class="kit-link" href="areas-of-concern-double-chin.html"><span class="t">Double chin</span><span class="d">Fullness under the chin that does not track with overall weight.</span></a>
+      </div>
+      <div class="col">
+        <a class="kit-link" href="areas-of-concern-jowls.html"><span class="t">Jowls</span><span class="d">Softening along the jawline where the edge used to be definite.</span></a>
+        <a class="kit-link" href="areas-of-concern-loose-skin.html"><span class="t">Loose skin</span><span class="d">Skin that has lost its snap and no longer sits close to the structure beneath it.</span></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- == §5 Body -->
+<!-- src: D-IA-020 --> <!-- concern group: Body -->
+<!-- pick: SECTION-COMPONENTS.md #14b COMPACT FEATURE-ROW LAW form (b), the banner shape: a NARROW capped media panel beside a tile strip | considered: #11,#3 | why: four concerns is the right count for a compact tile strip, and the narrow panel gives the band a third distinct proportion after a stretched-media split and a media-free grid, which is what stops four sibling groups reading as one shape repeated; #11 would repeat the skin band and #3 stat-strip has no counted figure to carry. | rigor: heavy -->
+<section class="kit-group sub-area-body" id="g-body">
+  <div class="container">
+    <div class="row">
+      <div class="col">
+        <h2 class="kit-groupname">Body</h2>
+        <p class="kit-groupsub">Shape, tone, and the areas that do not respond to effort alone.</p>
+      </div>
+    </div>
+    <div class="row row--banner4">
+      <div class="col">
+        <span class="kit-panelshot"><img src="../../../../../assets/marin-landscape.jpg" alt="Golden rolling hills and scattered oaks in Marin County"></span>
+      </div>
+      <div class="col">
+        <div class="row row--links4">
+          <div class="col"><a class="kit-tile wow-lift" href="areas-of-concern-cellulite.html"><span class="t">Cellulite</span><span class="d">Dimpling through the thigh and buttock, independent of body size.</span></a></div>
+          <div class="col"><a class="kit-tile wow-lift" href="areas-of-concern-stubborn-fat.html"><span class="t">Stubborn fat</span><span class="d">Pockets that stay put through diet and training.</span></a></div>
+          <div class="col"><a class="kit-tile wow-lift" href="areas-of-concern-core-strength.html"><span class="t">Core strength</span><span class="d">Abdominal tone that exercise alone has not restored.</span></a></div>
+          <div class="col"><a class="kit-tile wow-lift" href="areas-of-concern-muscle-development.html"><span class="t">Muscle development</span><span class="d">Definition you are working for and not seeing.</span></a></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- == §6 Function -->
+<!-- src: D-IA-021 --> <!-- concern group: Function, 2 leaves -->
+<!-- pick: SECTION-COMPONENTS.md #6 Is-this-for-me qualifier, two named tiles and the standing note beside a stretched photograph | considered: #7,#8 | why: with only two concerns the group needs weight rather than density, and two tiles beside a photograph give it the same visual standing as the nine-item skin band without singling it out with a special treatment, which is the copy own point; #7 problem-framing and #8 manifesto would both make the group an exception and contradict the sentence it carries. | rigor: heavy -->
+<section class="kit-group kit-group--soft sub-area-function surface-warm" id="g-function">
+  <div class="container">
+    <div class="row row--group-flip">
+      <div class="col">
+        <h2 class="kit-groupname">Function</h2>
+        <p class="kit-groupsub">Some of what changes is not visible at all. These concerns are treated
+          here in the same register, at the same weight, as everything above.</p>
+        <div class="row row--grid-2">
+          <div class="col"><a class="kit-tile wow-lift" href="areas-of-concern-urinary-incontinence.html"><span class="t">Urinary incontinence</span><span class="d">Leaking with a cough, a laugh, a lift, or on the way to the bathroom.</span></a></div>
+          <div class="col"><a class="kit-tile wow-lift" href="areas-of-concern-sexual-function-enhancement.html"><span class="t">Sexual function enhancement</span><span class="d">Changes in comfort, sensation, or pelvic-floor strength.</span></a></div>
+        </div>
+        <p class="kit-ceiling">These are listed here plainly and without euphemism, because they are
+          among the most common reasons people book and among the least often named out loud.</p>
+      </div>
+      <div class="col">
+        <span class="kit-shot"><img src="../../../../../assets/reception-warm.jpg" alt="A warm reception area with a linen bench and morning light"></span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- == §7 routing band, carrying the copy's section 8 closing lines inline -->
+<!-- src: D-OFFER-006 --> <!-- primary conversion goal: book a consultation -->
+<!-- pick: CTA-PATTERNS.md #7 Multi-CTA cluster (primary + secondary horizontal) | considered: #11,#8 | why: the page ends with a genuine FORK (book the evaluation, or go to the treatment index if you already know the device name) and a primary-plus-secondary cluster is the only shape that presents a fork without ranking one route as a mistake; #11 full-width band CTA would read as a second closing band against the locked chrome precta, and #8 stacked CTAs implies a sequence where the copy offers a choice. The copy's section 8 closing lines ride INSIDE this band rather than in a section of their own, for the same G-CTA1 reason. | rigor: heavy -->
+<section class="kit-route routing-band surface-warm">
+  <div class="container">
+    <div class="row">
+      <div class="col">
+        <h2 class="kit-h2">How this works</h2>
+        <p class="kit-routep">Pick the concern that fits. It routes to a physician evaluation, and the
+          evaluation produces the plan. If you already know the device name and would rather start
+          there, the treatment index is the other way in.</p>
+        <div class="cta-row">
+          <a class="btn" href="consultation.html">Book a consultation</a>
+          <a class="btn btn-ghost" href="treatments.html">Browse treatments</a>
+        </div>
+        <div class="kit-closing closing-cta">
+          <p class="h">Start with the evaluation</p>
+          <p class="s">A physician health evaluation covering function as well as appearance, ending in
+            a written plan you keep.</p>
+          <div class="cta-row">
+            <a class="btn" href="consultation.html">Book a consultation</a>
+            <a class="btn btn-ghost" href="treatments.html">Explore treatments</a>
+            <a class="btn btn-ghost" href="tel:+14157854604">Call (415) 785-4604</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- The ONE pre-footer CTA on this page is the LOCKED CHROME's closing band below.
+     main deliberately ends without a closing CTA section (composition rule 3). -->
+<section class="closing precta surface-dark">
+  <span class="glow"></span><span class="grain2"></span>
+  <div class="closing-in">
+    <h2>Start with the evaluation</h2>
+    <p class="sub">A physician health evaluation covering function as well as appearance, ending in a
+      written plan you keep.</p>
+    <p class="reassure">The evaluation decides whether a treatment is appropriate at all. If it is not,
+      you will be told so.</p>
+    <div class="cta-row">
+      <a class="btn" href="consultation.html">Book a consultation</a>
+      <a class="btn btn-ghost" href="contact.html">Contact the practice</a>
+    </div>
+  </div>
+</section>
+
+<footer class="ftr">
+  <div class="ftr-in">
+    <div>
+      <h5>Visit</h5>
+      <p>100 Sir Francis Drake Blvd<br>San Anselmo, CA 94960</p>
+      <a href="tel:+14157854604">(415) 785-4604</a>
+    </div>
+    <div>
+      <h5>Hours</h5>
+      <div class="hours-row"><span>Monday to Friday</span><span>By appointment</span></div>
+      <div class="hours-row"><span>Saturday</span><span>By appointment</span></div>
+      <div class="hours-row"><span>Sunday</span><span>Closed</span></div>
+      <p class="hours-flag">Owner to confirm the published hour-set. Four sets are in circulation and
+        two conflict, so no specific times are shown here.</p>
+    </div>
+    <div>
+      <h5>Start here</h5>
+      <a href="consultation.html">Book a consultation</a>
+      <a href="areas-of-concern.html">Areas of concern</a>
+      <a href="treatments.html">Treatments</a>
+      <a href="contact.html">Contact</a>
+    </div>
+  </div>
+  <div class="ftr-legal">
+    <span>Marin Medical Aesthetics, San Anselmo, California</span>
+    <span>Individual experiences vary.</span>
+  </div>
+</footer>
+
+<div id="mobile-drawer" aria-hidden="true" aria-label="Menu">
+  <div class="drawer__head"><button class="drawer-close" aria-label="Close menu">&#215;</button></div>
+  <nav class="drawer__nav" aria-label="Mobile">
+    <a href="areas-of-concern.html">Areas of Concern</a>
+    <div class="acc__panel"><a href="areas-of-concern-acne-acne-scars.html">Acne and acne scars</a><a href="areas-of-concern-fine-lines.html">Fine lines</a><a href="areas-of-concern-sun-damage.html">Sun damage</a><a href="areas-of-concern-rosacea.html">Rosacea and redness</a></div>
+    <a href="treatments.html">Treatments</a>
+    <div class="acc__panel"><a href="treatments-botox-dysport.html">Botox and Dysport</a><a href="treatments-halo-laser-treatment.html">Halo laser</a><a href="treatments-microneedling.html">Microneedling</a><a href="treatments-clearsilk.html">ClearSilk</a></div>
+    <a href="success-stories.html">Success Stories</a>
+    <a href="about.html">About</a>
+    <a href="tel:+14157854604">(415) 785-4604</a>
+  </nav>
+  <div class="drawer__cta"><a class="btn" href="consultation.html">Book a consultation</a></div>
+</div>
+
+<script>
+(function () {
+  var CLOSE_MS = 240;
+  document.querySelectorAll('.nav-item').forEach(function (item) {
+    var link = item.querySelector('.nav-link');
+    var panel = item.querySelector('.nav-panel');
+    if (!panel) return;
+    var t = null;
+    function open() { clearTimeout(t); item.classList.add('is-open'); if (link) link.setAttribute('aria-expanded', 'true'); }
+    function close() { t = setTimeout(function () { item.classList.remove('is-open'); if (link) link.setAttribute('aria-expanded', 'false'); }, CLOSE_MS); }
+    item.addEventListener('mouseenter', open);
+    item.addEventListener('mouseleave', close);
+    item.addEventListener('focusin', open);
+    item.addEventListener('focusout', function (e) { if (!item.contains(e.relatedTarget)) close(); });
+  });
+  var burger = document.querySelector('.site-header__hamburger');
+  var drawer = document.getElementById('mobile-drawer');
+  var closeBtn = document.querySelector('.drawer-close');
+  function setDrawer(open) {
+    if (!drawer || !burger) return;
+    drawer.setAttribute('aria-hidden', open ? 'false' : 'true');
+    burger.setAttribute('aria-expanded', open ? 'true' : 'false');
+  }
+  if (burger) burger.addEventListener('click', function () { setDrawer(drawer.getAttribute('aria-hidden') === 'true'); });
+  if (closeBtn) closeBtn.addEventListener('click', function () { setDrawer(false); });
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && drawer && drawer.getAttribute('aria-hidden') === 'false') setDrawer(false); });
+})();
+</script>
+</body>
+</html>

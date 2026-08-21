@@ -1,0 +1,320 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>T-CONTACT concept A: The Record. Marin Medical Aesthetics</title>
+
+<!-- ===================== TEMPLATE CONCEPT A: "The Record" =====================
+  TYPE      : T-CONTACT (1 page: contact). terminal:true, so the type is EXEMT from the CTA-pair
+              requirement; submitting the form is the terminal action.
+  LAID OUT  : the FINAL copy of contact from _copy/contact.md, unedited.
+
+  THESIS    : the outcome row states the actual problem in the estate: this is "a practice that
+              currently publishes several" numbers and addresses, and the reader's job is to "reach
+              the practice without having to guess which of its published numbers or addresses is
+              current". So the routing block is not a footer afterthought here, it is a RECORD:
+              one address, one number, one way to book, each on its own keyed line, on the page's
+              one anchored dark band. The form comes first because it is the page's job, but the
+              record is what makes the page trustworthy.
+
+  THE TRADE, STATED SO THE OWNER CAN REJECT IT: giving the record a full dark band makes the page
+  feel like a directory entry as much as a contact form. An owner who wants the form to dominate
+  should pick B.
+
+  THE HOURS ARE HONESTLY ABSENT, NOT FAKED. Four sets of opening hours circulate across the
+  practice's own properties and two of them conflict, so no hour set is published and none was
+  invented. The page says so in finished language: verify-no-unfilled-slots and
+  verify-fabricated-honesty both ban the literal word "placeholder" from visible copy, and the
+  T-LEGAL lock established that finished language about an unfinished state is what passes.
+
+  THE FORM CARRIES data-form-waiver ON PURPOSE. G-FORM-LIVE requires every form on an ASSEMBLED page
+  to have a real action, static submit wiring, or an explicit owner-visible waiver. The brief and the
+  copy both record that the estate's existing lead-capture forms are vendor-hosted third-party embeds
+  whose leads land in that third party's system, and that the endpoint has to be migrated
+  deliberately. There is therefore no endpoint to publish yet, and the waiver is the honest one of
+  the three options rather than a fabricated action URL. It fail-opens on the fragment; it fires at
+  BULK on pages/contact.html, which is why it is already here.
+
+  GRAMMAR (G-DOM): section then div.container then div.row then div.col then OBJECT throughout.
+  NAMESPACE: ct-, verified absent from the shared sheet before authoring (0 occurrences).
+===================================================================== -->
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap">
+<link rel="stylesheet" href="../../../../marin-medical-aesthetics-tokens.css">
+<link rel="stylesheet" href="../../../../marin-medical-aesthetics-structural.css">
+<link rel="stylesheet" href="../../../../marin-medical-aesthetics-chrome.css">
+
+<!-- The T-CONTACT skin now lives in marin-medical-aesthetics-structural.css (linked above),
+     migrated at the LOCK step. Keeping a duplicate <style> here would let the preview and the
+     shipped page drift apart, which is exactly what this preview exists to prevent. -->
+</head>
+<body>
+
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="hdr">
+  <div class="hdr-in">
+    <a class="brand" href="index.html">Marin Medical<i>Aesthetics</i></a>
+    <nav class="nav" aria-label="Primary">
+      <div class="nav-item">
+        <a class="nav-link" href="areas-of-concern.html" aria-haspopup="true" aria-expanded="false">Areas of Concern <span class="caret"></span></a>
+        <div class="nav-panel">
+          <div class="mega">
+            <div class="mega-cols">
+              <a class="mega-card" href="areas-of-concern-acne-acne-scars.html"><span class="n">01</span><h4>Acne and acne scars</h4><p>Active breakouts and the texture they leave behind.</p></a>
+              <a class="mega-card" href="areas-of-concern-fine-lines.html"><span class="n">02</span><h4>Fine lines</h4><p>The early lines that follow expression and time.</p></a>
+              <a class="mega-card" href="areas-of-concern-sun-damage.html"><span class="n">03</span><h4>Sun damage</h4><p>Pigment, age spots and the marks of years outdoors.</p></a>
+              <a class="mega-card" href="areas-of-concern-rosacea.html"><span class="n">04</span><h4>Rosacea and redness</h4><p>Persistent flushing, redness and visible vessels.</p></a>
+            </div>
+            <div class="mega-feat">
+              <img src="../../../../../assets/hero-consult-room.jpg" alt="A quiet consultation room with natural daylight">
+              <span class="grade"></span>
+              <div class="inner">
+                <p class="eyebrow">Where every path starts</p>
+                <p class="line">The evaluation comes before the treatment, not after it.</p>
+                <a class="go" href="consultation.html">See what the appointment covers</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="nav-item">
+        <a class="nav-link" href="treatments.html" aria-haspopup="true" aria-expanded="false">Treatments <span class="caret"></span></a>
+        <div class="nav-panel">
+          <div class="drop">
+            <a href="treatments-botox-dysport.html">Botox and Dysport</a>
+            <a href="treatments-halo-laser-treatment.html">Halo laser</a>
+            <a href="treatments-microneedling.html">Microneedling</a>
+            <a href="treatments-clearsilk.html">ClearSilk</a>
+            <a href="treatments.html">All treatments</a>
+          </div>
+        </div>
+      </div>
+      <div class="nav-item"><a class="nav-link" href="success-stories.html">Success Stories</a></div>
+      <div class="nav-item"><a class="nav-link" href="about.html">About</a></div>
+      <a class="phone" href="tel:+14157854604">(415) 785-4604</a>
+      <a class="btn" href="consultation.html">Book a consultation</a>
+    </nav>
+    <button class="site-header__hamburger" aria-controls="mobile-drawer" aria-expanded="false" aria-label="Open menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<main id="main">
+
+<!-- == section 1 hero -->
+<!-- src: D-IA-005 --> <!-- the About nav group; contact is member 3 of it -->
+<!-- pick: HERO-COMPOSITIONS.md #10 Centered headline only (text-driven, no hero photo), set left to the locked chrome measure | considered: #1,#25 | why: the brief scopes this hero to XS, an H1 naming the practice and San Anselmo plus one line, and explicitly records "no image slot required", so #10 is the only composition that carries a hero on type alone; the ground is the cream texture, whose recorded purpose is a quiet background band, so the section reads as a band without spending a photograph. #1 split-text-plus-photo would need a photograph the brief does not ask for, and #25 embedded lead-capture form hero would pull the form up into the hero and collapse the brief's own section_seq, which declares hero and form as separate slots. | rigor: heavy -->
+<section class="ct-top hero surface-warm" style="background-image:url(../../../../../assets/texture-cream-band.jpg)">
+  <div class="container">
+    <div class="row">
+      <div class="col">
+        <h1 class="ct-top__h">Contact Marin Medical Aesthetics in San Anselmo</h1>
+        <p class="ct-top__sub">Send a message here, or book a consultation directly. Either one
+          reaches the same practice, and the same physician reads what you write.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- == section 2 the message form -->
+<!-- src: D-OFFER-006 --> <!-- primary conversion goal; the estate's only conversion actions are /consultation/, the retired /book-an-appointment/, and phone -->
+<!-- pick: FORM-LAYOUTS.md #1 Single-column stacked inquiry form | considered: #3,#2 | why: the brief names five fields and one of them is a free-text description of a concern, which is the field that actually matters here, and a single column keeps that field full measure and keeps the tab order linear for anyone using a keyboard or a screen reader; the form is also the page's terminal action, so nothing competes with it for the column. #3 2-up field rows buys density this page does not need at five fields and would pair unrelated inputs, and #2 2-col split form would put a map or info panel beside the fields, which duplicates the routing block the brief declares as its own separate section. | rigor: heavy -->
+<section class="ct-form form">
+  <div class="container">
+    <div class="row">
+      <div class="col">
+        <h2 class="ct-form__h">Send a message</h2>
+        <p class="ct-form__lede">Tell us what you would like help with. You do not need to know which
+          treatment you want, or whether one applies to you at all. That is what the evaluation is
+          for.</p>
+        <form class="ct-fields" data-form-waiver="Endpoint not yet migrated. The estate's existing lead-capture forms are vendor-hosted third-party embeds and the leads land in that third party's system; the endpoint must be migrated deliberately and the processor named in the privacy policy before a real action URL can be published. Owner item, carried from the brief and the copy.">
+          <div class="ct-field">
+            <label for="ct-name">Your name</label>
+            <input id="ct-name" name="name" type="text" autocomplete="name" required>
+          </div>
+          <div class="ct-field">
+            <label for="ct-email">Email</label>
+            <input id="ct-email" name="email" type="email" autocomplete="email" required aria-describedby="ct-email-help">
+            <span class="ct-help" id="ct-email-help">Where a reply should go.</span>
+          </div>
+          <div class="ct-field">
+            <label for="ct-phone">Phone (optional)</label>
+            <input id="ct-phone" name="phone" type="tel" autocomplete="tel" aria-describedby="ct-phone-help">
+            <span class="ct-help" id="ct-phone-help">Only if you would rather be called than emailed.</span>
+          </div>
+          <div class="ct-field">
+            <label for="ct-message">What would you like help with?</label>
+            <textarea id="ct-message" name="message" required aria-describedby="ct-message-help"></textarea>
+            <span class="ct-help" id="ct-message-help">Describe the concern in your own words. A symptom, an area, or a question is enough.</span>
+          </div>
+          <div class="ct-field">
+            <label for="ct-preferred">Preferred contact method</label>
+            <select id="ct-preferred" name="preferred">
+              <option>Email</option>
+              <option>Phone</option>
+            </select>
+          </div>
+          <div class="ct-send">
+            <button class="btn" type="submit">Send message</button>
+          </div>
+        </form>
+        <p class="ct-after">Sending this does not book an appointment. It starts a conversation.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- == section 3 the routing block -->
+<!-- src: D-BRAND-RAILS-009 --> <!-- CTA verb convention by intent: Book for the consultation, Call for the phone line. F5 RESOLVED 2026-08-19 -->
+<!-- src: D-BRAND-RAILS-016 --> <!-- the live baseline capture, where the competing addresses, hours and numbers were measured -->
+<!-- pick: SECTION-COMPONENTS.md #51 Locations grid, reduced to the ONE location and set as a keyed record beside a photograph of the room you arrive in | considered: #52,#53 | why: the outcome row states the actual problem, a practice that currently publishes several numbers and addresses, so the job of this section is to be the single authoritative record rather than a decorated address block, and a keyed line per fact is the shape that reads as a record; the reception photograph is the one image on the page that answers a question the copy cannot, which is what the place looks like when you walk in. #52 map embed plus contact is explicitly held by the brief until the address is owner-confirmed, and #53 hours table cannot be used because four conflicting hour sets circulate and none may be invented, which is exactly what the hours line says instead. | rigor: heavy -->
+<section class="ct-rec routing-block surface-dark" style="background-image:url(../../../../../assets/texture-navy-band.jpg)">
+  <div class="container">
+    <div class="row row--rec">
+      <div class="col">
+        <h2 class="ct-rec__h">Where to find us</h2>
+        <div class="ct-row">
+          <span class="ct-row__k">Address</span>
+          <p class="ct-row__v">100 Sir Francis Drake Blvd<span class="ct-row__n">San Anselmo, CA 94960</span></p>
+        </div>
+        <div class="ct-row">
+          <span class="ct-row__k">Phone</span>
+          <p class="ct-row__v"><a href="tel:+14157854604">(415) 785-4604</a><span class="ct-row__n">Call the practice.</span></p>
+        </div>
+        <div class="ct-row">
+          <span class="ct-row__k">Consultation</span>
+          <p class="ct-row__v"><a href="consultation.html">Book a consultation</a><span class="ct-row__n">The physician health evaluation every treatment plan starts from.</span></p>
+        </div>
+        <div class="ct-row">
+          <span class="ct-row__k">Hours</span>
+          <p class="ct-row__v">By appointment<span class="ct-row__n">Four different sets of opening hours are in circulation across the practice's own properties and two of them directly conflict, so no hour set is published here and none has been invented.</span></p>
+        </div>
+      </div>
+      <div class="col">
+        <span class="ct-shot wow-lift"><img src="../../../../../assets/reception-warm.jpg" alt="The reception: an oak counter, a linen bench and dried grasses"></span>
+        <p class="ct-shot__cap">Reception, San Anselmo</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- == section 4 what happens after you send it -->
+<!-- src: D-OFFER-014 --> <!-- held positioning, verbatim and sourced; the evaluation is what the visitor is routed toward -->
+<!-- pick: SECTION-COMPONENTS.md #8 Manifesto / belief statement, inverted to a short label-plus-answer split at XS scale | considered: #41,#26 | why: the brief scopes this to XS and to one job, setting the expectation of what happens to the message without promising a response time nobody has confirmed, so it needs the least furniture of any section on the page and a label beside a two-paragraph answer is the whole shape; the ceiling sentence sits under a rule so the page ends on the limit rather than on a promise. #41 closing CTA would be a SECOND closing band against the locked chrome's one, and this TYPE is terminal so it is exempt from chasing a CTA at all; #26 pull-quote would put display weight on a sentence whose value is that it is plain. | rigor: heavy -->
+<section class="ct-next trust-response-line surface-warm">
+  <div class="container">
+    <div class="row row--trust">
+      <div class="col">
+        <h2 class="ct-next__h">What happens next</h2>
+      </div>
+      <div class="col">
+        <p class="ct-next__p">Your message is read by the practice and routed to a consultation,
+          which is where a plan actually gets made. The consultation is a physician health evaluation
+          covering function as well as appearance, and it ends in a written plan you keep.</p>
+        <p class="ct-next__ceiling">An evaluation determines whether a treatment is appropriate at
+          all. It is not a safety or outcome guarantee.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- The ONE pre-footer CTA on this page is the LOCKED CHROME's closing band below, shipped VERBATIM.
+     Its second button points at contact.html, which is a self-link on THIS page. That is a real but
+     minor flaw and it is NOT hand-patched here: the chrome is a locked shared block, and the fix
+     belongs in _design/_chrome-block.html followed by a re-assemble, never in one downstream copy
+     (the OC-2/EB-07 non-propagation class). Raised for the owner instead. -->
+<section class="closing precta surface-dark">
+  <span class="glow"></span><span class="grain2"></span>
+  <div class="closing-in">
+    <h2>Start with the evaluation</h2>
+    <p class="sub">A physician health evaluation covering function as well as appearance, ending in a
+      written plan you keep.</p>
+    <p class="reassure">The evaluation decides whether a treatment is appropriate at all. If it is not,
+      you will be told so.</p>
+    <div class="cta-row">
+      <a class="btn" href="consultation.html">Book a consultation</a>
+      <a class="btn btn-ghost" href="contact.html">Contact the practice</a>
+    </div>
+  </div>
+</section>
+
+<footer class="ftr">
+  <div class="ftr-in">
+    <div>
+      <h5>Visit</h5>
+      <p>100 Sir Francis Drake Blvd<br>San Anselmo, CA 94960</p>
+      <a href="tel:+14157854604">(415) 785-4604</a>
+    </div>
+    <div>
+      <h5>Hours</h5>
+      <div class="hours-row"><span>Monday to Friday</span><span>By appointment</span></div>
+      <div class="hours-row"><span>Saturday</span><span>By appointment</span></div>
+      <div class="hours-row"><span>Sunday</span><span>Closed</span></div>
+      <p class="hours-flag">Owner to confirm the published hour-set. Four sets are in circulation and
+        two conflict, so no specific times are shown here.</p>
+    </div>
+    <div>
+      <h5>Start here</h5>
+      <a href="consultation.html">Book a consultation</a>
+      <a href="areas-of-concern.html">Areas of concern</a>
+      <a href="treatments.html">Treatments</a>
+      <a href="contact.html">Contact</a>
+    </div>
+  </div>
+  <div class="ftr-legal">
+    <span>Marin Medical Aesthetics, San Anselmo, California</span>
+    <span>Individual experiences vary.</span>
+  </div>
+</footer>
+
+<div id="mobile-drawer" aria-hidden="true" aria-label="Menu">
+  <div class="drawer__head"><button class="drawer-close" aria-label="Close menu">&#215;</button></div>
+  <nav class="drawer__nav" aria-label="Mobile">
+    <a href="areas-of-concern.html">Areas of Concern</a>
+    <div class="acc__panel"><a href="areas-of-concern-acne-acne-scars.html">Acne and acne scars</a><a href="areas-of-concern-fine-lines.html">Fine lines</a><a href="areas-of-concern-sun-damage.html">Sun damage</a><a href="areas-of-concern-rosacea.html">Rosacea and redness</a></div>
+    <a href="treatments.html">Treatments</a>
+    <div class="acc__panel"><a href="treatments-botox-dysport.html">Botox and Dysport</a><a href="treatments-halo-laser-treatment.html">Halo laser</a><a href="treatments-microneedling.html">Microneedling</a><a href="treatments-clearsilk.html">ClearSilk</a></div>
+    <a href="success-stories.html">Success Stories</a>
+    <a href="about.html">About</a>
+    <a href="tel:+14157854604">(415) 785-4604</a>
+  </nav>
+  <div class="drawer__cta"><a class="btn" href="consultation.html">Book a consultation</a></div>
+</div>
+
+<script>
+(function () {
+  var CLOSE_MS = 240;
+  document.querySelectorAll('.nav-item').forEach(function (item) {
+    var link = item.querySelector('.nav-link');
+    var panel = item.querySelector('.nav-panel');
+    if (!panel) return;
+    var t = null;
+    function open() { clearTimeout(t); item.classList.add('is-open'); if (link) link.setAttribute('aria-expanded', 'true'); }
+    function close() { t = setTimeout(function () { item.classList.remove('is-open'); if (link) link.setAttribute('aria-expanded', 'false'); }, CLOSE_MS); }
+    item.addEventListener('mouseenter', open);
+    item.addEventListener('mouseleave', close);
+    item.addEventListener('focusin', open);
+    item.addEventListener('focusout', function (e) { if (!item.contains(e.relatedTarget)) close(); });
+  });
+  var burger = document.querySelector('.site-header__hamburger');
+  var drawer = document.getElementById('mobile-drawer');
+  var closeBtn = document.querySelector('.drawer-close');
+  function setDrawer(open) {
+    if (!drawer || !burger) return;
+    drawer.setAttribute('aria-hidden', open ? 'false' : 'true');
+    burger.setAttribute('aria-expanded', open ? 'true' : 'false');
+  }
+  if (burger) burger.addEventListener('click', function () { setDrawer(drawer.getAttribute('aria-hidden') === 'true'); });
+  if (closeBtn) closeBtn.addEventListener('click', function () { setDrawer(false); });
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && drawer && drawer.getAttribute('aria-hidden') === 'false') setDrawer(false); });
+})();
+</script>
+</body>
+</html>

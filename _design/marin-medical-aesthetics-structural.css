@@ -83,7 +83,11 @@ a{color:var(--ds-accent)}
 /* ---------------------------------------------------------------------------
  * HERO BAND (HERO-COMPOSITIONS #1, confirmed at FEEL)
  * ------------------------------------------------------------------------ */
-.hero{display:grid;grid-template-columns:1.08fr .92fr;align-items:stretch;border-top:3px solid var(--ds-accent)}
+/* SCOPED 2026-08-21. This is the SPLIT hero and it must only apply to markup that actually has a
+   split: .hero-copy beside .hero-media. Unscoped, it collided with the brief section_seq slot that
+   is also called "hero" and squeezed those sections .container into the 1.08fr track (752px inside
+   a 1440px band, measured). T-FEATURE patched one class; T-COMPANY shipped locked and broken. */
+.hero:has(> .hero-copy){display:grid;grid-template-columns:1.08fr .92fr;align-items:stretch;border-top:3px solid var(--ds-accent)}
 .hero-copy{padding:88px 56px 88px 0;display:flex;flex-direction:column;justify-content:center}
 .hero-media{position:relative;min-height:520px;box-shadow:var(--ds-shadow-lift)}
 .hero-media img{width:100%;height:100%;object-fit:cover}
@@ -134,7 +138,7 @@ a{color:var(--ds-accent)}
 @media (max-width:900px){
   .wrap,.dark-band-inner{padding-left:var(--ds-space-md);padding-right:var(--ds-space-md)}
   .band{padding:var(--ds-space-xl) 0}
-  .hero{grid-template-columns:1fr}
+  .hero:has(> .hero-copy){grid-template-columns:1fr}
   .hero-copy{padding:52px 0 44px}
   .h-display{font-size:44px}
   .hero-media{min-height:300px}
@@ -189,4 +193,619 @@ a{color:var(--ds-accent)}
 @media (max-width:900px){
   .row--split,.row--grid-2,.row--grid-3{grid-template-columns:1fr}
   .row--stretch{flex-direction:column}
+}
+
+/* ============================================================================
+   T-FEATURE TEMPLATE SKIN — "The Record" (concept B), OWNER-PICKED 2026-08-21.
+   Migrated verbatim out of the concept preview's <style> at the LOCK step. It lives
+   here because build.mjs links exactly three per-slug sheets (tokens, chrome,
+   structural); a fourth <slug>-t-feature.css would never be linked, and promote
+   STRIPS the concept <style>, so a page assembled from this template would other-
+   wise ship UNSTYLED (OBS-29 / verify-no-orphan-classes).
+   Token-pure (zero hex, zero url()); every selector is scoped under a kit-* parent
+   except the .wow-lift globals overlay and the .kit-open.hero collision reset.
+   ============================================================================ */
+/* Concept skin. Objects only, never on .container/.row/.col (R5). Token-pure, zero hex. */
+
+/* --- structure modifiers (layout only, no skin) --- */
+.row--rail{display:grid;grid-template-columns:190px minmax(0,1fr) minmax(0,.72fr);gap:var(--ds-space-lg);align-items:start}
+.row--ledger{display:grid;grid-template-columns:minmax(0,1fr);gap:var(--ds-space-md)}
+.row--defs{display:grid;grid-template-columns:minmax(0,.42fr) minmax(0,1fr);gap:var(--ds-space-lg);align-items:start}
+
+/* --- section grounds --- */
+.kit-open{position:relative;overflow:hidden;padding:calc(var(--ds-section-py) * 1.05) 0 var(--ds-section-py)}
+.kit-open .container{position:relative}
+.kit-entry{padding:var(--ds-section-py) 0;background:var(--ds-bg-surface-2);border-top:1px solid var(--ds-line);border-bottom:1px solid var(--ds-line)}
+.kit-orders{padding:var(--ds-section-py) 0}
+.kit-plan{padding:var(--ds-section-py) 0;background:var(--ds-bg-surface-3)}
+.kit-creed{position:relative;background:var(--ds-bg-surface);padding:calc(var(--ds-section-py) * .92) 0;overflow:hidden}
+.kit-ledger{padding:var(--ds-section-py) 0}
+.kit-cost{padding:var(--ds-section-py) 0;background:var(--ds-bg-surface-2);border-top:1px solid var(--ds-line)}
+.kit-appendix{padding:var(--ds-section-py) 0}
+
+/* --- document type register --- */
+.kit-label{font-size:10px;letter-spacing:.28em;text-transform:uppercase;color:var(--ds-olive);margin:0 0 18px;font-variant-numeric:tabular-nums}
+.kit-title{font-family:var(--ds-font-display);font-size:60px;line-height:1.03;letter-spacing:-.038em;font-weight:700;color:var(--ds-accent);margin:0 0 22px;max-width:16ch}
+.kit-standfirst{font-size:18.5px;line-height:1.6;color:var(--ds-ink-soft);margin:0 0 26px;max-width:42rem}
+.kit-h2{font-family:var(--ds-font-display);font-size:34px;line-height:1.14;letter-spacing:-.024em;font-weight:700;color:var(--ds-accent);margin:0 0 14px}
+.kit-h3{font-family:var(--ds-font-display);font-size:18px;line-height:1.28;color:var(--ds-accent);margin:0 0 8px}
+.kit-p{font-size:15.5px;line-height:1.74;color:var(--ds-ink-soft);margin:0 0 14px;max-width:38rem}
+.kit-lead{font-size:20px;line-height:1.5;color:var(--ds-accent);font-family:var(--ds-font-display);margin:0 0 18px;max-width:34rem}
+.kit-note{font-size:13.5px;line-height:1.66;color:var(--ds-ink-soft);margin:14px 0 0;max-width:40rem;padding-top:14px;border-top:1px solid var(--ds-line)}
+
+/* --- 1. record cover --- */
+.kit-open .col--center{max-width:58rem;text-align:center}
+.kit-open .kit-title{max-width:none;margin-inline:auto}
+.kit-open .kit-standfirst{margin-inline:auto}
+.kit-open .cta-row{justify-content:center}
+.kit-open .row--grid-3{margin-top:var(--ds-space-2xl)}
+.kit-meta{border-top:2px solid var(--ds-issued);padding:16px 0 0;text-align:center}
+.kit-meta .k{display:block;font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--ds-olive);margin-bottom:7px}
+.kit-meta .v{display:block;font-family:var(--ds-font-display);font-size:17px;color:var(--ds-accent);line-height:1.3}
+
+/* --- 2. contents rail + record entry --- */
+.kit-toc{position:sticky;top:96px;margin:0;padding:0;list-style:none;counter-reset:toc;border-top:1px solid var(--ds-line-strong)}
+.kit-toc li{counter-increment:toc;border-bottom:1px solid var(--ds-line)}
+.kit-toc a{display:block;padding:11px 0;font-size:12.5px;line-height:1.35;color:var(--ds-ink-soft);text-decoration:none;transition:color var(--ds-dur-fast) var(--ds-ease)}
+.kit-toc a::before{content:counter(toc,decimal-leading-zero);display:inline-block;width:26px;font-size:10px;letter-spacing:.1em;color:var(--ds-issued);font-variant-numeric:tabular-nums}
+.kit-toc a:hover,.kit-toc a:focus-visible{color:var(--ds-accent)}
+.kit-inset{margin:20px 0 0;padding:22px 24px;background:var(--ds-bg-surface);border-left:3px solid var(--ds-issued);box-shadow:var(--ds-shadow-card)}
+.kit-inset .q{font-family:var(--ds-font-display);font-size:19px;line-height:1.46;color:var(--ds-accent);margin:0 0 10px}
+.kit-inset .src{font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--ds-ink-soft);margin:0}
+.kit-plate{display:block;position:relative;width:100%;min-width:0;overflow:hidden;border-radius:var(--ds-r-surface);aspect-ratio:3/4;max-height:520px;background:var(--ds-bg-surface-3);box-shadow:var(--ds-shadow-card)}
+.kit-plate img{width:100%;height:100%;object-fit:cover;display:block}
+.kit-plate .cap{position:absolute;left:0;right:0;bottom:0;padding:14px 16px;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--ds-bg-surface);background:var(--ds-accent);opacity:var(--ds-opacity-veil)}
+
+/* --- 3. the two orders --- */
+.kit-order{height:100%;padding:28px;border:1px solid var(--ds-line);background:var(--ds-bg-surface)}
+.kit-order--is{border-color:var(--ds-issued);border-width:1px 1px 1px 3px;box-shadow:var(--ds-shadow-lift)}
+.kit-order .ord{display:block;font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:var(--ds-olive);margin-bottom:12px}
+.kit-order ol{margin:0 0 16px;padding:0 0 0 20px;font-size:14.5px;line-height:1.8;color:var(--ds-ink-soft)}
+.kit-order ol li{padding-left:4px}
+
+/* Geometry-SAFE globals overlay (verify-globals-overlay): colour/shadow/motion only, never geometry. */
+.wow-lift{transition:transform var(--ds-dur-fast) var(--ds-ease-out),box-shadow var(--ds-dur-fast) var(--ds-ease-out)}
+.wow-lift:hover,.wow-lift:focus-within{transform:translateY(-4px);box-shadow:var(--ds-shadow-lift)}
+@media (prefers-reduced-motion:reduce){.wow-lift{transition:none}.wow-lift:hover,.wow-lift:focus-within{transform:none}}
+
+/* --- 4. the plan (rule 1: stretched media + 2x2 grid) --- */
+.kit-frame{display:block;position:relative;width:100%;min-width:0;align-self:stretch;height:100%;min-height:340px;overflow:hidden;border-radius:var(--ds-r-surface);background:var(--ds-bg-surface-3)}
+.kit-frame img{width:100%;height:100%;object-fit:cover;display:block}
+.kit-leaf{height:100%;padding:22px;background:var(--ds-bg-surface);border-top:2px solid var(--ds-accent-soft)}
+.kit-plan .row--stretch > .col--grow{display:flex}
+.kit-plan .row--stretch > .col--grow > .row--grid-2{flex:1 1 auto;align-content:stretch;width:100%}
+.kit-plan .row--stretch > .col--grow > .kit-frame{flex:1 1 auto}
+.kit-leaf .n{display:block;font-size:10px;letter-spacing:.2em;color:var(--ds-olive);margin-bottom:9px;font-variant-numeric:tabular-nums}
+
+/* --- 5. dark creed band --- */
+/* Texture rides on the SECTION background (blended), not on a decorative child: an absolutely
+   positioned span directly under <section> is G-DOM R4 orphan content inside <main>. */
+.kit-creed,.kit-open{background-size:cover;background-position:center;background-repeat:no-repeat;background-blend-mode:soft-light}
+.kit-creed .kit-h2,.kit-creed .kit-p,.kit-creed .kit-label{position:relative}
+/* The band ran a full-width row with prose capped at 38rem, leaving its right ~45% empty on every
+   one of the 42 pages this template sets. Split it: the claim is the figure, the prose is the ground. */
+.row--creed{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:var(--ds-space-2xl);align-items:start}
+.kit-creed .kit-h2{font-size:42px;max-width:20ch;margin-bottom:20px}
+.kit-creed .kit-p{max-width:none}
+.kit-creed .kit-p{max-width:44rem;font-size:16.5px}
+
+/* --- 6. offered / not offered ledger --- */
+.kit-book{width:100%;border-collapse:collapse;font-size:15px}
+.kit-book caption{text-align:left;font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--ds-olive);padding-bottom:12px}
+.kit-book th{text-align:left;font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--ds-olive);padding:0 0 11px;border-bottom:2px solid var(--ds-accent-soft);width:26%}
+.kit-book th + th{width:74%}
+.kit-book td{padding:15px 0;border-bottom:1px solid var(--ds-line);color:var(--ds-ink-soft);line-height:1.7;vertical-align:top}
+.kit-book td:first-child{color:var(--ds-accent);font-family:var(--ds-font-display);font-size:17px;padding-right:24px}
+
+/* --- 7. cost, as a definition row --- */
+.kit-term{font-family:var(--ds-font-display);font-size:26px;line-height:1.2;color:var(--ds-accent);margin:0;padding-top:4px;border-top:2px solid var(--ds-issued)}
+.kit-def{margin:0}
+.kit-def .say{font-family:var(--ds-font-display);font-size:21px;line-height:1.45;color:var(--ds-accent);margin:0 0 16px;max-width:40rem}
+
+/* --- 6b. cross-link rail (rule 6b banner shape: narrow capped media + onward strip) --- */
+.row--banner{display:grid;grid-template-columns:minmax(0,.34fr) minmax(0,1fr);gap:var(--ds-space-lg);align-items:start}
+.kit-next{padding:var(--ds-section-py) 0;background:var(--ds-bg-surface-3)}
+.kit-narrow{display:block;position:relative;width:100%;min-width:0;overflow:hidden;border-radius:var(--ds-r-surface);aspect-ratio:3/4;max-height:420px;background:var(--ds-bg-surface-3)}
+.kit-narrow img{width:100%;height:100%;object-fit:cover;display:block}
+.kit-go{display:grid;grid-template-columns:32px minmax(0,1fr);gap:0 16px;padding:16px 0;border-top:1px solid var(--ds-line);text-decoration:none;transition:border-color var(--ds-dur-fast) var(--ds-ease)}
+.kit-go:last-of-type{border-bottom:1px solid var(--ds-line)}
+.kit-go .n{font-size:10px;letter-spacing:.16em;color:var(--ds-olive);font-variant-numeric:tabular-nums;padding-top:6px}
+.kit-go .t{font-family:var(--ds-font-display);font-size:19px;line-height:1.24;color:var(--ds-accent)}
+.kit-go .d{font-size:13.5px;line-height:1.6;color:var(--ds-ink-soft);grid-column:2}
+.kit-go:hover,.kit-go:focus-visible{border-top-color:var(--ds-issued)}
+.kit-go:hover .t,.kit-go:focus-visible .t{color:var(--ds-issued)}
+
+/* The brief section_seq class "hero" COLLIDES with the structural sheet's real .hero rule
+   (display:grid 1.08fr/.92fr + a 3px top rule), which would turn this centred cover into a
+   two-column split. Reset it where the two names meet. */
+.kit-open.hero{display:block;grid-template-columns:none;border-top:0}
+/* --- 8. numbered appendix --- */
+.kit-ask{display:grid;grid-template-columns:34px minmax(0,1fr);gap:0 18px;padding:20px 0;border-top:1px solid var(--ds-line)}
+.kit-ask .n{font-size:11px;letter-spacing:.12em;color:var(--ds-olive);font-variant-numeric:tabular-nums;padding-top:5px}
+.kit-ask .q{font-family:var(--ds-font-display);font-size:18px;line-height:1.3;color:var(--ds-accent);margin:0 0 7px}
+.kit-ask .a{font-size:14.8px;line-height:1.72;color:var(--ds-ink-soft);margin:0;max-width:44rem}
+
+@media (max-width:900px){
+  .row--rail{grid-template-columns:minmax(0,1fr);gap:var(--ds-space-md)}
+  .row--creed{grid-template-columns:minmax(0,1fr);gap:var(--ds-space-sm)}
+  .row--banner{grid-template-columns:minmax(0,1fr);gap:var(--ds-space-md)}
+  .kit-narrow{aspect-ratio:16/10;max-height:240px}
+  .row--defs{grid-template-columns:minmax(0,1fr)}
+  .kit-toc{position:static;display:none}
+  .kit-title{font-size:35px;max-width:none}
+  .kit-h2{font-size:26px}
+  .kit-creed .kit-h2{font-size:29px;max-width:none}
+  .kit-plate{aspect-ratio:16/10;max-height:260px}
+  .kit-frame{min-height:220px}
+  .kit-book td:first-child{font-size:15px}
+  .kit-term{font-size:21px}
+}
+
+/* ============================================================================
+   SEMANTIC MARKER CLASSES — deliberately carry NO visual declarations.
+
+   Two gates require these tokens to be present in the markup:
+     - verify-brief-consumed (GW) requires every _handoff/briefs/<page>.md section_seq
+       name to appear as a class, so the built page provably honours its brief;
+     - verify-section-visual-rhythm reads band identity from the surface convention
+       (surface-dark / surface-warm / surface-accent).
+   A third gate, verify-no-orphan-classes (OBS-29), requires every class a fragment
+   references to be DEFINED in a linked sheet, so a page can never assemble unstyled.
+
+   These rules exist to satisfy that third requirement honestly: the classes are real
+   and declared, and they are EMPTY ON PURPOSE. They label what a section IS; the look
+   comes from the kit-* skin and the token surfaces. Giving surface-warm an actual
+   background here would OVERRIDE the per-section grounds (--ds-bg-surface-2 / -3) that
+   are already correct, so it deliberately does not.
+   ============================================================================ */
+.hero,
+/* T-HUB: the other three pages of the type (treatments, before-after-photos, success-stories) */
+.sub-area-injectables,
+.sub-area-skin-aesthetics,
+.sub-area-body-function,
+.sub-area-wellness,
+.sub-area-blocks,
+.proof-data-point,
+/* T-LEGAL: accessibility carries a different section_seq from the disclaimer the template locked on */
+.native-accessibility-feature,
+.standard-targeted,
+.contact-for-issues,
+/* T-FEATURE: one page of 42 needs an extra slot */
+.term-scope,
+.title-effective-date,
+.anchored-toc,
+.document-body,
+.hero-filter,
+.featured-pinned,
+.list-grid,
+.category-routing,
+.hero-category-outcome,
+.why-this-area-wedge,
+.sub-area-skin,
+.sub-area-face-structure,
+.sub-area-body,
+.sub-area-function,
+.routing-band,
+.closing-cta,
+.pain-it-kills,
+.benefit-pillars,
+.capability-breakdown,
+.proof-or-product-ui,
+.replaces-block,
+.cross-link-rail,
+.faq,
+.pricing-cta,
+/* T-COMPANY: both pages of the type declare the identical sequence */
+.company-story,
+.the-why,
+.team-values,
+.proof-logos,
+.cta,
+/* T-ARTICLE: both pages of the type declare the identical sequence */
+.body-or-challenge,
+.solution-or-detail,
+.result-or-takeaway,
+.cross-links,
+/* T-CONTACT: the one page of the type. .form is bare and EMPTY on purpose, as .cta is */
+.form,
+.routing-block,
+.trust-response-line,
+.surface-warm,
+.surface-accent{}
+
+/* ============================================================================
+   T-HUB TEMPLATE SKIN — "The Index" (concept B), OWNER-PICKED 2026-08-21.
+   Migrated verbatim out of the concept preview's <style> at the LOCK step, for the
+   same reason the T-FEATURE skin lives here: build.mjs links exactly three per-slug
+   sheets and promote STRIPS the concept <style>, so the page would otherwise ship
+   unstyled (OBS-29 / verify-no-orphan-classes).
+   COLLISIONS RESOLVED BEFORE MIGRATING: .kit-order was renamed .kit-orderrail because
+   the T-FEATURE skin already owns .kit-order for its ordered panels; the duplicate
+   .wow-lift block was dropped because the T-FEATURE lock already defined it.
+   Token-pure (zero hex, zero url()); every short child class is descendant-scoped.
+   ============================================================================ */
+/* T-HUB concept B skin. Objects only, never on .container/.row/.col (R5). Token-pure, zero hex. */
+
+/* --- structure modifiers (layout only, no skin) --- */
+.row--open{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);gap:var(--ds-space-2xl);align-items:center}
+.row--rail3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:var(--ds-space-lg)}
+.row--index{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:var(--ds-space-lg)}
+.row--note{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1fr);gap:var(--ds-space-lg);align-items:stretch}
+
+/* --- section grounds --- */
+.kit-open2{padding:calc(var(--ds-section-py) * .95) 0}
+.kit-orderrail{position:relative;overflow:hidden;background:var(--ds-bg-surface);padding:calc(var(--ds-section-py) * .88) 0;background-size:cover;background-position:center;background-blend-mode:soft-light}
+.kit-orderrail .container{position:relative}
+.kit-index{padding:var(--ds-section-py) 0;background:var(--ds-bg-surface-2)}
+.kit-note2{padding:calc(var(--ds-section-py) * .85) 0}
+.kit-send{padding:calc(var(--ds-section-py) * .9) 0;background:var(--ds-bg-surface-3);border-top:1px solid var(--ds-line)}
+
+/* --- hero --- */
+.kit-bigh{font-family:var(--ds-font-display);font-size:56px;line-height:1.05;letter-spacing:-.036em;font-weight:700;color:var(--ds-accent);margin:0 0 18px;max-width:14ch}
+.kit-blurb{font-size:18px;line-height:1.62;color:var(--ds-ink-soft);margin:0 0 22px;max-width:38rem}
+.kit-openshot{display:block;position:relative;width:100%;min-width:0;overflow:hidden;border-radius:var(--ds-r-surface);aspect-ratio:5/4;max-height:400px;background:var(--ds-bg-surface-3);box-shadow:var(--ds-shadow-card)}
+.kit-openshot img{width:100%;height:100%;object-fit:cover;display:block}
+
+/* --- the three-step order rail --- */
+.kit-beat{border-top:2px solid var(--ds-issued);padding:16px 0 0}
+.kit-beat .n{display:block;font-family:var(--ds-font-display);font-size:32px;line-height:1;color:var(--ds-issued);margin-bottom:10px}
+.kit-beat .t{display:block;font-family:var(--ds-font-display);font-size:18px;line-height:1.28;color:var(--ds-accent);margin-bottom:6px}
+.kit-beat .d{display:block;font-size:14.5px;line-height:1.66;color:var(--ds-ink-soft)}
+.kit-quoted{margin:var(--ds-space-lg) 0 0;padding-left:22px;border-left:3px solid var(--ds-issued)}
+.kit-quoted .q{font-family:var(--ds-font-display);font-size:19px;line-height:1.48;color:var(--ds-accent);margin:0 0 10px;max-width:46rem}
+.kit-quoted .src{font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--ds-olive);margin:0}
+.kit-cap2{margin:18px 0 0;font-size:13.5px;line-height:1.66;color:var(--ds-ink-soft);max-width:46rem}
+
+/* --- the index --- */
+.kit-col{border-top:2px solid var(--ds-accent-soft);padding-top:14px}
+.kit-col .h{font-family:var(--ds-font-display);font-size:22px;line-height:1.18;color:var(--ds-accent);margin:0 0 4px}
+.kit-col .s{font-size:13px;line-height:1.55;color:var(--ds-ink-soft);margin:0 0 14px}
+.kit-entry2{display:block;padding:11px 0;border-top:1px solid var(--ds-line);text-decoration:none;transition:border-color var(--ds-dur-fast) var(--ds-ease)}
+.kit-entry2 .t{display:block;font-family:var(--ds-font-display);font-size:16px;line-height:1.22;color:var(--ds-accent)}
+.kit-entry2 .d{display:block;font-size:12.5px;line-height:1.5;color:var(--ds-ink-soft);margin-top:3px}
+.kit-entry2:hover,.kit-entry2:focus-visible{border-top-color:var(--ds-issued)}
+.kit-entry2:hover .t,.kit-entry2:focus-visible .t{color:var(--ds-issued)}
+
+/* --- the function note beside a photograph --- */
+.kit-noteshot{display:block;position:relative;width:100%;min-width:0;align-self:stretch;height:100%;min-height:280px;overflow:hidden;border-radius:var(--ds-r-surface);background:var(--ds-bg-surface-3)}
+.kit-noteshot img{width:100%;height:100%;object-fit:cover;display:block}
+.kit-standing{font-family:var(--ds-font-display);font-size:26px;line-height:1.34;color:var(--ds-accent);margin:0 0 16px;max-width:26ch}
+
+/* --- routing --- */
+.kit-sendp{font-size:16.5px;line-height:1.7;color:var(--ds-ink-soft);margin:0 0 var(--ds-space-md);max-width:46rem}
+.kit-off{margin:var(--ds-space-lg) 0 0;padding-top:var(--ds-space-md);border-top:2px solid var(--ds-issued)}
+.kit-off .h{font-family:var(--ds-font-display);font-size:25px;line-height:1.2;color:var(--ds-accent);margin:0 0 10px}
+.kit-off .s{font-size:15.5px;line-height:1.7;color:var(--ds-ink-soft);margin:0 0 18px;max-width:42rem}
+
+
+@media (max-width:900px){
+  .row--open,.row--note{grid-template-columns:minmax(0,1fr);gap:var(--ds-space-md)}
+  .row--rail3{grid-template-columns:minmax(0,1fr);gap:var(--ds-space-sm)}
+  .row--index{grid-template-columns:minmax(0,1fr);gap:var(--ds-space-lg)}
+  .kit-bigh{font-size:33px;max-width:none}
+  .kit-openshot{aspect-ratio:16/10;max-height:250px}
+  .kit-noteshot{min-height:200px}
+  .kit-standing{font-size:21px;max-width:none}
+}
+
+/* ============================================================================
+   T-INDEX TEMPLATE SKIN — "The Standing Index" (concept B), OWNER-PICKED 2026-08-21.
+   Migrated verbatim out of the concept preview's <style> at the LOCK step, for the
+   same reason the T-FEATURE and T-HUB skins live here: build.mjs links exactly three
+   per-slug sheets and promote STRIPS the concept <style> (OBS-29).
+   The duplicate .wow-lift block was dropped; the T-FEATURE lock already defines it.
+   Token-pure (zero hex, zero url()); every short child class is descendant-scoped.
+   ============================================================================ */
+/* T-INDEX concept B skin. Objects only, never on .container/.row/.col (R5). Token-pure, zero hex. */
+
+.row--wire{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,.86fr);gap:var(--ds-space-2xl);align-items:start}
+.row--three{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:var(--ds-space-md)}
+
+.kit-head3{padding:calc(var(--ds-section-py) * .85) 0 calc(var(--ds-section-py) * .55);border-bottom:1px solid var(--ds-line)}
+.kit-wire{padding:var(--ds-section-py) 0;background:var(--ds-bg-surface-2)}
+.kit-route3{padding:calc(var(--ds-section-py) * .9) 0}
+
+.kit-title3{font-family:var(--ds-font-display);font-size:50px;line-height:1.06;letter-spacing:-.032em;font-weight:700;color:var(--ds-accent);margin:0 0 14px}
+.kit-sub3{font-size:18px;line-height:1.62;color:var(--ds-ink-soft);margin:0;max-width:44rem}
+.kit-tools{margin:var(--ds-space-lg) 0 0;display:flex;flex-wrap:wrap;align-items:center;gap:var(--ds-space-sm)}
+.kit-tools .lab{font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:var(--ds-olive)}
+.kit-field{font-size:13px;color:var(--ds-ink-soft);border:1px dashed var(--ds-line-strong);border-radius:var(--ds-r-pill);padding:7px 15px;background:transparent}
+.kit-count3{margin-left:auto;font-size:12.5px;letter-spacing:.06em;color:var(--ds-olive);font-variant-numeric:tabular-nums}
+
+/* the entry WIREFRAME: field names only, never invented values */
+.kit-wireframe{border:1px dashed var(--ds-line-strong);border-radius:var(--ds-r-surface);padding:26px 28px;background:var(--ds-bg-surface)}
+.kit-wireframe .cap{font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--ds-olive);margin:0 0 18px;padding-bottom:12px;border-bottom:1px solid var(--ds-line)}
+.kit-slot{padding:12px 0;border-bottom:1px solid var(--ds-line)}
+.kit-slot:last-of-type{border-bottom:0;padding-bottom:0}
+.kit-slot .f{display:block;font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--ds-olive);margin-bottom:5px}
+.kit-slot .g{display:block;font-family:var(--ds-font-display);font-size:16px;line-height:1.3;color:var(--ds-ink-soft)}
+.kit-notecard{padding-left:22px;border-left:3px solid var(--ds-issued)}
+.kit-notehead{font-family:var(--ds-font-display);font-size:32px;line-height:1.14;color:var(--ds-accent);margin:0 0 14px}
+.kit-notebody{font-size:16px;line-height:1.7;color:var(--ds-ink-soft);margin:0 0 14px;max-width:36rem}
+
+.kit-route3 .kit-h2{margin-bottom:var(--ds-space-md)}
+.kit-go3{display:block;height:100%;padding:22px;border-top:2px solid var(--ds-accent-soft);text-decoration:none;transition:border-color var(--ds-dur-fast) var(--ds-ease)}
+.kit-go3 .t{display:block;font-family:var(--ds-font-display);font-size:21px;line-height:1.18;color:var(--ds-accent);margin-bottom:7px}
+.kit-go3 .d{display:block;font-size:14px;line-height:1.6;color:var(--ds-ink-soft)}
+.kit-go3:hover,.kit-go3:focus-visible{border-top-color:var(--ds-issued)}
+.kit-go3:hover .t,.kit-go3:focus-visible .t{color:var(--ds-issued)}
+.kit-endline{margin:var(--ds-space-lg) 0 0;padding-top:var(--ds-space-md);border-top:1px solid var(--ds-line);display:flex;flex-wrap:wrap;align-items:center;gap:var(--ds-space-md)}
+.kit-endline .h{font-family:var(--ds-font-display);font-size:23px;line-height:1.2;color:var(--ds-accent);margin:0}
+
+
+@media (max-width:900px){
+  .row--wire,.row--three{grid-template-columns:minmax(0,1fr);gap:var(--ds-space-md)}
+  .kit-title3{font-size:31px}
+  .kit-notehead{font-size:25px}
+  .kit-count3{margin-left:0;flex:1 1 100%}
+}
+
+/* ============================================================================
+   T-LEGAL TEMPLATE SKIN — "The Plain Document" (concept A), OWNER-PICKED 2026-08-21.
+   Migrated verbatim out of the concept preview's <style> at the LOCK step, for the
+   same reason the T-FEATURE and T-HUB skins live here: build.mjs links exactly three
+   per-slug sheets and promote STRIPS the concept <style> (OBS-29).
+   The duplicate .wow-lift block was dropped; the T-FEATURE lock already defines it.
+   Token-pure (zero hex, zero url()); every short child class is descendant-scoped.
+   ============================================================================ */
+/* T-LEGAL concept A skin. The LEGAL-SECTIONS document vocabulary only. Token-pure, zero hex. */
+
+.doc-head{padding:calc(var(--ds-section-py) * .8) 0 calc(var(--ds-section-py) * .4)}
+.doc-index{padding:0 0 calc(var(--ds-section-py) * .45)}
+.doc-body{padding:0 0 var(--ds-section-py)}
+
+/* --- the reading measure (LEGAL-SECTIONS #1) --- */
+.bw-legal{max-width:47rem;font-size:16px;line-height:1.78;color:var(--ds-ink-soft)}
+.bw-legal h2{font-family:var(--ds-font-display);font-size:26px;line-height:1.2;letter-spacing:-.015em;color:var(--ds-accent);margin:var(--ds-space-xl) 0 12px;scroll-margin-top:120px}
+.bw-legal h2:first-child{margin-top:0}
+.bw-legal h3{font-family:var(--ds-font-display);font-size:18px;line-height:1.28;color:var(--ds-accent);margin:var(--ds-space-md) 0 8px;scroll-margin-top:120px}
+.bw-legal p{margin:0 0 15px;max-width:68ch}
+.bw-legal ul,.bw-legal ol{margin:0 0 15px;padding-left:22px}
+.bw-legal li{margin-bottom:7px}
+.bw-legal a{color:var(--ds-accent);text-decoration:underline;text-underline-offset:3px}
+.bw-legal blockquote{margin:0 0 15px;padding:14px 0 14px 22px;border-left:3px solid var(--ds-issued);font-family:var(--ds-font-display);font-size:19px;line-height:1.5;color:var(--ds-accent)}
+.bw-legal__title{font-family:var(--ds-font-display);font-size:48px;line-height:1.06;letter-spacing:-.03em;font-weight:700;color:var(--ds-accent);margin:0 0 12px}
+.bw-legal__effective{font-size:12.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--ds-olive);margin:0;font-variant-numeric:tabular-nums}
+.bw-legal__callout{margin:var(--ds-space-md) 0 0;padding:18px 22px;border-left:3px solid var(--ds-accent);background:var(--ds-bg-surface-2);font-size:14.5px;line-height:1.7;color:var(--ds-ink);max-width:60ch}
+.contact-request-line{margin-top:var(--ds-space-xl);padding-top:var(--ds-space-md);border-top:2px solid var(--ds-line-strong)}
+.bw-legal__pending{display:inline-block;font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--ds-olive);border:1px dashed var(--ds-line-strong);border-radius:var(--ds-r-pill);padding:4px 11px;margin:0 0 12px}
+
+/* --- the inline anchored index (LEGAL-SECTIONS #2) --- */
+.bw-toc{max-width:47rem;border-top:1px solid var(--ds-line-strong);border-bottom:1px solid var(--ds-line);padding:16px 0 8px}
+.bw-toc__title{font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:var(--ds-olive);margin:0 0 12px}
+.bw-toc__list{list-style:none;margin:0;padding:0;counter-reset:toc;columns:2;column-gap:var(--ds-space-lg)}
+.bw-toc__item{counter-increment:toc;break-inside:avoid;margin-bottom:4px}
+.bw-toc__link{display:block;padding:6px 0;font-size:14px;line-height:1.35;color:var(--ds-ink-soft);text-decoration:none;transition:color var(--ds-dur-fast) var(--ds-ease)}
+.bw-toc__link::before{content:counter(toc,decimal-leading-zero);display:inline-block;width:26px;font-size:11px;color:var(--ds-olive);font-variant-numeric:tabular-nums}
+.bw-toc__link:hover,.bw-toc__link:focus-visible{color:var(--ds-accent)}
+
+.bw-legal address{font-style:normal;font-size:15px;line-height:1.75;color:var(--ds-ink-soft);margin:14px 0 0}
+
+@media (max-width:900px){
+  .bw-legal__title{font-size:31px}
+  .bw-legal h2{font-size:22px}
+  .bw-toc__list{columns:1}
+}
+
+/* The D-OFFER-014 verbatim is set as <blockquote> for correct quotation semantics; the browser
+   default margin is neutralised so the element swap is visually identical to the <p> it replaced. */
+blockquote.q{margin:0}
+
+/* ============================================================================
+   T-COMPANY TEMPLATE SKIN -- "What She Does" (concept C), OWNER-PICKED 2026-08-21.
+   Migrated verbatim out of the concept preview's <style> at the LOCK step, for the
+   same reason the four skins above live here: build.mjs links exactly three per-slug
+   sheets and promote STRIPS the concept <style> (OBS-29).
+   The duplicate .wow-lift block was dropped; the T-FEATURE lock already defines it.
+   Token-pure (zero hex, zero url()); every short child class is descendant-scoped.
+
+   WHY THIS SKIN CARRIES NO PORTRAIT RULE: no photograph of Dr. Bacchi was supplied and
+   a generated likeness of a real named physician is not acceptable, so the type has no
+   portrait slot at all. The concept answers that by organising the page around the
+   EVALUATION rather than the person; the credentials ride the .mm-fact rail, which is
+   STACKED (label above value) because a two-track grid using minmax(0,.36fr) let the
+   label track shrink below its content and paint over the value column.
+   ============================================================================ */
+/* T-COMPANY concept C skin. COMPANY-SECTIONS vocabulary, mm- namespace. Token-pure, zero hex. */
+
+.row--act{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);gap:var(--ds-space-2xl);align-items:start}
+.row--who{display:grid;grid-template-columns:minmax(0,.42fr) minmax(0,1fr);gap:var(--ds-space-2xl);align-items:start}
+
+/* 1. founder editorial hero, framed as the ACT rather than the profile (catalog #1) */
+.mm-founder{position:relative;overflow:hidden;background:var(--ds-bg-surface);background-size:cover;background-position:center;background-blend-mode:soft-light;padding:calc(var(--ds-section-py) * 1.05) 0}
+.mm-founder .container{position:relative}
+.mm-founder__lab{font-size:10px;letter-spacing:.28em;text-transform:uppercase;color:var(--ds-issued);margin:0 0 16px}
+.mm-founder__act{font-family:var(--ds-font-display);font-size:46px;line-height:1.14;letter-spacing:-.03em;font-weight:700;color:var(--ds-accent);margin:0 0 18px;max-width:20ch}
+.mm-founder__by{font-size:18px;line-height:1.62;color:var(--ds-ink);margin:0;max-width:42rem}
+
+/* the act, in three beats */
+.mm-act{padding:var(--ds-section-py) 0}
+.mm-act__h{font-family:var(--ds-font-display);font-size:30px;line-height:1.2;letter-spacing:-.022em;color:var(--ds-accent);margin:0 0 var(--ds-space-md);max-width:20ch}
+.mm-act__q{font-family:var(--ds-font-display);font-size:21px;line-height:1.5;color:var(--ds-accent);margin:0 0 10px;padding-left:22px;border-left:3px solid var(--ds-issued);max-width:38rem}
+.mm-act__src{font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--ds-olive);margin:0 0 var(--ds-space-md)}
+.mm-act__p{font-size:16px;line-height:1.72;color:var(--ds-ink-soft);margin:0 0 14px;max-width:38rem}
+.mm-act__shot{display:block;position:relative;width:100%;min-width:0;overflow:hidden;border-radius:var(--ds-r-surface);aspect-ratio:4/5;max-height:420px;background:var(--ds-bg-surface-3);box-shadow:var(--ds-shadow-card)}
+.mm-act__shot img{width:100%;height:100%;object-fit:cover;display:block}
+
+/* 2. manifesto: who performs it, and the register she performs it in */
+.mm-manifesto{padding:var(--ds-section-py) 0;background:var(--ds-bg-surface-2)}
+.mm-manifesto__lab{font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:var(--ds-olive);margin:0 0 12px}
+.mm-manifesto__who{font-family:var(--ds-font-display);font-size:34px;line-height:1.12;letter-spacing:-.026em;color:var(--ds-accent);margin:0 0 12px}
+.mm-manifesto__p{font-size:15.5px;line-height:1.74;color:var(--ds-ink-soft);margin:0 0 14px;max-width:56ch}
+.mm-fact{display:block;padding:13px 0;border-top:1px solid var(--ds-line)}
+.mm-fact:last-of-type{border-bottom:1px solid var(--ds-line)}
+.mm-fact__k{display:block;font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--ds-olive);margin:0 0 6px}
+.mm-fact__v{font-family:var(--ds-font-display);font-size:18px;line-height:1.3;color:var(--ds-accent);margin:0}
+.mm-fact__n{display:block;margin-top:5px;font-family:var(--ds-font-body);font-size:12.5px;line-height:1.6;color:var(--ds-ink-soft)}
+
+/* the ceiling */
+.mm-ceiling{position:relative;overflow:hidden;padding:var(--ds-section-py) 0;background:var(--ds-bg-surface);background-size:cover;background-position:center;background-blend-mode:soft-light}
+.mm-ceiling .container{position:relative}
+.mm-ceiling__h{font-family:var(--ds-font-display);font-size:30px;line-height:1.2;color:var(--ds-accent);margin:0 0 16px;max-width:20ch}
+.mm-ceiling__p{font-size:15.5px;line-height:1.74;color:var(--ds-ink);margin:0 0 14px;max-width:56ch}
+.mm-ceiling__p a{color:var(--ds-accent);text-decoration:underline;text-underline-offset:3px}
+.mm-close{margin:var(--ds-space-lg) 0 0;padding-top:var(--ds-space-md);border-top:2px solid var(--ds-issued)}
+.mm-close__h{font-family:var(--ds-font-display);font-size:24px;line-height:1.2;color:var(--ds-accent);margin:0 0 14px}
+
+
+@media (max-width:900px){
+  .row--act,.row--who{grid-template-columns:minmax(0,1fr);gap:var(--ds-space-md)}
+  .mm-founder__act{font-size:29px;max-width:none}
+  .mm-manifesto__who{font-size:26px}
+  .mm-ceiling__h{font-size:24px;max-width:none}
+  .mm-act__shot{aspect-ratio:16/10;max-height:240px}
+}
+
+/* ============================================================================
+   T-ARTICLE TEMPLATE SKIN -- "The Sequence" (concept A), OWNER-PICKED 2026-08-21.
+   Migrated verbatim out of the concept preview's <style> at the LOCK step, for the same
+   reason the five skins above live here: build.mjs links exactly three per-slug sheets
+   and promote STRIPS the concept <style> (OBS-29).
+   The duplicate .wow-lift block was dropped; the T-FEATURE lock already defines it.
+   Token-pure (zero hex, zero url()); every short child class is descendant-scoped.
+
+   .art-top.hero IS STILL RESET HERE even though the structural .hero rule was scoped to
+   .hero:has(> .hero-copy) on the same day. The reset is now a no-op. It is kept as a
+   marker of where the collision bit: the brief's section_seq slot named "hero" and the
+   split-hero component share one class name, and that cost a locked template its layout.
+   ============================================================================ */
+/* T-ARTICLE concept A skin. Token-pure, zero hex, zero url(). */
+
+.row--frame{display:grid;grid-template-columns:minmax(0,.34fr) minmax(0,1fr);gap:var(--ds-space-2xl);align-items:start}
+.row--pair{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:var(--ds-space-2xl);align-items:start}
+.row--exits{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:var(--ds-space-lg)}
+
+/* 1. the page header, closing on a letterbox band of the room the article describes */
+.art-top.hero{display:block;grid-template-columns:none;border-top:0}
+.art-top{padding:calc(var(--ds-section-py) * .95) 0 calc(var(--ds-section-py) * .6);background:var(--ds-bg-surface)}
+.art-top__kicker{font-size:10px;letter-spacing:.28em;text-transform:uppercase;color:var(--ds-olive);margin:0 0 18px}
+.art-top__h{font-family:var(--ds-font-display);font-size:52px;line-height:1.1;letter-spacing:-.032em;font-weight:700;color:var(--ds-accent);margin:0 0 20px;max-width:17ch}
+.art-top__sub{font-size:19px;line-height:1.6;color:var(--ds-ink-soft);margin:0;max-width:44rem}
+.art-top__band{display:block;position:relative;width:100%;min-width:0;margin-top:var(--ds-space-lg);overflow:hidden;border-radius:var(--ds-r-surface);aspect-ratio:24/7;max-height:250px;background:var(--ds-bg-surface-3);border-top:2px solid var(--ds-issued)}
+.art-top__band img{width:100%;height:100%;object-fit:cover;object-position:center 62%;display:block}
+.art-top__cap{font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--ds-olive);margin:10px 0 0}
+
+/* 2. problem framing */
+.art-frame{position:relative;overflow:hidden;padding:var(--ds-section-py) 0;background:var(--ds-bg-surface-2);background-size:cover;background-position:center;background-blend-mode:multiply}
+.art-frame .container{position:relative}
+.art-frame__h{font-family:var(--ds-font-display);font-size:29px;line-height:1.18;letter-spacing:-.022em;color:var(--ds-accent);margin:0;max-width:14ch}
+.art-frame__p{font-size:16.5px;line-height:1.74;color:var(--ds-ink-soft);margin:0 0 15px;max-width:40rem}
+.art-frame__land{font-family:var(--ds-font-display);font-size:21px;line-height:1.5;color:var(--ds-accent);margin:var(--ds-space-md) 0 0;padding-top:16px;border-top:1px solid var(--ds-line);max-width:38rem}
+
+/* 3. the numbered spine */
+.art-seq{padding:var(--ds-section-py) 0;background:var(--ds-bg-surface)}
+.art-seq__h{font-family:var(--ds-font-display);font-size:29px;line-height:1.18;letter-spacing:-.022em;color:var(--ds-accent);margin:0 0 var(--ds-space-lg)}
+.art-step{display:grid;grid-template-columns:56px minmax(0,1fr);gap:0 var(--ds-space-md);padding:22px 0;border-top:1px solid var(--ds-line)}
+.art-step:last-of-type{border-bottom:1px solid var(--ds-line)}
+.art-step__n{font-family:var(--ds-font-display);font-size:30px;line-height:1;color:var(--ds-olive);padding-top:2px}
+.art-step__lead{font-family:var(--ds-font-display);font-size:20px;line-height:1.34;color:var(--ds-accent);margin:0 0 8px;max-width:34rem}
+.art-step__p{font-size:15.5px;line-height:1.74;color:var(--ds-ink-soft);margin:0 0 10px;max-width:40rem}
+.art-quote{margin:14px 0 0;padding-left:22px;border-left:3px solid var(--ds-issued);max-width:38rem}
+.art-quote p{font-family:var(--ds-font-display);font-size:19px;line-height:1.52;color:var(--ds-accent);margin:0 0 8px}
+.art-quote cite{display:block;font-family:var(--ds-font-body);font-style:normal;font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--ds-olive)}
+
+/* 4. what you are committing to, and the quote-only cost line */
+.art-commit{position:relative;overflow:hidden;padding:var(--ds-section-py) 0;background:var(--ds-bg-surface-2);background-size:cover;background-position:center;background-blend-mode:multiply}
+.art-commit .container{position:relative}
+.art-commit__h{font-family:var(--ds-font-display);font-size:29px;line-height:1.18;letter-spacing:-.022em;color:var(--ds-accent);margin:0 0 var(--ds-space-md);max-width:16ch}
+.art-commit__p{font-size:16px;line-height:1.74;color:var(--ds-ink-soft);margin:0 0 14px;max-width:40rem}
+.art-commit__hard{font-family:var(--ds-font-display);font-size:22px;line-height:1.44;color:var(--ds-accent);margin:0 0 16px;max-width:31ch}
+.art-note{padding:18px 20px;border:1px solid var(--ds-line);border-radius:var(--ds-r-surface);background:var(--ds-bg-surface)}
+.art-note+.art-note{margin-top:14px}
+.art-note__k{display:block;font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--ds-olive);margin:0 0 8px}
+.art-note__p{font-size:15px;line-height:1.7;color:var(--ds-ink);margin:0}
+
+/* 5. the exits */
+.art-exits{padding:calc(var(--ds-section-py) * .8) 0;background:var(--ds-bg-surface)}
+.art-exits__h{font-family:var(--ds-font-display);font-size:24px;line-height:1.2;color:var(--ds-accent);margin:0 0 var(--ds-space-md)}
+.art-exit{display:block;padding-top:14px;border-top:2px solid var(--ds-issued);text-decoration:none}
+.art-exit__t{display:block;font-family:var(--ds-font-display);font-size:19px;line-height:1.3;color:var(--ds-accent);margin:0 0 6px}
+.art-exit__p{font-size:14px;line-height:1.62;color:var(--ds-ink-soft);margin:0}
+.art-exit:hover .art-exit__t,.art-exit:focus-visible .art-exit__t{color:var(--ds-olive)}
+.art-tel{display:inline-block;margin-top:var(--ds-space-md);font-size:15px;color:var(--ds-accent);text-decoration:underline;text-underline-offset:3px}
+
+
+@media (max-width:900px){
+  .row--frame,.row--pair{grid-template-columns:minmax(0,1fr);gap:var(--ds-space-md)}
+  .row--exits{grid-template-columns:repeat(2,minmax(0,1fr));gap:var(--ds-space-md)}
+  .art-top__h{font-size:31px;max-width:none}
+  .art-top__band{aspect-ratio:16/9;max-height:200px}
+  .art-top__sub{font-size:16.5px}
+  .art-frame__h,.art-seq__h,.art-commit__h{font-size:24px;max-width:none}
+  .art-step{grid-template-columns:40px minmax(0,1fr)}
+  .art-step__n{font-size:23px}
+  .art-commit__hard{font-size:19px;max-width:none}
+}
+
+/* ============================================================================
+   T-CONTACT TEMPLATE SKIN -- "The Record" (concept A), OWNER-PICKED 2026-08-21.
+   The SEVENTH and last template skin. Migrated verbatim out of the concept preview's
+   <style> at the LOCK step, for the same reason the six skins above live here:
+   build.mjs links exactly three per-slug sheets and promote STRIPS the concept
+   <style> (OBS-29).
+   The duplicate .wow-lift block was dropped; the T-FEATURE lock already defines it.
+   Token-pure (zero hex, zero url()); every short child class is descendant-scoped.
+
+   THE FORM CARRIES data-form-waiver AND THAT IS DELIBERATE. G-FORM-LIVE requires every
+   form on an ASSEMBLED page to have a real action, static submit wiring, or an explicit
+   owner-visible waiver. The estate's existing lead-capture forms are vendor-hosted
+   third-party embeds whose leads land in that third party's system, so there is no
+   endpoint to publish until it is migrated. The waiver is the honest option; a
+   fabricated action URL would be the dishonest one.
+   ============================================================================ */
+/* T-CONTACT concept A skin. Token-pure, zero hex, zero url(). */
+
+.row--rec{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,.78fr);gap:var(--ds-space-2xl);align-items:start}
+.row--trust{display:grid;grid-template-columns:minmax(0,.4fr) minmax(0,1fr);gap:var(--ds-space-2xl);align-items:start}
+
+/* 1. the opening line */
+.ct-top{position:relative;overflow:hidden;padding:calc(var(--ds-section-py) * .8) 0;background:var(--ds-bg-surface-2);background-size:cover;background-position:center;background-blend-mode:multiply}
+.ct-top .container{position:relative}
+.ct-top__h{font-family:var(--ds-font-display);font-size:44px;line-height:1.12;letter-spacing:-.03em;font-weight:700;color:var(--ds-accent);margin:0 0 16px;max-width:20ch}
+.ct-top__sub{font-size:18px;line-height:1.62;color:var(--ds-ink);margin:0;max-width:42rem}
+
+/* 2. the form, single-column stacked */
+.ct-form{padding:var(--ds-section-py) 0;background:var(--ds-bg-surface)}
+.ct-form__h,.ct-form__lede,.ct-after{max-width:36rem}
+.ct-form__h{font-family:var(--ds-font-display);font-size:29px;line-height:1.18;letter-spacing:-.022em;color:var(--ds-accent);margin:0 auto 12px}
+.ct-form__lede{font-size:16.5px;line-height:1.72;color:var(--ds-ink-soft);margin:0 auto var(--ds-space-lg)}
+.ct-fields{max-width:36rem;margin-inline:auto}
+.ct-field+.ct-field{margin-top:18px}
+.ct-field label{display:block;font-size:13px;font-weight:600;letter-spacing:.02em;color:var(--ds-accent);margin:0 0 6px}
+.ct-field input,.ct-field textarea,.ct-field select{display:block;width:100%;box-sizing:border-box;font-family:var(--ds-font-body);font-size:15.5px;line-height:1.5;color:var(--ds-ink);background:var(--ds-bg-surface);border:1px solid var(--ds-line);border-radius:var(--ds-r-input);padding:11px 13px}
+.ct-field textarea{min-height:118px;resize:vertical}
+.ct-field input:focus-visible,.ct-field textarea:focus-visible,.ct-field select:focus-visible{outline:2px solid var(--ds-accent);outline-offset:2px;border-color:var(--ds-accent)}
+.ct-help{display:block;font-size:12.5px;line-height:1.55;color:var(--ds-olive);margin:6px 0 0}
+.ct-send{margin-top:var(--ds-space-lg)}
+.ct-after{font-size:14px;line-height:1.6;color:var(--ds-ink-soft);margin:14px auto 0}
+
+/* 3. the record, on the anchored dark band */
+.ct-rec{position:relative;overflow:hidden;padding:var(--ds-section-py) 0;background:var(--ds-bg-surface);background-size:cover;background-position:center;background-blend-mode:soft-light}
+.ct-rec .container{position:relative}
+.ct-rec__h{font-family:var(--ds-font-display);font-size:29px;line-height:1.18;letter-spacing:-.022em;color:var(--ds-accent);margin:0 0 var(--ds-space-lg)}
+.ct-row{display:grid;grid-template-columns:minmax(0,.28fr) minmax(0,1fr);gap:var(--ds-space-md);padding:16px 0;border-top:1px solid var(--ds-line)}
+.ct-row:last-of-type{border-bottom:1px solid var(--ds-line)}
+.ct-row__k{font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--ds-issued);padding-top:4px}
+.ct-row__v{font-family:var(--ds-font-display);font-size:19px;line-height:1.45;color:var(--ds-accent);margin:0}
+.ct-row__n{display:block;margin-top:6px;font-family:var(--ds-font-body);font-size:13.5px;line-height:1.65;color:var(--ds-ink)}
+.ct-row a{color:var(--ds-accent);text-decoration:underline;text-underline-offset:3px}
+.ct-shot{display:block;position:relative;width:100%;min-width:0;overflow:hidden;border-radius:var(--ds-r-surface);aspect-ratio:4/5;max-height:430px;background:var(--ds-bg-surface-3);box-shadow:var(--ds-shadow-card)}
+.ct-shot img{width:100%;height:100%;object-fit:cover;display:block}
+.ct-shot__cap{font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--ds-issued);margin:10px 0 0}
+
+/* 4. what happens next */
+.ct-next{padding:calc(var(--ds-section-py) * .85) 0;background:var(--ds-bg-surface-2)}
+.ct-next__h{font-family:var(--ds-font-display);font-size:26px;line-height:1.2;color:var(--ds-accent);margin:0;max-width:12ch}
+.ct-next__p{font-size:16px;line-height:1.74;color:var(--ds-ink-soft);margin:0 0 14px;max-width:42rem}
+.ct-next__p:last-child{margin-bottom:0}
+.ct-next__ceiling{font-size:15.5px;line-height:1.7;color:var(--ds-ink);margin:0;padding-top:14px;border-top:1px solid var(--ds-line);max-width:42rem}
+
+
+@media (max-width:900px){
+  .row--rec,.row--trust{grid-template-columns:minmax(0,1fr);gap:var(--ds-space-md)}
+  .ct-top__h{font-size:29px;max-width:none}
+  .ct-form__h,.ct-rec__h{font-size:24px}
+  .ct-next__h{font-size:22px;max-width:none}
+  .ct-row{grid-template-columns:minmax(0,1fr);gap:4px}
+  .ct-shot{aspect-ratio:16/10;max-height:240px}
 }

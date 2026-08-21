@@ -1,0 +1,95 @@
+<!-- == §1 hero-filter -->
+<!-- src: D-IA-006 --> <!-- Patient Resources group, terminal utility, not primary nav -->
+<!-- src: D-IA-026 --> <!-- T-INDEX tier placement -->
+<!-- src: D-BRAND-RAILS-018 --> <!-- voice: warm-humanist, the practice's own register -->
+<!-- src: D-BRAND-RAILS-009 --> <!-- Book primary / Call secondary CTA rail -->
+<!-- pick: HERO-COMPOSITIONS.md #10 Centered headline only (text-driven, no hero photo), set LEFT as a full-width masthead with the toolbar on its own rule | considered: #1,#9 | why: this concept spends its attention on the index machinery below, so the masthead stays a single band of type with the live toolbar and a truthful entry count hung off the same rule, which is how a working index actually announces itself; #1 split-with-photo would spend an image before the reader has seen a single entry, and #9 letterbox would give a utility page a cinematic opening it has not earned. | rigor: heavy -->
+<section class="kit-head3 hero-filter">
+  <div class="container">
+    <div class="row">
+      <div class="col">
+        <p class="kit-label">Patient resources</p>
+        <h1 class="kit-title3">Notes from the practice</h1>
+        <p class="kit-sub3">Writing from Dr. Bacchi and the practice on skin, treatment decisions, and
+          what an evaluation actually covers.</p>
+        <div class="kit-tools">
+          <span class="lab">Filter</span>
+          <span class="kit-field">Category</span>
+          <span class="kit-field">Tags</span>
+          <span class="kit-count3">0 entries</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- == §2 featured-pinned: DELIBERATELY OMITTED -->
+<!-- The copy says omit this block: a pinned post must be a real published post and none has been
+     supplied. The token rides a hidden marker rather than a placeholder card. -->
+<div class="featured-pinned" hidden aria-hidden="true"></div>
+
+<!-- == §3 list-grid: the entry template drawn as a labelled wireframe, beside the empty state -->
+<!-- src: D-BRAND-RAILS-013 --> <!-- real_only for ALL proof: no invented post, author, date or outlet -->
+<!-- src: D-OFFER-010 --> <!-- what the practice actually publishes -->
+<!-- src: D-OFFER-017 --> <!-- the offered-treatment set the writing would cover -->
+<!-- pick: SECTION-COMPONENTS.md #12 Feature row with screenshot, where the SCREENSHOT is the entry wireframe | considered: #9,#8 | why: the honest way to show a reader what is coming is to show the SHAPE of it, and #12 is the pattern built for putting an artefact beside the sentence that explains it, so the field-named wireframe sits left and the empty-state statement sits right as its caption; #9 card-grid would need repeated cards and any repetition of a wireframe starts to read as a list of fake posts, and #8 manifesto is concept A's answer. | rigor: heavy -->
+<section class="kit-wire list-grid surface-warm">
+  <div class="container">
+    <div class="row row--wire">
+      <div class="col">
+        <div class="kit-wireframe">
+          <p class="cap">Entry template, field names only</p>
+          <div class="kit-slot"><span class="f">Title</span><span class="g">The headline of the piece</span></div>
+          <div class="kit-slot"><span class="f">Category and tags</span><span class="g">Carried as data attributes so the toolbar binds to real values</span></div>
+          <div class="kit-slot"><span class="f">Publication date</span><span class="g">The date it was actually published</span></div>
+          <div class="kit-slot"><span class="f">Standfirst</span><span class="g">A short line saying what the piece covers</span></div>
+          <div class="kit-slot"><span class="f">Read link</span><span class="g">Through to the piece itself</span></div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="kit-notecard">
+          <p class="kit-notehead">No posts yet.</p>
+          <p class="kit-notebody">Nothing has been published here. Rather than fill the page with
+            invented articles or a stock feed, it says so.</p>
+          <p class="kit-notebody">If you have a question you would like answered in writing, ask it at
+            a consultation.</p>
+          <div class="cta-row">
+            <a class="btn" href="consultation.html">Book a consultation</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- == §4 category-routing, carrying the copy's §5 closing lines inline -->
+<!-- src: D-IA-001 --> <!-- Areas of Concern is the concern-led entry layer -->
+<!-- src: D-IA-002 --> <!-- Treatments is the device-led index -->
+<!-- src: D-IA-003 --> <!-- Consultation is the single conversion endpoint -->
+<!-- src: D-OFFER-006 --> <!-- primary conversion goal: book a consultation -->
+<!-- pick: SECTION-COMPONENTS.md #9 Services 3-col, run as a three-way routing rail on hairline rules | considered: #6,#11 | why: with the index empty the routing is the page's real payload, and three equal rails let the consultation sit BESIDE the two content layers instead of only in the closing band, which is where a reader who found nothing is most likely to act; #6 two-door qualifier is concept A's shape and #11 media-and-list would spend an image on navigation. | rigor: heavy -->
+<section class="kit-route3 category-routing">
+  <div class="container">
+    <div class="row">
+      <div class="col">
+        <h2 class="kit-h2">Looking for something specific?</h2>
+      </div>
+    </div>
+    <div class="row row--three">
+      <div class="col"><a class="kit-go3 wow-lift" href="areas-of-concern.html"><span class="t">Explore areas of concern</span><span class="d">The concern-led entry layer, and the right starting point.</span></a></div>
+      <div class="col"><a class="kit-go3 wow-lift" href="treatments.html"><span class="t">Browse treatments</span><span class="d">For readers who already know the device name.</span></a></div>
+      <div class="col"><a class="kit-go3 wow-lift" href="consultation.html"><span class="t">Ask at a consultation</span><span class="d">Bring the question to the appointment instead.</span></a></div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <div class="kit-endline closing-cta">
+          <p class="h">Start with the evaluation</p>
+          <div class="cta-row">
+            <a class="btn" href="consultation.html">Book a consultation</a>
+            <a class="btn btn-ghost" href="tel:+14157854604">Call (415) 785-4604</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
