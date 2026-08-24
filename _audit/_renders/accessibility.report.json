@@ -1,0 +1,70 @@
+{
+  "slug": "accessibility",
+  "ts": 1787546324009,
+  "verdict": "pass",
+  "breakpoints": [
+    {
+      "bp": "desktop",
+      "w": 1440,
+      "contrastFlags": 0,
+      "hardInvisible": 0,
+      "worst": [],
+      "overflowPx": 0,
+      "sheetsLoaded": true,
+      "h1px": 48,
+      "heroVar": "",
+      "scrollHeight": 2958
+    },
+    {
+      "bp": "laptop",
+      "w": 1280,
+      "contrastFlags": 0,
+      "hardInvisible": 0,
+      "worst": [],
+      "overflowPx": 0,
+      "sheetsLoaded": true,
+      "h1px": 48,
+      "heroVar": "",
+      "scrollHeight": 2958
+    },
+    {
+      "bp": "tablet",
+      "w": 834,
+      "contrastFlags": 0,
+      "hardInvisible": 0,
+      "worst": [],
+      "overflowPx": 0,
+      "sheetsLoaded": true,
+      "h1px": 31,
+      "heroVar": "",
+      "scrollHeight": 3135
+    },
+    {
+      "bp": "mobile",
+      "w": 390,
+      "contrastFlags": 0,
+      "hardInvisible": 0,
+      "worst": [],
+      "overflowPx": 0,
+      "sheetsLoaded": true,
+      "h1px": 31,
+      "heroVar": "",
+      "scrollHeight": 4381
+    }
+  ],
+  "screenshots": [
+    "_audit/_renders/accessibility-desktop.png",
+    "_audit/_renders/accessibility-laptop.png",
+    "_audit/_renders/accessibility-tablet.png",
+    "_audit/_renders/accessibility-mobile.png"
+  ],
+  "sheetsLoaded": true,
+  "h1px": 48,
+  "scrollHeight": 2958,
+  "expectedSheets": [
+    "marin-medical-aesthetics-tokens.css",
+    "marin-medical-aesthetics-chrome.css",
+    "marin-medical-aesthetics-structural.css"
+  ],
+  "unstyled": null
+}

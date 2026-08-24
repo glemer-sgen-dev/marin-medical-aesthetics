@@ -1,0 +1,91 @@
+<!-- == §1 hero-filter -->
+<!-- pick: SECTION-COMPONENTS.md #45 Category chips / nav, in the locked kit-head3 shell as a two-field filter toolbar with no eyebrow | considered: #1,#2 | why: the standfirst carries the page's whole standard in eight words, listed with their outlet and date, so an eyebrow above it would delay the only sentence that matters. The toolbar exposes exactly the two fields with backing data and shows a zero count rather than hiding it, because a press page with a filter and no visible count is the shape of a page pretending to have entries. #1 hero would give a terminal utility the weight of an entry point, and #2 trust-strip is the logo wall this page exists to refuse. | rigor: heavy -->
+<!-- src: D-IA-006 --> <!-- the Patient Resources group this terminal utility sits in -->
+<!-- src: D-IA-026 --> <!-- the T3 legal/utility terminal layer -->
+<!-- src: D-BRAND-RAILS-018 --> <!-- approachable and warm, mirrored as tone only -->
+<section class="kit-head3 hero-filter">
+  <div class="container">
+    <div class="row">
+      <div class="col">
+        <h1 class="kit-title3">In the media</h1>
+        <p class="kit-sub3">Press coverage and appearances, listed with their outlet and date.</p>
+        <div class="kit-tools">
+          <span class="lab">Filter</span>
+          <span class="kit-field">Category</span>
+          <span class="kit-field">Tags</span>
+          <span class="kit-count3">0 entries</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- == §2 featured-pinned: DELIBERATELY OMITTED -->
+<!-- A pinned item must be a real, verifiable placement with a named outlet and date. None is
+     documented upstream, so the block is omitted rather than filled. -->
+<div class="featured-pinned" hidden aria-hidden="true"></div>
+
+<!-- == §3 list-grid -->
+<!-- pick: SECTION-COMPONENTS.md #43 Gallery grid, reduced to its FIELD TEMPLATE beside an explicit empty state, in the locked kit-wire shell | considered: #2,#5 | why: this is the page where an invented logo wall is most tempting and least defensible, so the field template shows exactly what a real entry would have to carry, outlet and date included, and the empty state says nothing is published rather than filling the space. The second note names the specific things that will not appear without a receipt: an award, a ranking, or an "as seen in" strip. #2 trust-strip IS the fabricated logo wall, and #5 awards-band is the same failure with a different label. | rigor: heavy -->
+<!-- src: D-OFFER-017 --> <!-- the crawled record: no press placement is documented in it -->
+<!-- src: D-BRAND-RAILS-013 --> <!-- real_only: nothing is invented to fill the grid -->
+<!-- src: D-OFFER-010 --> <!-- no guarantee or unverified credential exists on any owned property -->
+<section class="kit-wire list-grid surface-warm">
+  <div class="container">
+    <div class="row row--wire">
+      <div class="col">
+        <div class="kit-wireframe">
+          <p class="cap">Entry template, field names only</p>
+          <div class="kit-slot"><span class="f">Outlet</span><span class="g">The publication or programme, named</span></div>
+          <div class="kit-slot"><span class="f">Date</span><span class="g">The date it actually ran</span></div>
+          <div class="kit-slot"><span class="f">Headline</span><span class="g">As the outlet published it</span></div>
+          <div class="kit-slot"><span class="f">Category and tags</span><span class="g">Carried as data attributes so the toolbar binds to real values</span></div>
+          <div class="kit-slot"><span class="f">Outbound link</span><span class="g">Through to the piece at its source</span></div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="kit-notecard">
+          <p class="kit-notehead">No coverage listed yet.</p>
+          <p class="kit-notebody">Nothing is published here. This page stays empty until there is a
+            real placement to name, with the outlet and the date attached.</p>
+          <p class="kit-notebody">No award, no ranking and no "as seen in" strip appears without a
+            receipt behind it. If you are looking for who runs the practice,
+            <a href="about.html">that is on the about page</a>.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- == §4 category-routing + closing-cta -->
+<!-- pick: SECTION-COMPONENTS.md #50 Topic columns, in the locked kit-route3 shell | considered: #45,#40 | why: a reader who came looking for third-party validation and found none should be sent to the things that are actually verifiable here: the review corpus with its own published distribution, the physician behind the practice, and the appointment. That ordering is deliberate, because the review page is the closest thing to what this reader wanted. The closing block rides inside this band because verify-cta-singularity reads a second closing section in the tail as a duplicate of the locked chrome's one. #45 category chips would strip the per-route context, and #40 pre-footer CTA band would BE the duplicate. | rigor: heavy -->
+<!-- src: D-IA-001 --> <!-- the /areas-of-concern/ hub -->
+<!-- src: D-IA-002 --> <!-- the Treatments device index -->
+<!-- src: D-IA-003 --> <!-- Consultation, the single conversion endpoint -->
+<!-- src: D-OFFER-006 --> <!-- primary conversion goal -->
+<!-- src: D-BRAND-RAILS-009 --> <!-- CTA verb convention: Book, Call, Explore -->
+<section class="kit-route3 category-routing">
+  <div class="container">
+    <div class="row">
+      <div class="col">
+        <h2 class="kit-h2">Looking for something else?</h2>
+      </div>
+    </div>
+    <div class="row row--three">
+      <div class="col"><a class="kit-go3 wow-lift" href="success-stories.html"><span class="t">Read patient reviews</span><span class="d">The proof that does exist here, published with its own distribution.</span></a></div>
+      <div class="col"><a class="kit-go3 wow-lift" href="areas-of-concern.html"><span class="t">Explore areas of concern</span><span class="d">The concern-led entry layer, and the right starting point.</span></a></div>
+      <div class="col"><a class="kit-go3 wow-lift" href="treatments.html"><span class="t">Browse treatments</span><span class="d">For readers who already know the device name.</span></a></div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <div class="kit-endline closing-cta">
+          <p class="h">Start with the evaluation</p>
+          <div class="cta-row">
+            <a class="btn" href="consultation.html">Book a consultation</a>
+            <a class="btn btn-ghost" href="tel:+14157854604">Call (415) 785-4604</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

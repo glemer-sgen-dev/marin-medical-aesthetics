@@ -1,0 +1,70 @@
+{
+  "slug": "store",
+  "ts": 1787546611490,
+  "verdict": "pass",
+  "breakpoints": [
+    {
+      "bp": "desktop",
+      "w": 1440,
+      "contrastFlags": 0,
+      "hardInvisible": 0,
+      "worst": [],
+      "overflowPx": 0,
+      "sheetsLoaded": true,
+      "h1px": 50,
+      "heroVar": "",
+      "scrollHeight": 2419
+    },
+    {
+      "bp": "laptop",
+      "w": 1280,
+      "contrastFlags": 0,
+      "hardInvisible": 0,
+      "worst": [],
+      "overflowPx": 0,
+      "sheetsLoaded": true,
+      "h1px": 50,
+      "heroVar": "",
+      "scrollHeight": 2419
+    },
+    {
+      "bp": "tablet",
+      "w": 834,
+      "contrastFlags": 0,
+      "hardInvisible": 0,
+      "worst": [],
+      "overflowPx": 0,
+      "sheetsLoaded": true,
+      "h1px": 31,
+      "heroVar": "",
+      "scrollHeight": 3223
+    },
+    {
+      "bp": "mobile",
+      "w": 390,
+      "contrastFlags": 0,
+      "hardInvisible": 0,
+      "worst": [],
+      "overflowPx": 0,
+      "sheetsLoaded": true,
+      "h1px": 26,
+      "heroVar": "",
+      "scrollHeight": 3810
+    }
+  ],
+  "screenshots": [
+    "_audit/_renders/store-desktop.png",
+    "_audit/_renders/store-laptop.png",
+    "_audit/_renders/store-tablet.png",
+    "_audit/_renders/store-mobile.png"
+  ],
+  "sheetsLoaded": true,
+  "h1px": 50,
+  "scrollHeight": 2419,
+  "expectedSheets": [
+    "marin-medical-aesthetics-tokens.css",
+    "marin-medical-aesthetics-chrome.css",
+    "marin-medical-aesthetics-structural.css"
+  ],
+  "unstyled": null
+}

@@ -1,0 +1,95 @@
+<!-- == §1 hero-filter -->
+<!-- pick: SECTION-COMPONENTS.md #45 Category chips / nav, in the locked kit-head3 shell as a two-field filter toolbar | considered: #1,#43 | why: the toolbar exposes exactly the two fields that have backing data, category and tags, and nothing else: a control with no field behind it is inert decoration and would be the first lie on a page whose whole subject is that the list is empty. The entry count is shown as zero rather than hidden, because a filter that silently returns nothing is worse than one that says how many items it has. #1 hero would give a terminal utility the weight of an entry point, and #43 gallery-grid implies images that do not exist. | rigor: heavy -->
+<!-- src: D-IA-006 --> <!-- the Patient Resources group this terminal utility sits in -->
+<!-- src: D-IA-026 --> <!-- the T3 legal/utility terminal layer -->
+<!-- src: D-BRAND-RAILS-018 --> <!-- approachable and warm, mirrored as tone only -->
+<section class="kit-head3 hero-filter">
+  <div class="container">
+    <div class="row">
+      <div class="col">
+        <p class="kit-label">Patient resources</p>
+        <h1 class="kit-title3">Skincare products</h1>
+        <p class="kit-sub3">Products the practice actually stocks, filterable by category. Nothing is
+          listed that is not on the shelf.</p>
+        <div class="kit-tools">
+          <span class="lab">Filter</span>
+          <span class="kit-field">Category</span>
+          <span class="kit-field">Tags</span>
+          <span class="kit-count3">0 items</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- == §2 featured-pinned: DELIBERATELY OMITTED -->
+<!-- One pinned item may sit above the grid, but it has to be a REAL stocked item. No product line
+     qualifies from the crawled what-is-offered record, so the block is omitted rather than filled
+     with a placeholder. Supply the stocked list and the pinned item ships. -->
+<div class="featured-pinned" hidden aria-hidden="true"></div>
+
+<!-- == §3 list-grid -->
+<!-- pick: SECTION-COMPONENTS.md #43 Gallery grid, reduced to its FIELD TEMPLATE beside an explicit empty state, in the locked kit-wire shell | considered: #44,#24 | why: a filterable grid with nothing in it has two honest jobs: show what an entry will contain, so the toolbar's two fields are visibly backed by real data, and say plainly that there is nothing yet. The empty state names the reason and gives the two ways to ask, then states the pricing posture, because a shop page that shows no prices should say how pricing actually works rather than leave it to be discovered. A filter must never ship with zero items silently. #44 featured-collection needs items to feature, and #24 testimonials-grid would stage proof on a shop page. | rigor: heavy -->
+<!-- src: D-OFFER-017 --> <!-- the crawled what-is-offered record: no product line qualifies from it -->
+<!-- src: D-BRAND-RAILS-013 --> <!-- real_only: nothing is invented to fill the grid -->
+<!-- src: D-OFFER-010 --> <!-- no guarantee exists on any owned property -->
+<section class="kit-wire list-grid surface-warm">
+  <div class="container">
+    <div class="row row--wire">
+      <div class="col">
+        <div class="kit-wireframe">
+          <p class="cap">Item template, field names only</p>
+          <div class="kit-slot"><span class="f">Name</span><span class="g">What the product is called on the shelf</span></div>
+          <div class="kit-slot"><span class="f">Category and tags</span><span class="g">Carried as data attributes so the toolbar binds to real values</span></div>
+          <div class="kit-slot"><span class="f">Short description</span><span class="g">One line on what it is for</span></div>
+          <div class="kit-slot"><span class="f">Action</span><span class="g">How to ask about it or buy it</span></div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="kit-notecard">
+          <p class="kit-notehead">Nothing is listed here yet.</p>
+          <p class="kit-notebody">The product list has not been supplied. Rather than show an empty
+            filter or invent items, this page says so. To ask what the practice stocks, call
+            <a href="tel:+14157854604">(415) 785-4604</a> or bring it up at a
+            <a href="consultation.html">consultation</a>.</p>
+          <p class="kit-notebody">No prices appear here, and none will be published in isolation. What
+            you use at home is decided in the same appointment as everything else. During your
+            consultation, we will build a customized treatment plan with packaged pricing.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- == §4 category-routing + closing-cta -->
+<!-- pick: SECTION-COMPONENTS.md #50 Topic columns, in the locked kit-route3 shell | considered: #45,#40 | why: a reader who arrived expecting a shop and found an empty one needs somewhere useful to go, and the honest destinations are the two index layers plus the appointment where the question can actually be answered. The closing block rides inside this band because verify-cta-singularity reads a second closing section in the tail as a duplicate of the locked chrome's one. #45 category chips would strip the line of context under each route, and #40 pre-footer CTA band would BE the duplicate closing band. | rigor: heavy -->
+<!-- src: D-IA-001 --> <!-- the /areas-of-concern/ hub -->
+<!-- src: D-IA-002 --> <!-- the Treatments device index -->
+<!-- src: D-IA-003 --> <!-- Consultation, the single conversion endpoint -->
+<!-- src: D-OFFER-006 --> <!-- primary conversion goal -->
+<!-- src: D-BRAND-RAILS-009 --> <!-- CTA verb convention: Book, Call, Explore -->
+<section class="kit-route3 category-routing">
+  <div class="container">
+    <div class="row">
+      <div class="col">
+        <h2 class="kit-h2">Looking for something else?</h2>
+      </div>
+    </div>
+    <div class="row row--three">
+      <div class="col"><a class="kit-go3 wow-lift" href="treatments.html"><span class="t">Browse treatments</span><span class="d">What the practice actually offers, which is where the products sit alongside.</span></a></div>
+      <div class="col"><a class="kit-go3 wow-lift" href="areas-of-concern.html"><span class="t">Explore areas of concern</span><span class="d">The concern-led entry layer, and the right starting point.</span></a></div>
+      <div class="col"><a class="kit-go3 wow-lift" href="consultation.html"><span class="t">Ask at a consultation</span><span class="d">What to use at home is part of the written plan.</span></a></div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <div class="kit-endline closing-cta">
+          <p class="h">Start with the evaluation</p>
+          <div class="cta-row">
+            <a class="btn" href="consultation.html">Book a consultation</a>
+            <a class="btn btn-ghost" href="tel:+14157854604">Call (415) 785-4604</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

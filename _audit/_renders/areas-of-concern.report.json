@@ -1,0 +1,70 @@
+{
+  "slug": "areas-of-concern",
+  "ts": 1787546327253,
+  "verdict": "pass",
+  "breakpoints": [
+    {
+      "bp": "desktop",
+      "w": 1440,
+      "contrastFlags": 0,
+      "hardInvisible": 0,
+      "worst": [],
+      "overflowPx": 0,
+      "sheetsLoaded": true,
+      "h1px": 56,
+      "heroVar": "",
+      "scrollHeight": 4423
+    },
+    {
+      "bp": "laptop",
+      "w": 1280,
+      "contrastFlags": 0,
+      "hardInvisible": 0,
+      "worst": [],
+      "overflowPx": 0,
+      "sheetsLoaded": true,
+      "h1px": 56,
+      "heroVar": "",
+      "scrollHeight": 4423
+    },
+    {
+      "bp": "tablet",
+      "w": 834,
+      "contrastFlags": 0,
+      "hardInvisible": 0,
+      "worst": [],
+      "overflowPx": 0,
+      "sheetsLoaded": true,
+      "h1px": 33,
+      "heroVar": "",
+      "scrollHeight": 6347
+    },
+    {
+      "bp": "mobile",
+      "w": 390,
+      "contrastFlags": 0,
+      "hardInvisible": 0,
+      "worst": [],
+      "overflowPx": 0,
+      "sheetsLoaded": true,
+      "h1px": 33,
+      "heroVar": "",
+      "scrollHeight": 7362
+    }
+  ],
+  "screenshots": [
+    "_audit/_renders/areas-of-concern-desktop.png",
+    "_audit/_renders/areas-of-concern-laptop.png",
+    "_audit/_renders/areas-of-concern-tablet.png",
+    "_audit/_renders/areas-of-concern-mobile.png"
+  ],
+  "sheetsLoaded": true,
+  "h1px": 56,
+  "scrollHeight": 4423,
+  "expectedSheets": [
+    "marin-medical-aesthetics-tokens.css",
+    "marin-medical-aesthetics-chrome.css",
+    "marin-medical-aesthetics-structural.css"
+  ],
+  "unstyled": null
+}

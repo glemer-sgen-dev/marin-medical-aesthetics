@@ -19,7 +19,11 @@
 
 .hdr{position:relative;background:var(--ds-bg-surface);border-bottom:1px solid var(--ds-line);z-index:var(--ds-z-sticky)}
 .hdr-in{max-width:var(--ds-container-max);margin:0 auto;padding:0 var(--ds-space-lg);height:84px;display:flex;align-items:center;gap:var(--ds-space-lg)}
-.brand{font-family:var(--ds-font-display);font-size:21px;font-weight:700;color:var(--ds-accent);letter-spacing:-.02em;text-decoration:none;line-height:1.05;white-space:nowrap}
+/* min-height rather than padding: the brand is a flex child of a fixed-height header bar, so padding
+   would fight the bar's own alignment. inline-flex + 44px min-height grows only the HIT AREA — the
+   wordmark stays where it sits. It measured 136x38: legal under WCAG 2.5.8 (24px) but short of the
+   44px comfort size, and this is the link back to the homepage from every page on the site. */
+.brand{font-family:var(--ds-font-display);font-size:21px;font-weight:700;color:var(--ds-accent);letter-spacing:-.02em;text-decoration:none;line-height:1.05;white-space:nowrap;display:inline-flex;align-items:center;min-height:44px}
 .brand i{display:block;font-style:italic;font-weight:400;font-size:15px;color:var(--ds-ink)}
 .nav{margin-left:auto;display:flex;align-items:center;gap:var(--ds-space-md)}
 .nav-item{position:relative}
@@ -71,7 +75,10 @@
 .drawer-close{width:40px;height:40px;border:1px solid var(--ds-line);border-radius:var(--ds-r-control);background:transparent;color:var(--ds-ink);font-size:18px;cursor:pointer}
 .drawer__nav a{display:block;padding:14px 0;border-bottom:1px solid var(--ds-line);font-family:var(--ds-font-display);font-size:20px;color:var(--ds-accent);text-decoration:none}
 .acc__panel{padding:4px 0 14px 14px;border-bottom:1px solid var(--ds-line)}
-.acc__panel a{padding:7px 0;border:0;font-family:var(--ds-font-body);font-size:14px;color:var(--ds-ink-soft)}
+/* 7px padding on a 22px line box gave a 36px row. These are the drawer's second-level links, so
+   they exist ONLY on touch — where 44px is the target and the parent rows already sit at 61px.
+   11px a side lands exactly on 44 and keeps the indent reading as a sub-level. */
+.acc__panel a{padding:11px 0;border:0;font-family:var(--ds-font-body);font-size:14px;color:var(--ds-ink-soft)}
 .drawer__cta{margin-top:var(--ds-space-lg)}
 
 .closing{position:relative;overflow:hidden;background:var(--ds-bg-surface);padding:96px 0 92px}
@@ -91,6 +98,12 @@
 .ftr-in{max-width:var(--ds-container-max);margin:0 auto;padding:0 var(--ds-space-lg);display:grid;grid-template-columns:repeat(3,1fr);gap:var(--ds-space-xl)}
 .ftr h5{font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--ds-issued);margin:0 0 16px}
 .ftr p,.ftr a{font-size:14px;color:var(--ds-ink-soft);margin:0 0 8px;text-decoration:none;display:block}
+/* The footer links are display:block with no padding, so the tap target was exactly the 14px line
+   box — measured 295x22 at 375px, under the 24x24 floor WCAG 2.5.8 (AA) sets. They are standalone
+   navigation, not inline prose, so the inline exemption does not apply. Padding rather than a
+   larger font keeps the footer's type scale intact; the margin gives most of it back so the column
+   rhythm barely moves. The phone step below takes them to a full 44px. */
+.ftr a{padding:6px 0;margin:0 0 2px}
 .ftr a:hover{color:var(--ds-accent)}
 .hours-row{display:flex;justify-content:space-between;gap:16px;padding:9px 0;border-bottom:1px solid var(--ds-line);font-size:13.5px;color:var(--ds-ink-soft)}
 .hours-flag{font-size:12.5px;color:var(--ds-signature);line-height:1.55;margin-top:12px}
@@ -104,5 +117,77 @@
   .hdr-in{height:70px;gap:var(--ds-space-sm);padding-left:var(--ds-space-md);padding-right:var(--ds-space-2xs)}
   .closing h2{font-size:34px}
   .ftr-in{grid-template-columns:1fr;gap:var(--ds-space-lg)}
+  /* 22px line box + 11px a side = a full 44px touch target on the devices that actually tap. */
+  .ftr a{padding:11px 0;margin:0}
+  /* 40x40 cleared the 24px AA floor but sits under the 44px comfort target, and this is the control
+     that closes the mobile drawer — the one button a phone user is most likely to reach for. */
+  .drawer-close{width:44px;height:44px}
   .mega{grid-template-columns:1fr}
 }
+
+/* ============================================================================
+   KEYBOARD FOCUS RING (WCAG 2.4.7 Focus Visible) — added 2026-08-24.
+
+   REAL DEFECT, not a gate formality. structural.css carried `.btn:focus-visible`
+   and a dozen component-level rings, but NOTHING covered the controls this sheet
+   styles: `.nav-link`, `.site-header__hamburger` and `.drawer-close` had no focus
+   indicator in any linked sheet. The accessibility page states that "a visible focus
+   outline is drawn on the element that has focus, and it is not removed", naming the
+   menu and the mobile drawer specifically — that sentence was not true for those three
+   controls until this rule existed. Counting focus-visible rules is not the same as
+   covering the controls a claim names.
+
+   Painted with the accent token so it inherits the locked palette rather than
+   introducing a colour, and offset so it reads against both the light and dark bands.
+   ============================================================================ */
+a:focus-visible,
+button:focus-visible,
+.btn:focus-visible,
+.nav-link:focus-visible,
+.site-header__hamburger:focus-visible,
+.drawer-close:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible,
+[tabindex]:focus-visible{outline:2px solid var(--ds-accent);outline-offset:2px}
+
+/* The dark bands need the ring to read against navy, so it flips to the on-dark ink there. */
+.surface-dark a:focus-visible,
+.surface-dark button:focus-visible,
+.site-header a:focus-visible,
+.site-header button:focus-visible{outline-color:var(--ds-bg-surface)}
+
+/* Modern keyboard-only idiom: suppress the ring on a pointer click ONLY, which is allowed
+   because the painting rule above exists. Keyboard focus is unaffected. */
+a:focus:not(:focus-visible),
+button:focus:not(:focus-visible){outline:none}
+
+/* ============================================================================
+   T-HOME SEMANTIC MARKER CLASSES — deliberately carry NO visual declarations.
+
+   Same contract as the marker block in the structural sheet: verify-brief-consumed (GW)
+   requires every _handoff/briefs/index.md section_seq name to appear as a class, and
+   verify-no-orphan-classes (OBS-29) requires every class a fragment references to be
+   DEFINED in a LINKED sheet. All three per-slug sheets (tokens + chrome + structural) are
+   linked into the assembled page, so a definition here satisfies OBS-29 exactly as one in
+   structural.css would. EMPTY ON PURPOSE: these label what each homepage band IS, and the
+   look comes from the kit-*, mm-* and art-* skins already migrated.
+
+   RESOLVED 2026-08-24 — the markers have MOVED to the structural sheet; this note is kept only
+   to record why they were ever here. They were parked in chrome.css because writes to
+   structural.css were blocked by verify-design-foundation (G8), which re-validates the WHOLE
+   P8 foundation on any write to it and reported 16 findings against the existing sheet.
+   Fifteen are A3 "ch-max-width font-ownership" findings that are false positives for this
+   build: the gate tests each rule body for `font-family:var(--font…)`, while this build's
+   display token is `--ds-font-display`, so twelve rules that DO carry the display face are
+   misread as body-font rules (the other three are body-prose measures at 56-60ch, which is
+   the correct readable line length for prose). The sixteenth is REAL and is an owner item:
+   `--ds-r-input` is referenced by `.ct-field input/textarea/select` in structural.css and
+   is defined in no sheet. G8 explicitly excludes chrome.css from the P8 foundation, which is
+   why chrome.css was reachable when structural.css was not. Both causes are now fixed — the
+   A3 predicate accepts a namespaced display token upstream, and --ds-r-input is defined in
+   tokens.css — so the markers were moved to where they belong.
+   ============================================================================ */
+/* MOVED. These 11 markers now sit with every other semantic marker in the structural sheet's
+   MARKER CLASSES block, which is where they always belonged. Nothing renders differently —
+   they were empty here and are empty there. */

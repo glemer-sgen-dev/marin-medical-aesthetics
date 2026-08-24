@@ -37,6 +37,7 @@
 
   /* ---- RADIUS — near-square controls, modest surfaces: structure over softness ---- */
   --ds-r-control:4px;
+  --ds-r-input:var(--ds-r-control); /* form fields share the control radius; aliased, not duplicated, so the two can never drift apart */
   --ds-r-surface:10px;
   --ds-r-pill:999px;
 

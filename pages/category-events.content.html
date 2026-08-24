@@ -1,0 +1,93 @@
+<!-- == §1 hero-filter -->
+<!-- pick: SECTION-COMPONENTS.md #45 Category chips / nav, in the locked kit-head3 shell as a two-field filter toolbar with no eyebrow | considered: #1,#54 | why: the standfirst names the three kinds of date this page would carry, open evenings, education sessions and other dates hosted by the practice, and that list is the page's entire content while the calendar is empty, so nothing sits above it. The toolbar exposes only the two fields with backing data and publishes a zero count, because an events page with a filter and a hidden count reads as though dates exist somewhere behind it. #1 hero would give a terminal utility the weight of an entry point, and #54 schedule-grid needs a schedule. | rigor: heavy -->
+<!-- src: D-IA-006 --> <!-- the Patient Resources group this terminal utility sits in -->
+<!-- src: D-IA-026 --> <!-- the T3 legal/utility terminal layer -->
+<!-- src: D-BRAND-RAILS-018 --> <!-- approachable and warm, mirrored as tone only -->
+<section class="kit-head3 hero-filter">
+  <div class="container">
+    <div class="row">
+      <div class="col">
+        <h1 class="kit-title3">Events</h1>
+        <p class="kit-sub3">Open evenings, education sessions and other dates hosted by the
+          practice.</p>
+        <div class="kit-tools">
+          <span class="lab">Filter</span>
+          <span class="kit-field">Category</span>
+          <span class="kit-field">Tags</span>
+          <span class="kit-count3">0 events</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- == §2 featured-pinned: DELIBERATELY OMITTED -->
+<!-- A pinned event must be a real scheduled date. None has been supplied, so the block is omitted
+     rather than filled with a placeholder. -->
+<div class="featured-pinned" hidden aria-hidden="true"></div>
+
+<!-- == §3 list-grid -->
+<!-- pick: SECTION-COMPONENTS.md #43 Gallery grid, reduced to its FIELD TEMPLATE beside an explicit empty state, in the locked kit-wire shell | considered: #54,#28 | why: an event listing is a commitment, and a fabricated one is a broken appointment for whoever turns up, so the template shows what a real date would have to carry, time and location included, and the empty state says the calendar is bare. The second note gives the two ways to be told about the next one, which is the only useful thing this page can offer today. #54 schedule-grid and #28 process-timeline both render a sequence of dates, which is precisely what does not exist. | rigor: heavy -->
+<!-- src: D-OFFER-017 --> <!-- the crawled record: no scheduled date is documented in it -->
+<!-- src: D-BRAND-RAILS-013 --> <!-- real_only: no invented event, date, time, venue or attendance figure -->
+<!-- src: D-OFFER-010 --> <!-- no guarantee exists on any owned property -->
+<section class="kit-wire list-grid surface-warm">
+  <div class="container">
+    <div class="row row--wire">
+      <div class="col">
+        <div class="kit-wireframe">
+          <p class="cap">Event template, field names only</p>
+          <div class="kit-slot"><span class="f">Event name</span><span class="g">What the evening or session is called</span></div>
+          <div class="kit-slot"><span class="f">Date and time</span><span class="g">The date it is actually scheduled for, with a start time</span></div>
+          <div class="kit-slot"><span class="f">Location</span><span class="g">Where to turn up</span></div>
+          <div class="kit-slot"><span class="f">Category and tags</span><span class="g">Carried as data attributes so the toolbar binds to real values</span></div>
+          <div class="kit-slot"><span class="f">Register</span><span class="g">How to hold a place</span></div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="kit-notecard">
+          <p class="kit-notehead">No events scheduled.</p>
+          <p class="kit-notebody">There is nothing on the calendar right now. When a date is set it
+            will appear here with its time and location, and a past date is never shown as an upcoming
+            one.</p>
+          <p class="kit-notebody">To be told about the next one, ask at a
+            <a href="consultation.html">consultation</a> or
+            <a href="contact.html">write to the practice</a>.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- == §4 category-routing + closing-cta -->
+<!-- pick: SECTION-COMPONENTS.md #50 Topic columns, in the locked kit-route3 shell | considered: #45,#40 | why: nobody arrives at an empty events page intending to end their visit there, so the rail carries the two index layers and the appointment, in the site's own order of usefulness rather than in the order a marketing page would choose. The closing block rides inside this band because verify-cta-singularity reads a second closing section in the tail as a duplicate of the locked chrome's one. #45 category chips would strip the per-route context, and #40 pre-footer CTA band would BE the duplicate closing band. | rigor: heavy -->
+<!-- src: D-IA-001 --> <!-- the /areas-of-concern/ hub -->
+<!-- src: D-IA-002 --> <!-- the Treatments device index -->
+<!-- src: D-IA-003 --> <!-- Consultation, the single conversion endpoint -->
+<!-- src: D-OFFER-006 --> <!-- primary conversion goal -->
+<!-- src: D-BRAND-RAILS-009 --> <!-- CTA verb convention: Book, Call, Explore -->
+<section class="kit-route3 category-routing">
+  <div class="container">
+    <div class="row">
+      <div class="col">
+        <h2 class="kit-h2">Looking for something else?</h2>
+      </div>
+    </div>
+    <div class="row row--three">
+      <div class="col"><a class="kit-go3 wow-lift" href="areas-of-concern.html"><span class="t">Explore areas of concern</span><span class="d">The concern-led entry layer, and the right starting point.</span></a></div>
+      <div class="col"><a class="kit-go3 wow-lift" href="treatments.html"><span class="t">Browse treatments</span><span class="d">For readers who already know the device name.</span></a></div>
+      <div class="col"><a class="kit-go3 wow-lift" href="contact.html"><span class="t">Contact the practice</span><span class="d">The quickest way to ask when the next date is.</span></a></div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <div class="kit-endline closing-cta">
+          <p class="h">Start with the evaluation</p>
+          <div class="cta-row">
+            <a class="btn" href="consultation.html">Book a consultation</a>
+            <a class="btn btn-ghost" href="tel:+14157854604">Call (415) 785-4604</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

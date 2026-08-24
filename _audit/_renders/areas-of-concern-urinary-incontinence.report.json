@@ -1,0 +1,70 @@
+{
+  "slug": "areas-of-concern-urinary-incontinence",
+  "ts": 1787546508904,
+  "verdict": "pass",
+  "breakpoints": [
+    {
+      "bp": "desktop",
+      "w": 1440,
+      "contrastFlags": 0,
+      "hardInvisible": 0,
+      "worst": [],
+      "overflowPx": 0,
+      "sheetsLoaded": true,
+      "h1px": 60,
+      "heroVar": "",
+      "scrollHeight": 6117
+    },
+    {
+      "bp": "laptop",
+      "w": 1280,
+      "contrastFlags": 0,
+      "hardInvisible": 0,
+      "worst": [],
+      "overflowPx": 0,
+      "sheetsLoaded": true,
+      "h1px": 60,
+      "heroVar": "",
+      "scrollHeight": 6117
+    },
+    {
+      "bp": "tablet",
+      "w": 834,
+      "contrastFlags": 0,
+      "hardInvisible": 0,
+      "worst": [],
+      "overflowPx": 0,
+      "sheetsLoaded": true,
+      "h1px": 35,
+      "heroVar": "",
+      "scrollHeight": 6265
+    },
+    {
+      "bp": "mobile",
+      "w": 390,
+      "contrastFlags": 0,
+      "hardInvisible": 0,
+      "worst": [],
+      "overflowPx": 0,
+      "sheetsLoaded": true,
+      "h1px": 28,
+      "heroVar": "",
+      "scrollHeight": 7619
+    }
+  ],
+  "screenshots": [
+    "_audit/_renders/areas-of-concern-urinary-incontinence-desktop.png",
+    "_audit/_renders/areas-of-concern-urinary-incontinence-laptop.png",
+    "_audit/_renders/areas-of-concern-urinary-incontinence-tablet.png",
+    "_audit/_renders/areas-of-concern-urinary-incontinence-mobile.png"
+  ],
+  "sheetsLoaded": true,
+  "h1px": 60,
+  "scrollHeight": 6117,
+  "expectedSheets": [
+    "marin-medical-aesthetics-tokens.css",
+    "marin-medical-aesthetics-chrome.css",
+    "marin-medical-aesthetics-structural.css"
+  ],
+  "unstyled": null
+}

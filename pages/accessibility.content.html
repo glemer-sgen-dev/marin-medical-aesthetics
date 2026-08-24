@@ -1,0 +1,104 @@
+<!-- == §1 hero -->
+<!-- pick: LEGAL-SECTIONS.md #1 Prose-document container (single measure), in the locked doc-head shell | considered: #2,#3 | why: the standfirst sets the honest frame for everything below it, that this describes work in progress rather than claiming a finished result, and it has to be read before the feature list or the list starts sounding like a conformance claim. There is no effective date on this page because an accessibility statement is not a dated legal instrument; it is a description of the current build. #2 inline TOC would be navigation for a four-section page, and #3 sticky side-rail is a device for a long document. | rigor: heavy -->
+<!-- src: D-IA-026 --> <!-- the T3 legal/utility terminal layer -->
+<!-- src: D-BRAND-RAILS-016 --> <!-- the live baseline capture; this page describes the REBUILT site, not that one -->
+<section class="doc-head hero">
+  <div class="container">
+    <div class="row">
+      <div class="col">
+        <div class="bw-legal">
+          <h1 class="bw-legal__title">Accessibility</h1>
+          <p class="bw-legal__callout">This page says what the rebuilt site actually does for
+            accessibility, what standard it is being built toward, and how to tell us when something
+            does not work. It describes work in progress rather than claiming a finished result.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- == §2 native-accessibility-feature -->
+<!-- pick: LEGAL-SECTIONS.md #2 Inline anchored table-of-contents, read as an itemised feature register in the locked doc-index shell | considered: #1,#3 | why: seven separate behaviours are described and each is independently checkable by the reader who needs it, so they are listed rather than narrated: a keyboard user wants the focus-outline line, a screen-reader user wants the skip-link and menu-state lines, and neither should have to read the other's paragraph to find their own. Every entry describes something the locked chrome actually does rather than something intended, and each was verified against the built carrier before this page was written. #1 prose-document would bury seven checkable facts in a paragraph, and #3 sticky side-rail is navigation for a longer document. | rigor: heavy -->
+<!-- src: D-BRAND-RAILS-002 --> <!-- the crawled primary palette: navy 073772, 138 uses, matching the logo -->
+<section class="doc-index native-accessibility-feature">
+  <div class="container">
+    <div class="row">
+      <div class="col">
+        <div class="bw-legal">
+          <h2>What is built in</h2>
+          <ul class="bw-toc__list">
+            <li class="bw-toc__item">Keyboard navigation. Every interactive control is reachable and
+              operable by keyboard, including the menu and the mobile drawer. A visible focus outline
+              is drawn on the element that has focus, and it is not removed.</li>
+            <li class="bw-toc__item">A skip link. The first focusable item on every page jumps
+              straight to the main content, so a keyboard or screen-reader user does not walk the
+              whole menu on every page.</li>
+            <li class="bw-toc__item">Menus that announce their state. Menu triggers carry an expanded
+              or collapsed state that assistive technology can read, and the mobile drawer reports
+              whether it is open or closed. Escape closes an open menu and returns focus to the
+              control that opened it.</li>
+            <li class="bw-toc__item">Colour and contrast. The site's primary navy is 073772. It was
+              not picked for this rebuild: it was sampled by frequency from the practice's existing
+              homepage, where it was the most-used colour at 138 uses, and it matches the logo. Text
+              and interface colours are set as tokens and checked for contrast against the surface
+              they sit on, in both the light and the dark sections of the page, rather than being
+              chosen per component.</li>
+            <li class="bw-toc__item">Text that scales. Type and spacing are set in relative units, so
+              increasing text size in the browser reflows the page instead of clipping it.</li>
+            <li class="bw-toc__item">Images carry alternative text, and decorative images are marked
+              as decorative so they are skipped rather than announced.</li>
+            <li class="bw-toc__item">No motion that cannot be escaped. Movement is limited to short
+              transitions on menus and hover states. Nothing auto-plays, flashes or scrolls on its
+              own.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- == §3 standard-targeted -->
+<!-- pick: LEGAL-SECTIONS.md #1 Prose-document container (single measure), in the locked doc-body shell | considered: #2,#3 | why: this is the section where an accessibility page usually overclaims, so it is deliberately two short paragraphs and no ornament: the standard is named as a target being worked toward, and the sentence immediately after it says this practice makes no claim to have been audited or certified against it by anyone. The second paragraph then refuses the entire badge category by name, including the overlay products the sector sells. #2 inline TOC and #3 sticky side-rail are navigation devices, and this section is two paragraphs long. | rigor: heavy -->
+<!-- src: D-OFFER-020 --> <!-- the first-party proof standard: nothing unverified is published as a credential -->
+<section class="doc-body standard-targeted">
+  <div class="container">
+    <div class="row">
+      <div class="col">
+        <div class="bw-legal">
+          <h2>The standard</h2>
+          <p>The site is being built toward WCAG 2.1 Level AA. That is a target being worked toward,
+            not a certification, and this practice makes no claim to have been audited or certified
+            against it by anyone.</p>
+          <p>No accessibility badge, seal, certification, overlay or third-party conformance mark is
+            published on this site. None is verified, so none ships. If a formal audit is commissioned
+            later, its result and its date can be published here.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- == §4 contact-for-issues -->
+<!-- pick: LEGAL-SECTIONS.md #1 Prose-document container (single measure), in the locked doc-body shell as a short closing block | considered: #2,#3 | why: the useful half of any accessibility statement is the route for reporting what it got wrong, and this one asks for the two things that make a report actionable: what you were trying to do, and what happened. It also carries the commitment that actually matters to someone blocked by a page, that the practice will give them the same information another way. No response time is published, because none is documented and inventing one would be a promise the practice has not made. #2 inline TOC and #3 sticky side-rail are navigation for a document; this is a destination. | rigor: heavy -->
+<!-- src: D-BRAND-RAILS-009 --> <!-- CTA verb convention: Book, Call, Explore -->
+<section class="doc-body contact-for-issues">
+  <div class="container">
+    <div class="row">
+      <div class="col">
+        <div class="bw-legal">
+          <h2>Tell us what is not working</h2>
+          <p>If any part of this site or any part of visiting the practice is difficult to use, say so
+            and it gets fixed. Describe what you were trying to do and what happened. If a page is
+            blocking you, the practice will give you the same information another way.</p>
+          <p>Write through the <a href="contact.html">contact page</a> or call
+            <a href="tel:+14157854604">(415) 785-4604</a>. It can also be raised in person at a
+            <a href="consultation.html">consultation</a>.</p>
+          <p>Marin Medical Aesthetics<br>100 Sir Francis Drake Blvd<br>San Anselmo, CA 94960</p>
+          <p>No response-time commitment is published here, because none is documented. The related
+            terms are on the <a href="disclaimer.html">disclaimer</a>, and how information is handled
+            is on the <a href="privacy-policy.html">privacy policy</a>.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

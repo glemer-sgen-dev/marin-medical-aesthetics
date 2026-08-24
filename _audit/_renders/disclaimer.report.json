@@ -1,0 +1,70 @@
+{
+  "slug": "disclaimer",
+  "ts": 1787546549762,
+  "verdict": "pass",
+  "breakpoints": [
+    {
+      "bp": "desktop",
+      "w": 1440,
+      "contrastFlags": 0,
+      "hardInvisible": 0,
+      "worst": [],
+      "overflowPx": 0,
+      "sheetsLoaded": true,
+      "h1px": 48,
+      "heroVar": "",
+      "scrollHeight": 4068
+    },
+    {
+      "bp": "laptop",
+      "w": 1280,
+      "contrastFlags": 0,
+      "hardInvisible": 0,
+      "worst": [],
+      "overflowPx": 0,
+      "sheetsLoaded": true,
+      "h1px": 48,
+      "heroVar": "",
+      "scrollHeight": 4068
+    },
+    {
+      "bp": "tablet",
+      "w": 834,
+      "contrastFlags": 0,
+      "hardInvisible": 0,
+      "worst": [],
+      "overflowPx": 0,
+      "sheetsLoaded": true,
+      "h1px": 31,
+      "heroVar": "",
+      "scrollHeight": 4616
+    },
+    {
+      "bp": "mobile",
+      "w": 390,
+      "contrastFlags": 0,
+      "hardInvisible": 0,
+      "worst": [],
+      "overflowPx": 0,
+      "sheetsLoaded": true,
+      "h1px": 31,
+      "heroVar": "",
+      "scrollHeight": 5490
+    }
+  ],
+  "screenshots": [
+    "_audit/_renders/disclaimer-desktop.png",
+    "_audit/_renders/disclaimer-laptop.png",
+    "_audit/_renders/disclaimer-tablet.png",
+    "_audit/_renders/disclaimer-mobile.png"
+  ],
+  "sheetsLoaded": true,
+  "h1px": 48,
+  "scrollHeight": 4068,
+  "expectedSheets": [
+    "marin-medical-aesthetics-tokens.css",
+    "marin-medical-aesthetics-chrome.css",
+    "marin-medical-aesthetics-structural.css"
+  ],
+  "unstyled": null
+}
