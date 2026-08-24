@@ -1,7 +1,7 @@
 {
   "slug": "local-community-support",
-  "ts": 1787546578208,
-  "verdict": "fail",
+  "ts": 1787612837070,
+  "verdict": "pass",
   "breakpoints": [
     {
       "bp": "desktop",
@@ -11,9 +11,9 @@
       "worst": [],
       "overflowPx": 0,
       "sheetsLoaded": true,
-      "h1px": 18,
+      "h1px": 46,
       "heroVar": "",
-      "scrollHeight": 3462
+      "scrollHeight": 3300
     },
     {
       "bp": "laptop",
@@ -23,9 +23,9 @@
       "worst": [],
       "overflowPx": 0,
       "sheetsLoaded": true,
-      "h1px": 18,
+      "h1px": 46,
       "heroVar": "",
-      "scrollHeight": 3462
+      "scrollHeight": 3300
     },
     {
       "bp": "tablet",
@@ -35,9 +35,9 @@
       "worst": [],
       "overflowPx": 0,
       "sheetsLoaded": true,
-      "h1px": 18,
+      "h1px": 29,
       "heroVar": "",
-      "scrollHeight": 3567
+      "scrollHeight": 3548
     },
     {
       "bp": "mobile",
@@ -47,9 +47,9 @@
       "worst": [],
       "overflowPx": 0,
       "sheetsLoaded": true,
-      "h1px": 18,
+      "h1px": 29,
       "heroVar": "",
-      "scrollHeight": 4827
+      "scrollHeight": 4738
     }
   ],
   "screenshots": [
@@ -59,12 +59,12 @@
     "_audit/_renders/local-community-support-mobile.png"
   ],
   "sheetsLoaded": true,
-  "h1px": 18,
-  "scrollHeight": 3462,
+  "h1px": 46,
+  "scrollHeight": 3300,
   "expectedSheets": [
     "marin-medical-aesthetics-tokens.css",
     "marin-medical-aesthetics-chrome.css",
     "marin-medical-aesthetics-structural.css"
   ],
-  "unstyled": "mobile:h1=18px"
+  "unstyled": null
 }
