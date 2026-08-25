@@ -83,15 +83,17 @@ a{color:var(--ds-accent)}
 /* ---------------------------------------------------------------------------
  * HERO BAND (HERO-COMPOSITIONS #1, confirmed at FEEL)
  * ------------------------------------------------------------------------ */
-/* SCOPED 2026-08-21. This is the SPLIT hero and it must only apply to markup that actually has a
-   split: .hero-copy beside .hero-media. Unscoped, it collided with the brief section_seq slot that
-   is also called "hero" and squeezed those sections .container into the 1.08fr track (752px inside
-   a 1440px band, measured). T-FEATURE patched one class; T-COMPANY shipped locked and broken. */
-.hero:has(> .hero-copy){display:grid;grid-template-columns:1.08fr .92fr;align-items:stretch;border-top:3px solid var(--ds-accent)}
-.hero-copy{padding:88px 56px 88px 0;display:flex;flex-direction:column;justify-content:center}
-.hero-media{position:relative;min-height:520px;box-shadow:var(--ds-shadow-lift)}
-.hero-media img{width:100%;height:100%;object-fit:cover}
-.media-rule{position:absolute;left:0;top:0;bottom:0;width:6px;background:var(--ds-issued);z-index:var(--ds-z-raised)}
+/* REMOVED 2026-08-25 — the split-hero component (.hero:has(> .hero-copy), .hero-copy, .hero-media,
+   .hero-media img, .media-rule). Not one of the 59 pages used any of it: every hero on this site is
+   the kit-open composition instead. It appeared only in _design/feel-specimen.html, which links
+   tokens.css alone and never loaded this sheet, so removing it changes nothing that renders.
+
+   THE HISTORY IS KEPT DELIBERATELY, because the hazard has not gone away. Unscoped, `.hero` here
+   collided with the brief section_seq slot ALSO called "hero" and squeezed those sections'
+   .container into the 1.08fr track — 752px inside a 1440px band, measured. T-FEATURE patched one
+   class; T-COMPANY shipped locked and broken. It was scoped to `:has(> .hero-copy)` on 2026-08-21
+   to defuse that. Anything reintroducing a component class named `.hero` must scope it the same
+   way, or it will re-collide with the section_seq slot. */
 
 /* ---------------------------------------------------------------------------
  * ARC DIVIDER (blueprint A2) + DARK BAND
@@ -99,12 +101,19 @@ a{color:var(--ds-accent)}
  * nested inside .surface-dark it renders dark-on-dark and disappears (found by
  * owner-read at FEEL, 2026-08-19).
  * ------------------------------------------------------------------------ */
-.arc-outer{position:relative;overflow:hidden}
-.arc{position:absolute;top:-1px;left:0;width:100%;height:64px;display:block;z-index:var(--ds-z-raised)}
-.arc path{fill:var(--ds-bg-surface)}
-.dark-band{position:relative;background:var(--ds-bg-surface);padding:104px 0 88px}
-.grain{position:absolute;inset:0;background-size:cover;background-position:center;opacity:var(--ds-opacity-texture);pointer-events:none}
-.dark-band-inner{position:relative;max-width:var(--ds-container-max);margin:0 auto;padding:0 var(--ds-space-lg);z-index:var(--ds-z-base)}
+/* REMOVED 2026-08-25 — .arc-outer, .arc, .arc path, .dark-band, .grain, .dark-band-inner.
+   The blueprint-A2 arc divider and its dark band were authored into the P8 foundation and never
+   adopted: zero of the 59 pages reference any of them. The feel specimen does use .arc/.arc-outer/
+   .grain, but it defines them in its OWN <style> and links tokens.css only, never this sheet, so
+   the specimen is unaffected by their removal here.
+
+   The dark-on-dark finding is retained because it is a real constraint on any future divider: the
+   arc's fill resolved to the page ground, so nested inside .surface-dark it rendered dark-on-dark
+   and disappeared (owner-read at FEEL, 2026-08-19). A replacement divider must sit in the LIGHT
+   context, or carry its own fill token.
+
+   Dark bands on this site are done with .surface-dark, which re-defines the --ds-* tokens rather
+   than painting a background — that is what makes text flip correctly. See the .kit-toc note. */
 
 /* ---------------------------------------------------------------------------
  * TRUST-STAT BAND (the brand's signature move)
@@ -161,12 +170,12 @@ a{color:var(--ds-accent)}
 }
 
 @media (max-width:900px){
-  .wrap,.dark-band-inner{padding-left:var(--ds-space-md);padding-right:var(--ds-space-md)}
+  /* .dark-band-inner dropped from this selector, and the .hero:has(> .hero-copy) / .hero-copy /
+     .hero-media steps removed entirely, with the components they styled (2026-08-25). .wrap is
+     kept — unlike the others it IS used, on 3 files. */
+  .wrap{padding-left:var(--ds-space-md);padding-right:var(--ds-space-md)}
   .band{padding:var(--ds-space-xl) 0}
-  .hero:has(> .hero-copy){grid-template-columns:1fr}
-  .hero-copy{padding:52px 0 44px}
   .h-display{font-size:44px}
-  .hero-media{min-height:300px}
   .stats,.card-rail{grid-template-columns:1fr}
   .stat{border-left:0;border-top:2px solid var(--ds-issued);padding:24px 0 0;margin-top:24px}
   .stat:first-child{margin-top:0;border-top:0;padding-top:0}
@@ -810,10 +819,12 @@ blockquote.q{margin:0}
    The duplicate .wow-lift block was dropped; the T-FEATURE lock already defines it.
    Token-pure (zero hex, zero url()); every short child class is descendant-scoped.
 
-   .art-top.hero IS STILL RESET HERE even though the structural .hero rule was scoped to
-   .hero:has(> .hero-copy) on the same day. The reset is now a no-op. It is kept as a
-   marker of where the collision bit: the brief's section_seq slot named "hero" and the
-   split-hero component share one class name, and that cost a locked template its layout.
+   .art-top.hero IS STILL RESET HERE even though the structural .hero rule it defended against
+   was first scoped to .hero:has(> .hero-copy) (2026-08-21) and then REMOVED OUTRIGHT with the
+   rest of the unused split-hero component (2026-08-25). The reset was already a no-op; it is
+   now doubly so. It is kept as a marker of where the collision bit: the brief's section_seq
+   slot named "hero" and the split-hero component shared one class name, and that cost a locked
+   template its layout. Anything reintroducing a component class named `.hero` must scope it.
    ============================================================================ */
 /* T-ARTICLE concept A skin. Token-pure, zero hex, zero url(). */
 
