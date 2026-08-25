@@ -1,8 +1,15 @@
-# Preview build. Indexing is disabled ON PURPOSE: this site still carries
-# unresolved owner placeholders (the footer's "Owner to confirm the published
-# hour-set" and privacy-policy clauses reading "Awaiting counsel"), and it is
-# served from a github.io preview host rather than the practice's own domain.
-# Remove the Disallow line — and add a Sitemap: line pointing at the real
-# domain — when the site moves to production.
+# PREVIEW HOST — indexing disabled on purpose.
+#
+# This is glemer-sgen-dev.github.io, not the practice's domain. The site still
+# carries unresolved owner placeholders (the footer's "Owner to confirm the
+# published hour-set" and privacy-policy clauses reading "Awaiting counsel"),
+# so it must not be indexed for a real medical practice.
+#
+# The production robots.txt lives in the build tree at the site root and ALLOWS
+# crawling; publish-preview.mjs copies it into the bundle, so the deploy step
+# overwrites it with this file. The production sitemap.xml is likewise removed
+# from this branch - it lists marinmedicalaesthetics.com URLs, which do not
+# belong on a github.io host.
+
 User-agent: *
 Disallow: /
