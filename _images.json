@@ -58,5 +58,11 @@
     "prompt": "Close-up still-life photograph of a folded white linen towel and a simple stainless tray on a pale cream surface, soft daylight, minimal composition, quiet clinical calm. Cream, white and soft grey. Editorial detail photography, no instruments, no branding, no text, no people, no watermark.",
     "image_size": "square_hd",
     "out": "assets/detail-linen-tray.jpg"
+  },
+  {
+    "id": "detail-mirror-linen",
+    "prompt": "Editorial interior/still-life photography in soft natural daylight - a restrained cream, warm off-white and deep-navy palette, calm and clinical but warm rather than sterile, no people, no readable text, no branding, no visible device labels. Subject: a plain unframed oval hand mirror lying face-up on folded ivory linen beside a small matte ceramic dish, gentle directional window light casting one soft shadow. The mirror surface catches only pale daylight and the ceiling above it - empty of any face, figure or reflection of a person. CLOSE-UP composition seen from a low three-quarter angle: the mirror, the folded linen and the dish FILL most of the frame and are the clear subject, with only a shallow band of plain bare cream plaster wall behind them - the objects must not be small or lost in empty space. Quiet and unhurried but not empty. Shallow depth of field. Absolutely no framed pictures, no posters, no artwork, no signage, no logos, no lettering, no printed matter anywhere in frame. No watermark.",
+    "image_size": "portrait_4_3",
+    "out": "assets/detail-mirror-linen.jpg"
   }
 ]

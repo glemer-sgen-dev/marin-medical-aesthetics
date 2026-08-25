@@ -571,7 +571,14 @@ ol.kit-toc li{padding:0}
 .kit-cap2{margin:18px 0 0;font-size:13.5px;line-height:1.66;color:var(--ds-ink-soft);max-width:46rem}
 
 /* --- the index --- */
-.kit-col{border-top:2px solid var(--ds-accent-soft);padding-top:14px}
+/* The four rail tiles are equal-height grid items, but their descriptions are not equal-length:
+   "Continence and sexual function, assessed in the same appointment as the rest." runs to 3 lines
+   where the other three run to 2, so that tile's route link sat 20px below its neighbours and the
+   row of links read ragged. Making the tile a flex column and pushing the link down with auto
+   margin bottom-aligns all four regardless of how the copy wraps — the rule above each link then
+   forms one continuous line across the rail instead of a stepped one. */
+.kit-col{border-top:2px solid var(--ds-accent-soft);padding-top:14px;display:flex;flex-direction:column;height:100%}
+.kit-col .kit-entry2{margin-top:auto}
 .kit-col .h{font-family:var(--ds-font-display);font-size:22px;line-height:1.18;color:var(--ds-accent);margin:0 0 4px}
 .kit-col .s{font-size:13px;line-height:1.55;color:var(--ds-ink-soft);margin:0 0 14px}
 /* padding was 11px, giving a 43px target — one pixel under the 44px comfort size, on the homepage's
