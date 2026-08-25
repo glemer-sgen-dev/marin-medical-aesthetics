@@ -1,5 +1,13 @@
 # Cutover risk — 203 live URLs have no destination
 
+> **RESOLVED 2026-08-25 — 202 of the 203.** The owner decided the blog stays on WordPress,
+> so every article, tag, category, author and pagination URL below keeps serving from the
+> existing install. Nothing is migrated and nothing 404s. **One item survives this decision:**
+> `/areas-of-concern/pigmented-lesions/`, which is not a blog URL. See `ROUTING.md` for the
+> split and `wordpress-retained-paths.txt` for the 202 paths.
+>
+> The measurement below is left intact as the record of what was at stake.
+
 Measured 2026-08-25 against `https://www.marinmedicalaesthetics.com`. Every number below
 is a **full census**, not a sample: all 212 candidate URLs were probed individually.
 

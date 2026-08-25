@@ -1,4 +1,14 @@
-# Blog migration — source material and the decision it needs
+# Blog migration — source material and the decision it needed
+
+> **DECIDED 2026-08-25: the blog stays on WordPress.** No articles are migrated, none of the
+> 56 rails-flagged posts need rewriting, and the ~98 article URLs keep serving from the
+> existing install. See `../_redirects/ROUTING.md`.
+>
+> This archive is therefore **not** a migration queue. It is kept because it is a complete,
+> structured capture of the blog as it stood on 2026-08-25 — useful if the decision is ever
+> revisited, if individual posts are later rewritten to the rails, or simply as a content
+> backup independent of the WordPress install. The analysis below stands as the reasoning
+> behind the decision.
 
 `blog-archive/` holds every live article from `marinmedicalaesthetics.com`, captured
 2026-08-25. This is the raw material a migration needs, whichever route is taken. **No

@@ -1,6 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
-  sitemap.xml - 59 pages, production domain marinmedicalaesthetics.com.
+  sitemap.xml - 58 pages, production domain marinmedicalaesthetics.com.
+
+  58, not 59: /blog/ is DELIBERATELY absent. The owner decided the blog stays on WordPress,
+  so WordPress owns that address and already lists it in its own sitemap. This file lists
+  only what the new build owns; two sitemaps claiming the same URL is a conflict, not
+  redundancy. The build still ships a blog page, but production routing must send /blog/
+  to WordPress - see _redirects/ROUTING.md.
 
   Every URL below was VERIFIED to return HTTP 200 on the live domain before being written:
   47 matched the production sitemap.xml, and the remaining 12 were probed directly (that
@@ -115,10 +121,6 @@
   </url>
   <url>
     <loc>https://www.marinmedicalaesthetics.com/before-after-photos/</loc>
-    <lastmod>2026-08-25</lastmod>
-  </url>
-  <url>
-    <loc>https://www.marinmedicalaesthetics.com/blog/</loc>
     <lastmod>2026-08-25</lastmod>
   </url>
   <url>
