@@ -1,0 +1,8 @@
+# Preview build. Indexing is disabled ON PURPOSE: this site still carries
+# unresolved owner placeholders (the footer's "Owner to confirm the published
+# hour-set" and privacy-policy clauses reading "Awaiting counsel"), and it is
+# served from a github.io preview host rather than the practice's own domain.
+# Remove the Disallow line — and add a Sitemap: line pointing at the real
+# domain — when the site moves to production.
+User-agent: *
+Disallow: /

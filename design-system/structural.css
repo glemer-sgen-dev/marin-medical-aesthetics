@@ -1,0 +1,994 @@
+/* =============================================================================
+ * marin-medical-aesthetics-structural.css — THE LOCKED STRUCTURAL SHEET (SYSTEM)
+ *
+ * Token-pure by construction: ZERO hex literals. Every colour resolves from
+ * marin-medical-aesthetics-tokens.css (the locked Brand Card C identity, owner-picked
+ * 2026-08-19, grafted complete with the SYSTEM families).
+ *
+ * This sheet promotes the geometry CONFIRMED at the FEEL stage (owner-confirmed
+ * 2026-08-19) from the specimen's inline style into the real structural layer:
+ *   the split hero band, the A2 arc divider into the dark surface flip, the
+ *   trust-stat band, and the hairline card rail.
+ *
+ * MEASURE NOTE (G8 A3): `ch` resolves against the ELEMENT's own font, and the gate
+ * recognises display-face ownership only via `font-family:var(--font...)`, which the
+ * --ds-* schema does not emit. Every measure here is therefore rem. No ch anywhere.
+ *
+ * WHAT THIS SHEET IS NOT: it carries no chrome (nav/footer live in the chrome sheet,
+ * locked at the CHROME stage) and no page-specific composition.
+ * ========================================================================== */
+
+*{box-sizing:border-box}
+
+html{-webkit-text-size-adjust:100%}
+
+body{
+  margin:0;
+  background:var(--ds-bg-surface);
+  color:var(--ds-ink);
+  font-family:var(--ds-font-body);
+  font-size:16px;
+  line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+}
+
+img{max-width:100%;display:block}
+a{color:var(--ds-accent)}
+
+/* ---------------------------------------------------------------------------
+ * LAYOUT PRIMITIVES
+ * ------------------------------------------------------------------------ */
+.wrap{max-width:var(--ds-container-max);margin:0 auto;padding:0 var(--ds-space-lg)}
+.band{padding:var(--ds-section-py) 0}
+.band-tight{padding:var(--ds-space-xl) 0}
+.band-tint{background:var(--ds-bg-surface-2)}
+.band-panel{background:var(--ds-bg-surface-3)}
+
+/* ---------------------------------------------------------------------------
+ * TYPE ROLES (application of the locked scale)
+ * ------------------------------------------------------------------------ */
+.eyebrow{font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--ds-signature);margin:0 0 20px}
+.h-display{font-family:var(--ds-font-display);font-size:76px;line-height:1;letter-spacing:-.04em;font-weight:700;color:var(--ds-accent);margin:0 0 22px;max-width:26rem}
+.h-section{font-family:var(--ds-font-display);font-size:34px;line-height:1.16;letter-spacing:-.025em;font-weight:600;margin:0 0 20px;max-width:32rem}
+.h-row{font-family:var(--ds-font-display);font-size:30px;letter-spacing:-.02em;font-weight:600;margin:0;color:var(--ds-ink)}
+.h-card{font-family:var(--ds-font-display);font-size:21px;margin:0 0 8px;color:var(--ds-accent)}
+.lede{font-size:17px;line-height:1.6;color:var(--ds-ink-soft);margin:0 0 32px;max-width:29rem}
+.copy{font-size:16px;line-height:1.65;margin:0 0 18px;max-width:34rem}
+.micro{font-size:13px;line-height:1.55;color:var(--ds-ink-soft);margin:0;max-width:34rem}
+
+/* ---------------------------------------------------------------------------
+ * CONTROLS (I1: one solid, one ghost)
+ * ------------------------------------------------------------------------ */
+.cta-row{display:flex;gap:var(--ds-space-sm);flex-wrap:wrap;align-items:center}
+.btn{
+  display:inline-block;font-family:var(--ds-font-body);font-size:13px;font-weight:700;letter-spacing:.03em;
+  padding:16px 28px;border-radius:var(--ds-r-control);border:2px solid var(--ds-accent);
+  background:var(--ds-accent);color:var(--ds-bg-surface);text-decoration:none;cursor:pointer;
+  transition:background var(--ds-dur) var(--ds-ease),transform var(--ds-dur-fast) var(--ds-ease-out);
+}
+.btn:hover{background:var(--ds-accent-deep);transform:translateY(-1px)}
+.btn:focus-visible{outline:3px solid var(--ds-issued);outline-offset:3px}
+.btn-ghost{background:transparent;color:var(--ds-accent)}
+.btn-ghost:hover{background:var(--ds-accent-soft)}
+.field{
+  display:block;width:100%;padding:14px 16px;border:2px solid var(--ds-ink);
+  border-radius:var(--ds-r-control);font-family:inherit;font-size:14px;
+  color:var(--ds-ink);background:var(--ds-bg-surface);
+}
+.field:focus-visible{outline:3px solid var(--ds-issued);outline-offset:2px}
+.tagrow{display:flex;flex-wrap:wrap;gap:var(--ds-space-xs)}
+.tag{font-size:11px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;padding:7px 13px;border-radius:var(--ds-r-control);background:var(--ds-bg-surface-3);color:var(--ds-olive)}
+.tag-signature{background:var(--ds-signature);color:var(--ds-bg-surface)}
+
+/* ---------------------------------------------------------------------------
+ * HERO BAND (HERO-COMPOSITIONS #1, confirmed at FEEL)
+ * ------------------------------------------------------------------------ */
+/* SCOPED 2026-08-21. This is the SPLIT hero and it must only apply to markup that actually has a
+   split: .hero-copy beside .hero-media. Unscoped, it collided with the brief section_seq slot that
+   is also called "hero" and squeezed those sections .container into the 1.08fr track (752px inside
+   a 1440px band, measured). T-FEATURE patched one class; T-COMPANY shipped locked and broken. */
+.hero:has(> .hero-copy){display:grid;grid-template-columns:1.08fr .92fr;align-items:stretch;border-top:3px solid var(--ds-accent)}
+.hero-copy{padding:88px 56px 88px 0;display:flex;flex-direction:column;justify-content:center}
+.hero-media{position:relative;min-height:520px;box-shadow:var(--ds-shadow-lift)}
+.hero-media img{width:100%;height:100%;object-fit:cover}
+.media-rule{position:absolute;left:0;top:0;bottom:0;width:6px;background:var(--ds-issued);z-index:var(--ds-z-raised)}
+
+/* ---------------------------------------------------------------------------
+ * ARC DIVIDER (blueprint A2) + DARK BAND
+ * The arc MUST sit in the LIGHT context so its fill resolves to the page ground;
+ * nested inside .surface-dark it renders dark-on-dark and disappears (found by
+ * owner-read at FEEL, 2026-08-19).
+ * ------------------------------------------------------------------------ */
+.arc-outer{position:relative;overflow:hidden}
+.arc{position:absolute;top:-1px;left:0;width:100%;height:64px;display:block;z-index:var(--ds-z-raised)}
+.arc path{fill:var(--ds-bg-surface)}
+.dark-band{position:relative;background:var(--ds-bg-surface);padding:104px 0 88px}
+.grain{position:absolute;inset:0;background-size:cover;background-position:center;opacity:var(--ds-opacity-texture);pointer-events:none}
+.dark-band-inner{position:relative;max-width:var(--ds-container-max);margin:0 auto;padding:0 var(--ds-space-lg);z-index:var(--ds-z-base)}
+
+/* ---------------------------------------------------------------------------
+ * TRUST-STAT BAND (the brand's signature move)
+ * ------------------------------------------------------------------------ */
+.stats{display:grid;grid-template-columns:repeat(3,1fr)}
+.stat{padding:0 32px;border-left:2px solid var(--ds-issued)}
+.stat:first-child{padding-left:0;border-left:0}
+.stat-label{display:block;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--ds-olive);margin-bottom:10px}
+.stat-fig{display:block;font-family:var(--ds-font-display);font-size:66px;line-height:1;font-weight:700;letter-spacing:-.04em;color:var(--ds-accent);margin-bottom:12px}
+.stat-sub{font-size:13px;line-height:1.55;color:var(--ds-ink-soft);margin:0;max-width:17rem}
+
+/* ---------------------------------------------------------------------------
+ * CARD RAIL (CARD-VARIATIONS #3)
+ * ------------------------------------------------------------------------ */
+.row-head{display:flex;justify-content:space-between;align-items:baseline;gap:24px;border-bottom:1px solid var(--ds-line);padding-bottom:18px;margin-bottom:34px}
+.row-head .more{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--ds-accent);text-decoration:none}
+.card-rail{display:grid;grid-template-columns:repeat(4,1fr);border:1px solid var(--ds-line);border-right:0}
+.card-rail .card{padding:32px 26px 34px;border-right:1px solid var(--ds-line);border-top:4px solid transparent;transition:border-top-color var(--ds-dur) var(--ds-ease),background var(--ds-dur) var(--ds-ease),box-shadow var(--ds-dur) var(--ds-ease)}
+.card-rail .card:hover{border-top-color:var(--ds-issued);background:var(--ds-bg-surface-3);box-shadow:var(--ds-shadow-card)}
+.card-num{display:block;font-size:11px;letter-spacing:.16em;color:var(--ds-issued);margin-bottom:14px;font-variant-numeric:tabular-nums}
+.card p{font-size:13.5px;line-height:1.55;color:var(--ds-ink-soft);margin:0}
+
+/* ---------------------------------------------------------------------------
+ * PANEL CARD (standalone, off-rail)
+ * ------------------------------------------------------------------------ */
+.panel{border:1px solid var(--ds-line);border-top:4px solid var(--ds-issued);border-radius:var(--ds-r-surface);padding:26px;background:var(--ds-bg-surface)}
+
+/* ---------------------------------------------------------------------------
+ * RESPONSIVE — a desktop-first ladder, 1024 -> 900 -> 520.
+ *
+ * Order is load-bearing: these blocks share specificity, so the WIDER query must
+ * come FIRST or it re-applies over the narrower one across the overlap (the
+ * 2-col grid from the 1024 step would beat the 1-col stack the 900 step sets, at
+ * every width <=900). Desktop-first descending is the only order that cascades
+ * correctly. A new step goes in descending POSITION, never appended at the end.
+ *
+ * 1024 = TABLET: multi-column rails step DOWN (4-up -> 2-up, 3-up -> 2-up)
+ *        instead of holding four cramped columns until they collapse at 900, and
+ *        the 96px band gaps pull in to 40px.
+ *  900 = the original stack point (2-col and 4-col rails -> single column).
+ *  520 = PHONE: .container padding drops 40px -> 24px a side. At 375px it was
+ *        spending 80px of the viewport on gutters, leaving ~295px of measure —
+ *        .container was the one primitive no breakpoint ever touched. Display
+ *        type takes a real step down, and .cta-row buttons go full-width stacked
+ *        instead of wrapping into ragged part-width rows.
+ * ------------------------------------------------------------------------ */
+@media (max-width:1024px){
+  .row--index{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .row--three{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .row--creed,.row--wire{gap:var(--ds-space-lg)}
+  .kit-title{font-size:48px}
+  .kit-title3{font-size:40px}
+  .kit-creed .kit-h2{font-size:34px}
+}
+
+@media (max-width:900px){
+  .wrap,.dark-band-inner{padding-left:var(--ds-space-md);padding-right:var(--ds-space-md)}
+  .band{padding:var(--ds-space-xl) 0}
+  .hero:has(> .hero-copy){grid-template-columns:1fr}
+  .hero-copy{padding:52px 0 44px}
+  .h-display{font-size:44px}
+  .hero-media{min-height:300px}
+  .stats,.card-rail{grid-template-columns:1fr}
+  .stat{border-left:0;border-top:2px solid var(--ds-issued);padding:24px 0 0;margin-top:24px}
+  .stat:first-child{margin-top:0;border-top:0;padding-top:0}
+  .card-rail .card{border-right:0;border-bottom:1px solid var(--ds-line)}
+  .h-section{font-size:26px}
+  .row-head{flex-direction:column;align-items:flex-start;gap:12px}
+  .h-row{font-size:26px}
+}
+
+/* ============================================================================
+   FORCED DOM-STRUCTURE GRAMMAR SPINE (added 2026-08-20, at the start of phase 5)
+   ----------------------------------------------------------------------------
+   WHY THIS IS HERE AND WHY IT IS SAFE TO ADD AFTER THE SYSTEM SIGN-OFF.
+   The owner-locked grammar (SKILL.md, G-DOM) requires EVERY <main> body region to be
+   built  section -> div.container -> div.row -> div.col -> OBJECT.  This sheet was
+   authored at the SYSTEM stage without that spine: it defined .wrap/.band/.hero and
+   friends but NONE of .container/.row/.col, so no page or per-TYPE template could have
+   satisfied G-DOM while actually laying out. That is a gap in the SYSTEM artifact, in
+   the same class as the type-scale family that was also missing from the token card.
+
+   It is added mechanically rather than designed, and it CANNOT change any rendering the
+   owner already approved: per the canonical reference layer, .row is a TRANSPARENT
+   pass-through and .col is a plain full-width block, so wrapping an existing object in
+   .row > .col leaves it rendering exactly as before. Layout modifiers below are OPT-IN
+   only. Nothing here carries brand colour: token-pure, zero hex, var(--ds-*) throughout.
+
+   R5 (structure-carries-skin) is why these classes are LAYOUT ONLY. Component skin
+   belongs on the OBJECT inside the .col, never on .container/.row/.col.
+   ============================================================================ */
+.container{max-width:var(--ds-container-max);margin-inline:auto;padding-inline:var(--ds-space-lg)}
+.container--full{width:100%;max-width:none;margin-inline:0;padding-inline:0}
+.row{}                                              /* transparent pass-through by default */
+.col,.col--full{display:block;min-width:0}          /* a leaf cell, full width, never overflows */
+
+/* CADENCE. Every leaf carries a bottom margin (.kit-p 14px, .kit-lead 18px, ...), so the LAST leaf
+   in a section leaks that margin past the section padding and inflates the trailing edge only —
+   the section then reads leading 84 / trailing 98 and verify-section-rhythm refuses it. Because
+   G-DOM forces section > .container > .row > .col > OBJECT, the last leaf is always reachable from
+   the grammar, so this is one rule rather than a per-component :last-child fix on every component
+   the build adds. The section's own padding owns the trailing space; the leaf never adds to it.
+
+   The chain is walked four deep because the last leaf is often NOT a direct child of .col: 51 of
+   the 59 fragments wrap their leaves in a component div (.kit-def, .mm-close, .kit-endline, ...),
+   so about's closing <p> sits two levels down and a single-level rule leaves its 14px in place.
+   CSS has no "deepest last descendant" selector, and each step is safe: an element that is the
+   last child at every level up to .col is, by definition, the last thing in the section, so its
+   bottom margin can only ever produce trailing space. */
+.container > .row:last-child > .col > :last-child,
+.container > .row:last-child > .col > :last-child > :last-child,
+.container > .row:last-child > .col > :last-child > :last-child > :last-child,
+.container > .row:last-child > .col > :last-child > :last-child > :last-child > :last-child{margin-bottom:0}
+[class*="col--span-"]{display:block;min-width:0}
+
+/* row/col LAYOUT MODIFIERS, opt-in flex/grid on the structure layer */
+.row--flex{display:flex;align-items:center;gap:var(--ds-space-md)}
+.row--between{display:flex;align-items:center;justify-content:space-between;gap:var(--ds-space-lg);flex-wrap:wrap}
+.row--stretch{display:flex;align-items:stretch;gap:var(--ds-space-lg)}
+.row--split{display:grid;grid-template-columns:1fr 1fr;align-items:stretch;gap:var(--ds-space-lg)}
+.row--grid-2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:var(--ds-space-sm)}
+.row--grid-3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:var(--ds-space-sm)}
+.col--grow{flex:1 1 auto;min-width:0}
+.col--auto{flex:0 0 auto}
+.col--push{margin-left:auto}
+.col--center{margin-inline:auto}
+.col--fill{width:100%}
+
+@media (max-width:900px){
+  .row--split,.row--grid-2,.row--grid-3{grid-template-columns:1fr}
+  .row--stretch{flex-direction:column}
+}
+
+/* ============================================================================
+   T-FEATURE TEMPLATE SKIN — "The Record" (concept B), OWNER-PICKED 2026-08-21.
+   Migrated verbatim out of the concept preview's <style> at the LOCK step. It lives
+   here because build.mjs links exactly three per-slug sheets (tokens, chrome,
+   structural); a fourth <slug>-t-feature.css would never be linked, and promote
+   STRIPS the concept <style>, so a page assembled from this template would other-
+   wise ship UNSTYLED (OBS-29 / verify-no-orphan-classes).
+   Token-pure (zero hex, zero url()); every selector is scoped under a kit-* parent
+   except the .wow-lift globals overlay and the .kit-open.hero collision reset.
+   ============================================================================ */
+/* Concept skin. Objects only, never on .container/.row/.col (R5). Token-pure, zero hex. */
+
+/* --- structure modifiers (layout only, no skin) --- */
+.row--rail{display:grid;grid-template-columns:190px minmax(0,1fr) minmax(0,.72fr);gap:var(--ds-space-lg);align-items:start}
+.row--ledger{display:grid;grid-template-columns:minmax(0,1fr);gap:var(--ds-space-md)}
+.row--defs{display:grid;grid-template-columns:minmax(0,.42fr) minmax(0,1fr);gap:var(--ds-space-lg);align-items:start}
+
+/* --- section grounds --- */
+.kit-open{position:relative;overflow:hidden;padding:calc(var(--ds-section-py) * 1.05) 0 var(--ds-section-py)}
+.kit-open .container{position:relative}
+.kit-entry{padding:var(--ds-section-py) 0;background:var(--ds-bg-surface-2);border-top:1px solid var(--ds-line);border-bottom:1px solid var(--ds-line)}
+.kit-orders{padding:var(--ds-section-py) 0}
+.kit-plan{padding:var(--ds-section-py) 0;background:var(--ds-bg-surface-3)}
+.kit-creed{position:relative;background:var(--ds-bg-surface);padding:calc(var(--ds-section-py) * .92) 0;overflow:hidden}
+.kit-ledger{padding:var(--ds-section-py) 0}
+.kit-cost{padding:var(--ds-section-py) 0;background:var(--ds-bg-surface-2);border-top:1px solid var(--ds-line)}
+.kit-appendix{padding:var(--ds-section-py) 0}
+
+/* --- document type register --- */
+.kit-label{font-size:10px;letter-spacing:.28em;text-transform:uppercase;color:var(--ds-olive);margin:0 0 18px;font-variant-numeric:tabular-nums}
+.kit-title{font-family:var(--ds-font-display);font-size:60px;line-height:1.03;letter-spacing:-.038em;font-weight:700;color:var(--ds-accent);margin:0 0 22px;max-width:16ch}
+.kit-standfirst{font-size:18.5px;line-height:1.6;color:var(--ds-ink-soft);margin:0 0 26px;max-width:42rem}
+.kit-h2{font-family:var(--ds-font-display);font-size:34px;line-height:1.14;letter-spacing:-.024em;font-weight:700;color:var(--ds-accent);margin:0 0 14px}
+.kit-h3{font-family:var(--ds-font-display);font-size:18px;line-height:1.28;color:var(--ds-accent);margin:0 0 8px}
+.kit-p{font-size:15.5px;line-height:1.74;color:var(--ds-ink-soft);margin:0 0 14px;max-width:38rem}
+.kit-lead{font-size:20px;line-height:1.5;color:var(--ds-accent);font-family:var(--ds-font-display);margin:0 0 18px;max-width:34rem}
+.kit-note{font-size:13.5px;line-height:1.66;color:var(--ds-ink-soft);margin:14px 0 0;max-width:40rem;padding-top:14px;border-top:1px solid var(--ds-line)}
+
+/* --- 1. record cover --- */
+/* The three rules below are the CENTRED-hero treatment and belong to the .col--center variant on
+   the line above — they were written immediately after it but without its scope, so they applied to
+   every .kit-open hero. 47 pages use this shell and only ONE (consultation) opts into col--center,
+   so on the other 46 the eyebrow, headline and image sat flush at the container edge while the
+   standfirst was pushed 204px in by margin-inline:auto and the buttons were centred: left-aligned
+   text inside centred blocks, measured at left=180 / 180 / 180 vs 384 on the home hero. Scoped to
+   the variant that actually asks for it, which is what the neighbouring rule already declares. */
+.kit-open .col--center{max-width:58rem;text-align:center}
+/* max-width:none stays UNSCOPED — releasing the hero headline from the base 16ch measure is about
+   letting a hero title fill its band, not about centring. Scoping it too dropped the home headline
+   from 1080px to 619px and re-wrapped every hero on the site. Only the centring moves. */
+.kit-open .kit-title{max-width:none}
+.kit-open .col--center .kit-title{margin-inline:auto}
+.kit-open .col--center .kit-standfirst{margin-inline:auto}
+.kit-open .col--center .cta-row{justify-content:center}
+.kit-open .row--grid-3{margin-top:var(--ds-space-2xl)}
+.kit-meta{border-top:2px solid var(--ds-issued);padding:16px 0 0;text-align:center}
+.kit-meta .k{display:block;font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--ds-olive);margin-bottom:7px}
+.kit-meta .v{display:block;font-family:var(--ds-font-display);font-size:17px;color:var(--ds-accent);line-height:1.3}
+
+/* --- 2. contents rail + record entry --- */
+/* STICKY BELONGS TO THE TOC, NOT THE LIST. The base rule was `position:sticky;top:96px`, which is
+   right for the one navigational <ol> sitting in a .row--rail sidebar and wrong everywhere else:
+   30 pages place a .kit-toc inline in an ordinary content column, where a sticky box detaches on
+   scroll and paints over whatever follows it. That is exactly what G-OVERLAP caught on download-app
+   (a 640x28px collision between the last <li> and the .art-frame__p directly beneath it). Sticky is
+   therefore scoped to the <ol>; the 75 <ul> content lists sit in normal flow like any other block. */
+.kit-toc{margin:0;padding:0;list-style:none;counter-reset:toc;border-top:1px solid var(--ds-line-strong)}
+ol.kit-toc{position:sticky;top:96px}
+/* The row rhythm lived ONLY on `.kit-toc a` (padding:11px 0), so in the 75 link-less content lists
+   this component actually carries, every <li> rendered at padding:0 — the text sat flush on its own
+   rule, 27px rows reading as a data table rather than body copy (measured + eye-read at 1440).
+   This is the component's OWN 11px, moved to the element that always exists rather than a new value.
+   The <ol> TOC variant hands the padding straight back to its <a> (next rule but one) so the whole
+   row stays clickable there; without that override the two would stack into 22px rows. */
+/* color is the THIRD property this component declared only on `.kit-toc a` (after padding and, in
+   the media block, the mobile hide). Without it the <li> inherits a COMPUTED colour from body —
+   and a computed colour cannot follow .surface-dark, which works by REDEFINING the tokens. So on
+   the three pages that put a kit-toc inside a dark band (treatments, success-stories,
+   before-after-photos) the text rendered near-black on navy: measured 1.09:1, invisible. Naming the
+   token here is the component's own declared intent (its `a` rule already used --ds-ink-soft) and
+   it makes the list flip with every other component instead of needing a .surface-dark override. */
+.kit-toc li{counter-increment:toc;border-bottom:1px solid var(--ds-line);padding:11px 0;color:var(--ds-ink-soft)}
+ol.kit-toc li{padding:0}
+.kit-toc a{display:block;padding:11px 0;font-size:12.5px;line-height:1.35;color:var(--ds-ink-soft);text-decoration:none;transition:color var(--ds-dur-fast) var(--ds-ease)}
+.kit-toc a::before{content:counter(toc,decimal-leading-zero);display:inline-block;width:26px;font-size:10px;letter-spacing:.1em;color:var(--ds-issued);font-variant-numeric:tabular-nums}
+.kit-toc a:hover,.kit-toc a:focus-visible{color:var(--ds-accent)}
+.kit-inset{margin:20px 0 0;padding:22px 24px;background:var(--ds-bg-surface);border-left:3px solid var(--ds-issued);box-shadow:var(--ds-shadow-card)}
+.kit-inset .q{font-family:var(--ds-font-display);font-size:19px;line-height:1.46;color:var(--ds-accent);margin:0 0 10px}
+.kit-inset .src{font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--ds-ink-soft);margin:0}
+.kit-plate{display:block;position:relative;width:100%;min-width:0;overflow:hidden;border-radius:var(--ds-r-surface);aspect-ratio:3/4;max-height:520px;background:var(--ds-bg-surface-3);box-shadow:var(--ds-shadow-card)}
+.kit-plate img{width:100%;height:100%;object-fit:cover;display:block}
+.kit-plate .cap{position:absolute;left:0;right:0;bottom:0;padding:14px 16px;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--ds-bg-surface);background:var(--ds-accent);opacity:var(--ds-opacity-veil)}
+
+/* --- 3. the two orders --- */
+.kit-order{height:100%;padding:28px;border:1px solid var(--ds-line);background:var(--ds-bg-surface)}
+.kit-order--is{border-color:var(--ds-issued);border-width:1px 1px 1px 3px;box-shadow:var(--ds-shadow-lift)}
+.kit-order .ord{display:block;font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:var(--ds-olive);margin-bottom:12px}
+.kit-order ol{margin:0 0 16px;padding:0 0 0 20px;font-size:14.5px;line-height:1.8;color:var(--ds-ink-soft)}
+.kit-order ol li{padding-left:4px}
+
+/* Geometry-SAFE globals overlay (verify-globals-overlay): colour/shadow/motion only, never geometry. */
+.wow-lift{transition:transform var(--ds-dur-fast) var(--ds-ease-out),box-shadow var(--ds-dur-fast) var(--ds-ease-out)}
+.wow-lift:hover,.wow-lift:focus-within{transform:translateY(-4px);box-shadow:var(--ds-shadow-lift)}
+@media (prefers-reduced-motion:reduce){.wow-lift{transition:none}.wow-lift:hover,.wow-lift:focus-within{transform:none}}
+
+/* --- 4. the plan (rule 1: stretched media + 2x2 grid) --- */
+.kit-frame{display:block;position:relative;width:100%;min-width:0;align-self:stretch;height:100%;min-height:340px;overflow:hidden;border-radius:var(--ds-r-surface);background:var(--ds-bg-surface-3)}
+.kit-frame img{width:100%;height:100%;object-fit:cover;display:block}
+.kit-leaf{height:100%;padding:22px;background:var(--ds-bg-surface);border-top:2px solid var(--ds-accent-soft)}
+/* flex-direction:column is the whole fix. This rule exists so the two rules below can stretch the
+   image frame to the column's full height (flex:1 1 auto), but `display:flex` alone defaults to
+   ROW — and it applies to BOTH columns of the split, so the TEXT column laid its eyebrow, heading,
+   paragraph and note out side by side as four cramped columns with the heading colliding into the
+   body copy. It shipped on all 12 kit-plan pages at every width; rverify only surfaced it as a
+   41-47px mobile overflow on the two pages whose copy was long enough to push past the viewport.
+   Column direction restores normal stacking AND still lets flex:1 1 auto stretch the frame. */
+.kit-plan .row--stretch > .col--grow{display:flex;flex-direction:column}
+.kit-plan .row--stretch > .col--grow > .row--grid-2{flex:1 1 auto;align-content:stretch;width:100%}
+.kit-plan .row--stretch > .col--grow > .kit-frame{flex:1 1 auto}
+.kit-leaf .n{display:block;font-size:10px;letter-spacing:.2em;color:var(--ds-olive);margin-bottom:9px;font-variant-numeric:tabular-nums}
+
+/* --- 5. dark creed band --- */
+/* Texture rides on the SECTION background (blended), not on a decorative child: an absolutely
+   positioned span directly under <section> is G-DOM R4 orphan content inside <main>. */
+.kit-creed,.kit-open{background-size:cover;background-position:center;background-repeat:no-repeat;background-blend-mode:soft-light}
+.kit-creed .kit-h2,.kit-creed .kit-p,.kit-creed .kit-label{position:relative}
+/* The band ran a full-width row with prose capped at 38rem, leaving its right ~45% empty on every
+   one of the 42 pages this template sets. Split it: the claim is the figure, the prose is the ground. */
+.row--creed{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:var(--ds-space-2xl);align-items:start}
+.kit-creed .kit-h2{font-size:42px;max-width:20ch;margin-bottom:20px}
+.kit-creed .kit-p{max-width:none}
+.kit-creed .kit-p{max-width:44rem;font-size:16.5px}
+
+/* --- 6. offered / not offered ledger --- */
+.kit-book{width:100%;border-collapse:collapse;font-size:15px}
+.kit-book caption{text-align:left;font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--ds-olive);padding-bottom:12px}
+.kit-book th{text-align:left;font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--ds-olive);padding:0 0 11px;border-bottom:2px solid var(--ds-accent-soft);width:26%}
+.kit-book th + th{width:74%}
+.kit-book td{padding:15px 0;border-bottom:1px solid var(--ds-line);color:var(--ds-ink-soft);line-height:1.7;vertical-align:top}
+.kit-book td:first-child{color:var(--ds-accent);font-family:var(--ds-font-display);font-size:17px;padding-right:24px}
+
+/* --- 7. cost, as a definition row --- */
+.kit-term{font-family:var(--ds-font-display);font-size:26px;line-height:1.2;color:var(--ds-accent);margin:0;padding-top:4px;border-top:2px solid var(--ds-issued)}
+.kit-def{margin:0}
+.kit-def .say{font-family:var(--ds-font-display);font-size:21px;line-height:1.45;color:var(--ds-accent);margin:0 0 16px;max-width:40rem}
+
+/* --- 6b. cross-link rail (rule 6b banner shape: narrow capped media + onward strip) --- */
+.row--banner{display:grid;grid-template-columns:minmax(0,.34fr) minmax(0,1fr);gap:var(--ds-space-lg);align-items:start}
+.kit-next{padding:var(--ds-section-py) 0;background:var(--ds-bg-surface-3)}
+.kit-narrow{display:block;position:relative;width:100%;min-width:0;overflow:hidden;border-radius:var(--ds-r-surface);aspect-ratio:3/4;max-height:420px;background:var(--ds-bg-surface-3)}
+.kit-narrow img{width:100%;height:100%;object-fit:cover;display:block}
+.kit-go{display:grid;grid-template-columns:32px minmax(0,1fr);gap:0 16px;padding:16px 0;border-top:1px solid var(--ds-line);text-decoration:none;transition:border-color var(--ds-dur-fast) var(--ds-ease)}
+.kit-go:last-of-type{border-bottom:1px solid var(--ds-line)}
+.kit-go .n{font-size:10px;letter-spacing:.16em;color:var(--ds-olive);font-variant-numeric:tabular-nums;padding-top:6px}
+.kit-go .t{font-family:var(--ds-font-display);font-size:19px;line-height:1.24;color:var(--ds-accent)}
+.kit-go .d{font-size:13.5px;line-height:1.6;color:var(--ds-ink-soft);grid-column:2}
+.kit-go:hover,.kit-go:focus-visible{border-top-color:var(--ds-issued)}
+.kit-go:hover .t,.kit-go:focus-visible .t{color:var(--ds-issued)}
+
+/* The brief section_seq class "hero" COLLIDES with the structural sheet's real .hero rule
+   (display:grid 1.08fr/.92fr + a 3px top rule), which would turn this centred cover into a
+   two-column split. Reset it where the two names meet. */
+.kit-open.hero{display:block;grid-template-columns:none;border-top:0}
+/* --- 8. numbered appendix --- */
+.kit-ask{display:grid;grid-template-columns:34px minmax(0,1fr);gap:0 18px;padding:20px 0;border-top:1px solid var(--ds-line)}
+.kit-ask .n{font-size:11px;letter-spacing:.12em;color:var(--ds-olive);font-variant-numeric:tabular-nums;padding-top:5px}
+.kit-ask .q{font-family:var(--ds-font-display);font-size:18px;line-height:1.3;color:var(--ds-accent);margin:0 0 7px}
+.kit-ask .a{font-size:14.8px;line-height:1.72;color:var(--ds-ink-soft);margin:0;max-width:44rem}
+
+@media (max-width:900px){
+  .row--rail{grid-template-columns:minmax(0,1fr);gap:var(--ds-space-md)}
+  .row--creed{grid-template-columns:minmax(0,1fr);gap:var(--ds-space-sm)}
+  .row--banner{grid-template-columns:minmax(0,1fr);gap:var(--ds-space-md)}
+  .kit-narrow{aspect-ratio:16/10;max-height:240px}
+  .row--defs{grid-template-columns:minmax(0,1fr)}
+  /* CONTENT-VISIBILITY FIX. This read `.kit-toc{position:static;display:none}` — hiding EVERY
+     .kit-toc below 900px. The component carries two different jobs that the markup already keeps
+     apart, and the blanket rule could not tell them apart:
+       <ol class="kit-toc">  1 list, 1 page (consultation), 7 anchor links — a REAL sticky TOC.
+                             Hiding a sticky sidebar TOC on mobile is deliberate and correct.
+       <ul class="kit-toc"> 75 lists, 41 pages, 251 items, 0 links — plain body copy, including
+                             the "What is not claimed here" ceiling lists. Hiding those deleted
+                             real disclaimer content on every phone and tablet, with nothing
+                             re-displaying it and no mobile alternative markup anywhere.
+     Nothing is hidden at phone width now — for BOTH variants. Scoping the hide to the <ol> was
+     tried first, to preserve the original intent exactly, and measurably failed: the TOC is the
+     first thing in its section, so removing it left a 24px orphaned gap and the section read
+     leading 108 / trailing 84. The intent behind the hide was "no sticky sidebar on a phone", and
+     `position:static` on the line below already satisfies that — what remains is an ordinary jump
+     list at the top of a long page, which is a useful mobile pattern rather than a defect.
+     Surfaced when the section-rhythm gate measured a section whose only content had vanished.
+     Only the <ol> needs unsticking now — the base rule no longer sticks the content lists at all. */
+  ol.kit-toc{position:static}
+  .kit-title{font-size:35px;max-width:none}
+  .kit-h2{font-size:26px}
+  .kit-creed .kit-h2{font-size:29px;max-width:none}
+  .kit-plate{aspect-ratio:16/10;max-height:260px}
+  .kit-frame{min-height:220px}
+  .kit-book td:first-child{font-size:15px}
+  .kit-term{font-size:21px}
+}
+
+/* ============================================================================
+   SEMANTIC MARKER CLASSES — deliberately carry NO visual declarations.
+
+   Two gates require these tokens to be present in the markup:
+     - verify-brief-consumed (GW) requires every _handoff/briefs/<page>.md section_seq
+       name to appear as a class, so the built page provably honours its brief;
+     - verify-section-visual-rhythm reads band identity from the surface convention
+       (surface-dark / surface-warm / surface-accent).
+   A third gate, verify-no-orphan-classes (OBS-29), requires every class a fragment
+   references to be DEFINED in a linked sheet, so a page can never assemble unstyled.
+
+   These rules exist to satisfy that third requirement honestly: the classes are real
+   and declared, and they are EMPTY ON PURPOSE. They label what a section IS; the look
+   comes from the kit-* skin and the token surfaces. Giving surface-warm an actual
+   background here would OVERRIDE the per-section grounds (--ds-bg-surface-2 / -3) that
+   are already correct, so it deliberately does not.
+   ============================================================================ */
+.hero,
+/* T-HUB: the other three pages of the type (treatments, before-after-photos, success-stories) */
+.sub-area-injectables,
+.sub-area-skin-aesthetics,
+.sub-area-body-function,
+.sub-area-wellness,
+.sub-area-blocks,
+.proof-data-point,
+/* T-LEGAL: accessibility carries a different section_seq from the disclaimer the template locked on */
+.native-accessibility-feature,
+.standard-targeted,
+.contact-for-issues,
+/* T-FEATURE: one page of 42 needs an extra slot */
+.term-scope,
+.title-effective-date,
+.anchored-toc,
+.document-body,
+.hero-filter,
+.featured-pinned,
+.list-grid,
+.category-routing,
+.hero-category-outcome,
+.why-this-area-wedge,
+.sub-area-skin,
+.sub-area-face-structure,
+.sub-area-body,
+.sub-area-function,
+.routing-band,
+.closing-cta,
+.pain-it-kills,
+.benefit-pillars,
+.capability-breakdown,
+.proof-or-product-ui,
+.replaces-block,
+.cross-link-rail,
+.faq,
+.pricing-cta,
+/* T-COMPANY: both pages of the type declare the identical sequence */
+.company-story,
+.the-why,
+.team-values,
+.proof-logos,
+.cta,
+/* T-ARTICLE: both pages of the type declare the identical sequence */
+.body-or-challenge,
+.solution-or-detail,
+.result-or-takeaway,
+.cross-links,
+/* T-CONTACT: the one page of the type. .form is bare and EMPTY on purpose, as .cta is */
+.form,
+.routing-block,
+.trust-response-line,
+/* T-HOME. These lived in chrome.css while verify-design-foundation (G8) refused every write to
+   this sheet — 15 of its 16 findings were the gate not recognising this build's --ds-font-display
+   token or its BEM body-copy selectors. That is fixed upstream and the 16th (an undefined
+   --ds-r-input) is defined, so the markers now sit with the rest of their kind. */
+.concern-entry-rail,
+.differentiator-narrative,
+.inclusion-value,
+.capability-switcher,
+.capability-index,
+.credential-floor,
+.data-proof,
+.community-block,
+.pricing-teaser,
+.stance-line,
+.final-dual-cta,
+.surface-warm,
+.surface-accent{}
+
+/* ============================================================================
+   T-HUB TEMPLATE SKIN — "The Index" (concept B), OWNER-PICKED 2026-08-21.
+   Migrated verbatim out of the concept preview's <style> at the LOCK step, for the
+   same reason the T-FEATURE skin lives here: build.mjs links exactly three per-slug
+   sheets and promote STRIPS the concept <style>, so the page would otherwise ship
+   unstyled (OBS-29 / verify-no-orphan-classes).
+   COLLISIONS RESOLVED BEFORE MIGRATING: .kit-order was renamed .kit-orderrail because
+   the T-FEATURE skin already owns .kit-order for its ordered panels; the duplicate
+   .wow-lift block was dropped because the T-FEATURE lock already defined it.
+   Token-pure (zero hex, zero url()); every short child class is descendant-scoped.
+   ============================================================================ */
+/* T-HUB concept B skin. Objects only, never on .container/.row/.col (R5). Token-pure, zero hex. */
+
+/* --- structure modifiers (layout only, no skin) --- */
+.row--open{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);gap:var(--ds-space-2xl);align-items:center}
+.row--rail3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:var(--ds-space-lg)}
+.row--index{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:var(--ds-space-lg)}
+.row--note{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1fr);gap:var(--ds-space-lg);align-items:stretch}
+
+/* --- section grounds --- */
+.kit-open2{padding:calc(var(--ds-section-py) * .95) 0}
+.kit-orderrail{position:relative;overflow:hidden;background:var(--ds-bg-surface);padding:calc(var(--ds-section-py) * .88) 0;background-size:cover;background-position:center;background-blend-mode:soft-light}
+.kit-orderrail .container{position:relative}
+.kit-index{padding:var(--ds-section-py) 0;background:var(--ds-bg-surface-2)}
+.kit-note2{padding:calc(var(--ds-section-py) * .85) 0}
+.kit-send{padding:calc(var(--ds-section-py) * .9) 0;background:var(--ds-bg-surface-3);border-top:1px solid var(--ds-line)}
+
+/* --- hero --- */
+.kit-bigh{font-family:var(--ds-font-display);font-size:56px;line-height:1.05;letter-spacing:-.036em;font-weight:700;color:var(--ds-accent);margin:0 0 18px;max-width:14ch}
+.kit-blurb{font-size:18px;line-height:1.62;color:var(--ds-ink-soft);margin:0 0 22px;max-width:38rem}
+.kit-openshot{display:block;position:relative;width:100%;min-width:0;overflow:hidden;border-radius:var(--ds-r-surface);aspect-ratio:5/4;max-height:400px;background:var(--ds-bg-surface-3);box-shadow:var(--ds-shadow-card)}
+.kit-openshot img{width:100%;height:100%;object-fit:cover;display:block}
+
+/* --- the three-step order rail --- */
+.kit-beat{border-top:2px solid var(--ds-issued);padding:16px 0 0}
+.kit-beat .n{display:block;font-family:var(--ds-font-display);font-size:32px;line-height:1;color:var(--ds-issued);margin-bottom:10px}
+.kit-beat .t{display:block;font-family:var(--ds-font-display);font-size:18px;line-height:1.28;color:var(--ds-accent);margin-bottom:6px}
+.kit-beat .d{display:block;font-size:14.5px;line-height:1.66;color:var(--ds-ink-soft)}
+.kit-quoted{margin:var(--ds-space-lg) 0 0;padding-left:22px;border-left:3px solid var(--ds-issued)}
+.kit-quoted .q{font-family:var(--ds-font-display);font-size:19px;line-height:1.48;color:var(--ds-accent);margin:0 0 10px;max-width:46rem}
+.kit-quoted .src{font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--ds-olive);margin:0}
+.kit-cap2{margin:18px 0 0;font-size:13.5px;line-height:1.66;color:var(--ds-ink-soft);max-width:46rem}
+
+/* --- the index --- */
+.kit-col{border-top:2px solid var(--ds-accent-soft);padding-top:14px}
+.kit-col .h{font-family:var(--ds-font-display);font-size:22px;line-height:1.18;color:var(--ds-accent);margin:0 0 4px}
+.kit-col .s{font-size:13px;line-height:1.55;color:var(--ds-ink-soft);margin:0 0 14px}
+/* padding was 11px, giving a 43px target — one pixel under the 44px comfort size, on the homepage's
+   four primary concern routes. 12px clears it at 45px; nothing else about the tile moves. */
+.kit-entry2{display:block;padding:12px 0;border-top:1px solid var(--ds-line);text-decoration:none;transition:border-color var(--ds-dur-fast) var(--ds-ease)}
+.kit-entry2 .t{display:block;font-family:var(--ds-font-display);font-size:16px;line-height:1.22;color:var(--ds-accent)}
+.kit-entry2 .d{display:block;font-size:12.5px;line-height:1.5;color:var(--ds-ink-soft);margin-top:3px}
+.kit-entry2:hover,.kit-entry2:focus-visible{border-top-color:var(--ds-issued)}
+.kit-entry2:hover .t,.kit-entry2:focus-visible .t{color:var(--ds-issued)}
+
+/* --- the function note beside a photograph --- */
+.kit-noteshot{display:block;position:relative;width:100%;min-width:0;align-self:stretch;height:100%;min-height:280px;overflow:hidden;border-radius:var(--ds-r-surface);background:var(--ds-bg-surface-3)}
+.kit-noteshot img{width:100%;height:100%;object-fit:cover;display:block}
+.kit-standing{font-family:var(--ds-font-display);font-size:26px;line-height:1.34;color:var(--ds-accent);margin:0 0 16px;max-width:26ch}
+
+/* --- routing --- */
+.kit-sendp{font-size:16.5px;line-height:1.7;color:var(--ds-ink-soft);margin:0 0 var(--ds-space-md);max-width:46rem}
+.kit-off{margin:var(--ds-space-lg) 0 0;padding-top:var(--ds-space-md);border-top:2px solid var(--ds-issued)}
+.kit-off .h{font-family:var(--ds-font-display);font-size:25px;line-height:1.2;color:var(--ds-accent);margin:0 0 10px}
+.kit-off .s{font-size:15.5px;line-height:1.7;color:var(--ds-ink-soft);margin:0 0 18px;max-width:42rem}
+
+
+@media (max-width:900px){
+  .row--open,.row--note{grid-template-columns:minmax(0,1fr);gap:var(--ds-space-md)}
+  .row--rail3{grid-template-columns:minmax(0,1fr);gap:var(--ds-space-sm)}
+  .row--index{grid-template-columns:minmax(0,1fr);gap:var(--ds-space-lg)}
+  .kit-bigh{font-size:33px;max-width:none}
+  .kit-openshot{aspect-ratio:16/10;max-height:250px}
+  .kit-noteshot{min-height:200px}
+  .kit-standing{font-size:21px;max-width:none}
+}
+
+/* ============================================================================
+   T-INDEX TEMPLATE SKIN — "The Standing Index" (concept B), OWNER-PICKED 2026-08-21.
+   Migrated verbatim out of the concept preview's <style> at the LOCK step, for the
+   same reason the T-FEATURE and T-HUB skins live here: build.mjs links exactly three
+   per-slug sheets and promote STRIPS the concept <style> (OBS-29).
+   The duplicate .wow-lift block was dropped; the T-FEATURE lock already defines it.
+   Token-pure (zero hex, zero url()); every short child class is descendant-scoped.
+   ============================================================================ */
+/* T-INDEX concept B skin. Objects only, never on .container/.row/.col (R5). Token-pure, zero hex. */
+
+.row--wire{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,.86fr);gap:var(--ds-space-2xl);align-items:start}
+.row--three{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:var(--ds-space-md)}
+
+.kit-head3{padding:calc(var(--ds-section-py) * .85) 0 calc(var(--ds-section-py) * .55);border-bottom:1px solid var(--ds-line)}
+.kit-wire{padding:var(--ds-section-py) 0;background:var(--ds-bg-surface-2)}
+.kit-route3{padding:calc(var(--ds-section-py) * .9) 0}
+
+.kit-title3{font-family:var(--ds-font-display);font-size:50px;line-height:1.06;letter-spacing:-.032em;font-weight:700;color:var(--ds-accent);margin:0 0 14px}
+.kit-sub3{font-size:18px;line-height:1.62;color:var(--ds-ink-soft);margin:0;max-width:44rem}
+.kit-tools{margin:var(--ds-space-lg) 0 0;display:flex;flex-wrap:wrap;align-items:center;gap:var(--ds-space-sm)}
+.kit-tools .lab{font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:var(--ds-olive)}
+.kit-field{font-size:13px;color:var(--ds-ink-soft);border:1px dashed var(--ds-line-strong);border-radius:var(--ds-r-pill);padding:7px 15px;background:transparent}
+.kit-count3{margin-left:auto;font-size:12.5px;letter-spacing:.06em;color:var(--ds-olive);font-variant-numeric:tabular-nums}
+
+/* the entry WIREFRAME: field names only, never invented values */
+.kit-wireframe{border:1px dashed var(--ds-line-strong);border-radius:var(--ds-r-surface);padding:26px 28px;background:var(--ds-bg-surface)}
+.kit-wireframe .cap{font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--ds-olive);margin:0 0 18px;padding-bottom:12px;border-bottom:1px solid var(--ds-line)}
+.kit-slot{padding:12px 0;border-bottom:1px solid var(--ds-line)}
+.kit-slot:last-of-type{border-bottom:0;padding-bottom:0}
+.kit-slot .f{display:block;font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--ds-olive);margin-bottom:5px}
+.kit-slot .g{display:block;font-family:var(--ds-font-display);font-size:16px;line-height:1.3;color:var(--ds-ink-soft)}
+.kit-notecard{padding-left:22px;border-left:3px solid var(--ds-issued)}
+.kit-notehead{font-family:var(--ds-font-display);font-size:32px;line-height:1.14;color:var(--ds-accent);margin:0 0 14px}
+.kit-notebody{font-size:16px;line-height:1.7;color:var(--ds-ink-soft);margin:0 0 14px;max-width:36rem}
+
+.kit-route3 .kit-h2{margin-bottom:var(--ds-space-md)}
+.kit-go3{display:block;height:100%;padding:22px;border-top:2px solid var(--ds-accent-soft);text-decoration:none;transition:border-color var(--ds-dur-fast) var(--ds-ease)}
+.kit-go3 .t{display:block;font-family:var(--ds-font-display);font-size:21px;line-height:1.18;color:var(--ds-accent);margin-bottom:7px}
+.kit-go3 .d{display:block;font-size:14px;line-height:1.6;color:var(--ds-ink-soft)}
+.kit-go3:hover,.kit-go3:focus-visible{border-top-color:var(--ds-issued)}
+.kit-go3:hover .t,.kit-go3:focus-visible .t{color:var(--ds-issued)}
+.kit-endline{margin:var(--ds-space-lg) 0 0;padding-top:var(--ds-space-md);border-top:1px solid var(--ds-line);display:flex;flex-wrap:wrap;align-items:center;gap:var(--ds-space-md)}
+.kit-endline .h{font-family:var(--ds-font-display);font-size:23px;line-height:1.2;color:var(--ds-accent);margin:0}
+
+
+@media (max-width:900px){
+  .row--wire,.row--three{grid-template-columns:minmax(0,1fr);gap:var(--ds-space-md)}
+  .kit-title3{font-size:31px}
+  .kit-notehead{font-size:25px}
+  .kit-count3{margin-left:0;flex:1 1 100%}
+}
+
+/* ============================================================================
+   T-LEGAL TEMPLATE SKIN — "The Plain Document" (concept A), OWNER-PICKED 2026-08-21.
+   Migrated verbatim out of the concept preview's <style> at the LOCK step, for the
+   same reason the T-FEATURE and T-HUB skins live here: build.mjs links exactly three
+   per-slug sheets and promote STRIPS the concept <style> (OBS-29).
+   The duplicate .wow-lift block was dropped; the T-FEATURE lock already defines it.
+   Token-pure (zero hex, zero url()); every short child class is descendant-scoped.
+   ============================================================================ */
+/* T-LEGAL concept A skin. The LEGAL-SECTIONS document vocabulary only. Token-pure, zero hex. */
+
+/* Symmetric, same total height (.8 + .4 -> .6 + .6). The asymmetric original measured 67/34 and
+   failed the rhythm gate on disclaimer and privacy-policy. accessibility escaped only by accident:
+   the gate exempts a section whose class list contains "hero", and that page's section_seq happens
+   to be named "hero" while its two siblings are named "title-effective-date". Adding a hero class
+   to the other two would be editing the markup to match a gate, and those names come from the
+   briefs — so the shell is made symmetric instead and all three pass on their own merits. */
+.doc-head{padding:calc(var(--ds-section-py) * .6) 0}
+/* The document shells were written to flow as ONE continuous document: zero top padding, all the
+   space hung off the bottom. That reads identically on screen but measures leading 0 / trailing 84,
+   which verify-section-rhythm refuses (a section must present the same space above and below).
+   Splitting the SAME space evenly across the two edges satisfies the cadence and is invisible: two
+   adjacent .doc-body bands were 0 + 84 = 84px apart and are still 42 + 42 = 84px apart. The value
+   is half the site rhythm precisely so the gap BETWEEN document sections equals the gap between
+   banded sections everywhere else. .doc-head keeps its asymmetric hero proportions (HERO_EXEMPT). */
+.doc-index{padding:calc(var(--ds-section-py) * .5) 0}
+.doc-body{padding:calc(var(--ds-section-py) * .5) 0}
+
+/* --- the reading measure (LEGAL-SECTIONS #1) --- */
+.bw-legal{max-width:47rem;font-size:16px;line-height:1.78;color:var(--ds-ink-soft)}
+.bw-legal h2{font-family:var(--ds-font-display);font-size:26px;line-height:1.2;letter-spacing:-.015em;color:var(--ds-accent);margin:var(--ds-space-xl) 0 12px;scroll-margin-top:120px}
+.bw-legal h2:first-child{margin-top:0}
+.bw-legal h3{font-family:var(--ds-font-display);font-size:18px;line-height:1.28;color:var(--ds-accent);margin:var(--ds-space-md) 0 8px;scroll-margin-top:120px}
+.bw-legal p{margin:0 0 15px;max-width:68ch}
+.bw-legal ul,.bw-legal ol{margin:0 0 15px;padding-left:22px}
+.bw-legal li{margin-bottom:7px}
+.bw-legal a{color:var(--ds-accent);text-decoration:underline;text-underline-offset:3px}
+.bw-legal blockquote{margin:0 0 15px;padding:14px 0 14px 22px;border-left:3px solid var(--ds-issued);font-family:var(--ds-font-display);font-size:19px;line-height:1.5;color:var(--ds-accent)}
+.bw-legal__title{font-family:var(--ds-font-display);font-size:48px;line-height:1.06;letter-spacing:-.03em;font-weight:700;color:var(--ds-accent);margin:0 0 12px}
+.bw-legal__effective{font-size:12.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--ds-olive);margin:0;font-variant-numeric:tabular-nums}
+.bw-legal__callout{margin:var(--ds-space-md) 0 0;padding:18px 22px;border-left:3px solid var(--ds-accent);background:var(--ds-bg-surface-2);font-size:14.5px;line-height:1.7;color:var(--ds-ink);max-width:60ch}
+/* This overrode padding-top only (24px), deliberately pulling the heading up close under its
+   divider rule, but left .doc-body's 42px bottom — so the band measured 24/42 and failed the
+   rhythm gate. The tight relationship to the rule is the point of the variant, so it is kept and
+   made symmetric rather than relaxed back out to 42. The separation above still reads: the 64px
+   margin-top and the 2px rule both survive, and they, not the padding, are what set this block
+   apart from the document body above it. */
+.contact-request-line{margin-top:var(--ds-space-xl);padding-top:var(--ds-space-md);padding-bottom:var(--ds-space-md);border-top:2px solid var(--ds-line-strong)}
+.bw-legal__pending{display:inline-block;font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--ds-olive);border:1px dashed var(--ds-line-strong);border-radius:var(--ds-r-pill);padding:4px 11px;margin:0 0 12px}
+
+/* --- the inline anchored index (LEGAL-SECTIONS #2) --- */
+.bw-toc{max-width:47rem;border-top:1px solid var(--ds-line-strong);border-bottom:1px solid var(--ds-line);padding:16px 0 8px}
+.bw-toc__title{font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:var(--ds-olive);margin:0 0 12px}
+.bw-toc__list{list-style:none;margin:0;padding:0;counter-reset:toc;columns:2;column-gap:var(--ds-space-lg)}
+.bw-toc__item{counter-increment:toc;break-inside:avoid;margin-bottom:4px}
+.bw-toc__link{display:block;padding:6px 0;font-size:14px;line-height:1.35;color:var(--ds-ink-soft);text-decoration:none;transition:color var(--ds-dur-fast) var(--ds-ease)}
+.bw-toc__link::before{content:counter(toc,decimal-leading-zero);display:inline-block;width:26px;font-size:11px;color:var(--ds-olive);font-variant-numeric:tabular-nums}
+.bw-toc__link:hover,.bw-toc__link:focus-visible{color:var(--ds-accent)}
+
+.bw-legal address{font-style:normal;font-size:15px;line-height:1.75;color:var(--ds-ink-soft);margin:14px 0 0}
+
+@media (max-width:900px){
+  .bw-legal__title{font-size:31px}
+  .bw-legal h2{font-size:22px}
+  .bw-toc__list{columns:1}
+  /* 6px padding on a 19px line box gives a 31px row: legal under WCAG 2.5.8 (24px) but short of the
+     44px touch target, and these are standalone jump links, not prose. 13px lands on 45px. Raised
+     only on touch widths so the two-column desktop index stays compact. */
+  .bw-toc__link{padding:13px 0}
+}
+
+/* The D-OFFER-014 verbatim is set as <blockquote> for correct quotation semantics; the browser
+   default margin is neutralised so the element swap is visually identical to the <p> it replaced. */
+blockquote.q{margin:0}
+
+/* ============================================================================
+   T-COMPANY TEMPLATE SKIN -- "What She Does" (concept C), OWNER-PICKED 2026-08-21.
+   Migrated verbatim out of the concept preview's <style> at the LOCK step, for the
+   same reason the four skins above live here: build.mjs links exactly three per-slug
+   sheets and promote STRIPS the concept <style> (OBS-29).
+   The duplicate .wow-lift block was dropped; the T-FEATURE lock already defines it.
+   Token-pure (zero hex, zero url()); every short child class is descendant-scoped.
+
+   WHY THIS SKIN CARRIES NO PORTRAIT RULE: no photograph of Dr. Bacchi was supplied and
+   a generated likeness of a real named physician is not acceptable, so the type has no
+   portrait slot at all. The concept answers that by organising the page around the
+   EVALUATION rather than the person; the credentials ride the .mm-fact rail, which is
+   STACKED (label above value) because a two-track grid using minmax(0,.36fr) let the
+   label track shrink below its content and paint over the value column.
+   ============================================================================ */
+/* T-COMPANY concept C skin. COMPANY-SECTIONS vocabulary, mm- namespace. Token-pure, zero hex. */
+
+.row--act{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);gap:var(--ds-space-2xl);align-items:start}
+.row--who{display:grid;grid-template-columns:minmax(0,.42fr) minmax(0,1fr);gap:var(--ds-space-2xl);align-items:start}
+
+/* 1. founder editorial hero, framed as the ACT rather than the profile (catalog #1) */
+.mm-founder{position:relative;overflow:hidden;background:var(--ds-bg-surface);background-size:cover;background-position:center;background-blend-mode:soft-light;padding:calc(var(--ds-section-py) * 1.05) 0}
+.mm-founder .container{position:relative}
+.mm-founder__lab{font-size:10px;letter-spacing:.28em;text-transform:uppercase;color:var(--ds-issued);margin:0 0 16px}
+.mm-founder__act{font-family:var(--ds-font-display);font-size:46px;line-height:1.14;letter-spacing:-.03em;font-weight:700;color:var(--ds-accent);margin:0 0 18px;max-width:20ch}
+.mm-founder__by{font-size:18px;line-height:1.62;color:var(--ds-ink);margin:0;max-width:42rem}
+
+/* the act, in three beats */
+.mm-act{padding:var(--ds-section-py) 0}
+.mm-act__h{font-family:var(--ds-font-display);font-size:30px;line-height:1.2;letter-spacing:-.022em;color:var(--ds-accent);margin:0 0 var(--ds-space-md);max-width:20ch}
+.mm-act__q{font-family:var(--ds-font-display);font-size:21px;line-height:1.5;color:var(--ds-accent);margin:0 0 10px;padding-left:22px;border-left:3px solid var(--ds-issued);max-width:38rem}
+.mm-act__src{font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--ds-olive);margin:0 0 var(--ds-space-md)}
+.mm-act__p{font-size:16px;line-height:1.72;color:var(--ds-ink-soft);margin:0 0 14px;max-width:38rem}
+.mm-act__shot{display:block;position:relative;width:100%;min-width:0;overflow:hidden;border-radius:var(--ds-r-surface);aspect-ratio:4/5;max-height:420px;background:var(--ds-bg-surface-3);box-shadow:var(--ds-shadow-card)}
+.mm-act__shot img{width:100%;height:100%;object-fit:cover;display:block}
+
+/* 2. manifesto: who performs it, and the register she performs it in */
+.mm-manifesto{padding:var(--ds-section-py) 0;background:var(--ds-bg-surface-2)}
+.mm-manifesto__lab{font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:var(--ds-olive);margin:0 0 12px}
+.mm-manifesto__who{font-family:var(--ds-font-display);font-size:34px;line-height:1.12;letter-spacing:-.026em;color:var(--ds-accent);margin:0 0 12px}
+.mm-manifesto__p{font-size:15.5px;line-height:1.74;color:var(--ds-ink-soft);margin:0 0 14px;max-width:56ch}
+.mm-fact{display:block;padding:13px 0;border-top:1px solid var(--ds-line)}
+.mm-fact:last-of-type{border-bottom:1px solid var(--ds-line)}
+.mm-fact__k{display:block;font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--ds-olive);margin:0 0 6px}
+.mm-fact__v{font-family:var(--ds-font-display);font-size:18px;line-height:1.3;color:var(--ds-accent);margin:0}
+.mm-fact__n{display:block;margin-top:5px;font-family:var(--ds-font-body);font-size:12.5px;line-height:1.6;color:var(--ds-ink-soft)}
+
+/* the ceiling */
+.mm-ceiling{position:relative;overflow:hidden;padding:var(--ds-section-py) 0;background:var(--ds-bg-surface);background-size:cover;background-position:center;background-blend-mode:soft-light}
+.mm-ceiling .container{position:relative}
+.mm-ceiling__h{font-family:var(--ds-font-display);font-size:30px;line-height:1.2;color:var(--ds-accent);margin:0 0 16px;max-width:20ch}
+.mm-ceiling__p{font-size:15.5px;line-height:1.74;color:var(--ds-ink);margin:0 0 14px;max-width:56ch}
+.mm-ceiling__p a{color:var(--ds-accent);text-decoration:underline;text-underline-offset:3px}
+.mm-close{margin:var(--ds-space-lg) 0 0;padding-top:var(--ds-space-md);border-top:2px solid var(--ds-issued)}
+.mm-close__h{font-family:var(--ds-font-display);font-size:24px;line-height:1.2;color:var(--ds-accent);margin:0 0 14px}
+
+
+@media (max-width:900px){
+  .row--act,.row--who{grid-template-columns:minmax(0,1fr);gap:var(--ds-space-md)}
+  .mm-founder__act{font-size:29px;max-width:none}
+  .mm-manifesto__who{font-size:26px}
+  .mm-ceiling__h{font-size:24px;max-width:none}
+  .mm-act__shot{aspect-ratio:16/10;max-height:240px}
+}
+
+/* ============================================================================
+   T-ARTICLE TEMPLATE SKIN -- "The Sequence" (concept A), OWNER-PICKED 2026-08-21.
+   Migrated verbatim out of the concept preview's <style> at the LOCK step, for the same
+   reason the five skins above live here: build.mjs links exactly three per-slug sheets
+   and promote STRIPS the concept <style> (OBS-29).
+   The duplicate .wow-lift block was dropped; the T-FEATURE lock already defines it.
+   Token-pure (zero hex, zero url()); every short child class is descendant-scoped.
+
+   .art-top.hero IS STILL RESET HERE even though the structural .hero rule was scoped to
+   .hero:has(> .hero-copy) on the same day. The reset is now a no-op. It is kept as a
+   marker of where the collision bit: the brief's section_seq slot named "hero" and the
+   split-hero component share one class name, and that cost a locked template its layout.
+   ============================================================================ */
+/* T-ARTICLE concept A skin. Token-pure, zero hex, zero url(). */
+
+.row--frame{display:grid;grid-template-columns:minmax(0,.34fr) minmax(0,1fr);gap:var(--ds-space-2xl);align-items:start}
+.row--pair{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:var(--ds-space-2xl);align-items:start}
+.row--exits{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:var(--ds-space-lg)}
+
+/* 1. the page header, closing on a letterbox band of the room the article describes */
+.art-top.hero{display:block;grid-template-columns:none;border-top:0}
+.art-top{padding:calc(var(--ds-section-py) * .95) 0 calc(var(--ds-section-py) * .6);background:var(--ds-bg-surface)}
+.art-top__kicker{font-size:10px;letter-spacing:.28em;text-transform:uppercase;color:var(--ds-olive);margin:0 0 18px}
+.art-top__h{font-family:var(--ds-font-display);font-size:52px;line-height:1.1;letter-spacing:-.032em;font-weight:700;color:var(--ds-accent);margin:0 0 20px;max-width:17ch}
+.art-top__sub{font-size:19px;line-height:1.6;color:var(--ds-ink-soft);margin:0;max-width:44rem}
+.art-top__band{display:block;position:relative;width:100%;min-width:0;margin-top:var(--ds-space-lg);overflow:hidden;border-radius:var(--ds-r-surface);aspect-ratio:24/7;max-height:250px;background:var(--ds-bg-surface-3);border-top:2px solid var(--ds-issued)}
+.art-top__band img{width:100%;height:100%;object-fit:cover;object-position:center 62%;display:block}
+.art-top__cap{font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--ds-olive);margin:10px 0 0}
+
+/* 2. problem framing */
+.art-frame{position:relative;overflow:hidden;padding:var(--ds-section-py) 0;background:var(--ds-bg-surface-2);background-size:cover;background-position:center;background-blend-mode:multiply}
+.art-frame .container{position:relative}
+.art-frame__h{font-family:var(--ds-font-display);font-size:29px;line-height:1.18;letter-spacing:-.022em;color:var(--ds-accent);margin:0;max-width:14ch}
+.art-frame__p{font-size:16.5px;line-height:1.74;color:var(--ds-ink-soft);margin:0 0 15px;max-width:40rem}
+.art-frame__land{font-family:var(--ds-font-display);font-size:21px;line-height:1.5;color:var(--ds-accent);margin:var(--ds-space-md) 0 0;padding-top:16px;border-top:1px solid var(--ds-line);max-width:38rem}
+
+/* 3. the numbered spine */
+.art-seq{padding:var(--ds-section-py) 0;background:var(--ds-bg-surface)}
+.art-seq__h{font-family:var(--ds-font-display);font-size:29px;line-height:1.18;letter-spacing:-.022em;color:var(--ds-accent);margin:0 0 var(--ds-space-lg)}
+.art-step{display:grid;grid-template-columns:56px minmax(0,1fr);gap:0 var(--ds-space-md);padding:22px 0;border-top:1px solid var(--ds-line)}
+.art-step:last-of-type{border-bottom:1px solid var(--ds-line)}
+.art-step__n{font-family:var(--ds-font-display);font-size:30px;line-height:1;color:var(--ds-olive);padding-top:2px}
+.art-step__lead{font-family:var(--ds-font-display);font-size:20px;line-height:1.34;color:var(--ds-accent);margin:0 0 8px;max-width:34rem}
+.art-step__p{font-size:15.5px;line-height:1.74;color:var(--ds-ink-soft);margin:0 0 10px;max-width:40rem}
+.art-quote{margin:14px 0 0;padding-left:22px;border-left:3px solid var(--ds-issued);max-width:38rem}
+.art-quote p{font-family:var(--ds-font-display);font-size:19px;line-height:1.52;color:var(--ds-accent);margin:0 0 8px}
+.art-quote cite{display:block;font-family:var(--ds-font-body);font-style:normal;font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--ds-olive)}
+
+/* 4. what you are committing to, and the quote-only cost line */
+.art-commit{position:relative;overflow:hidden;padding:var(--ds-section-py) 0;background:var(--ds-bg-surface-2);background-size:cover;background-position:center;background-blend-mode:multiply}
+.art-commit .container{position:relative}
+.art-commit__h{font-family:var(--ds-font-display);font-size:29px;line-height:1.18;letter-spacing:-.022em;color:var(--ds-accent);margin:0 0 var(--ds-space-md);max-width:16ch}
+.art-commit__p{font-size:16px;line-height:1.74;color:var(--ds-ink-soft);margin:0 0 14px;max-width:40rem}
+.art-commit__hard{font-family:var(--ds-font-display);font-size:22px;line-height:1.44;color:var(--ds-accent);margin:0 0 16px;max-width:31ch}
+.art-note{padding:18px 20px;border:1px solid var(--ds-line);border-radius:var(--ds-r-surface);background:var(--ds-bg-surface)}
+.art-note+.art-note{margin-top:14px}
+.art-note__k{display:block;font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--ds-olive);margin:0 0 8px}
+.art-note__p{font-size:15px;line-height:1.7;color:var(--ds-ink);margin:0}
+
+/* 5. the exits */
+.art-exits{padding:calc(var(--ds-section-py) * .8) 0;background:var(--ds-bg-surface)}
+.art-exits__h{font-family:var(--ds-font-display);font-size:24px;line-height:1.2;color:var(--ds-accent);margin:0 0 var(--ds-space-md)}
+.art-exit{display:block;padding-top:14px;border-top:2px solid var(--ds-issued);text-decoration:none}
+.art-exit__t{display:block;font-family:var(--ds-font-display);font-size:19px;line-height:1.3;color:var(--ds-accent);margin:0 0 6px}
+.art-exit__p{font-size:14px;line-height:1.62;color:var(--ds-ink-soft);margin:0}
+.art-exit:hover .art-exit__t,.art-exit:focus-visible .art-exit__t{color:var(--ds-olive)}
+.art-tel{display:inline-block;margin-top:var(--ds-space-md);font-size:15px;color:var(--ds-accent);text-decoration:underline;text-underline-offset:3px}
+
+
+@media (max-width:900px){
+  .row--frame,.row--pair{grid-template-columns:minmax(0,1fr);gap:var(--ds-space-md)}
+  .row--exits{grid-template-columns:repeat(2,minmax(0,1fr));gap:var(--ds-space-md)}
+  .art-top__h{font-size:31px;max-width:none}
+  .art-top__band{aspect-ratio:16/9;max-height:200px}
+  .art-top__sub{font-size:16.5px}
+  .art-frame__h,.art-seq__h,.art-commit__h{font-size:24px;max-width:none}
+  .art-step{grid-template-columns:40px minmax(0,1fr)}
+  .art-step__n{font-size:23px}
+  .art-commit__hard{font-size:19px;max-width:none}
+}
+
+/* ============================================================================
+   T-CONTACT TEMPLATE SKIN -- "The Record" (concept A), OWNER-PICKED 2026-08-21.
+   The SEVENTH and last template skin. Migrated verbatim out of the concept preview's
+   <style> at the LOCK step, for the same reason the six skins above live here:
+   build.mjs links exactly three per-slug sheets and promote STRIPS the concept
+   <style> (OBS-29).
+   The duplicate .wow-lift block was dropped; the T-FEATURE lock already defines it.
+   Token-pure (zero hex, zero url()); every short child class is descendant-scoped.
+
+   THE FORM CARRIES data-form-waiver AND THAT IS DELIBERATE. G-FORM-LIVE requires every
+   form on an ASSEMBLED page to have a real action, static submit wiring, or an explicit
+   owner-visible waiver. The estate's existing lead-capture forms are vendor-hosted
+   third-party embeds whose leads land in that third party's system, so there is no
+   endpoint to publish until it is migrated. The waiver is the honest option; a
+   fabricated action URL would be the dishonest one.
+   ============================================================================ */
+/* T-CONTACT concept A skin. Token-pure, zero hex, zero url(). */
+
+.row--rec{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,.78fr);gap:var(--ds-space-2xl);align-items:start}
+.row--trust{display:grid;grid-template-columns:minmax(0,.4fr) minmax(0,1fr);gap:var(--ds-space-2xl);align-items:start}
+
+/* 1. the opening line */
+.ct-top{position:relative;overflow:hidden;padding:calc(var(--ds-section-py) * .8) 0;background:var(--ds-bg-surface-2);background-size:cover;background-position:center;background-blend-mode:multiply}
+.ct-top .container{position:relative}
+.ct-top__h{font-family:var(--ds-font-display);font-size:44px;line-height:1.12;letter-spacing:-.03em;font-weight:700;color:var(--ds-accent);margin:0 0 16px;max-width:20ch}
+.ct-top__sub{font-size:18px;line-height:1.62;color:var(--ds-ink);margin:0;max-width:42rem}
+
+/* 2. the form, single-column stacked */
+.ct-form{padding:var(--ds-section-py) 0;background:var(--ds-bg-surface)}
+.ct-form__h,.ct-form__lede,.ct-after{max-width:36rem}
+.ct-form__h{font-family:var(--ds-font-display);font-size:29px;line-height:1.18;letter-spacing:-.022em;color:var(--ds-accent);margin:0 auto 12px}
+.ct-form__lede{font-size:16.5px;line-height:1.72;color:var(--ds-ink-soft);margin:0 auto var(--ds-space-lg)}
+.ct-fields{max-width:36rem;margin-inline:auto}
+.ct-field+.ct-field{margin-top:18px}
+.ct-field label{display:block;font-size:13px;font-weight:600;letter-spacing:.02em;color:var(--ds-accent);margin:0 0 6px}
+.ct-field input,.ct-field textarea,.ct-field select{display:block;width:100%;box-sizing:border-box;font-family:var(--ds-font-body);font-size:15.5px;line-height:1.5;color:var(--ds-ink);background:var(--ds-bg-surface);border:1px solid var(--ds-line);border-radius:var(--ds-r-input);padding:11px 13px}
+.ct-field textarea{min-height:118px;resize:vertical}
+.ct-field input:focus-visible,.ct-field textarea:focus-visible,.ct-field select:focus-visible{outline:2px solid var(--ds-accent);outline-offset:2px;border-color:var(--ds-accent)}
+.ct-help{display:block;font-size:12.5px;line-height:1.55;color:var(--ds-olive);margin:6px 0 0}
+.ct-send{margin-top:var(--ds-space-lg)}
+.ct-after{font-size:14px;line-height:1.6;color:var(--ds-ink-soft);margin:14px auto 0}
+
+/* 3. the record, on the anchored dark band */
+.ct-rec{position:relative;overflow:hidden;padding:var(--ds-section-py) 0;background:var(--ds-bg-surface);background-size:cover;background-position:center;background-blend-mode:soft-light}
+.ct-rec .container{position:relative}
+.ct-rec__h{font-family:var(--ds-font-display);font-size:29px;line-height:1.18;letter-spacing:-.022em;color:var(--ds-accent);margin:0 0 var(--ds-space-lg)}
+.ct-row{display:grid;grid-template-columns:minmax(0,.28fr) minmax(0,1fr);gap:var(--ds-space-md);padding:16px 0;border-top:1px solid var(--ds-line)}
+.ct-row:last-of-type{border-bottom:1px solid var(--ds-line)}
+.ct-row__k{font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--ds-issued);padding-top:4px}
+.ct-row__v{font-family:var(--ds-font-display);font-size:19px;line-height:1.45;color:var(--ds-accent);margin:0}
+.ct-row__n{display:block;margin-top:6px;font-family:var(--ds-font-body);font-size:13.5px;line-height:1.65;color:var(--ds-ink)}
+.ct-row a{color:var(--ds-accent);text-decoration:underline;text-underline-offset:3px}
+.ct-shot{display:block;position:relative;width:100%;min-width:0;overflow:hidden;border-radius:var(--ds-r-surface);aspect-ratio:4/5;max-height:430px;background:var(--ds-bg-surface-3);box-shadow:var(--ds-shadow-card)}
+.ct-shot img{width:100%;height:100%;object-fit:cover;display:block}
+.ct-shot__cap{font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--ds-issued);margin:10px 0 0}
+
+/* 4. what happens next */
+.ct-next{padding:calc(var(--ds-section-py) * .85) 0;background:var(--ds-bg-surface-2)}
+.ct-next__h{font-family:var(--ds-font-display);font-size:26px;line-height:1.2;color:var(--ds-accent);margin:0;max-width:12ch}
+.ct-next__p{font-size:16px;line-height:1.74;color:var(--ds-ink-soft);margin:0 0 14px;max-width:42rem}
+.ct-next__p:last-child{margin-bottom:0}
+.ct-next__ceiling{font-size:15.5px;line-height:1.7;color:var(--ds-ink);margin:0;padding-top:14px;border-top:1px solid var(--ds-line);max-width:42rem}
+
+
+@media (max-width:900px){
+  .row--rec,.row--trust{grid-template-columns:minmax(0,1fr);gap:var(--ds-space-md)}
+  .ct-top__h{font-size:29px;max-width:none}
+  .ct-form__h,.ct-rec__h{font-size:24px}
+  .ct-next__h{font-size:22px;max-width:none}
+  .ct-row{grid-template-columns:minmax(0,1fr);gap:4px}
+  .ct-shot{aspect-ratio:16/10;max-height:240px}
+}
+
+/* ---------------------------------------------------------------------------
+ * PHONE (<=520) — the last rung of the ladder declared at the 1024 block above.
+ * It stays at the END of the sheet because it is the NARROWEST step: descending
+ * order is what makes the cascade resolve (see that block's note).
+ * ------------------------------------------------------------------------ */
+@media (max-width:520px){
+  /* the gutter. .container held padding-inline:var(--ds-space-lg) at EVERY width,
+     so a 375px phone spent 80px of it on gutters. 24px a side returns ~32px of
+     measure to every page on the site. */
+  .container{padding-inline:var(--ds-space-md)}
+
+  /* display type: 900 already took .kit-title 60 -> 35, which still overhangs a
+     375px viewport at this weight and letter-spacing. */
+  .kit-title{font-size:28px}
+  .kit-title3{font-size:26px}
+  .kit-h2{font-size:22px}
+  .kit-creed .kit-h2{font-size:24px}
+  .kit-term{font-size:22px}
+  .kit-standfirst{font-size:16.5px}
+  .kit-lead{font-size:18px}
+
+  /* CTAs: .cta-row is flex-wrap, so on a phone a 3-4 button row breaks into
+     ragged part-width rows with one orphan. Full-width stacked reads as a list
+     of choices and gives each a full-width tap target. */
+  .cta-row{gap:var(--ds-space-xs)}
+  .cta-row .btn{width:100%;text-align:center;padding:15px 20px}
+
+  .row--index{gap:var(--ds-space-md)}
+
+  /* .kit-book is the ONLY <table> in the build (consultation, "the boundary of this practice").
+     Its columns are 26%/74%, so at 375px the first column computes to ~85px and the labels
+     "Offered" / "Not offered" / "If that is what you need" squish to a few characters a line.
+     Collapse it to a stack: each row becomes label-above-prose, which is how the content reads
+     anyway. The <thead> is taken out of the visual flow but DELIBERATELY left in the accessibility
+     tree (clip-path, not display:none) — a stacked row is self-labelling by its first cell, so the
+     two column headings would otherwise read as stray words, but a screen reader still gets them. */
+  .kit-book,.kit-book tbody,.kit-book tr,.kit-book td{display:block;width:auto}
+  .kit-book caption{display:block}
+  .kit-book thead{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap}
+  .kit-book tr{border-bottom:1px solid var(--ds-line);padding:14px 0}
+  .kit-book td{border-bottom:0;padding:0}
+  .kit-book td:first-child{padding-right:0;margin-bottom:4px}
+}

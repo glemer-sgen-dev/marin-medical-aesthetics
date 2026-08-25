@@ -1,0 +1,202 @@
+/* ============================================================================
+   marin-medical-aesthetics-chrome.css — the LOCKED CHROME sheet.
+   Sourced VERBATIM from the OWNER-PICKED chrome winner: _design/_tournament/chrome-a/preview.html
+   (direction A, "The Consulting Bar" — NAV-PATTERNS #3 + FOOTER-STYLES #14), owner pick 2026-08-20.
+
+   Chrome is a LOCKED BLOCK (SKILL.md, owner decision 2026-06-24): it is NOT wrapped in the body's
+   section -> .container -> .row -> .col grammar, and it must stay byte-faithful to the winner so the
+   render-diff guard (verify-chrome-parity) holds. Edit the CARRIER (_design/_chrome-block.html) and
+   this sheet, never a per-page copy.
+
+   Token-pure: ZERO hex literals. Colour comes only from var(--ds-*). The rgba() values are alpha
+   scrims over imagery (a legibility gradient needs alpha), matching the tokens sheet's own idiom.
+   Asset urls are SHEET-relative (../assets/), so they resolve from _design/ no matter which page
+   links the sheet.
+   ============================================================================ */
+
+.skip{position:absolute;left:-9999px;top:0;background:var(--ds-accent);color:var(--ds-bg-surface);padding:12px 18px;z-index:var(--ds-z-toast);border-radius:var(--ds-r-control)}
+.skip:focus{left:var(--ds-space-md);top:var(--ds-space-md)}
+
+.hdr{position:relative;background:var(--ds-bg-surface);border-bottom:1px solid var(--ds-line);z-index:var(--ds-z-sticky)}
+.hdr-in{max-width:var(--ds-container-max);margin:0 auto;padding:0 var(--ds-space-lg);height:84px;display:flex;align-items:center;gap:var(--ds-space-lg)}
+/* min-height rather than padding: the brand is a flex child of a fixed-height header bar, so padding
+   would fight the bar's own alignment. inline-flex + 44px min-height grows only the HIT AREA — the
+   wordmark stays where it sits. It measured 136x38: legal under WCAG 2.5.8 (24px) but short of the
+   44px comfort size, and this is the link back to the homepage from every page on the site. */
+.brand{font-family:var(--ds-font-display);font-size:21px;font-weight:700;color:var(--ds-accent);letter-spacing:-.02em;text-decoration:none;line-height:1.05;white-space:nowrap;display:inline-flex;align-items:center;min-height:44px}
+.brand i{display:block;font-style:italic;font-weight:400;font-size:15px;color:var(--ds-ink)}
+.nav{margin-left:auto;display:flex;align-items:center;gap:var(--ds-space-md)}
+.nav-item{position:relative}
+.nav-link{display:inline-flex;align-items:center;gap:6px;padding:30px 2px;font-size:14px;font-weight:600;color:var(--ds-ink);text-decoration:none;border-bottom:3px solid transparent;transition:color var(--ds-dur-fast) var(--ds-ease-out),border-color var(--ds-dur-fast) var(--ds-ease-out)}
+.nav-link:hover,.nav-item:focus-within > .nav-link,.nav-item.is-open > .nav-link{color:var(--ds-accent);border-bottom-color:var(--ds-issued)}
+.caret{width:8px;height:8px;border-right:2px solid currentColor;border-bottom:2px solid currentColor;transform:rotate(45deg) translateY(-2px);transition:transform var(--ds-dur-fast) var(--ds-ease-out)}
+.nav-item.is-open .caret{transform:rotate(-135deg) translateY(-2px)}
+.phone{display:inline-flex;align-items:center;gap:8px;padding:11px 18px;border:2px solid var(--ds-accent);border-radius:var(--ds-r-pill);font-size:13px;font-weight:700;color:var(--ds-accent);text-decoration:none;white-space:nowrap;transition:background var(--ds-dur-fast) var(--ds-ease-out),color var(--ds-dur-fast) var(--ds-ease-out)}
+.phone:hover{background:var(--ds-accent);color:var(--ds-bg-surface)}
+.hdr .btn{padding:13px 22px}
+
+/* HOVER-INTENT (a) shared :hover / :focus-within scope on .nav-item */
+.nav-panel{position:absolute;top:100%;left:50%;transform:translate(-50%,10px);opacity:0;visibility:hidden;
+  transition:opacity var(--ds-dur) var(--ds-ease),transform var(--ds-dur) var(--ds-ease),visibility 0s linear var(--ds-dur);z-index:var(--ds-z-overlay)}
+.nav-item:hover > .nav-panel,.nav-item:focus-within > .nav-panel,.nav-item.is-open > .nav-panel{opacity:1;visibility:visible;transform:translate(-50%,0);transition-delay:0s}
+/* HOVER-INTENT (b) the bridge: no un-hoverable pixel band across the seam */
+.nav-panel::before{content:"";position:absolute;left:0;right:0;top:-14px;height:14px}
+
+.mega{width:min(1060px,94vw);background:var(--ds-bg-surface);border:1px solid var(--ds-line);border-top:3px solid var(--ds-issued);border-radius:var(--ds-r-surface);
+  box-shadow:var(--ds-shadow-lift);overflow:hidden;display:grid;grid-template-columns:minmax(0,1.35fr) minmax(0,.95fr)}
+/* minmax(0,...), not a bare fr: a bare 1fr is minmax(AUTO,1fr), so the cards' min-content width
+   overrode the panel's declared width and pushed its left edge past the viewport. */
+.mega-cols{padding:var(--ds-space-lg);display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:var(--ds-space-sm)}
+.mega-card{display:block;padding:18px 18px 20px;border:1px solid var(--ds-line);border-radius:var(--ds-r-control);text-decoration:none;background:var(--ds-bg-surface);
+  transition:transform var(--ds-dur-fast) var(--ds-ease-out),box-shadow var(--ds-dur) var(--ds-ease),border-color var(--ds-dur) var(--ds-ease)}
+.mega-card:hover{transform:translateY(-3px);box-shadow:var(--ds-shadow-card);border-color:var(--ds-issued)}
+.mega-card .n{display:block;font-size:10px;letter-spacing:.18em;color:var(--ds-issued);margin-bottom:9px;font-variant-numeric:tabular-nums}
+.mega-card h4{font-family:var(--ds-font-display);font-size:18px;margin:0 0 5px;color:var(--ds-accent)}
+.mega-card p{font-size:12.5px;line-height:1.5;color:var(--ds-ink-soft);margin:0}
+.mega-card.is-active{border-color:var(--ds-issued);box-shadow:0 0 0 3px var(--ds-accent-soft),var(--ds-shadow-card)}
+.mega-feat{position:relative;min-height:290px;display:flex;flex-direction:column;justify-content:flex-end;padding:var(--ds-space-lg);overflow:hidden}
+.mega-feat img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.mega-feat .grade{position:absolute;inset:0;background:linear-gradient(180deg,rgba(4,33,63,.10) 0%,rgba(4,33,63,.58) 52%,rgba(4,33,63,.88) 100%)}
+.mega-feat .inner{position:relative;z-index:var(--ds-z-raised)}
+.mega-feat .eyebrow{font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:var(--ds-issued);margin:0 0 10px}
+.mega-feat p.line{font-family:var(--ds-font-display);font-size:23px;line-height:1.22;color:var(--ds-bg-surface);margin:0 0 14px;max-width:17rem}
+.mega-feat a.go{display:inline-flex;align-items:center;gap:8px;font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--ds-issued);text-decoration:none}
+.mega-feat a.go:hover{color:var(--ds-bg-surface)}
+
+.drop{min-width:264px;background:var(--ds-bg-surface);border:1px solid var(--ds-line);border-top:3px solid var(--ds-issued);border-radius:var(--ds-r-surface);box-shadow:var(--ds-shadow-lift);padding:10px}
+.drop a{display:block;padding:11px 14px;border-radius:var(--ds-r-control);font-size:13.5px;color:var(--ds-ink);text-decoration:none;transition:background var(--ds-dur-fast) var(--ds-ease-out),color var(--ds-dur-fast) var(--ds-ease-out)}
+.drop a:hover{background:var(--ds-bg-surface-3);color:var(--ds-accent)}
+
+.site-header__hamburger{display:none;margin-left:auto;width:46px;height:46px;border:2px solid var(--ds-accent);border-radius:var(--ds-r-control);background:transparent;cursor:pointer;align-items:center;justify-content:center;flex-direction:column;gap:5px}
+.site-header__hamburger span{display:block;width:20px;height:2px;background:var(--ds-accent)}
+#mobile-drawer{position:fixed;inset:0 0 0 auto;width:min(400px,86vw);background:var(--ds-bg-surface-3);border-left:3px solid var(--ds-issued);box-shadow:var(--ds-shadow-lift);padding:var(--ds-space-lg);z-index:var(--ds-z-drawer);transform:translateX(100%);transition:transform var(--ds-dur) var(--ds-ease);overflow-y:auto}
+#mobile-drawer[aria-hidden="false"]{transform:translateX(0)}
+.drawer__head{display:flex;justify-content:flex-end;margin-bottom:var(--ds-space-md)}
+.drawer-close{width:40px;height:40px;border:1px solid var(--ds-line);border-radius:var(--ds-r-control);background:transparent;color:var(--ds-ink);font-size:18px;cursor:pointer}
+.drawer__nav a{display:block;padding:14px 0;border-bottom:1px solid var(--ds-line);font-family:var(--ds-font-display);font-size:20px;color:var(--ds-accent);text-decoration:none}
+.acc__panel{padding:4px 0 14px 14px;border-bottom:1px solid var(--ds-line)}
+/* 7px padding on a 22px line box gave a 36px row. These are the drawer's second-level links, so
+   they exist ONLY on touch — where 44px is the target and the parent rows already sit at 61px.
+   11px a side lands exactly on 44 and keeps the indent reading as a sub-level. */
+.acc__panel a{padding:11px 0;border:0;font-family:var(--ds-font-body);font-size:14px;color:var(--ds-ink-soft)}
+.drawer__cta{margin-top:var(--ds-space-lg)}
+
+.closing{position:relative;overflow:hidden;background:var(--ds-bg-surface);padding:96px 0 92px}
+.closing .glow{position:absolute;left:50%;top:-30%;width:820px;height:820px;transform:translateX(-50%);border-radius:var(--ds-r-pill);
+  background:radial-gradient(circle,rgba(196,173,103,.20) 0%,rgba(196,173,103,0) 62%);pointer-events:none}
+/* CREAM texture at --ds-opacity-faint, not the navy band at --ds-opacity-texture (.40): a 40% navy
+   wash over the white ground turned this band into a blue-grey slab and dropped the navy headline's
+   contrast with it. The brand canvas is measured light (dark_ratio 0.000), so the tooth stays warm. */
+.closing .grain2{position:absolute;inset:0;background-image:url("../assets/texture-cream-band.jpg");background-size:cover;opacity:var(--ds-opacity-faint);pointer-events:none}
+.closing-in{position:relative;z-index:var(--ds-z-base);max-width:var(--ds-container-max);margin:0 auto;padding:0 var(--ds-space-lg);text-align:center}
+.closing h2{font-family:var(--ds-font-display);font-size:56px;line-height:1.04;letter-spacing:-.035em;font-weight:700;color:var(--ds-accent);margin:0 auto 18px;max-width:24rem}
+.closing p.sub{font-size:16px;color:var(--ds-ink-soft);margin:0 auto 12px;max-width:33rem}
+.closing p.reassure{font-size:13px;color:var(--ds-olive);margin:0 auto 30px;max-width:33rem}
+.closing .cta-row{justify-content:center}
+
+.ftr{background:var(--ds-bg-surface-3);border-top:1px solid var(--ds-line);padding:var(--ds-section-py) 0 var(--ds-space-xl)}
+.ftr-in{max-width:var(--ds-container-max);margin:0 auto;padding:0 var(--ds-space-lg);display:grid;grid-template-columns:repeat(3,1fr);gap:var(--ds-space-xl)}
+.ftr h5{font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--ds-issued);margin:0 0 16px}
+.ftr p,.ftr a{font-size:14px;color:var(--ds-ink-soft);margin:0 0 8px;text-decoration:none;display:block}
+/* The footer links are display:block with no padding, so the tap target was exactly the 14px line
+   box — measured 295x22 at 375px, under the 24x24 floor WCAG 2.5.8 (AA) sets. They are standalone
+   navigation, not inline prose, so the inline exemption does not apply. Padding rather than a
+   larger font keeps the footer's type scale intact; the margin gives most of it back so the column
+   rhythm barely moves. The phone step below takes them to a full 44px. */
+.ftr a{padding:6px 0;margin:0 0 2px}
+.ftr a:hover{color:var(--ds-accent)}
+.hours-row{display:flex;justify-content:space-between;gap:16px;padding:9px 0;border-bottom:1px solid var(--ds-line);font-size:13.5px;color:var(--ds-ink-soft)}
+.hours-flag{font-size:12.5px;color:var(--ds-signature);line-height:1.55;margin-top:12px}
+.ftr-legal{max-width:var(--ds-container-max);margin:var(--ds-space-xl) auto 0;padding:var(--ds-space-md) var(--ds-space-lg) 0;border-top:1px solid var(--ds-line);display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font-size:12px;color:var(--ds-ink-soft)}
+/* The utility rail. `.ftr a` above is display:block (stacked column links), which would break these
+   into one line each — they are inline-block instead, and carry their own padding so each stays a
+   >=24px target under WCAG 2.5.8 without inheriting the 44px column padding. They live in the legal
+   strip ON PURPOSE: the approved footer pick is FOOTER-STYLES #14, a 3-column hours-first close,
+   chosen over "#1, the 4-col dark reflex the catalog flags as overused" — so the fix for the
+   unreachable /blog/ and /media/ pages must not add a fourth column and undo that decision. */
+.ftr-legal__links{display:flex;flex-wrap:wrap;gap:0 18px;align-items:center}
+.ftr-legal__links a{display:inline-block;padding:5px 0;color:var(--ds-ink-soft);text-decoration:none;border-bottom:1px solid transparent}
+.ftr-legal__links a:hover,.ftr-legal__links a:focus-visible{color:var(--ds-accent);border-bottom-color:var(--ds-accent)}
+
+@media (max-width:900px){
+  /* Preview scaffolding only: stages 2 and 3 reserve vertical room for the open panels, but the nav is
+     hidden below 900px so those panels never render, leaving tall blank gaps. */
+  .nav{display:none}
+  .site-header__hamburger{display:flex}
+  .hdr-in{height:70px;gap:var(--ds-space-sm);padding-left:var(--ds-space-md);padding-right:var(--ds-space-2xs)}
+  .closing h2{font-size:34px}
+  .ftr-in{grid-template-columns:1fr;gap:var(--ds-space-lg)}
+  /* 22px line box + 11px a side = a full 44px touch target on the devices that actually tap. */
+  .ftr a{padding:11px 0;margin:0}
+  /* 40x40 cleared the 24px AA floor but sits under the 44px comfort target, and this is the control
+     that closes the mobile drawer — the one button a phone user is most likely to reach for. */
+  .drawer-close{width:44px;height:44px}
+  .mega{grid-template-columns:1fr}
+}
+
+/* ============================================================================
+   KEYBOARD FOCUS RING (WCAG 2.4.7 Focus Visible) — added 2026-08-24.
+
+   REAL DEFECT, not a gate formality. structural.css carried `.btn:focus-visible`
+   and a dozen component-level rings, but NOTHING covered the controls this sheet
+   styles: `.nav-link`, `.site-header__hamburger` and `.drawer-close` had no focus
+   indicator in any linked sheet. The accessibility page states that "a visible focus
+   outline is drawn on the element that has focus, and it is not removed", naming the
+   menu and the mobile drawer specifically — that sentence was not true for those three
+   controls until this rule existed. Counting focus-visible rules is not the same as
+   covering the controls a claim names.
+
+   Painted with the accent token so it inherits the locked palette rather than
+   introducing a colour, and offset so it reads against both the light and dark bands.
+   ============================================================================ */
+a:focus-visible,
+button:focus-visible,
+.btn:focus-visible,
+.nav-link:focus-visible,
+.site-header__hamburger:focus-visible,
+.drawer-close:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible,
+[tabindex]:focus-visible{outline:2px solid var(--ds-accent);outline-offset:2px}
+
+/* The dark bands need the ring to read against navy, so it flips to the on-dark ink there. */
+.surface-dark a:focus-visible,
+.surface-dark button:focus-visible,
+.site-header a:focus-visible,
+.site-header button:focus-visible{outline-color:var(--ds-bg-surface)}
+
+/* Modern keyboard-only idiom: suppress the ring on a pointer click ONLY, which is allowed
+   because the painting rule above exists. Keyboard focus is unaffected. */
+a:focus:not(:focus-visible),
+button:focus:not(:focus-visible){outline:none}
+
+/* ============================================================================
+   T-HOME SEMANTIC MARKER CLASSES — deliberately carry NO visual declarations.
+
+   Same contract as the marker block in the structural sheet: verify-brief-consumed (GW)
+   requires every _handoff/briefs/index.md section_seq name to appear as a class, and
+   verify-no-orphan-classes (OBS-29) requires every class a fragment references to be
+   DEFINED in a LINKED sheet. All three per-slug sheets (tokens + chrome + structural) are
+   linked into the assembled page, so a definition here satisfies OBS-29 exactly as one in
+   structural.css would. EMPTY ON PURPOSE: these label what each homepage band IS, and the
+   look comes from the kit-*, mm-* and art-* skins already migrated.
+
+   RESOLVED 2026-08-24 — the markers have MOVED to the structural sheet; this note is kept only
+   to record why they were ever here. They were parked in chrome.css because writes to
+   structural.css were blocked by verify-design-foundation (G8), which re-validates the WHOLE
+   P8 foundation on any write to it and reported 16 findings against the existing sheet.
+   Fifteen are A3 "ch-max-width font-ownership" findings that are false positives for this
+   build: the gate tests each rule body for `font-family:var(--font…)`, while this build's
+   display token is `--ds-font-display`, so twelve rules that DO carry the display face are
+   misread as body-font rules (the other three are body-prose measures at 56-60ch, which is
+   the correct readable line length for prose). The sixteenth is REAL and is an owner item:
+   `--ds-r-input` is referenced by `.ct-field input/textarea/select` in structural.css and
+   is defined in no sheet. G8 explicitly excludes chrome.css from the P8 foundation, which is
+   why chrome.css was reachable when structural.css was not. Both causes are now fixed — the
+   A3 predicate accepts a namespaced display token upstream, and --ds-r-input is defined in
+   tokens.css — so the markers were moved to where they belong.
+   ============================================================================ */
+/* MOVED. These 11 markers now sit with every other semantic marker in the structural sheet's
+   MARKER CLASSES block, which is where they always belonged. Nothing renders differently —
+   they were empty here and are empty there. */
