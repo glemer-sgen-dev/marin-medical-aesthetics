@@ -38,7 +38,23 @@ across nine sections. Minting a 60th page would have re-created exactly the cann
 the 301 ordinance spends four rows resolving elsewhere. The redirect honours the recorded
 decision and keeps the URL's equity.
 
-## The blog namespace needs one deliberate choice
+## The blog namespace — decided
+
+**Owner decision 2026-08-25: `/blog/` routes to WordPress.** The build's blog page is not
+served in production; WordPress's real archive answers that address, so the footer's
+"Articles" link — present on all 59 pages — lands on the ~98 live articles. No markup change
+was needed: the footer already points at `/blog/`, which is now unambiguously WordPress's.
+
+`/blog/` is listed explicitly in `wordpress-retained-paths.txt` rather than left to the
+`/blog/*` glob, because that pattern matches `/blog/page/2/` but not necessarily the bare
+`/blog/` — and the bare one is exactly what this decision is about. WordPress therefore
+serves **203** paths, not 202.
+
+The build's `blog.html` still exists in the tree and is harmless once routing is in place.
+Dropping it outright would be cleaner but changes the closed page list, which is a
+prep-phase edit behind an owner gate — not worth it for a file production never serves.
+
+## Background: why the choice was needed
 
 The build ships a `blog.html` that reads *"No posts yet — nothing has been published here"*,
 and the footer utility rail links to it from **all 59 pages**. WordPress serves a real blog

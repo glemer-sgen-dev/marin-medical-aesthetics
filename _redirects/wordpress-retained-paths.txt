@@ -1,19 +1,28 @@
 # Paths WordPress must keep serving after cutover.
-# Generated from a full live census 2026-08-25. Total 202 URLs.
+# Generated from a full live census 2026-08-25. 203 URLs.
 #
-# Four pattern rules cover 104 of them:
-#   /tag/*   (70 URLs)
+# Pattern rules cover 105 of them:
+#   /tag/*        (70 URLs)
 #   /category/*   (15 URLs)
-#   /author/*   (10 URLs)
-#   /blog/*   (9 URLs)
+#   /author/*     (10 URLs)
+#   /blog/*        (9 URLs — pagination: /blog/page/2/ …)
+#   /blog/         (1 URL  — the blog index itself, see below)
 #
 # The remaining 98 are root-level article paths with no shared prefix,
 # so they must be listed individually.
+#
+# /blog/ IS LISTED SEPARATELY ON PURPOSE. It was not in the census orphan set, because
+# the build also produces a /blog/ page — that page reads "No posts yet" and is linked
+# from all 59 pages, while WordPress serves the real archive at the same address. Owner
+# decision 2026-08-25: /blog/ routes to WORDPRESS. It is spelled out rather than left to
+# `/blog/*` because that glob matches /blog/page/2/ but not necessarily the bare /blog/,
+# and this is precisely the URL the decision is about.
 
 /tag/*
 /category/*
 /author/*
 /blog/*
+/blog/
 
 /3-skincare-trends/
 /4-ways-to-improve-your-skin-care-routine/
