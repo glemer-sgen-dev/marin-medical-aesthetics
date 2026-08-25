@@ -1,10 +1,16 @@
 # Cutover risk — 203 live URLs have no destination
 
-> **RESOLVED 2026-08-25 — 202 of the 203.** The owner decided the blog stays on WordPress,
-> so every article, tag, category, author and pagination URL below keeps serving from the
-> existing install. Nothing is migrated and nothing 404s. **One item survives this decision:**
-> `/areas-of-concern/pigmented-lesions/`, which is not a blog URL. See `ROUTING.md` for the
-> split and `wordpress-retained-paths.txt` for the 202 paths.
+> **RESOLVED 2026-08-25 — all 203.** The owner decided the blog stays on WordPress, so every
+> article, tag, category, author and pagination URL below keeps serving from the existing
+> install (202 URLs — nothing migrated, nothing 404s). The remaining one,
+> `/areas-of-concern/pigmented-lesions/`, is not a blog URL and is handled by a 301 to
+> `/areas-of-concern/age-spots/`: the prep page inventory folded that concern into the
+> age-spots leaf, so the URL has a home rather than needing a 60th page. See `ROUTING.md`
+> for the split, `wordpress-retained-paths.txt` for the 202 paths, and `redirects.csv` for
+> the rule.
+>
+> **Nothing is applied to production yet** — `verify-redirects.mjs` reports 5 READY rules
+> outstanding.
 >
 > The measurement below is left intact as the record of what was at stake.
 

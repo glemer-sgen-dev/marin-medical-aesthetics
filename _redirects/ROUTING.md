@@ -26,11 +26,17 @@ utility pages. Its `sitemap.xml` lists exactly those 58 and deliberately omits `
 **There are zero exact path collisions** between the two sets. That was checked, not
 assumed.
 
-## The one thing this decision does not solve
+## The one URL outside the blog decision — resolved
 
-`/areas-of-concern/pigmented-lesions/` — live, 200, ~7,400 words, and in **neither** the
-handoff **nor** the prep spec. It is not a blog URL, so the blog decision does not cover it.
-It still needs a call: become the 59th page, or 301 to the nearest concern.
+`/areas-of-concern/pigmented-lesions/` is live and is not a blog URL, so the decision above
+does not cover it. It is handled by a **301 to `/areas-of-concern/age-spots/`**.
+
+It was briefly treated as a missing page. It is not: `page-inventory.md` records the
+age-spots leaf as *"Age spots / sun-induced pigmented lesions"*, so the prep phase
+consolidated the two concerns deliberately, and the build's age-spots page covers the ground
+across nine sections. Minting a 60th page would have re-created exactly the cannibalisation
+the 301 ordinance spends four rows resolving elsewhere. The redirect honours the recorded
+decision and keeps the URL's equity.
 
 ## The blog namespace needs one deliberate choice
 
