@@ -108,6 +108,15 @@
 .hours-row{display:flex;justify-content:space-between;gap:16px;padding:9px 0;border-bottom:1px solid var(--ds-line);font-size:13.5px;color:var(--ds-ink-soft)}
 .hours-flag{font-size:12.5px;color:var(--ds-signature);line-height:1.55;margin-top:12px}
 .ftr-legal{max-width:var(--ds-container-max);margin:var(--ds-space-xl) auto 0;padding:var(--ds-space-md) var(--ds-space-lg) 0;border-top:1px solid var(--ds-line);display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font-size:12px;color:var(--ds-ink-soft)}
+/* The utility rail. `.ftr a` above is display:block (stacked column links), which would break these
+   into one line each — they are inline-block instead, and carry their own padding so each stays a
+   >=24px target under WCAG 2.5.8 without inheriting the 44px column padding. They live in the legal
+   strip ON PURPOSE: the approved footer pick is FOOTER-STYLES #14, a 3-column hours-first close,
+   chosen over "#1, the 4-col dark reflex the catalog flags as overused" — so the fix for the
+   unreachable /blog/ and /media/ pages must not add a fourth column and undo that decision. */
+.ftr-legal__links{display:flex;flex-wrap:wrap;gap:0 18px;align-items:center}
+.ftr-legal__links a{display:inline-block;padding:5px 0;color:var(--ds-ink-soft);text-decoration:none;border-bottom:1px solid transparent}
+.ftr-legal__links a:hover,.ftr-legal__links a:focus-visible{color:var(--ds-accent);border-bottom-color:var(--ds-accent)}
 
 @media (max-width:900px){
   /* Preview scaffolding only: stages 2 and 3 reserve vertical room for the open panels, but the nav is

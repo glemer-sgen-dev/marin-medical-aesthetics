@@ -137,8 +137,26 @@
       <a href="contact.html">Contact</a>
     </div>
   </div>
+  <!-- The utility rail. /blog/ and /media/ were BUILT but had ZERO inbound links from any of the 59
+       pages — the C1 sitemap carries a nav[] of 6 items and NO footer[] block, so nothing ever
+       rendered them and both shipped unreachable; store and events each had a single link buried in
+       body copy, and the three legal pages linked only to EACH OTHER (reachable solely via the
+       disclaimer link on treatment pages). These go in the LEGAL STRIP, not a fourth column: the
+       approved pick is FOOTER-STYLES #14, a 3-column hours-first close, chosen over "#1, the 4-col
+       dark reflex the catalog flags as overused", and a fourth column would undo that decision.
+       /download-app/ is deliberately absent — the sitemap records it as "(orphaned) · owner-add:
+       retained as an orphan page", and the page itself tells a non-patient to book, not download. -->
   <div class="ftr-legal">
     <span>Marin Medical Aesthetics, San Anselmo, California</span>
+    <span class="ftr-legal__links">
+      <a href="blog.html">Articles</a>
+      <a href="media.html">Media</a>
+      <a href="store.html">Store</a>
+      <a href="category-events.html">Events</a>
+      <a href="privacy-policy.html">Privacy</a>
+      <a href="disclaimer.html">Disclaimer</a>
+      <a href="accessibility.html">Accessibility</a>
+    </span>
     <span>Individual experiences vary.</span>
   </div>
 </footer>
