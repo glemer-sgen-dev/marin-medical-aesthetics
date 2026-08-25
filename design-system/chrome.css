@@ -124,11 +124,19 @@
 .ftr-legal__links a{display:inline-block;padding:5px 0;color:var(--ds-ink-soft);text-decoration:none;border-bottom:1px solid transparent}
 .ftr-legal__links a:hover,.ftr-legal__links a:focus-visible{color:var(--ds-accent);border-bottom-color:var(--ds-accent)}
 
-@media (max-width:900px){
-  /* Preview scaffolding only: stages 2 and 3 reserve vertical room for the open panels, but the nav is
-     hidden below 900px so those panels never render, leaving tall blank gaps. */
+/* The nav/drawer swap happens at 1199, NOT at 900 with the rest of the mobile rules. Six items —
+   brand, four nav links, the phone pill and the Book button — need about 1200px to sit on one line;
+   measured, they fit at 1200+ and wrap below it, so between 901 and 1199 the bar was rendering
+   "Areas of / Concern", "Success / Stories" and "Book a / consultation" each on two lines. That was
+   true before the header went full-width too (the bar was viewport-limited at those widths, so the
+   old 1160 cap never applied). Below 1199 the drawer takes over, which is the designed alternative
+   and already carries the full nav. */
+@media (max-width:1199px){
   .nav{display:none}
   .site-header__hamburger{display:flex}
+}
+
+@media (max-width:900px){
   .hdr-in{height:70px;gap:var(--ds-space-sm);padding-left:var(--ds-space-md);padding-right:var(--ds-space-2xs)}
   .closing h2{font-size:34px}
   .ftr-in{grid-template-columns:1fr;gap:var(--ds-space-lg)}
