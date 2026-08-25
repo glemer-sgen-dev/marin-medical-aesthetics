@@ -1,0 +1,10 @@
+source,target,code,status,note
+/exion-skin-tightening-in-the-bay-area/,/treatments/exion-by-btl/,301,READY,"Cannibalisation loser 1 of 3. Source verified 200 (not yet redirected); destination verified 200."
+/skin-tightening/,/areas-of-concern/loose-skin/,301,READY,"Cannibalisation loser 2 of 3. Under a concern-led IA the bare head term is a CONCERN, not a device. Source verified 200; destination verified 200."
+/non-surgical-neck-skin-tightening-in-san-anselmo/,/areas-of-concern/turkey-neck/,301,READY,"Cannibalisation loser 3 of 3. Source verified 200; destination verified 200."
+/dt_mega_menus/megamenu-3/,,410,READY,"410 GONE - NOT a 301. Production currently 301s this to / which is the exact merge the ordinance argues against. Redirection plugin: set action to 'Do nothing' with HTTP code 410, or use the nginx rule."
+/treatments/vanquish/,/treatments/vanquish-me/,301,ALREADY-LIVE,"Verified in force 2026-08-25. No action needed. The ordinance recorded this as NOT live; that is stale."
+/braintap-sessions/,/treatments/braintap-sessions/,301,ALREADY-LIVE,"Verified in force 2026-08-25 (X-Redirect-By: WordPress). No action needed."
+/book-an-appointment/,/consultation/,301,OWNER-DECISION,"NOT IMPLEMENTED. The ordinance flags this as recommended-not-asserted: both pages self-canonical so the site asserts no winner, and it reverses the dominant internal signal (62 files vs 8) which measures nav-template repetition, not equity. No backlink or Ads data was ever captured."
+/emsculpt-neo-special/,/treatments/emsculpt-neo/,301,OWNER-DECISION,"NOT IMPLEMENTED. Commercial, not an IA call - this is a LIVE promo page. Its tel: CTA is conversion-tracked to the retiring microsite's number, so the tracked conversion path and the redirect plan already contradict each other."
+/emsculpt-neo-special//,/treatments/emsculpt-neo/,301,OWNER-DECISION,"NOT IMPLEMENTED. Malformed double-slash variant published in the footer on 2 files; it needs its own rule or it survives the parent's retirement. Note nginx merge_slashes normalises this before location matching."
