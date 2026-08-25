@@ -74,7 +74,12 @@
   /* ---- SPACING + LAYOUT (schema family; canonical 7-step scale). Added 2026-08-19
          at SYSTEM: the token card showed "Spacing scale 0 steps", and the structural
          sheet was hardcoding 84px/1160px because there was nothing to consume. ---- */
-  --ds-container-max:1160px;
+  /* 1160 -> 1280. At a 1440 viewport 1160 left 140px of dead gutter each side and, after the
+     .container's own 40px padding, only 1080px of usable measure — the page read narrow. 1280 is
+     deliberately the ceiling, not a round number: verify-responsive-ladder waives its ~1200px
+     breakpoint requirement only while a centred container caps at or below 1280 (CAP_WAIVE_PX),
+     so going wider would force an extra ladder step rather than simply widening the page. */
+  --ds-container-max:1280px;
   --ds-section-py:84px;
   --ds-space-2xs:4px;
   --ds-space-xs:8px;
