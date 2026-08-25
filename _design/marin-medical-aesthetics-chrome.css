@@ -18,7 +18,13 @@
 .skip:focus{left:var(--ds-space-md);top:var(--ds-space-md)}
 
 .hdr{position:relative;background:var(--ds-bg-surface);border-bottom:1px solid var(--ds-line);z-index:var(--ds-z-sticky)}
-.hdr-in{max-width:var(--ds-container-max);margin:0 auto;padding:0 var(--ds-space-lg);height:84px;display:flex;align-items:center;gap:var(--ds-space-lg)}
+/* The header bar spans the FULL viewport with a 40px gutter, rather than being capped at the body
+   container. It was sharing --ds-container-max (1160px), which on a 1440 screen squeezed the brand,
+   four nav items, the phone pill and the Book button into 1080px — so "Areas of Concern", "Success
+   Stories" and the button each wrapped to two lines against a fixed 84px bar. The body copy still
+   wants a measure; a navigation bar does not. Height stays 84px, so the chrome's locked proportions
+   are unchanged. */
+.hdr-in{max-width:none;margin:0 auto;padding:0 var(--ds-space-lg);height:84px;display:flex;align-items:center;gap:var(--ds-space-lg)}
 /* min-height rather than padding: the brand is a flex child of a fixed-height header bar, so padding
    would fight the bar's own alignment. inline-flex + 44px min-height grows only the HIT AREA — the
    wordmark stays where it sits. It measured 136x38: legal under WCAG 2.5.8 (24px) but short of the
