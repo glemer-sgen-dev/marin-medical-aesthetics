@@ -1,0 +1,17 @@
+# robots.txt — marinmedicalaesthetics.com (PRODUCTION)
+#
+# This file is for the production domain. The GitHub Pages PREVIEW deliberately
+# serves a different robots.txt that disallows everything, because the preview
+# still carries unresolved owner placeholders (the footer's "Owner to confirm the
+# published hour-set" and privacy-policy clauses reading "Awaiting counsel") and
+# is served from a github.io host rather than the practice's own domain. Do not
+# copy this file over that one.
+#
+# Nothing is disallowed here: this build is 59 real pages with no tag, author or
+# paginated archive routes to exclude. (The legacy WordPress site carries 70 /tag/
+# and 10 /author/ URLs; none of them exists in this build.)
+
+User-agent: *
+Allow: /
+
+Sitemap: https://www.marinmedicalaesthetics.com/sitemap.xml
