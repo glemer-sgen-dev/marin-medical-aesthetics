@@ -1,0 +1,70 @@
+{
+  "slug": "treatments-clear-v",
+  "ts": 1787633142276,
+  "verdict": "pass",
+  "breakpoints": [
+    {
+      "bp": "desktop",
+      "w": 1440,
+      "contrastFlags": 0,
+      "hardInvisible": 0,
+      "worst": [],
+      "overflowPx": 0,
+      "sheetsLoaded": true,
+      "h1px": 60,
+      "heroVar": "",
+      "scrollHeight": 6235
+    },
+    {
+      "bp": "laptop",
+      "w": 1280,
+      "contrastFlags": 0,
+      "hardInvisible": 0,
+      "worst": [],
+      "overflowPx": 0,
+      "sheetsLoaded": true,
+      "h1px": 60,
+      "heroVar": "",
+      "scrollHeight": 6235
+    },
+    {
+      "bp": "tablet",
+      "w": 834,
+      "contrastFlags": 0,
+      "hardInvisible": 0,
+      "worst": [],
+      "overflowPx": 0,
+      "sheetsLoaded": true,
+      "h1px": 35,
+      "heroVar": "",
+      "scrollHeight": 6513
+    },
+    {
+      "bp": "mobile",
+      "w": 390,
+      "contrastFlags": 0,
+      "hardInvisible": 0,
+      "worst": [],
+      "overflowPx": 0,
+      "sheetsLoaded": true,
+      "h1px": 28,
+      "heroVar": "",
+      "scrollHeight": 7792
+    }
+  ],
+  "screenshots": [
+    "_audit/_renders/treatments-clear-v-desktop.png",
+    "_audit/_renders/treatments-clear-v-laptop.png",
+    "_audit/_renders/treatments-clear-v-tablet.png",
+    "_audit/_renders/treatments-clear-v-mobile.png"
+  ],
+  "sheetsLoaded": true,
+  "h1px": 60,
+  "scrollHeight": 6235,
+  "expectedSheets": [
+    "marin-medical-aesthetics-tokens.css",
+    "marin-medical-aesthetics-chrome.css",
+    "marin-medical-aesthetics-structural.css"
+  ],
+  "unstyled": null
+}

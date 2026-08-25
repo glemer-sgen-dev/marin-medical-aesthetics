@@ -1,6 +1,6 @@
 {
   "slug": "areas-of-concern-fine-lines",
-  "ts": 1787546386713,
+  "ts": 1787632869685,
   "verdict": "pass",
   "breakpoints": [
     {
@@ -13,7 +13,7 @@
       "sheetsLoaded": true,
       "h1px": 60,
       "heroVar": "",
-      "scrollHeight": 5308
+      "scrollHeight": 5367
     },
     {
       "bp": "laptop",
@@ -25,7 +25,7 @@
       "sheetsLoaded": true,
       "h1px": 60,
       "heroVar": "",
-      "scrollHeight": 5308
+      "scrollHeight": 5367
     },
     {
       "bp": "tablet",
@@ -37,7 +37,7 @@
       "sheetsLoaded": true,
       "h1px": 35,
       "heroVar": "",
-      "scrollHeight": 5998
+      "scrollHeight": 6059
     },
     {
       "bp": "mobile",
@@ -49,7 +49,7 @@
       "sheetsLoaded": true,
       "h1px": 28,
       "heroVar": "",
-      "scrollHeight": 6877
+      "scrollHeight": 6984
     }
   ],
   "screenshots": [
@@ -60,7 +60,7 @@
   ],
   "sheetsLoaded": true,
   "h1px": 60,
-  "scrollHeight": 5308,
+  "scrollHeight": 5367,
   "expectedSheets": [
     "marin-medical-aesthetics-tokens.css",
     "marin-medical-aesthetics-chrome.css",

@@ -1,0 +1,70 @@
+{
+  "slug": "what-to-expect-during-your-med-spa-consultation-in-san-anselmo",
+  "ts": 1787633294602,
+  "verdict": "pass",
+  "breakpoints": [
+    {
+      "bp": "desktop",
+      "w": 1440,
+      "contrastFlags": 0,
+      "hardInvisible": 0,
+      "worst": [],
+      "overflowPx": 0,
+      "sheetsLoaded": true,
+      "h1px": 52,
+      "heroVar": "",
+      "scrollHeight": 4249
+    },
+    {
+      "bp": "laptop",
+      "w": 1280,
+      "contrastFlags": 0,
+      "hardInvisible": 0,
+      "worst": [],
+      "overflowPx": 0,
+      "sheetsLoaded": true,
+      "h1px": 52,
+      "heroVar": "",
+      "scrollHeight": 4249
+    },
+    {
+      "bp": "tablet",
+      "w": 834,
+      "contrastFlags": 0,
+      "hardInvisible": 0,
+      "worst": [],
+      "overflowPx": 0,
+      "sheetsLoaded": true,
+      "h1px": 31,
+      "heroVar": "",
+      "scrollHeight": 4788
+    },
+    {
+      "bp": "mobile",
+      "w": 390,
+      "contrastFlags": 0,
+      "hardInvisible": 0,
+      "worst": [],
+      "overflowPx": 0,
+      "sheetsLoaded": true,
+      "h1px": 31,
+      "heroVar": "",
+      "scrollHeight": 6277
+    }
+  ],
+  "screenshots": [
+    "_audit/_renders/what-to-expect-during-your-med-spa-consultation-in-san-anselmo-desktop.png",
+    "_audit/_renders/what-to-expect-during-your-med-spa-consultation-in-san-anselmo-laptop.png",
+    "_audit/_renders/what-to-expect-during-your-med-spa-consultation-in-san-anselmo-tablet.png",
+    "_audit/_renders/what-to-expect-during-your-med-spa-consultation-in-san-anselmo-mobile.png"
+  ],
+  "sheetsLoaded": true,
+  "h1px": 52,
+  "scrollHeight": 4249,
+  "expectedSheets": [
+    "marin-medical-aesthetics-tokens.css",
+    "marin-medical-aesthetics-chrome.css",
+    "marin-medical-aesthetics-structural.css"
+  ],
+  "unstyled": null
+}

@@ -1,6 +1,6 @@
 {
   "slug": "areas-of-concern-core-strength",
-  "ts": 1787546368495,
+  "ts": 1787632851397,
   "verdict": "pass",
   "breakpoints": [
     {
@@ -13,7 +13,7 @@
       "sheetsLoaded": true,
       "h1px": 60,
       "heroVar": "",
-      "scrollHeight": 5944
+      "scrollHeight": 6002
     },
     {
       "bp": "laptop",
@@ -25,7 +25,7 @@
       "sheetsLoaded": true,
       "h1px": 60,
       "heroVar": "",
-      "scrollHeight": 5944
+      "scrollHeight": 6002
     },
     {
       "bp": "tablet",
@@ -37,7 +37,7 @@
       "sheetsLoaded": true,
       "h1px": 35,
       "heroVar": "",
-      "scrollHeight": 6530
+      "scrollHeight": 6591
     },
     {
       "bp": "mobile",
@@ -49,7 +49,7 @@
       "sheetsLoaded": true,
       "h1px": 28,
       "heroVar": "",
-      "scrollHeight": 7409
+      "scrollHeight": 7516
     }
   ],
   "screenshots": [
@@ -60,7 +60,7 @@
   ],
   "sheetsLoaded": true,
   "h1px": 60,
-  "scrollHeight": 5944,
+  "scrollHeight": 6002,
   "expectedSheets": [
     "marin-medical-aesthetics-tokens.css",
     "marin-medical-aesthetics-chrome.css",
