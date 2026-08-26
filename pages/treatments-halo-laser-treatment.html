@@ -14,7 +14,7 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap">
 <link rel="stylesheet" href="../_design/marin-medical-aesthetics-tokens.css?v=31139c7b">
   <link rel="stylesheet" href="../_design/marin-medical-aesthetics-chrome.css?v=ce457ad2">
-  <link rel="stylesheet" href="../_design/marin-medical-aesthetics-structural.css?v=18fe0a76">
+  <link rel="stylesheet" href="../_design/marin-medical-aesthetics-structural.css?v=2fe4e0fb">
 
 </head>
 <body>
@@ -75,6 +75,9 @@
     </button>
   </div>
 </header>
+
+
+<script>document.documentElement.className += ' reveal-armed';</script>
 
 <main id="main">
 
@@ -422,6 +425,41 @@
   if (burger) burger.addEventListener('click', function () { setDrawer(drawer.getAttribute('aria-hidden') === 'true'); });
   if (closeBtn) closeBtn.addEventListener('click', function () { setDrawer(false); });
   document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && drawer && drawer.getAttribute('aria-hidden') === 'false') setDrawer(false); });
+})();
+
+/* SCROLL REVEAL, added 2026-08-26 — the un-hide half of the motion layer. The structural sheet holds
+   every top-level content band, and its direct columns, at opacity:0 under `html.reveal-armed` plus
+   (prefers-reduced-motion:no-preference). This adds .is-in as each band enters the viewport.
+
+   Three deliberate properties, because a hidden-by-default reveal on a LIVE medical site fails
+   catastrophically if the un-hide never runs:
+     - The FIRST band is marked in-view immediately and never animated. It is above the fold; animating
+       it delays LCP and reads as a broken page on load.
+     - A 2.5s FAILSAFE reveals anything the observer missed — a headless capture, an unusual viewport, a
+       scripted scroll, or an observer that simply never fired. No band can be left invisible.
+     - Reduced-motion, and a browser with no IntersectionObserver, both short-circuit to showAll() before
+       anything is observed; a mid-session switch to reduced-motion reveals the remainder at once.
+   The no-scripting case is handled by the arming line ahead of the content slot, not here. */
+(function () {
+  var bands = [].slice.call(document.querySelectorAll('main > section'));
+  if (!bands.length) return;
+  function showAll() { for (var j = 0; j < bands.length; j++) bands[j].classList.add('is-in'); }
+
+  var mq = window.matchMedia ? window.matchMedia('(prefers-reduced-motion: reduce)') : null;
+  if ((mq && mq.matches) || !('IntersectionObserver' in window)) { showAll(); return; }
+
+  bands[0].classList.add('is-in');
+
+  var io = new IntersectionObserver(function (entries) {
+    for (var k = 0; k < entries.length; k++) {
+      if (entries[k].isIntersecting) { entries[k].target.classList.add('is-in'); io.unobserve(entries[k].target); }
+    }
+  }, { rootMargin: '0px 0px -8% 0px', threshold: 0.01 });
+
+  for (var i = 1; i < bands.length; i++) io.observe(bands[i]);
+
+  setTimeout(showAll, 2500);
+  if (mq && mq.addEventListener) mq.addEventListener('change', function () { if (mq.matches) showAll(); });
 })();
 </script>
 </body>
