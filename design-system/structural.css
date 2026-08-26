@@ -1010,3 +1010,56 @@ blockquote.q{margin:0}
   .kit-book td{border-bottom:0;padding:0}
   .kit-book td:first-child{padding-right:0;margin-bottom:4px}
 }
+
+/* ═══════════════════════════════════════════════════════════════════════════════
+   SCROLL REVEAL — the design system's motion layer, wired in 2026-08-26.
+
+   WHY: this build shipped with ZERO @keyframes and ZERO animation properties. The
+   only motion was .wow-lift on hover (107 uses). The skill's own gate
+   verify-motion-js-linked.mjs documents a reveal layer — ".reveal / .wow-stagger
+   held at opacity:0, un-hidden when an IntersectionObserver adds the in-view
+   class" — and calls it "part of the locked design system". It was never wired
+   into this tree: .reveal/.wow-stagger are defined nowhere and used nowhere, and
+   0 of 59 assembled pages carried an observer. C7 §4 specifies NO motion
+   direction, so motion is the build's own P8 call; C7 §0 records energy "bold"
+   and warns that a restrained treatment "would be a tone regression".
+
+   WHY IT IS ATTRIBUTE-FREE: the forced G-DOM grammar guarantees
+   section > div.container > div.row > div.col, so targeting that chain reaches
+   every band on all 59 pages WITHOUT editing a single content fragment. That
+   keeps a post-launch change off the content gates entirely. `.is-in` is the
+   in-view class; G-ORPHAN's UTIL_RE exempts the `is-` prefix, so no orphan.
+
+   HOW IT FAILS SAFE — four independent guards, because hidden-by-default reveal
+   on a LIVE medical site fails catastrophically if the un-hide never runs:
+     1. The whole block sits inside (prefers-reduced-motion:no-preference) — a
+        reduced-motion visitor never receives the hidden state at all.
+     2. Every hiding rule is scoped to `html.reveal-armed`, a class set by one inline
+        line in the chrome carrier ahead of the content slot. No JS, no class, no
+        hiding — so content can never be stranded behind a script that did not run.
+        (A <noscript> CSS override was tried first and had to be abandoned: any style
+        tag in the carrier makes verify-chrome-parity's isStyledDoc() treat it as a
+        complete styled document, after which the gate measures an UNSTYLED page.)
+     3. The carrier marks the FIRST band in-view immediately — never animate above
+        the fold; it costs LCP and reads as broken.
+     4. A 2.5s failsafe in the carrier reveals any band the observer missed
+        (headless capture, unusual viewport, scripted scroll).
+
+   SCOPED TO `main >` DELIBERATELY: the chrome — header, the .closing precta CTA,
+   footer, drawer — is never hidden. The closing CTA must never depend on JS to
+   appear. Transform is dropped to `none` once in-view so no lingering containing
+   block can constrain the sticky TOC (ol.kit-toc, line ~317).
+   ═══════════════════════════════════════════════════════════════════════════════ */
+@media (prefers-reduced-motion:no-preference){
+  html.reveal-armed main>section{opacity:0;transform:translateY(18px);
+    transition:opacity var(--ds-dur-slow) var(--ds-ease-out),transform var(--ds-dur-slow) var(--ds-ease-out)}
+  html.reveal-armed main>section.is-in{opacity:1;transform:none}
+
+  /* STAGGER — direct row only, so a nested row is never hidden twice. */
+  html.reveal-armed main>section>.container>.row>.col{opacity:0;transform:translateY(14px);
+    transition:opacity .55s var(--ds-ease-out),transform .55s var(--ds-ease-out)}
+  html.reveal-armed main>section.is-in>.container>.row>.col{opacity:1;transform:none}
+  html.reveal-armed main>section.is-in>.container>.row>.col:nth-child(2){transition-delay:.08s}
+  html.reveal-armed main>section.is-in>.container>.row>.col:nth-child(3){transition-delay:.16s}
+  html.reveal-armed main>section.is-in>.container>.row>.col:nth-child(4){transition-delay:.24s}
+}
