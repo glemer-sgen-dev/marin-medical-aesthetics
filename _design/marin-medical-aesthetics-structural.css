@@ -261,6 +261,18 @@ a{color:var(--ds-accent)}
 
 /* --- structure modifiers (layout only, no skin) --- */
 .row--rail{display:grid;grid-template-columns:190px minmax(0,1fr) minmax(0,.72fr);gap:var(--ds-space-lg);align-items:start}
+/* TWO-CHILD RAIL — 2026-08-27. The template above declares THREE tracks, the first a
+   190px NAVIGATIONAL sidebar (see the sticky-TOC note below). Measured across the
+   build: 19 of the 20 `.row--rail` rows carry only TWO `.col` children — every
+   concern page — so their body copy landed in the 190px nav rail while the third
+   track sat empty: a 190/541 split inside a ~1200px container, ratio 2.85, with
+   ~430px of the row unused. Only consultation.html has the three children the
+   template was written for.
+   `:has(> .col:nth-child(2):last-child)` matches EXACTLY two children, so the real
+   three-column rail is untouched. A browser without :has simply keeps the old
+   template — degraded, not broken. Text takes the larger track: it is the reading
+   column, and the image beside it is support. */
+.row--rail:has(> .col:nth-child(2):last-child){grid-template-columns:minmax(0,1fr) minmax(0,.8fr)}
 .row--ledger{display:grid;grid-template-columns:minmax(0,1fr);gap:var(--ds-space-md)}
 .row--defs{display:grid;grid-template-columns:minmax(0,.42fr) minmax(0,1fr);gap:var(--ds-space-lg);align-items:start}
 
@@ -418,6 +430,10 @@ ol.kit-toc li{padding:0}
 
 @media (max-width:900px){
   .row--rail{grid-template-columns:minmax(0,1fr);gap:var(--ds-space-md)}
+  /* the two-child rail rule above is a :has() selector and therefore OUT-SPECIFIES the
+     plain .row--rail collapse on this line — without this matching-specificity override
+     the concern bands would stay two-up at 375px. */
+  .row--rail:has(> .col:nth-child(2):last-child){grid-template-columns:minmax(0,1fr)}
   .row--creed{grid-template-columns:minmax(0,1fr);gap:var(--ds-space-sm)}
   .row--banner{grid-template-columns:minmax(0,1fr);gap:var(--ds-space-md)}
   .kit-narrow{aspect-ratio:16/10;max-height:240px}

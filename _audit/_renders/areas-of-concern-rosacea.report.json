@@ -1,6 +1,6 @@
 {
   "slug": "areas-of-concern-rosacea",
-  "ts": 1787809526301,
+  "ts": 1787810964606,
   "verdict": "pass",
   "breakpoints": [
     {
@@ -13,7 +13,7 @@
       "sheetsLoaded": true,
       "h1px": 60,
       "heroVar": "",
-      "scrollHeight": 6220
+      "scrollHeight": 6035
     },
     {
       "bp": "laptop",
@@ -25,7 +25,7 @@
       "sheetsLoaded": true,
       "h1px": 60,
       "heroVar": "",
-      "scrollHeight": 6220
+      "scrollHeight": 6035
     },
     {
       "bp": "tablet",
@@ -60,7 +60,7 @@
   ],
   "sheetsLoaded": true,
   "h1px": 60,
-  "scrollHeight": 6220,
+  "scrollHeight": 6035,
   "expectedSheets": [
     "marin-medical-aesthetics-tokens.css",
     "marin-medical-aesthetics-chrome.css",

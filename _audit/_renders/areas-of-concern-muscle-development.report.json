@@ -1,6 +1,6 @@
 {
   "slug": "areas-of-concern-muscle-development",
-  "ts": 1787809519060,
+  "ts": 1787810957184,
   "verdict": "pass",
   "breakpoints": [
     {
@@ -13,7 +13,7 @@
       "sheetsLoaded": true,
       "h1px": 60,
       "heroVar": "",
-      "scrollHeight": 5905
+      "scrollHeight": 5897
     },
     {
       "bp": "laptop",
@@ -25,7 +25,7 @@
       "sheetsLoaded": true,
       "h1px": 60,
       "heroVar": "",
-      "scrollHeight": 5905
+      "scrollHeight": 5897
     },
     {
       "bp": "tablet",
@@ -60,7 +60,7 @@
   ],
   "sheetsLoaded": true,
   "h1px": 60,
-  "scrollHeight": 5905,
+  "scrollHeight": 5897,
   "expectedSheets": [
     "marin-medical-aesthetics-tokens.css",
     "marin-medical-aesthetics-chrome.css",

@@ -1,6 +1,6 @@
 {
   "slug": "areas-of-concern-uneven-skin-texture",
-  "ts": 1787809570735,
+  "ts": 1787811010292,
   "verdict": "pass",
   "breakpoints": [
     {
@@ -13,7 +13,7 @@
       "sheetsLoaded": true,
       "h1px": 60,
       "heroVar": "",
-      "scrollHeight": 6062
+      "scrollHeight": 5608
     },
     {
       "bp": "laptop",
@@ -25,7 +25,7 @@
       "sheetsLoaded": true,
       "h1px": 60,
       "heroVar": "",
-      "scrollHeight": 6062
+      "scrollHeight": 5608
     },
     {
       "bp": "tablet",
@@ -60,7 +60,7 @@
   ],
   "sheetsLoaded": true,
   "h1px": 60,
-  "scrollHeight": 6062,
+  "scrollHeight": 5608,
   "expectedSheets": [
     "marin-medical-aesthetics-tokens.css",
     "marin-medical-aesthetics-chrome.css",

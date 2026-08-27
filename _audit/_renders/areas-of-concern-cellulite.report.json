@@ -1,6 +1,6 @@
 {
   "slug": "areas-of-concern-cellulite",
-  "ts": 1787809460210,
+  "ts": 1787810931468,
   "verdict": "pass",
   "breakpoints": [
     {
@@ -13,7 +13,7 @@
       "sheetsLoaded": true,
       "h1px": 60,
       "heroVar": "",
-      "scrollHeight": 6096
+      "scrollHeight": 5883
     },
     {
       "bp": "laptop",
@@ -25,7 +25,7 @@
       "sheetsLoaded": true,
       "h1px": 60,
       "heroVar": "",
-      "scrollHeight": 6096
+      "scrollHeight": 5883
     },
     {
       "bp": "tablet",
@@ -60,7 +60,7 @@
   ],
   "sheetsLoaded": true,
   "h1px": 60,
-  "scrollHeight": 6096,
+  "scrollHeight": 5883,
   "expectedSheets": [
     "marin-medical-aesthetics-tokens.css",
     "marin-medical-aesthetics-chrome.css",

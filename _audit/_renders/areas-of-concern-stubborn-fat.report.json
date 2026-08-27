@@ -1,6 +1,6 @@
 {
   "slug": "areas-of-concern-stubborn-fat",
-  "ts": 1787809548533,
+  "ts": 1787810987070,
   "verdict": "pass",
   "breakpoints": [
     {
@@ -13,7 +13,7 @@
       "sheetsLoaded": true,
       "h1px": 60,
       "heroVar": "",
-      "scrollHeight": 6404
+      "scrollHeight": 5843
     },
     {
       "bp": "laptop",
@@ -25,7 +25,7 @@
       "sheetsLoaded": true,
       "h1px": 60,
       "heroVar": "",
-      "scrollHeight": 6404
+      "scrollHeight": 5843
     },
     {
       "bp": "tablet",
@@ -60,7 +60,7 @@
   ],
   "sheetsLoaded": true,
   "h1px": 60,
-  "scrollHeight": 6404,
+  "scrollHeight": 5843,
   "expectedSheets": [
     "marin-medical-aesthetics-tokens.css",
     "marin-medical-aesthetics-chrome.css",
