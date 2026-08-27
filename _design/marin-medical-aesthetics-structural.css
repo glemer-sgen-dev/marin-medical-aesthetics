@@ -1118,6 +1118,13 @@ ul.kit-toc li{border-bottom:0;padding:16px 20px;background:var(--ds-bg-surface);
 .kit-note{border-top:0;padding:14px 18px;background:var(--ds-bg-surface-2);
   border-left:3px solid var(--ds-issued);
   border-radius:0 var(--ds-r-control) var(--ds-r-control) 0}
+/* The note keeps its 40rem reading measure, which is correct for 13.5px copy — but
+   as a FILLED panel it now has a visible right edge, and with margin-bottom:0 the
+   button row started at its exact bottom (measured 0px on index §"Two doors"). A
+   tinted block bleeding straight into the buttons is what read as an unfinished
+   half-background. Separating them lets the callout close as its own object. */
+.kit-note{margin-bottom:var(--ds-space-md)}
+.kit-note:last-child{margin-bottom:0}
 .surface-dark .kit-note{background:var(--ds-bg-surface-3)}
 
 /* 5. Image plates carry the most visual weight on the page, so they get the full
@@ -1137,6 +1144,77 @@ ul.kit-toc li{border-bottom:0;padding:16px 20px;background:var(--ds-bg-surface);
    must not add leading or trailing space, or the section-cadence gate sees a
    different leading/trailing box and the band's rhythm breaks.
    ═══════════════════════════════════════════════════════════════════════════════ */
+/* ═══════════════════════════════════════════════════════════════════════════════
+   CONTINUOUS IMAGE MARQUEE — 2026-08-27, owner-requested "images moving
+   continuously". A single CSS animation translating a doubled track by exactly
+   -50%, so the second copy lands where the first began and the loop is seamless
+   with no JS and no jump.
+
+   WHY THE TRACK IS DOUBLED IN THE MARKUP: -50% only reads as continuous if the
+   track holds exactly two identical runs. That doubling is also why this needed
+   NEW assets — verify-image-reuse-cap allows a non-hero asset at most 2x per page,
+   so a marquee built from the 8 photos already on the homepage would have put every
+   one of them at 3x and failed RULE 1, and dropped distinct-vs-total below RULE 2's
+   floor. Proven by simulation before generating anything.
+
+   MOTION DISCIPLINE, matching the reveal layer already in this sheet:
+     · 60s per lap — a slow drift, not a carousel. On a medical site the imagery
+       should be calm; anything faster reads as advertising.
+     · pauses on hover AND on keyboard focus inside the strip, so a reader can stop
+       it to look and a keyboard user is never chasing a moving target.
+     · under prefers-reduced-motion the animation is removed entirely and the strip
+       becomes a normal horizontally-scrollable row — the content stays reachable
+       rather than simply freezing at whatever frame it stopped on.
+   ═══════════════════════════════════════════════════════════════════════════════ */
+/* the band's ground must MATCH the edge-fade gradient below, or the fade reads as a
+   grey smear instead of the strip running out of view. */
+.kit-marquee-band{padding:var(--ds-section-py) 0;background:var(--ds-bg-surface-2)}
+.kit-marquee{position:relative;overflow:hidden;width:100%}
+.kit-marquee__track{display:flex;gap:var(--ds-space-md);width:max-content;
+  animation:kit-marquee-drift 60s linear infinite;will-change:transform}
+.kit-marquee:hover .kit-marquee__track,
+.kit-marquee:focus-within .kit-marquee__track{animation-play-state:paused}
+.kit-marquee__item{flex:0 0 auto;width:clamp(200px,22vw,300px);aspect-ratio:4/3;
+  overflow:hidden;border-radius:var(--ds-r-surface);background:var(--ds-bg-surface-3);
+  box-shadow:var(--ds-shadow-card)}
+.kit-marquee__item img{width:100%;height:100%;object-fit:cover;display:block}
+@keyframes kit-marquee-drift{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+/* the two edges fade into the band so the strip reads as continuous rather than
+   as a row that has been cut off at the container. */
+.kit-marquee::before,.kit-marquee::after{content:"";position:absolute;top:0;bottom:0;
+  width:clamp(24px,6vw,80px);z-index:1;pointer-events:none}
+.kit-marquee::before{left:0;background:linear-gradient(90deg,var(--ds-bg-surface-2),transparent)}
+.kit-marquee::after{right:0;background:linear-gradient(270deg,var(--ds-bg-surface-2),transparent)}
+@media (prefers-reduced-motion:reduce){
+  .kit-marquee{overflow-x:auto}
+  .kit-marquee__track{animation:none;width:auto}
+  .kit-marquee::before,.kit-marquee::after{display:none}
+}
+@media (max-width:900px){
+  .kit-marquee__item{width:clamp(160px,44vw,220px)}
+  .kit-marquee__track{animation-duration:45s}
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════════
+   TILED-BACKGROUND SEAM — 2026-08-27. The "half background colour" the owner saw.
+
+   Sections carry their texture as an INLINE `style="background-image:url(...)"`, but
+   only some component classes ever declared `background-size:cover` (.kit-creed,
+   .kit-open, .kit-orderrail, .mm-founder, .mm-ceiling, .art-frame, .art-commit,
+   .ct-top, .ct-rec). Every OTHER class fell back to the CSS default —
+   `background-size:auto` + `background-repeat:repeat`. texture-cream-band.jpg is
+   1024x576, so on a 1440px viewport the texture ends at x=1024 and starts tiling:
+   a hard vertical seam with a visibly different tone either side of it.
+
+   MEASURED: 43 of 59 pages, across 9 component classes — .kit-ledger (32
+   occurrences), .kit-cost (30), .kit-next, .kit-open2, .kit-send, .kit-index,
+   .art-top, .kit-entry, .kit-plan. Not a one-section slip.
+
+   Targeting the inline-style attribute rather than listing the 9 classes fixes the
+   ones that exist AND any section that later carries a texture the same way. The
+   classes that already set cover are unaffected — they resolve to the same value. */
+main>section[style*="background-image"]{background-size:cover;background-position:center;background-repeat:no-repeat}
+
 /* ROW-TO-ROW RHYTHM — the systemic half of the spacing complaint. Sections stack
    several `.row`s inside one `.container`, and NOTHING separated them: the gap was
    whatever the last child's margin-bottom happened to be. Measured across 25 pages:

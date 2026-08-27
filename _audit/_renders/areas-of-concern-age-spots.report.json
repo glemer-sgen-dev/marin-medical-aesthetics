@@ -1,6 +1,6 @@
 {
   "slug": "areas-of-concern-age-spots",
-  "ts": 1787805812531,
+  "ts": 1787809453044,
   "verdict": "pass",
   "breakpoints": [
     {
@@ -13,7 +13,7 @@
       "sheetsLoaded": true,
       "h1px": 60,
       "heroVar": "",
-      "scrollHeight": 5798
+      "scrollHeight": 6251
     },
     {
       "bp": "laptop",
@@ -25,7 +25,7 @@
       "sheetsLoaded": true,
       "h1px": 60,
       "heroVar": "",
-      "scrollHeight": 5798
+      "scrollHeight": 6251
     },
     {
       "bp": "tablet",
@@ -37,7 +37,7 @@
       "sheetsLoaded": true,
       "h1px": 35,
       "heroVar": "",
-      "scrollHeight": 6745
+      "scrollHeight": 7326
     },
     {
       "bp": "mobile",
@@ -49,7 +49,7 @@
       "sheetsLoaded": true,
       "h1px": 28,
       "heroVar": "",
-      "scrollHeight": 7799
+      "scrollHeight": 8035
     }
   ],
   "screenshots": [
@@ -60,7 +60,7 @@
   ],
   "sheetsLoaded": true,
   "h1px": 60,
-  "scrollHeight": 5798,
+  "scrollHeight": 6251,
   "expectedSheets": [
     "marin-medical-aesthetics-tokens.css",
     "marin-medical-aesthetics-chrome.css",

@@ -64,5 +64,179 @@
     "prompt": "Editorial interior/still-life photography in soft natural daylight - a restrained cream, warm off-white and deep-navy palette, calm and clinical but warm rather than sterile, no people, no readable text, no branding, no visible device labels. Subject: a plain unframed oval hand mirror lying face-up on folded ivory linen beside a small matte ceramic dish, gentle directional window light casting one soft shadow. The mirror surface catches only pale daylight and the ceiling above it - empty of any face, figure or reflection of a person. CLOSE-UP composition seen from a low three-quarter angle: the mirror, the folded linen and the dish FILL most of the frame and are the clear subject, with only a shallow band of plain bare cream plaster wall behind them - the objects must not be small or lost in empty space. Quiet and unhurried but not empty. Shallow depth of field. Absolutely no framed pictures, no posters, no artwork, no signage, no logos, no lettering, no printed matter anywhere in frame. No watermark.",
     "image_size": "portrait_4_3",
     "out": "assets/detail-mirror-linen.jpg"
+  },
+  {
+    "id": "concern-acne-acne-scars",
+    "prompt": "Editorial interior/still-life photography in soft natural daylight - a restrained cream, warm off-white and deep-navy palette, calm and clinical but warm rather than sterile, no people, no bodies, no skin, no readable text, no branding, no visible device labels. Subject: three plain frosted-glass cleanser bottles and a folded muslin cloth arranged on a pale limestone tray. CLOSE-UP composition: the subject FILLS most of the frame against plain bare cream plaster or pale oak, never small or lost in empty space. Shallow depth of field, one soft directional shadow. Absolutely no framed pictures, no posters, no artwork, no signage, no logos, no lettering, no printed matter anywhere in frame. No watermark.",
+    "image_size": "portrait_4_3",
+    "out": "assets/concern-acne-acne-scars.jpg"
+  },
+  {
+    "id": "concern-age-spots",
+    "prompt": "Editorial interior/still-life photography in soft natural daylight - a restrained cream, warm off-white and deep-navy palette, calm and clinical but warm rather than sterile, no people, no bodies, no skin, no readable text, no branding, no visible device labels. Subject: a pair of tortoiseshell reading glasses and a small amber glass dropper bottle arranged on a cream stone tray. CLOSE-UP composition: the objects FILL most of the frame and are unmistakably the subject, with only a shallow band of plain background behind them - they must not be small or lost in empty space, and the frame must NOT be mostly bare wall. Shallow depth of field, one soft directional shadow. Absolutely no framed pictures, no posters, no artwork, no signage, no logos, no lettering, no printed matter anywhere in frame. No watermark.",
+    "image_size": "portrait_4_3",
+    "out": "assets/concern-age-spots.jpg"
+  },
+  {
+    "id": "concern-broken-capillaries",
+    "prompt": "Editorial interior/still-life photography in soft natural daylight - a restrained cream, warm off-white and deep-navy palette, calm and clinical but warm rather than sterile, no people, no bodies, no skin, no readable text, no branding, no visible device labels. Subject: a slender clear glass carafe of water on a stone shelf, daylight refracting through it into fine bright lines. CLOSE-UP composition: the subject FILLS most of the frame against plain bare cream plaster or pale oak, never small or lost in empty space. Shallow depth of field, one soft directional shadow. Absolutely no framed pictures, no posters, no artwork, no signage, no logos, no lettering, no printed matter anywhere in frame. No watermark.",
+    "image_size": "portrait_4_3",
+    "out": "assets/concern-broken-capillaries.jpg"
+  },
+  {
+    "id": "concern-cellulite",
+    "prompt": "Editorial interior/still-life photography in soft natural daylight - a restrained cream, warm off-white and deep-navy palette, calm and clinical but warm rather than sterile, no people, no bodies, no skin, no readable text, no branding, no visible device labels. Subject: a neat stack of folded waffle-weave cotton towels on a pale oak bench. CLOSE-UP composition: the subject FILLS most of the frame against plain bare cream plaster or pale oak, never small or lost in empty space. Shallow depth of field, one soft directional shadow. Absolutely no framed pictures, no posters, no artwork, no signage, no logos, no lettering, no printed matter anywhere in frame. No watermark.",
+    "image_size": "portrait_4_3",
+    "out": "assets/concern-cellulite.jpg"
+  },
+  {
+    "id": "concern-core-strength",
+    "prompt": "Editorial interior/still-life photography in soft natural daylight - a restrained cream, warm off-white and deep-navy palette, calm and clinical but warm rather than sterile, no people, no bodies, no skin, no readable text, no branding, no visible device labels. Subject: a rolled charcoal exercise mat standing upright beside a plain oak stool in a bright empty studio corner. CLOSE-UP composition: the subject FILLS most of the frame against plain bare cream plaster or pale oak, never small or lost in empty space. Shallow depth of field, one soft directional shadow. Absolutely no framed pictures, no posters, no artwork, no signage, no logos, no lettering, no printed matter anywhere in frame. No watermark.",
+    "image_size": "portrait_4_3",
+    "out": "assets/concern-core-strength.jpg"
+  },
+  {
+    "id": "concern-double-chin",
+    "prompt": "Editorial interior/still-life photography in soft natural daylight - a restrained cream, warm off-white and deep-navy palette, calm and clinical but warm rather than sterile, no people, no bodies, no skin, no readable text, no branding, no visible device labels. Subject: a smooth matte ceramic vessel with a long clean profile, lit from one side so the light describes its curve. CLOSE-UP composition: the subject FILLS most of the frame against plain bare cream plaster or pale oak, never small or lost in empty space. Shallow depth of field, one soft directional shadow. Absolutely no framed pictures, no posters, no artwork, no signage, no logos, no lettering, no printed matter anywhere in frame. No watermark.",
+    "image_size": "portrait_4_3",
+    "out": "assets/concern-double-chin.jpg"
+  },
+  {
+    "id": "concern-fine-lines",
+    "prompt": "Editorial interior/still-life photography in soft natural daylight - a restrained cream, warm off-white and deep-navy palette, calm and clinical but warm rather than sterile, no people, no bodies, no skin, no readable text, no branding, no visible device labels. Subject: a sheet of ivory linen in raking window light, its fine creases catching the light. CLOSE-UP composition: the subject FILLS most of the frame against plain bare cream plaster or pale oak, never small or lost in empty space. Shallow depth of field, one soft directional shadow. Absolutely no framed pictures, no posters, no artwork, no signage, no logos, no lettering, no printed matter anywhere in frame. No watermark.",
+    "image_size": "portrait_4_3",
+    "out": "assets/concern-fine-lines.jpg"
+  },
+  {
+    "id": "concern-hyperpigmentation",
+    "prompt": "Editorial interior/still-life photography in soft natural daylight - a restrained cream, warm off-white and deep-navy palette, calm and clinical but warm rather than sterile, no people, no bodies, no skin, no readable text, no branding, no visible device labels. Subject: a row of tonal stone and clay swatches graded from pale cream through ochre to deep umber on a plaster surface. CLOSE-UP composition: the subject FILLS most of the frame against plain bare cream plaster or pale oak, never small or lost in empty space. Shallow depth of field, one soft directional shadow. Absolutely no framed pictures, no posters, no artwork, no signage, no logos, no lettering, no printed matter anywhere in frame. No watermark.",
+    "image_size": "portrait_4_3",
+    "out": "assets/concern-hyperpigmentation.jpg"
+  },
+  {
+    "id": "concern-jowls",
+    "prompt": "Editorial interior/still-life photography in soft natural daylight - a restrained cream, warm off-white and deep-navy palette, calm and clinical but warm rather than sterile, no people, no bodies, no skin, no readable text, no branding, no visible device labels. Subject: heavy ivory linen draped over the edge of a pale oak table, falling in soft weighted folds. CLOSE-UP composition: the subject FILLS most of the frame against plain bare cream plaster or pale oak, never small or lost in empty space. Shallow depth of field, one soft directional shadow. Absolutely no framed pictures, no posters, no artwork, no signage, no logos, no lettering, no printed matter anywhere in frame. No watermark.",
+    "image_size": "portrait_4_3",
+    "out": "assets/concern-jowls.jpg"
+  },
+  {
+    "id": "concern-loose-skin",
+    "prompt": "Editorial interior/still-life photography in soft natural daylight - a restrained cream, warm off-white and deep-navy palette, calm and clinical but warm rather than sterile, no people, no bodies, no skin, no readable text, no branding, no visible device labels. Subject: crumpled ivory silk resting in a shallow wide ceramic bowl, soft daylight raking across its folds. CLOSE-UP composition: the subject FILLS most of the frame against plain bare cream plaster or pale oak, never small or lost in empty space. Shallow depth of field, one soft directional shadow. Absolutely no framed pictures, no posters, no artwork, no signage, no logos, no lettering, no printed matter anywhere in frame. No watermark.",
+    "image_size": "portrait_4_3",
+    "out": "assets/concern-loose-skin.jpg"
+  },
+  {
+    "id": "concern-melasma",
+    "prompt": "Editorial interior/still-life photography in soft natural daylight - a restrained cream, warm off-white and deep-navy palette, calm and clinical but warm rather than sterile, no people, no bodies, no skin, no readable text, no branding, no visible device labels. Subject: three small shallow dishes of dry mineral pigment in cream, ochre and warm brown on a pale stone counter. CLOSE-UP composition: the subject FILLS most of the frame against plain bare cream plaster or pale oak, never small or lost in empty space. Shallow depth of field, one soft directional shadow. Absolutely no framed pictures, no posters, no artwork, no signage, no logos, no lettering, no printed matter anywhere in frame. No watermark.",
+    "image_size": "portrait_4_3",
+    "out": "assets/concern-melasma.jpg"
+  },
+  {
+    "id": "concern-muscle-development",
+    "prompt": "Editorial interior/still-life photography in soft natural daylight - a restrained cream, warm off-white and deep-navy palette, calm and clinical but warm rather than sterile, no people, no bodies, no skin, no readable text, no branding, no visible device labels. Subject: a coiled fabric resistance band and a pale wooden dowel resting on a clean oak bench. CLOSE-UP composition: the subject FILLS most of the frame against plain bare cream plaster or pale oak, never small or lost in empty space. Shallow depth of field, one soft directional shadow. Absolutely no framed pictures, no posters, no artwork, no signage, no logos, no lettering, no printed matter anywhere in frame. No watermark.",
+    "image_size": "portrait_4_3",
+    "out": "assets/concern-muscle-development.jpg"
+  },
+  {
+    "id": "concern-rosacea",
+    "prompt": "Editorial interior/still-life photography in soft natural daylight - a restrained cream, warm off-white and deep-navy palette, calm and clinical but warm rather than sterile, no people, no bodies, no skin, no readable text, no branding, no visible device labels. Subject: a shallow wide ceramic bowl of clear water beside a folded pale linen cloth and a small green sprig on a stone counter. CLOSE-UP composition: the objects FILL most of the frame and are unmistakably the subject, with only a shallow band of plain background behind them - they must not be small or lost in empty space, and the frame must NOT be mostly bare wall. Shallow depth of field, one soft directional shadow. Absolutely no framed pictures, no posters, no artwork, no signage, no logos, no lettering, no printed matter anywhere in frame. No watermark.",
+    "image_size": "portrait_4_3",
+    "out": "assets/concern-rosacea.jpg"
+  },
+  {
+    "id": "concern-sexual-function-enhancement",
+    "prompt": "Editorial interior/still-life photography in soft natural daylight - a restrained cream, warm off-white and deep-navy palette, calm and clinical but warm rather than sterile, no people, no bodies, no skin, no readable text, no branding, no visible device labels. Subject: a quiet private consulting corner - one upholstered chair, a closed panelled door and a small side table with a folded throw, soft indirect light, deliberately discreet and unclinical. CLOSE-UP composition: the subject FILLS most of the frame against plain bare cream plaster or pale oak, never small or lost in empty space. Shallow depth of field, one soft directional shadow. Absolutely no framed pictures, no posters, no artwork, no signage, no logos, no lettering, no printed matter anywhere in frame. No watermark.",
+    "image_size": "portrait_4_3",
+    "out": "assets/concern-sexual-function-enhancement.jpg"
+  },
+  {
+    "id": "concern-spider-veins",
+    "prompt": "Editorial interior/still-life photography in soft natural daylight - a restrained cream, warm off-white and deep-navy palette, calm and clinical but warm rather than sterile, no people, no bodies, no skin, no readable text, no branding, no visible device labels. Subject: fine bare winter branches seen against a bright frosted window, tracing delicate lines across the light. CLOSE-UP composition: the subject FILLS most of the frame against plain bare cream plaster or pale oak, never small or lost in empty space. Shallow depth of field, one soft directional shadow. Absolutely no framed pictures, no posters, no artwork, no signage, no logos, no lettering, no printed matter anywhere in frame. No watermark.",
+    "image_size": "portrait_4_3",
+    "out": "assets/concern-spider-veins.jpg"
+  },
+  {
+    "id": "concern-stubborn-fat",
+    "prompt": "Editorial interior/still-life photography in soft natural daylight - a restrained cream, warm off-white and deep-navy palette, calm and clinical but warm rather than sterile, no people, no bodies, no skin, no readable text, no branding, no visible device labels. Subject: a small balanced stack of smooth grey river stones on a pale linen runner. CLOSE-UP composition: the subject FILLS most of the frame against plain bare cream plaster or pale oak, never small or lost in empty space. Shallow depth of field, one soft directional shadow. Absolutely no framed pictures, no posters, no artwork, no signage, no logos, no lettering, no printed matter anywhere in frame. No watermark.",
+    "image_size": "portrait_4_3",
+    "out": "assets/concern-stubborn-fat.jpg"
+  },
+  {
+    "id": "concern-sun-damage",
+    "prompt": "Editorial interior/still-life photography in soft natural daylight - a restrained cream, warm off-white and deep-navy palette, calm and clinical but warm rather than sterile, no people, no bodies, no skin, no readable text, no branding, no visible device labels. Subject: a wide-brimmed natural straw sun hat resting on a pale oak bench beside a plain glass bottle of water. CLOSE-UP composition: the objects FILL most of the frame and are unmistakably the subject, with only a shallow band of plain background behind them - they must not be small or lost in empty space, and the frame must NOT be mostly bare wall. Shallow depth of field, one soft directional shadow. Absolutely no framed pictures, no posters, no artwork, no signage, no logos, no lettering, no printed matter anywhere in frame. No watermark.",
+    "image_size": "portrait_4_3",
+    "out": "assets/concern-sun-damage.jpg"
+  },
+  {
+    "id": "concern-turkey-neck",
+    "prompt": "Editorial interior/still-life photography in soft natural daylight - a restrained cream, warm off-white and deep-navy palette, calm and clinical but warm rather than sterile, no people, no bodies, no skin, no readable text, no branding, no visible device labels. Subject: a tall slender stoneware vase casting a long elegant shadow across a cream surface. CLOSE-UP composition: the subject FILLS most of the frame against plain bare cream plaster or pale oak, never small or lost in empty space. Shallow depth of field, one soft directional shadow. Absolutely no framed pictures, no posters, no artwork, no signage, no logos, no lettering, no printed matter anywhere in frame. No watermark.",
+    "image_size": "portrait_4_3",
+    "out": "assets/concern-turkey-neck.jpg"
+  },
+  {
+    "id": "concern-uneven-skin-texture",
+    "prompt": "Editorial interior/still-life photography in soft natural daylight - a restrained cream, warm off-white and deep-navy palette, calm and clinical but warm rather than sterile, no people, no bodies, no skin, no readable text, no branding, no visible device labels. Subject: three squares of natural sponge and a pumice stone on a pale limestone slab, raking light picking out their surface texture. CLOSE-UP composition: the objects FILL most of the frame and are unmistakably the subject, with only a shallow band of plain background behind them - they must not be small or lost in empty space, and the frame must NOT be mostly bare wall. Shallow depth of field, one soft directional shadow. Absolutely no framed pictures, no posters, no artwork, no signage, no logos, no lettering, no printed matter anywhere in frame. No watermark.",
+    "image_size": "portrait_4_3",
+    "out": "assets/concern-uneven-skin-texture.jpg"
+  },
+  {
+    "id": "concern-urinary-incontinence",
+    "prompt": "Editorial interior/still-life photography in soft natural daylight - a restrained cream, warm off-white and deep-navy palette, calm and clinical but warm rather than sterile, no people, no bodies, no skin, no readable text, no branding, no visible device labels. Subject: a discreet private washroom detail - a folded white towel over a brass rail beside a plain basin, soft daylight, calm and dignified. CLOSE-UP composition: the subject FILLS most of the frame against plain bare cream plaster or pale oak, never small or lost in empty space. Shallow depth of field, one soft directional shadow. Absolutely no framed pictures, no posters, no artwork, no signage, no logos, no lettering, no printed matter anywhere in frame. No watermark.",
+    "image_size": "portrait_4_3",
+    "out": "assets/concern-urinary-incontinence.jpg"
+  },
+  {
+    "id": "concern-wrinkles",
+    "prompt": "Editorial interior/still-life photography in soft natural daylight - a restrained cream, warm off-white and deep-navy palette, calm and clinical but warm rather than sterile, no people, no bodies, no skin, no readable text, no branding, no visible device labels. Subject: soft ivory linen gathered over the arm of an upholstered chair, daylight describing each fold. CLOSE-UP composition: the subject FILLS most of the frame against plain bare cream plaster or pale oak, never small or lost in empty space. Shallow depth of field, one soft directional shadow. Absolutely no framed pictures, no posters, no artwork, no signage, no logos, no lettering, no printed matter anywhere in frame. No watermark.",
+    "image_size": "portrait_4_3",
+    "out": "assets/concern-wrinkles.jpg"
+  },
+  {
+    "id": "marquee-corridor",
+    "prompt": "Editorial interior/still-life photography in soft natural daylight - a restrained cream, warm off-white and deep-navy palette, calm and clinical but warm rather than sterile, no people, no bodies, no skin, no readable text, no branding, no visible device labels. Subject: a quiet daylit corridor in a small private practice, cream walls and a pale oak door standing ajar. CLOSE-UP composition: the subject FILLS most of the frame against plain bare cream plaster or pale oak, never small or lost in empty space. Shallow depth of field, one soft directional shadow. Absolutely no framed pictures, no posters, no artwork, no signage, no logos, no lettering, no printed matter anywhere in frame. No watermark.",
+    "image_size": "landscape_4_3",
+    "out": "assets/marquee-corridor.jpg"
+  },
+  {
+    "id": "marquee-window-seat",
+    "prompt": "Editorial interior/still-life photography in soft natural daylight - a restrained cream, warm off-white and deep-navy palette, calm and clinical but warm rather than sterile, no people, no bodies, no skin, no readable text, no branding, no visible device labels. Subject: a window seat with a linen cushion and a folded wool throw in morning light. CLOSE-UP composition: the subject FILLS most of the frame against plain bare cream plaster or pale oak, never small or lost in empty space. Shallow depth of field, one soft directional shadow. Absolutely no framed pictures, no posters, no artwork, no signage, no logos, no lettering, no printed matter anywhere in frame. No watermark.",
+    "image_size": "landscape_4_3",
+    "out": "assets/marquee-window-seat.jpg"
+  },
+  {
+    "id": "marquee-instrument-tray",
+    "prompt": "Editorial interior/still-life photography in soft natural daylight - a restrained cream, warm off-white and deep-navy palette, calm and clinical but warm rather than sterile, no people, no bodies, no skin, no readable text, no branding, no visible device labels. Subject: an unbranded stainless steel tray holding folded gauze and one small covered ceramic dish on a clean counter. CLOSE-UP composition: the subject FILLS most of the frame against plain bare cream plaster or pale oak, never small or lost in empty space. Shallow depth of field, one soft directional shadow. Absolutely no framed pictures, no posters, no artwork, no signage, no logos, no lettering, no printed matter anywhere in frame. No watermark.",
+    "image_size": "landscape_4_3",
+    "out": "assets/marquee-instrument-tray.jpg"
+  },
+  {
+    "id": "marquee-oak-counter",
+    "prompt": "Editorial interior/still-life photography in soft natural daylight - a restrained cream, warm off-white and deep-navy palette, calm and clinical but warm rather than sterile, no people, no bodies, no skin, no readable text, no branding, no visible device labels. Subject: the corner of a pale oak reception counter with a ceramic jug of dried grasses. CLOSE-UP composition: the subject FILLS most of the frame against plain bare cream plaster or pale oak, never small or lost in empty space. Shallow depth of field, one soft directional shadow. Absolutely no framed pictures, no posters, no artwork, no signage, no logos, no lettering, no printed matter anywhere in frame. No watermark.",
+    "image_size": "landscape_4_3",
+    "out": "assets/marquee-oak-counter.jpg"
+  },
+  {
+    "id": "marquee-linen-stack",
+    "prompt": "Editorial interior/still-life photography in soft natural daylight - a restrained cream, warm off-white and deep-navy palette, calm and clinical but warm rather than sterile, no people, no bodies, no skin, no readable text, no branding, no visible device labels. Subject: a tall neat stack of folded ivory treatment linens on an open oak shelf. CLOSE-UP composition: the subject FILLS most of the frame against plain bare cream plaster or pale oak, never small or lost in empty space. Shallow depth of field, one soft directional shadow. Absolutely no framed pictures, no posters, no artwork, no signage, no logos, no lettering, no printed matter anywhere in frame. No watermark.",
+    "image_size": "landscape_4_3",
+    "out": "assets/marquee-linen-stack.jpg"
+  },
+  {
+    "id": "marquee-plant-corner",
+    "prompt": "Editorial interior/still-life photography in soft natural daylight - a restrained cream, warm off-white and deep-navy palette, calm and clinical but warm rather than sterile, no people, no bodies, no skin, no readable text, no branding, no visible device labels. Subject: a large leafy potted plant in a bright corner against a cream wall. CLOSE-UP composition: the subject FILLS most of the frame against plain bare cream plaster or pale oak, never small or lost in empty space. Shallow depth of field, one soft directional shadow. Absolutely no framed pictures, no posters, no artwork, no signage, no logos, no lettering, no printed matter anywhere in frame. No watermark.",
+    "image_size": "landscape_4_3",
+    "out": "assets/marquee-plant-corner.jpg"
+  },
+  {
+    "id": "marquee-waiting-bench",
+    "prompt": "Editorial interior/still-life photography in soft natural daylight - a restrained cream, warm off-white and deep-navy palette, calm and clinical but warm rather than sterile, no people, no bodies, no skin, no readable text, no branding, no visible device labels. Subject: a simple upholstered bench against a cream wall with one folded throw at its end. CLOSE-UP composition: the subject FILLS most of the frame against plain bare cream plaster or pale oak, never small or lost in empty space. Shallow depth of field, one soft directional shadow. Absolutely no framed pictures, no posters, no artwork, no signage, no logos, no lettering, no printed matter anywhere in frame. No watermark.",
+    "image_size": "landscape_4_3",
+    "out": "assets/marquee-waiting-bench.jpg"
+  },
+  {
+    "id": "marquee-marin-oaks",
+    "prompt": "Editorial interior/still-life photography in soft natural daylight - a restrained cream, warm off-white and deep-navy palette, calm and clinical but warm rather than sterile, no people, no bodies, no skin, no readable text, no branding, no visible device labels. Subject: golden Northern California hills with scattered oaks in late afternoon light, seen through a window frame. CLOSE-UP composition: the subject FILLS most of the frame against plain bare cream plaster or pale oak, never small or lost in empty space. Shallow depth of field, one soft directional shadow. Absolutely no framed pictures, no posters, no artwork, no signage, no logos, no lettering, no printed matter anywhere in frame. No watermark.",
+    "image_size": "landscape_4_3",
+    "out": "assets/marquee-marin-oaks.jpg"
   }
 ]
