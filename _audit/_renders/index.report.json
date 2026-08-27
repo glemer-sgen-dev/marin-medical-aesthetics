@@ -1,6 +1,6 @@
 {
   "slug": "index",
-  "ts": 1787796075151,
+  "ts": 1787806016568,
   "verdict": "pass",
   "breakpoints": [
     {
@@ -11,9 +11,9 @@
       "worst": [],
       "overflowPx": 0,
       "sheetsLoaded": true,
-      "h1px": 60,
+      "h1px": 44.64,
       "heroVar": "",
-      "scrollHeight": 8693
+      "scrollHeight": 8619
     },
     {
       "bp": "laptop",
@@ -23,9 +23,9 @@
       "worst": [],
       "overflowPx": 0,
       "sheetsLoaded": true,
-      "h1px": 60,
+      "h1px": 39.68,
       "heroVar": "",
-      "scrollHeight": 8693
+      "scrollHeight": 8619
     },
     {
       "bp": "tablet",
@@ -35,9 +35,9 @@
       "worst": [],
       "overflowPx": 0,
       "sheetsLoaded": true,
-      "h1px": 35,
+      "h1px": 42,
       "heroVar": "",
-      "scrollHeight": 9834
+      "scrollHeight": 10401
     },
     {
       "bp": "mobile",
@@ -47,9 +47,9 @@
       "worst": [],
       "overflowPx": 0,
       "sheetsLoaded": true,
-      "h1px": 28,
+      "h1px": 30,
       "heroVar": "",
-      "scrollHeight": 11208
+      "scrollHeight": 11663
     }
   ],
   "screenshots": [
@@ -59,8 +59,8 @@
     "_audit/_renders/index-mobile.png"
   ],
   "sheetsLoaded": true,
-  "h1px": 60,
-  "scrollHeight": 8693,
+  "h1px": 44.64,
+  "scrollHeight": 8619,
   "expectedSheets": [
     "marin-medical-aesthetics-tokens.css",
     "marin-medical-aesthetics-chrome.css",

@@ -1,6 +1,6 @@
 {
   "slug": "treatments-clearsilk",
-  "ts": 1787796151065,
+  "ts": 1787806089713,
   "verdict": "pass",
   "breakpoints": [
     {
@@ -13,7 +13,7 @@
       "sheetsLoaded": true,
       "h1px": 60,
       "heroVar": "",
-      "scrollHeight": 7090
+      "scrollHeight": 7220
     },
     {
       "bp": "laptop",
@@ -25,7 +25,7 @@
       "sheetsLoaded": true,
       "h1px": 60,
       "heroVar": "",
-      "scrollHeight": 7090
+      "scrollHeight": 7220
     },
     {
       "bp": "tablet",
@@ -37,7 +37,7 @@
       "sheetsLoaded": true,
       "h1px": 35,
       "heroVar": "",
-      "scrollHeight": 7377
+      "scrollHeight": 7507
     },
     {
       "bp": "mobile",
@@ -49,7 +49,7 @@
       "sheetsLoaded": true,
       "h1px": 28,
       "heroVar": "",
-      "scrollHeight": 9007
+      "scrollHeight": 9137
     }
   ],
   "screenshots": [
@@ -60,7 +60,7 @@
   ],
   "sheetsLoaded": true,
   "h1px": 60,
-  "scrollHeight": 7090,
+  "scrollHeight": 7220,
   "expectedSheets": [
     "marin-medical-aesthetics-tokens.css",
     "marin-medical-aesthetics-chrome.css",

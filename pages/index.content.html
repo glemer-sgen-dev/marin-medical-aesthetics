@@ -3,7 +3,12 @@
 <!-- src: D-IA-023 --> <!-- T0 foundation: the site front door and nav root of the concern-led entry layer -->
 <section class="kit-open hero surface-warm" style="background-image:url(../assets/texture-cream-band.jpg)">
   <div class="container">
-    <div class="row">
+    <!-- TWO COLUMNS, owner-requested 2026-08-27 — and this RESTORES the approved pick above:
+         HERO-COMPOSITIONS.md #1 is "Split with image", but the build stacked the plate UNDER the
+         copy at full container width, which is composition #10 in all but name. Text + buttons
+         left, the room photograph right. `row--split` is the design system's own 1fr/1fr grid and
+         already collapses to a single column at <=900px, so the mobile stack is unchanged. -->
+    <div class="row row--split row--split-hero">
       <div class="col">
         <p class="kit-label">San Anselmo, Marin County</p>
         <h1 class="kit-title">A physician-supervised medical aesthetics practice where a doctor's health evaluation comes first</h1>
@@ -15,6 +20,8 @@
           <a class="btn btn-ghost" href="areas-of-concern.html">Explore areas of concern</a>
           <a class="btn btn-ghost" href="tel:+14157854604">Call (415) 785-4604</a>
         </div>
+      </div>
+      <div class="col">
         <span class="kit-plate wow-lift"><img src="../assets/hero-consult-room.jpg" alt="A quiet consultation room with natural daylight"><span class="cap">The room the evaluation happens in, in San Anselmo.</span></span>
       </div>
     </div>

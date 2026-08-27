@@ -1124,6 +1124,106 @@ ul.kit-toc li{border-bottom:0;padding:16px 20px;background:var(--ds-bg-surface);
       three-layer lift rather than the two-layer card shadow. */
 .kit-plate{box-shadow:var(--ds-shadow-lift)}
 
+/* ═══════════════════════════════════════════════════════════════════════════════
+   MEDIA RHYTHM — 2026-08-27. Images had NO vertical margin of their own.
+
+   MEASURED: 37 of 59 pages had a plate sitting under 20px from adjacent text, some
+   as tight as 5px. `.kit-plate` set no margin at all, so the only separation was
+   whatever the NEIGHBOUR's margin happened to be — a .kit-note's 14px, a heading's
+   14px, and in the worst cases 5px. That is the "no margin top or bottom" the owner
+   reported, and it is a component defect, not a per-page authoring slip.
+
+   first/last-child are zeroed deliberately: a plate that OPENS or CLOSES its column
+   must not add leading or trailing space, or the section-cadence gate sees a
+   different leading/trailing box and the band's rhythm breaks.
+   ═══════════════════════════════════════════════════════════════════════════════ */
+/* ROW-TO-ROW RHYTHM — the systemic half of the spacing complaint. Sections stack
+   several `.row`s inside one `.container`, and NOTHING separated them: the gap was
+   whatever the last child's margin-bottom happened to be. Measured across 25 pages:
+   57 row->row gaps, **56 of them under 20px, median 14px**, one at 0. That is also
+   why image/text pairs kept landing 13-14px apart — the media sits in one row and
+   the copy that follows it in the NEXT row, so no amount of margin on the media
+   itself could fix those; the gap belonged between the rows.
+   space-md rather than space-lg: the existing child margin (~14px) still applies, so
+   this lands ~38px typical rather than ~54px, and the few rows already at 40px stay
+   proportionate instead of doubling. Between rows only — the section's leading and
+   trailing boxes are untouched, so the cadence gate still sees the same rhythm. */
+main>section>.container>.row+.row{margin-top:var(--ds-space-md)}
+
+:is(.kit-plate,.kit-narrow,.kit-openshot,.mm-act__shot,.ct-shot){margin-block:var(--ds-space-lg)}
+/* Zero ONLY at the SECTION boundary, not at every column boundary. A plain
+   `:first-child` was the first attempt and it was too broad: a band that puts its
+   heading in one row and the image in the NEXT row makes that image the first child
+   of its own col, so the guard stripped the top margin and the pair stayed 14px
+   apart — exactly the defect being fixed. Anchoring to `.row:first-child` /
+   `.row:last-child` keeps the cadence gate's leading/trailing box intact while
+   letting every mid-band image keep its rhythm. */
+main>section>.container>.row:first-child>.col>:is(.kit-plate,.kit-narrow,.kit-openshot,.mm-act__shot,.ct-shot):first-child{margin-top:0}
+main>section>.container>.row:last-child>.col>:is(.kit-plate,.kit-narrow,.kit-openshot,.mm-act__shot,.ct-shot):last-child{margin-bottom:0}
+/* inside a card the plate opens the card and the copy follows immediately — a full
+   space-lg there reads as a gap in the card, not as rhythm. */
+.kit-col .kit-plate{margin-bottom:var(--ds-space-md)}
+
+/* .kit-frame / .kit-noteshot serve TWO roles. Beside text in a two-up band they set
+   `height:100%; align-self:stretch` to fill the column, and a vertical margin there
+   fights the fill and shortens the image against its neighbour — so in that role the
+   grid gap stays their only spacing. But the SAME components are also used stacked,
+   full width, and there they had the identical 14px defect. `.col:only-child`
+   separates the two roles exactly: one column in the row means stacked, so it earns
+   the rhythm; two columns means side-by-side, so it keeps the fill. */
+.row>.col:only-child>:is(.kit-frame,.kit-noteshot){margin-block:var(--ds-space-lg)}
+main>section>.container>.row:first-child>.col:only-child>:is(.kit-frame,.kit-noteshot):first-child{margin-top:0}
+main>section>.container>.row:last-child>.col:only-child>:is(.kit-frame,.kit-noteshot):last-child{margin-bottom:0}
+
+/* DELIBERATELY EXCLUDED, verified rather than assumed:
+   · .art-top__cap / .ct-shot__cap sit at `margin:10px 0 0` and read as "tight" to
+     the scan, but a CAPTION belongs against its image — that 10px is correct
+     typography, not the defect being fixed. .art-top__band already carries its own
+     margin-top:var(--ds-space-lg). */
+
+/* ═══════════════════════════════════════════════════════════════════════════════
+   HERO SPLIT — 2026-08-27, owner-requested; also RESTORES the approved pick.
+   The section comment on index §1 records HERO-COMPOSITIONS.md #1 "Split with
+   image", but the build stacked the plate UNDER the copy at full container width —
+   composition #10 in all but name. Text + buttons left, photograph right.
+   `row--split` is the design system's own 1fr/1fr grid and already collapses to a
+   single column at <=900px (line ~246), so the mobile stack is unchanged.
+   ═══════════════════════════════════════════════════════════════════════════════ */
+.row--split-hero{align-items:center;gap:var(--ds-space-xl)}
+/* the H1 was sized for a FULL-width measure; at half width 60px runs to five lines.
+   clamp keeps it commanding without overrunning the column. max-width:none because
+   the 16ch cap was there to stop a full-width line getting too long — the column
+   now does that job. */
+.row--split-hero .kit-title{font-size:clamp(34px,3.1vw,50px);max-width:none}
+.row--split-hero .kit-standfirst{max-width:none}
+/* THE BUTTONS. Three CTAs measure ~629px against a 568px column, so the flex row
+   wrapped "Call" onto a line of its own at a DIFFERENT width from the two above it
+   — which reads as an accident rather than a decision. A 2-up grid gives all three
+   an equal width and puts the third deliberately on its own row. Nothing is removed:
+   the phone CTA is conversion-tracked and stays. */
+.row--split-hero .cta-row{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:var(--ds-space-sm);align-items:stretch}
+.row--split-hero .cta-row .btn{width:100%;text-align:center;justify-content:center}
+/* the plate fills its column; no margin, the grid gap owns the separation now. */
+.row--split-hero .kit-plate{aspect-ratio:4/5;max-height:none;margin:0}
+
+/* THE CAPTION BANNER. `.cap` sets opacity on the ELEMENT, so the veil applies to the
+   white text as much as to the navy bar. Over a dark region of a photograph that is
+   fine; over a bright one — the pale chair in the hero image — the 85% navy lightens
+   and the white type loses contrast against it. The contrast auditor measures the
+   bar's own paint stack, so it does not see the photograph bleeding through.
+   Solid navy is legible over ANY region of ANY image, which is the property a caption
+   needs. White on #073772 is ~10:1. The veil token is untouched elsewhere. */
+.kit-plate .cap{opacity:1}
+@media (max-width:900px){
+  .row--split-hero{gap:var(--ds-space-lg)}
+  .row--split-hero .kit-title{font-size:clamp(30px,7vw,42px)}
+  .row--split-hero .kit-plate{aspect-ratio:16/10;max-height:260px}
+  /* one per row on phones — two-up at 375px leaves ~160px per button, which is
+     cramped copy and a worse tap target than a full-width stack. */
+  .row--split-hero .cta-row{grid-template-columns:1fr}
+}
+
 /* 6. THE OTHER TEMPLATE NAMESPACES. Rules 2-4 are all `kit-*`, and six pages carry
       none of those components at all — about (mm-*), contact (ct-*), the article
       (art-*) and the three legal pages. `about` still measured ONE box-shadow after

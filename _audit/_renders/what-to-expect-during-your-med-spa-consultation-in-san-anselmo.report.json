@@ -1,6 +1,6 @@
 {
   "slug": "what-to-expect-during-your-med-spa-consultation-in-san-anselmo",
-  "ts": 1787796281244,
+  "ts": 1787806217302,
   "verdict": "pass",
   "breakpoints": [
     {
@@ -13,7 +13,7 @@
       "sheetsLoaded": true,
       "h1px": 52,
       "heroVar": "",
-      "scrollHeight": 4311
+      "scrollHeight": 4335
     },
     {
       "bp": "laptop",
@@ -25,7 +25,7 @@
       "sheetsLoaded": true,
       "h1px": 52,
       "heroVar": "",
-      "scrollHeight": 4311
+      "scrollHeight": 4335
     },
     {
       "bp": "tablet",
@@ -37,7 +37,7 @@
       "sheetsLoaded": true,
       "h1px": 31,
       "heroVar": "",
-      "scrollHeight": 4862
+      "scrollHeight": 4886
     },
     {
       "bp": "mobile",
@@ -49,7 +49,7 @@
       "sheetsLoaded": true,
       "h1px": 31,
       "heroVar": "",
-      "scrollHeight": 6647
+      "scrollHeight": 6671
     }
   ],
   "screenshots": [
@@ -60,7 +60,7 @@
   ],
   "sheetsLoaded": true,
   "h1px": 52,
-  "scrollHeight": 4311,
+  "scrollHeight": 4335,
   "expectedSheets": [
     "marin-medical-aesthetics-tokens.css",
     "marin-medical-aesthetics-chrome.css",
