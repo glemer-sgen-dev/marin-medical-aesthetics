@@ -1,6 +1,6 @@
 {
   "slug": "disclaimer",
-  "ts": 1787811077241,
+  "ts": 1787814448825,
   "verdict": "pass",
   "breakpoints": [
     {
@@ -13,7 +13,7 @@
       "sheetsLoaded": true,
       "h1px": 48,
       "heroVar": "",
-      "scrollHeight": 4120
+      "scrollHeight": 4094
     },
     {
       "bp": "laptop",
@@ -25,7 +25,7 @@
       "sheetsLoaded": true,
       "h1px": 48,
       "heroVar": "",
-      "scrollHeight": 4120
+      "scrollHeight": 4094
     },
     {
       "bp": "tablet",
@@ -37,7 +37,7 @@
       "sheetsLoaded": true,
       "h1px": 31,
       "heroVar": "",
-      "scrollHeight": 4714
+      "scrollHeight": 4688
     },
     {
       "bp": "mobile",
@@ -49,7 +49,7 @@
       "sheetsLoaded": true,
       "h1px": 31,
       "heroVar": "",
-      "scrollHeight": 5633
+      "scrollHeight": 5607
     }
   ],
   "screenshots": [
@@ -60,7 +60,7 @@
   ],
   "sheetsLoaded": true,
   "h1px": 48,
-  "scrollHeight": 4120,
+  "scrollHeight": 4094,
   "expectedSheets": [
     "marin-medical-aesthetics-tokens.css",
     "marin-medical-aesthetics-chrome.css",

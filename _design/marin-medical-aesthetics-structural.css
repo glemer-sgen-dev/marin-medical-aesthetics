@@ -1258,6 +1258,24 @@ main>section>.container>.row:last-child>.col>:is(.kit-plate,.kit-narrow,.kit-ope
    space-lg there reads as a gap in the card, not as rhythm. */
 .kit-col .kit-plate{margin-bottom:var(--ds-space-md)}
 
+/* .kit-col ON A DARK BAND. Its top rule is `2px solid var(--ds-accent-soft)`, and
+   `.surface-dark` redefines that token from #e4e2ed to #0a2c52 — a navy barely
+   distinguishable from the #04213f band, so the rule that separates each card
+   disappears. Re-point it at --ds-line-strong, which the dark scope defines as the
+   gold accent, so the cards keep their top edge on the navy band. */
+.surface-dark .kit-col{border-top-color:var(--ds-line-strong)}
+/* A .kit-col card in a 2-UP split gets a half-width column, where .kit-plate's
+   3/4 portrait ratio resolves to its full 520px cap and the picture then dwarfs the
+   card's own copy — the band measured 1259px tall against 931px before. The 4-up
+   concern rail never hits this because its columns are narrow enough that the ratio
+   binds first. Cap the ratio in the 2-up case so the image supports the card instead
+   of becoming it. The hero split is unaffected: it carries no .kit-col.
+   A SQUARE crop, not 4/3: the concern photographs are generated portrait_4_3, and a
+   landscape crop of a portrait source centre-crops to the middle of the frame — on
+   the consulting-corner image that discarded the chair and left mostly bare wall.
+   1/1 keeps enough of the vertical subject while still capping the height. */
+.row--split .kit-col .kit-plate{aspect-ratio:1/1;max-height:300px}
+
 /* .kit-frame / .kit-noteshot serve TWO roles. Beside text in a two-up band they set
    `height:100%; align-self:stretch` to fill the column, and a vertical margin there
    fights the fill and shortens the image against its neighbour — so in that role the
@@ -1375,7 +1393,7 @@ main>section>.container>.row:last-child>.col:only-child>:is(.kit-frame,.kit-note
       exactly as it is ON PURPOSE: a privacy policy should read as a document, not as
       a marketing page, and card-ifying legal copy would be worse, not better. What
       does lift is `.bw-toc`, the document index — 22 links across the three pages,
-      sitting under a hairline like every other flat nav block on the site. */
+      sitting under a hairline like every other flat nav block on the site.
       THE PANEL IS THE LIST, NOT THE WRAPPER. `.bw-toc` exists on disclaimer ONLY;
       accessibility and privacy-policy put `.bw-toc__list` straight inside .doc-index.
       Elevating both would nest a panel inside a panel on disclaimer, so `.bw-toc`
