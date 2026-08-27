@@ -97,7 +97,7 @@
   },
   {
     "id": "concern-double-chin",
-    "prompt": "Editorial interior/still-life photography in soft natural daylight - a restrained cream, warm off-white and deep-navy palette, calm and clinical but warm rather than sterile, no people, no bodies, no skin, no readable text, no branding, no visible device labels. Subject: a smooth matte ceramic vessel with a long clean profile, lit from one side so the light describes its curve. CLOSE-UP composition: the subject FILLS most of the frame against plain bare cream plaster or pale oak, never small or lost in empty space. Shallow depth of field, one soft directional shadow. Absolutely no framed pictures, no posters, no artwork, no signage, no logos, no lettering, no printed matter anywhere in frame. No watermark.",
+    "prompt": "Editorial still-life photography in soft natural daylight - a restrained cream, warm off-white and deep-navy palette, calm and warm rather than sterile, no people, no bodies, no skin, no readable text, no branding. Subject: a tall smooth matte navy ceramic vessel with a long clean silhouette, shot close from a low angle so the vessel spans nearly the full height of the frame, lit from one side. TIGHT CLOSE-UP: the subject FILLS AT LEAST TWO THIRDS of the frame and is unmistakably dominant; the frame must NOT be mostly empty wall or empty surface. Shallow depth of field, one soft directional shadow. No framed pictures, no artwork, no signage, no lettering, no printed matter, no watermark.",
     "image_size": "portrait_4_3",
     "out": "assets/concern-double-chin.jpg"
   },
@@ -109,7 +109,7 @@
   },
   {
     "id": "concern-hyperpigmentation",
-    "prompt": "Editorial interior/still-life photography in soft natural daylight - a restrained cream, warm off-white and deep-navy palette, calm and clinical but warm rather than sterile, no people, no bodies, no skin, no readable text, no branding, no visible device labels. Subject: a row of tonal stone and clay swatches graded from pale cream through ochre to deep umber on a plaster surface. CLOSE-UP composition: the subject FILLS most of the frame against plain bare cream plaster or pale oak, never small or lost in empty space. Shallow depth of field, one soft directional shadow. Absolutely no framed pictures, no posters, no artwork, no signage, no logos, no lettering, no printed matter anywhere in frame. No watermark.",
+    "prompt": "Editorial still-life photography in soft natural daylight - a restrained cream, warm off-white and deep-navy palette, calm and warm rather than sterile, no people, no bodies, no skin, no readable text, no branding. Subject: a single wide shallow ceramic bowl with a mottled, unevenly speckled cream-and-clay glaze, photographed close from a low three-quarter angle so the irregular glaze pattern reads clearly across the whole surface. TIGHT CLOSE-UP: the subject FILLS AT LEAST TWO THIRDS of the frame and is unmistakably dominant; the frame must NOT be mostly empty wall or empty surface. Shallow depth of field, one soft directional shadow. No framed pictures, no artwork, no signage, no lettering, no printed matter, no watermark.",
     "image_size": "portrait_4_3",
     "out": "assets/concern-hyperpigmentation.jpg"
   },
@@ -127,7 +127,7 @@
   },
   {
     "id": "concern-melasma",
-    "prompt": "Editorial interior/still-life photography in soft natural daylight - a restrained cream, warm off-white and deep-navy palette, calm and clinical but warm rather than sterile, no people, no bodies, no skin, no readable text, no branding, no visible device labels. Subject: three small shallow dishes of dry mineral pigment in cream, ochre and warm brown on a pale stone counter. CLOSE-UP composition: the subject FILLS most of the frame against plain bare cream plaster or pale oak, never small or lost in empty space. Shallow depth of field, one soft directional shadow. Absolutely no framed pictures, no posters, no artwork, no signage, no logos, no lettering, no printed matter anywhere in frame. No watermark.",
+    "prompt": "Editorial still-life photography in soft natural daylight - a restrained cream, warm off-white and deep-navy palette, calm and warm rather than sterile, no people, no bodies, no skin, no readable text, no branding. Subject: two round ceramic bowls of dry mineral pigment in cream and warm brown, shot close and from slightly above so the two bowls and their powder fill the frame edge to edge. TIGHT CLOSE-UP: the subject FILLS AT LEAST TWO THIRDS of the frame and is unmistakably dominant; the frame must NOT be mostly empty wall or empty surface. Shallow depth of field, one soft directional shadow. No framed pictures, no artwork, no signage, no lettering, no printed matter, no watermark.",
     "image_size": "portrait_4_3",
     "out": "assets/concern-melasma.jpg"
   },
