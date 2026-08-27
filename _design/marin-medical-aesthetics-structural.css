@@ -1063,3 +1063,138 @@ blockquote.q{margin:0}
   html.reveal-armed main>section.is-in>.container>.row>.col:nth-child(3){transition-delay:.16s}
   html.reveal-armed main>section.is-in>.container>.row>.col:nth-child(4){transition-delay:.24s}
 }
+
+/* ═══════════════════════════════════════════════════════════════════════════════
+   DEPTH PASS — 2026-08-26. Separate content by ELEVATION, not by hairline.
+
+   WHY: the scroll-reveal layer added motion and the page still read flat, because
+   flatness here is SPATIAL, not temporal. Measured across all 59 pages: this sheet
+   carried 82 rules using `border` against 10 using `box-shadow`, and 15 of 59 pages
+   rendered with ZERO box-shadows while carrying 31-42 borders each (treatments: 41
+   borders, 0 shadows). Every recurring block was "text with a 1px line above it" -
+   .kit-toc li, .kit-ask, .kit-note. Only the image plates had real elevation. Dark-
+   band rhythm and ground alternation were already fine (only 2/59 pages lacked a
+   dark band, only 3/59 used a single ground), so the ground was never the problem:
+   the INNER content was.
+
+   Token-pure and attribute-free, like the reveal layer - no content fragment is
+   edited, so this stays off the content gates.
+
+   THE DARK-BAND SPLIT, which is the subtle part. `.surface-dark` does not paint a
+   background, it REDEFINES the --ds-* tokens. So --ds-bg-surface is #ffffff on a
+   light band (a clean white panel against the cream grounds) but #04213f inside a
+   dark band - the SAME navy as that band's own ground, which would render the panel
+   invisible. Each panel therefore carries a .surface-dark override onto the next
+   surface step up. Three pages put a kit-toc inside a dark band, so this is a real
+   case, not a hypothetical one.
+   ═══════════════════════════════════════════════════════════════════════════════ */
+
+/* 1. CTA -> the media that follows it. The hero's .cta-row sat FLUSH against the
+      .kit-plate below it - a measured 0px gap, buttons touching the image edge,
+      which reads as a mistake. :not(:last-child) so a closing CTA adds no trailing
+      space and the section cadence gate still sees the same trailing box. */
+main .cta-row:not(:last-child){margin-bottom:var(--ds-space-lg)}
+
+/* 2. ul.kit-toc — 75 lists across 41 pages, 251 items, ZERO links: plain body copy
+      rendered as hairline-separated rows. This is the flattest element on the site.
+      ol.kit-toc is DELIBERATELY EXCLUDED: that is the single real sticky TOC on
+      consultation.html (7 anchor links) and must stay a quiet nav list. */
+ul.kit-toc{border-top:0;display:grid;gap:var(--ds-space-sm)}
+/* the list used to end on a hairline, so the copy that follows it needed no gap of
+   its own; as panels it does, or the next paragraph sits on the last panel's edge. */
+ul.kit-toc:not(:last-child){margin-bottom:var(--ds-space-md)}
+ul.kit-toc li{border-bottom:0;padding:16px 20px;background:var(--ds-bg-surface);
+  border-radius:var(--ds-r-surface);box-shadow:var(--ds-shadow-card)}
+.surface-dark ul.kit-toc li{background:var(--ds-bg-surface-2)}
+
+/* 3. .kit-ask — the numbered question rows, 182 uses. Same hairline problem. */
+.kit-ask{border-top:0;padding:18px 20px;background:var(--ds-bg-surface);
+  border-radius:var(--ds-r-surface);box-shadow:var(--ds-shadow-card)}
+.kit-ask:not(:last-child){margin-bottom:var(--ds-space-sm)}
+.surface-dark .kit-ask{background:var(--ds-bg-surface-2)}
+
+/* 4. .kit-note — 177 uses. A footnote should read as an aside, not as another card,
+      so this gets a tinted inset with an accent rail rather than full elevation. */
+.kit-note{border-top:0;padding:14px 18px;background:var(--ds-bg-surface-2);
+  border-left:3px solid var(--ds-issued);
+  border-radius:0 var(--ds-r-control) var(--ds-r-control) 0}
+.surface-dark .kit-note{background:var(--ds-bg-surface-3)}
+
+/* 5. Image plates carry the most visual weight on the page, so they get the full
+      three-layer lift rather than the two-layer card shadow. */
+.kit-plate{box-shadow:var(--ds-shadow-lift)}
+
+/* 6. THE OTHER TEMPLATE NAMESPACES. Rules 2-4 are all `kit-*`, and six pages carry
+      none of those components at all — about (mm-*), contact (ct-*), the article
+      (art-*) and the three legal pages. `about` still measured ONE box-shadow after
+      the first pass, so "every content" was not yet true. These three are the same
+      hairline row-stack pattern under different names; their `:last-of-type`
+      bottom rule has to be zeroed too, or a stray line hangs under the last panel. */
+.mm-fact,.ct-row,.art-step{border-top:0;background:var(--ds-bg-surface);
+  border-radius:var(--ds-r-surface);box-shadow:var(--ds-shadow-card)}
+.mm-fact{padding:16px 20px}
+.ct-row{padding:18px 20px}
+.art-step{padding:22px 20px}
+.mm-fact:last-of-type,.ct-row:last-of-type,.art-step:last-of-type{border-bottom:0}
+.mm-fact:not(:last-of-type),.ct-row:not(:last-of-type),.art-step:not(:last-of-type){
+  margin-bottom:var(--ds-space-sm)}
+.surface-dark .mm-fact,.surface-dark .ct-row,.surface-dark .art-step{
+  background:var(--ds-bg-surface-2)}
+
+/* 7. .kit-go — 204 uses, the most common flat element on the site: a navigation
+      LINK rendered as text under a 1px rule, which gives no affordance that it is
+      clickable. A surface plus a hover lift fixes the flatness and the affordance
+      in the same move. Kept lighter than the content panels above (--ds-shadow, the
+      1px ring) so 204 of them do not read as 204 cards; the lift is the hover state. */
+.kit-go{border-top:0;padding:16px 18px;background:var(--ds-bg-surface);
+  border-radius:var(--ds-r-surface);box-shadow:var(--ds-shadow);
+  transition:box-shadow var(--ds-dur) var(--ds-ease),transform var(--ds-dur-fast) var(--ds-ease-out)}
+.kit-go:last-of-type{border-bottom:0}
+.kit-go:not(:last-of-type){margin-bottom:var(--ds-space-xs)}
+.kit-go:hover,.kit-go:focus-visible{box-shadow:var(--ds-shadow-card);transform:translateY(-2px)}
+.surface-dark .kit-go{background:var(--ds-bg-surface-2)}
+
+/* 8. THE OTHER LINK ROWS. A first sweep for flat separator-only rules reported 13;
+      that count was WRONG — the matcher mispaired rules nested inside @media blocks
+      and missed ~24, .kit-entry2 among them, which is why the concern rail's "See
+      the skin concerns" links stayed flat after rule 7. A media-aware re-parse found
+      37. Most of the remainder are deliberate editorial typography (.kit-meta,
+      .kit-term, .kit-beat, .kit-endline, .kit-head3, the .kit-book table rules) and
+      are LEFT ALONE — a rule under a standfirst is a considered device, not flatness.
+      These four are the ones that are actually interactive: links rendered as text
+      under a hairline, with no affordance that they can be clicked. */
+.kit-entry2,.kit-go3,.art-exit,.kit-slot{border-top:0;border-bottom:0;
+  background:var(--ds-bg-surface);border-radius:var(--ds-r-surface);
+  box-shadow:var(--ds-shadow);
+  transition:box-shadow var(--ds-dur) var(--ds-ease),transform var(--ds-dur-fast) var(--ds-ease-out)}
+.kit-entry2{padding:14px 16px}
+.kit-slot{padding:12px 16px}
+.art-exit{padding:14px 16px}
+.kit-entry2:hover,.kit-entry2:focus-visible,
+.kit-go3:hover,.kit-go3:focus-visible,
+.art-exit:hover,.art-exit:focus-visible{box-shadow:var(--ds-shadow-card);transform:translateY(-2px)}
+.surface-dark .kit-entry2,.surface-dark .kit-go3,
+.surface-dark .art-exit,.surface-dark .kit-slot{background:var(--ds-bg-surface-2)}
+
+/* 9. THE THREE LEGAL PAGES were the last at ZERO box-shadows, because they share
+      none of the components above — they are `bw-*` documents. Their prose is left
+      exactly as it is ON PURPOSE: a privacy policy should read as a document, not as
+      a marketing page, and card-ifying legal copy would be worse, not better. What
+      does lift is `.bw-toc`, the document index — 22 links across the three pages,
+      sitting under a hairline like every other flat nav block on the site. */
+      THE PANEL IS THE LIST, NOT THE WRAPPER. `.bw-toc` exists on disclaimer ONLY;
+      accessibility and privacy-policy put `.bw-toc__list` straight inside .doc-index.
+      Elevating both would nest a panel inside a panel on disclaimer, so `.bw-toc`
+      just loses its rules and `.bw-toc__list` — present on all three — is the panel. */
+.bw-toc{border-top:0;border-bottom:0;padding:0}
+.bw-toc__list{padding:18px 22px;background:var(--ds-bg-surface);
+  border-radius:var(--ds-r-surface);box-shadow:var(--ds-shadow-card)}
+.surface-dark .bw-toc__list{background:var(--ds-bg-surface-2)}
+
+@media (prefers-reduced-motion:reduce){
+  .kit-go,.kit-entry2,.kit-go3,.art-exit,.kit-slot{transition:none}
+  .kit-go:hover,.kit-go:focus-visible,
+  .kit-entry2:hover,.kit-entry2:focus-visible,
+  .kit-go3:hover,.kit-go3:focus-visible,
+  .art-exit:hover,.art-exit:focus-visible{transform:none}
+}
