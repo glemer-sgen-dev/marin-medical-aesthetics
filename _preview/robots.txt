@@ -1,0 +1,6 @@
+# PREVIEW HOST — indexing disabled on purpose.
+# This is glemer-sgen-dev.github.io, not the practice's domain, and the site still carries
+# unresolved owner placeholders. The production robots.txt in the build tree ALLOWS crawling;
+# publish-preview.mjs copies it in, so the deploy overwrites it with this file.
+User-agent: *
+Disallow: /
