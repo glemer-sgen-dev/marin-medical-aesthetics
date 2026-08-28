@@ -37,7 +37,25 @@
 .nav-link:hover,.nav-item:focus-within > .nav-link,.nav-item.is-open > .nav-link{color:var(--ds-accent);border-bottom-color:var(--ds-issued)}
 .caret{width:8px;height:8px;border-right:2px solid currentColor;border-bottom:2px solid currentColor;transform:rotate(45deg) translateY(-2px);transition:transform var(--ds-dur-fast) var(--ds-ease-out)}
 .nav-item.is-open .caret{transform:rotate(-135deg) translateY(-2px)}
-.phone{display:inline-flex;align-items:center;gap:8px;padding:11px 18px;border:2px solid var(--ds-accent);border-radius:var(--ds-r-pill);font-size:13px;font-weight:700;color:var(--ds-accent);text-decoration:none;white-space:nowrap;transition:background var(--ds-dur-fast) var(--ds-ease-out),color var(--ds-dur-fast) var(--ds-ease-out)}
+/* CONTROL RADIUS IS ONE VALUE, owner-requested 2026-08-28. This was `--ds-r-pill` (999px), which
+   put a fully-rounded capsule immediately beside the square-cornered "Book a consultation" .btn in
+   the header — the only control on the site that did not match. Measured across all 59 built pages
+   before changing anything: .btn 293x, .btn-ghost 203x, .skip 59x and .drawer-close 59x all resolve
+   to --ds-r-control (4px); .phone was 59x at 999px and was the sole outlier. No raw pixel radius
+   exists anywhere in the sheets, so this was a deliberate mismatch rather than drift.
+   NOT changed, and deliberately so: .kit-go / .kit-entry2 / .kit-go3 / .art-exit sit at
+   --ds-r-surface (10px). Those are multi-line CARD links 77-121px tall, not controls — they take
+   the surface radius like every other panel. .kit-field and .bw-legal__pending keep --ds-r-pill
+   because they are status badges, not buttons. */
+/* PADDING MATCHES `.hdr .btn` EXACTLY (13px 22px), owner-requested 2026-08-28 (consistent button
+   sizes). It was `11px 18px`, which rendered the phone control at 47px against the 51px
+   "Book a consultation" sitting immediately beside it in the same header row — two controls, one
+   row, 4px apart. Both now resolve to 13+13+2+2+20.8 = 51px. Measured on all 59 pages before and
+   after. The header keeps its deliberately COMPACT scale (51px) rather than the body's 57px: that
+   compact override is the approved chrome proportion (`.hdr .btn` below), and an 85px header has
+   no room to grow its controls by 6px. The two header controls now match EACH OTHER, which is the
+   defect that was actually visible. */
+.phone{display:inline-flex;align-items:center;gap:8px;padding:13px 22px;border:2px solid var(--ds-accent);border-radius:var(--ds-r-control);font-size:13px;font-weight:700;color:var(--ds-accent);text-decoration:none;white-space:nowrap;transition:background var(--ds-dur-fast) var(--ds-ease-out),color var(--ds-dur-fast) var(--ds-ease-out)}
 .phone:hover{background:var(--ds-accent);color:var(--ds-bg-surface)}
 .hdr .btn{padding:13px 22px}
 
@@ -48,6 +66,34 @@
 /* HOVER-INTENT (b) the bridge: no un-hoverable pixel band across the seam */
 .nav-panel::before{content:"";position:absolute;left:0;right:0;top:-14px;height:14px}
 
+/* THE MEGA PANEL ANCHORS TO THE HEADER, NOT TO ITS NAV ITEM — 2026-08-28, owner-reported
+   ("Areas of Concern mega menu is cut off on hover, only in small screen dimensions").
+
+   REPRODUCED before changing anything. `.nav-panel` is centred on its `.nav-item`
+   (`left:50%` + `translateX(-50%)`), and the nav only shows at >=1200px (below that the
+   hamburger takes over). At 1200px the "Areas of Concern" item's centre sits at x=427, but a
+   1060px panel needs 530px of clearance each side, so it rendered from x=-103 — 103px of it
+   off the left edge of the screen. Measured across the band:
+
+       1200px  panel -103..957   103px CUT OFF
+       1280px  panel  -23..1037   23px CUT OFF
+       1320px  panel   17..1077   ok
+       1440px+ ok
+
+   So it is a POSITION bug, not a width bug: `94vw` never binds here (94vw > 1060px for any
+   viewport over 1128px). Note what that `94vw` cap implies — a 94-percent-of-VIEWPORT width
+   only makes sense for a panel centred on the VIEWPORT. The width rule was written for the
+   behaviour this fix restores; the item-relative anchor is what never matched it.
+
+   `.hdr` is already `position:relative` and `.hdr-in` is not positioned, so making just this
+   item `static` hands the panel's containing block to the full-width header, and the existing
+   `left:50%` then centres it on the screen. At 1200px it becomes 70..1130 — inside the viewport
+   with the 3vw margin `94vw` was always asking for.
+   Scoped with `:has()` so ONLY the mega item moves: the other nav items keep
+   `position:relative` for their narrow `.drop` panels, which are item-anchored on purpose and
+   are not wide enough to overflow. `:has()` is already used 8x in this build's structural sheet,
+   so it is an established idiom here rather than a new dependency. */
+.nav-item:has(> .nav-panel > .mega){position:static}
 .mega{width:min(1060px,94vw);background:var(--ds-bg-surface);border:1px solid var(--ds-line);border-top:3px solid var(--ds-issued);border-radius:var(--ds-r-surface);
   box-shadow:var(--ds-shadow-lift);overflow:hidden;display:grid;grid-template-columns:minmax(0,1.35fr) minmax(0,.95fr)}
 /* minmax(0,...), not a bare fr: a bare 1fr is minmax(AUTO,1fr), so the cards' min-content width

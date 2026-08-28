@@ -13,8 +13,8 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap">
 <link rel="stylesheet" href="design-system/tokens.css?v=31139c7b">
-  <link rel="stylesheet" href="design-system/chrome.css?v=ce457ad2">
-  <link rel="stylesheet" href="design-system/structural.css?v=c763c5f4">
+  <link rel="stylesheet" href="design-system/chrome.css?v=0a55e0ec">
+  <link rel="stylesheet" href="design-system/structural.css?v=eec2c718">
 
 </head>
 <body>
@@ -109,6 +109,24 @@
       <div class="col">
         <p class="kit-label">The corpus as it stands</p>
         <h2 class="kit-h2">4.8 across 96 Google reviews</h2>
+        
+        <div class="rv-statband">
+          <span class="rv-stat__n">4.8</span>
+          <span class="rv-stat__of">out of 5</span>
+          <span class="rv-stars" role="img" aria-label="4.8 out of 5 stars">
+            <span class="rv-stars__bg" aria-hidden="true">★★★★★</span>
+            <span class="rv-stars__fg" aria-hidden="true" style="width:96%">★★★★★</span>
+          </span>
+        </div>
+        <p class="rv-src">Shown unrounded, as Google reports it. The reviews can be read at source
+          rather than taken from this summary.</p>
+        <ul class="rv-dist">
+          <li class="rv-dist__row"><span class="rv-dist__k">5 star</span><span class="rv-dist__bar"><i style="width:93.8%"></i></span><span class="rv-dist__c">90</span></li>
+          <li class="rv-dist__row"><span class="rv-dist__k">4 star</span><span class="rv-dist__bar"><i style="width:0%"></i></span><span class="rv-dist__c">0</span></li>
+          <li class="rv-dist__row"><span class="rv-dist__k">3 star</span><span class="rv-dist__bar"><i style="width:0%"></i></span><span class="rv-dist__c">0</span></li>
+          <li class="rv-dist__row"><span class="rv-dist__k">2 star</span><span class="rv-dist__bar"><i style="width:2.1%"></i></span><span class="rv-dist__c">2</span></li>
+          <li class="rv-dist__row"><span class="rv-dist__k">1 star</span><span class="rv-dist__bar"><i style="width:4.2%"></i></span><span class="rv-dist__c">4</span></li>
+        </ul>
         <p class="kit-p">The rating is shown as Google reports it and is not rounded up. The platform
           is named because the number means nothing without it, and the reviews can be read at source
           on Google rather than taken from our summary of them.</p>
@@ -168,7 +186,18 @@
         <p class="kit-p">Where a patient's words are a claim, they stay in quotation marks with the
           platform, the reviewer and the rating attached, because they are that person's judgement and
           not the practice's own assertion.</p>
-        <p class="kit-p">"THE BEST MED SPA EVER" (Google, Esme S., 5 stars).</p>
+        
+        <blockquote class="rv-card">
+          <span class="rv-stars" role="img" aria-label="5 out of 5 stars">
+            <span class="rv-stars__bg" aria-hidden="true">★★★★★</span>
+            <span class="rv-stars__fg" aria-hidden="true" style="width:100%">★★★★★</span>
+          </span>
+          <p class="rv-card__q">“THE BEST MED SPA EVER”</p>
+          <p class="rv-card__by">Esme S. · Google · 5 stars</p>
+        </blockquote>
+        <p class="kit-p">It is the only review quoted on this page, and it is not a selection: it is
+          the one captured verbatim with its attribution. The six reviews at two stars or below are
+          in the same place as this one.</p>
         <p class="kit-p">That quotation is a customer's, and it is presented as one. It is not a
           heading, and it is not restated as the practice's own claim about itself.</p>
         <p class="kit-note">No written patient stories are published yet, and none has been invented to
