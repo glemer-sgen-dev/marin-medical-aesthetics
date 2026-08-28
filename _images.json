@@ -238,5 +238,41 @@
     "prompt": "Editorial interior/still-life photography in soft natural daylight - a restrained cream, warm off-white and deep-navy palette, calm and clinical but warm rather than sterile, no people, no bodies, no skin, no readable text, no branding, no visible device labels. Subject: golden Northern California hills with scattered oaks in late afternoon light, seen through a window frame. CLOSE-UP composition: the subject FILLS most of the frame against plain bare cream plaster or pale oak, never small or lost in empty space. Shallow depth of field, one soft directional shadow. Absolutely no framed pictures, no posters, no artwork, no signage, no logos, no lettering, no printed matter anywhere in frame. No watermark.",
     "image_size": "landscape_4_3",
     "out": "assets/marquee-marin-oaks.jpg"
+  },
+  {
+    "id": "hero-band-consult-depth",
+    "prompt": "Editorial interior/still-life photography in soft natural daylight - a restrained cream, warm off-white and deep-navy palette, calm and clinical but warm rather than sterile, no people, no bodies, no skin, no readable text, no branding, no visible device labels. Subject: a calm medical consultation room in a private Northern California practice, photographed WIDE and along its DEPTH for a full-width banner band - the far wall is deep navy, warm cream plaster on the near walls, a light-oak desk with a closed notebook and one upholstered linen chair set at an angle in the RIGHT half of the frame, low warm-oak cabinetry running along the LEFT, tall daylight window out of frame casting one long soft directional shadow diagonally across the floor. The frame is FILLED edge to edge with room - furniture, floor and wall planes at every depth, NO large empty blank wall anywhere in the composition. Quiet, unhurried, uncrowded. Editorial architectural photography, shallow depth of field, natural light. Absolutely no framed pictures, no posters, no artwork, no signage, no logos, no lettering, no printed matter anywhere in frame. No watermark.",
+    "image_size": "landscape_16_9",
+    "out": "assets/hero-band-consult-depth.jpg"
+  },
+  {
+    "id": "texture-cream-linen",
+    "prompt": "Seamless abstract texture: fine warm off-white linen canvas weave, very subtle even thread structure, soft flat diffuse lighting, no pattern, no objects, no fold, no edge, no seam, no vignette, completely uniform across the whole frame. Photographic macro texture for use as a quiet background band behind text. Warm off-white and cream only. No text, no watermark, no logo.",
+    "image_size": "landscape_16_9",
+    "out": "assets/texture-cream-linen.jpg"
+  },
+  {
+    "id": "texture-cream-limewash",
+    "prompt": "Seamless abstract texture: matte limewash plaster in warm cream with very gentle cloudy tonal drift, soft flat diffuse lighting, no pattern, no objects, no edge, no seam, no vignette, completely uniform across the whole frame with no bright or dark corner. Photographic macro texture for use as a quiet background band behind text. Cream and warm off-white only. No text, no watermark, no logo.",
+    "image_size": "landscape_16_9",
+    "out": "assets/texture-cream-limewash.jpg"
+  },
+  {
+    "id": "plan-written-desk",
+    "prompt": "Editorial interior/still-life photography in soft natural daylight - a restrained cream, warm off-white and deep-navy palette, calm and clinical but warm rather than sterile, no people, no bodies, no skin, no readable text, no branding, no visible device labels. Subject: what a patient leaves an appointment with, as a still life - a CLOSED linen-bound notebook and a slim fountain pen resting on a pale oak desk, a plain unmarked folded card and a small stoneware cup beside them, soft daylight from the left. The notebook is shut and the card is completely blank. CLOSE-UP composition: the objects FILL most of the frame against bare cream plaster or pale oak, never small or lost in empty space. Quiet, unhurried, uncrowded. Editorial photography, shallow depth of field, natural light, one soft directional shadow. Absolutely no framed pictures, no posters, no artwork, no signage, no logos, no lettering, no printed matter, no open pages anywhere in frame. No watermark.",
+    "image_size": "landscape_4_3",
+    "out": "assets/plan-written-desk.jpg"
+  },
+  {
+    "id": "capability-treatment-corner",
+    "prompt": "Editorial interior photography in soft natural daylight - a restrained cream, warm off-white and deep-navy palette, calm and clinical but warm rather than sterile, no people, no bodies, no skin, no readable text, no branding, no visible device labels. Subject: the corner of a CLINICAL medical treatment room in a small private practice. A NARROW medical treatment couch upholstered in pale grey with a fitted white sheet and a small crescent neck bolster - a clinical couch, NOT a bed. A slim stainless steel instrument trolley beside it holding one folded white cloth. Low warm-oak cabinetry with a shallow ceramic tray. A deep navy accent wall behind. Pale resin floor. Soft daylight from the left casting one gentle directional shadow. NOT a bedroom: no duvet, no quilt, no pillows, no headboard, no wardrobe, no radiator, no domestic furniture. The frame is FILLED edge to edge with furniture and wall planes at every depth, no large empty blank cabinet face or wall. Quiet, unhurried, uncrowded. Shallow depth of field. Absolutely no framed pictures, no posters, no artwork, no signage, no logos, no lettering, no printed matter anywhere in frame. No watermark.",
+    "image_size": "landscape_4_3",
+    "out": "assets/capability-treatment-corner.jpg"
+  },
+  {
+    "id": "entrance-doorway",
+    "prompt": "Editorial interior/still-life photography in soft natural daylight - a restrained cream, warm off-white and deep-navy palette, calm and clinical but warm rather than sterile, no people, no bodies, no skin, no readable text, no branding, no visible device labels. Subject: an interior doorway in a small private practice, seen from inside - a pale oak door standing open onto a softly lit hallway, warm cream plaster walls, a deep navy reveal, pale oak floor, daylight falling through from the far side. Calm and welcoming, completely unmarked - no numbers, no plate, no sign of any kind on or beside the door. CLOSE-UP composition: the doorway FILLS most of the frame. Quiet, unhurried, uncrowded. Editorial photography, shallow depth of field, natural light, one soft directional shadow. Absolutely no framed pictures, no posters, no artwork, no signage, no logos, no lettering, no printed matter, no open pages anywhere in frame. No watermark.",
+    "image_size": "landscape_4_3",
+    "out": "assets/entrance-doorway.jpg"
   }
 ]

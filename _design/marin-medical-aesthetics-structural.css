@@ -60,8 +60,20 @@ a{color:var(--ds-accent)}
  * CONTROLS (I1: one solid, one ghost)
  * ------------------------------------------------------------------------ */
 .cta-row{display:flex;gap:var(--ds-space-sm);flex-wrap:wrap;align-items:center}
+/* line-height IS LOAD-BEARING HERE, owner-requested 2026-08-28 (consistent button sizes). It was
+   absent, and that made a control's HEIGHT depend on which html element carried the class:
+     <a class="btn">      inherits body's line-height:1.6  -> 20.8px  -> 16+16+2+2+20.8 = 57px
+     <button class="btn"> the UA sheet sets line-height:normal -> ~17px -> 16+16+2+2+17   = 53px
+   Identical padding, identical font-size, identical border, 4px apart. Measured across all 59 built
+   pages: 419 buttons at 57px and 21 at 53px, and on contact.html the 53px <button> "Send message"
+   sits in the same form as 57px <a> controls. line-height does NOT inherit into a button from body,
+   which is why nothing here looked wrong by reading.
+   1.6 is not a new value — it is body's own line-height, i.e. exactly what every <a class="btn">
+   already computed. So this changes NOTHING for the 537 anchor buttons and only pulls the 21
+   <button> ones up onto the same height. Do not "simplify" it away. */
 .btn{
   display:inline-block;font-family:var(--ds-font-body);font-size:13px;font-weight:700;letter-spacing:.03em;
+  line-height:1.6;
   padding:16px 28px;border-radius:var(--ds-r-control);border:2px solid var(--ds-accent);
   background:var(--ds-accent);color:var(--ds-bg-surface);text-decoration:none;cursor:pointer;
   transition:background var(--ds-dur) var(--ds-ease),transform var(--ds-dur-fast) var(--ds-ease-out);
@@ -1294,46 +1306,126 @@ main>section>.container>.row:last-child>.col:only-child>:is(.kit-frame,.kit-note
      margin-top:var(--ds-space-lg). */
 
 /* ═══════════════════════════════════════════════════════════════════════════════
-   HERO SPLIT — 2026-08-27, owner-requested; also RESTORES the approved pick.
-   The section comment on index §1 records HERO-COMPOSITIONS.md #1 "Split with
-   image", but the build stacked the plate UNDER the copy at full container width —
-   composition #10 in all but name. Text + buttons left, photograph right.
-   `row--split` is the design system's own 1fr/1fr grid and already collapses to a
-   single column at <=900px (line ~246), so the mobile stack is unchanged.
+   HERO FULL-BLEED BAND — 2026-08-28, owner-requested. SUPERSEDES the hero split.
+
+   THE HISTORY, kept because it is the reason this looks the way it does. The build
+   first stacked the hero plate UNDER the copy at full container width (composition
+   #10 in all but name). On 2026-08-27 that was corrected to HERO-COMPOSITIONS.md #1
+   "Split with image" — copy left, a 4/5 PORTRAIT plate right — under `.row--split`.
+   The owner read the result on 2026-08-28 and rejected it for two measured reasons:
+   a portrait plate does not match the height of the headline block beside it, and
+   between the plate's aspect ratio and the section padding the composition did not
+   resolve inside the first fold. Both are properties of the SPLIT, not of the photo.
+
+   So the pick moves to HERO-COMPOSITIONS.md #5 "Full-bleed image + overlay text":
+   the photograph becomes the section's own background at `cover`, and a left-to-right
+   gradient scrim carries the type. The menu entry names that scrim itself as the
+   composition's key CSS hook ("+ gradient overlay for text legibility"), which is
+   also the answer to the objection the 2026-08-27 ledger raised against #5.
+
+   WHY THE SCRIM COLOUR IS `--ds-bg-surface` AND NOT `--ds-accent-deep`. The section
+   carries `.surface-dark`, and that class works by REDEFINING the tokens (tokens.css
+   ~line 99), not by painting. Under it `--ds-accent-deep` flips to CREAM (#efede1) —
+   referencing it here would paint a cream scrim under cream type. `--ds-bg-surface`
+   is the token that resolves to the deep navy (#04213f) on a dark band, so the scrim
+   paints the section's own ground and the type flips with it. Verified, not assumed.
+
+   The scrim rides on ::before, NOT on a decorative child: an absolutely positioned
+   span directly under <section> is G-DOM R4 orphan content inside <main> — the same
+   reason .kit-creed puts its texture on the section background.
    ═══════════════════════════════════════════════════════════════════════════════ */
-.row--split-hero{align-items:center;gap:var(--ds-space-xl)}
-/* the H1 was sized for a FULL-width measure; at half width 60px runs to five lines.
-   clamp keeps it commanding without overrunning the column. max-width:none because
+/* `.kit-open.hero` (line ~424) resets display to block for the section_seq/component
+   name collision; this needs to out-specify it, hence the three-class selector. */
+.kit-open.hero.hero-fullbleed{
+  display:flex;align-items:center;
+  /* THE BAND'S min-height IS DELIBERATELY NOT HERE — it is on the section's own style=""
+     attribute in index.content.html, next to the background-image it bounds. G-HSANE
+     (verify-section-height-sane) rule H1 refuses a full-bleed media surface that declares no
+     height cap, and it reads ONLY inline <style> blocks and style="" attributes — its own
+     source says it cannot attribute linked rules reliably. A cap written here is therefore a
+     cap the gate cannot see, and the write is blocked. It is a real, load-bearing cap either
+     way, so it is declared where it is both true AND auditable rather than being hidden from
+     the gate that exists to check it. It is a min-height, not a max-height, so it can only set
+     a floor — it never clips the copy at a narrow width. */
+  padding:var(--ds-space-2xl) 0;
+  background-size:cover;background-position:center right;background-repeat:no-repeat;
+  /* .kit-creed,.kit-open (line ~386) sets soft-light for TEXTURE bands. A photograph
+     blended soft-light against the ground washes out to a stain — this band carries a
+     real image, so it composites normally. */
+  background-blend-mode:normal;
+}
+.hero-fullbleed::before{
+  content:"";position:absolute;inset:0;pointer-events:none;z-index:0;
+  /* solid across the copy column, then released so the room reads to the right edge.
+     50% is not a guess: the container caps at --ds-container-max (1280px) and the copy
+     column below caps at 620px, so at 1440/1920/1280 the copy ends at 48.6/49.0/48.4%
+     of the viewport — the plateau clears it at every desktop width. */
+  background:linear-gradient(to right,
+    var(--ds-bg-surface) 0%,
+    var(--ds-bg-surface) 50%,
+    transparent 96%);
+  opacity:var(--ds-opacity-veil);
+}
+.hero-fullbleed > .container{position:relative;z-index:1;width:100%}
+/* ONE column, capped — not a 2-track grid with one child, which is what a leftover
+   split would be. The cap is what keeps the type off the photograph's subject. */
+.row--hero-band{display:grid;grid-template-columns:minmax(0,1fr);align-items:center}
+.row--hero-band > .col{max-width:min(52%,620px)}
+/* the H1 was sized for a FULL-width measure; inside the capped column 60px runs to
+   five lines. clamp keeps it commanding without overrunning. max-width:none because
    the 16ch cap was there to stop a full-width line getting too long — the column
-   now does that job. */
-.row--split-hero .kit-title{font-size:clamp(34px,3.1vw,50px);max-width:none}
-.row--split-hero .kit-standfirst{max-width:none}
-/* THE BUTTONS. Three CTAs measure ~629px against a 568px column, so the flex row
+   now does that job. Carried over from the superseded split; still correct here. */
+.row--hero-band .kit-title{font-size:clamp(34px,3.1vw,50px);max-width:none}
+.row--hero-band .kit-standfirst{max-width:none}
+/* THE BUTTONS. Three CTAs measure ~629px against a 620px column, so the flex row
    wrapped "Call" onto a line of its own at a DIFFERENT width from the two above it
    — which reads as an accident rather than a decision. A 2-up grid gives all three
    an equal width and puts the third deliberately on its own row. Nothing is removed:
    the phone CTA is conversion-tracked and stays. */
-.row--split-hero .cta-row{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));
+.row--hero-band .cta-row{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));
   gap:var(--ds-space-sm);align-items:stretch}
-.row--split-hero .cta-row .btn{width:100%;text-align:center;justify-content:center}
-/* the plate fills its column; no margin, the grid gap owns the separation now. */
-.row--split-hero .kit-plate{aspect-ratio:4/5;max-height:none;margin:0}
+.row--hero-band .cta-row .btn{width:100%;text-align:center;justify-content:center}
 
 /* THE CAPTION BANNER. `.cap` sets opacity on the ELEMENT, so the veil applies to the
    white text as much as to the navy bar. Over a dark region of a photograph that is
-   fine; over a bright one — the pale chair in the hero image — the 85% navy lightens
-   and the white type loses contrast against it. The contrast auditor measures the
-   bar's own paint stack, so it does not see the photograph bleeding through.
-   Solid navy is legible over ANY region of ANY image, which is the property a caption
-   needs. White on #073772 is ~10:1. The veil token is untouched elsewhere. */
+   fine; over a bright one the 85% navy lightens and the white type loses contrast
+   against it. The contrast auditor measures the bar's own paint stack, so it does not
+   see the photograph bleeding through. Solid navy is legible over ANY region of ANY
+   image, which is the property a caption needs. White on #073772 is ~10:1. KEPT after
+   the hero plate was retired: 40 pages still set a .kit-plate with a .cap. */
 .kit-plate .cap{opacity:1}
 @media (max-width:900px){
-  .row--split-hero{gap:var(--ds-space-lg)}
-  .row--split-hero .kit-title{font-size:clamp(30px,7vw,42px)}
-  .row--split-hero .kit-plate{aspect-ratio:16/10;max-height:260px}
+  /* The min-height needs no mobile release: it is a plain vh floor on the style="" attribute,
+     so at 390x844 it asks for ~608px and the stacked copy already exceeds that — the floor
+     stops binding on its own and the band sizes to content. Overriding an inline declaration
+     from here would take !important, which is a worse trade than a floor that never binds.
+
+     THE SCRIM GOES UNIFORM AT THIS SIZE, AND THE CROP MOVES. Two things were measured rather
+     than assumed, in this order.
+     (1) `background-position:center right` is right on a wide band and wrong on a phone: `cover`
+         scales this 16:9 source to ~1225px against a 390px box, so `right` shows only its
+         rightmost third — the WINDOW, the brightest region in the frame. Text measured
+         1.07-1.34:1 there. Re-cropping to 40% centres the deep navy accent wall instead, which
+         is both darker and the most distinctive part of the photograph.
+     (2) The crop alone was NOT enough, and a per-column luminance profile of the source says why
+         it never could be: at EVERY one of the 51 candidate positions the visible window still
+         contains near-white pixels (worst-case p99 luminance >= 0.94 at all of them — the framed
+         print, the ceiling, the window reveal and the floor highlight each cross the full height).
+         There is no dark crop of this image to find. So a left-to-right FADE cannot work at this
+         width either: the copy column is full-width here, so line-ends sat in the fade and the
+         standfirst measured 2.03:1.
+     The scrim is therefore UNIFORM below 900px — same token veil, no fade. Composited against a
+     near-white worst-case pixel that yields ~4.8:1 for the headline and the ghost-button labels
+     and ~4.8:1 for the standfirst, clearing 4.5 with the whole band still showing the photograph
+     evenly rather than hiding it behind a hard navy panel. The left-to-right gradient is a
+     desktop composition device; on a 390px column there is no width for it to happen across. */
+  .kit-open.hero.hero-fullbleed{padding:var(--ds-space-xl) 0;background-position:40% center}
+  .hero-fullbleed::before{background:var(--ds-bg-surface)}
+  .row--hero-band > .col{max-width:none}
+  .row--hero-band .kit-title{font-size:clamp(30px,7vw,42px)}
   /* one per row on phones — two-up at 375px leaves ~160px per button, which is
      cramped copy and a worse tap target than a full-width stack. */
-  .row--split-hero .cta-row{grid-template-columns:1fr}
+  .row--hero-band .cta-row{grid-template-columns:1fr}
 }
 
 /* 6. THE OTHER TEMPLATE NAMESPACES. Rules 2-4 are all `kit-*`, and six pages carry
@@ -1409,4 +1501,221 @@ main>section>.container>.row:last-child>.col:only-child>:is(.kit-frame,.kit-note
   .kit-entry2:hover,.kit-entry2:focus-visible,
   .kit-go3:hover,.kit-go3:focus-visible,
   .art-exit:hover,.art-exit:focus-visible{transform:none}
+}
+
+/* THE STANCE LINE IS CENTRED, 2026-08-28 (right-hand balance).
+   Measured at 57% dead space on the right — the worst band on the home page. It is ONE sentence
+   (`.kit-lead`, capped at 34rem = 544px) sitting left-aligned in a 1200px dark band, so 656px of
+   the band was simply empty.
+   The three fixes available were: hang a photograph beside it, widen the measure, or centre it.
+   A photograph is wrong — this is the page's disclaimer beat, the sentence that says an evaluation
+   decides suitability and is NOT a safety or outcome guarantee, and putting a warm interior next to
+   a legal qualification softens exactly the sentence that must not be softened. Widening the
+   measure is wrong — 1200px of 20px type is ~150 characters per line, far past readable.
+   Centring is the honest one: the space stops being dead because it becomes SYMMETRIC margin, which
+   is composition rather than leftover, and a lone centred line reads as deliberate emphasis. 52rem
+   keeps the line length sane (~95ch at this size) and the small step up in size lets the one
+   qualifying sentence on the page carry the weight it should.
+   Scoped to `.stance-line` so no other `.kit-lead` on the site moves. The empty `.stance-line`
+   marker rule in the SEMANTIC MARKER block stays empty — this is a descendant rule, not a marker. */
+.stance-line .kit-lead{max-width:52rem;margin-inline:auto;text-align:center;font-size:24px}
+
+/* THE CLOSING CTA BUTTONS ARE EQUAL-WIDTH, 2026-08-28 (owner-requested, "Two doors" band).
+   `.cta-row` is flex, so four buttons sized themselves to their labels and wrapped by whatever
+   fitted. Measured before: 189 / 219 / 191 / 187px — a 32px spread — and the wrap was width-
+   dependent, which is the worse half of the problem: at 1440 it broke 2+2, but at 900 it broke
+   3 ACROSS THEN ONE ORPHAN on its own line.
+   This is not a new pattern — it is the SAME rule the hero's `.cta-row` already uses
+   (`.row--hero-band .cta-row`, line ~1385), so the page's two CTA clusters now match each other
+   rather than one being a grid and the other a ragged flex wrap.
+   Scoped to `.final-dual-cta`, which is on the home page only (grep-verified), so no other page's
+   CTA row moves. Below 520px it drops to one column, meeting the global
+   `.cta-row .btn{width:100%}` rule that already lives in the max-width:520px block — two 165px
+   buttons side by side on a 390px phone would be cramped copy and a worse tap target. */
+/* `grid-auto-rows:1fr` is load-bearing, not tidiness. `align-items:stretch` alone equalises
+   heights only WITHIN a row, and equal WIDTHS created a new mismatch: at 1024 the split has not
+   yet collapsed, so each column is ~219px, "Book a consultation" and "Explore areas of concern"
+   wrap to two lines and their row measured 78px against 57px for the row beneath. Measured, then
+   fixed — 1fr makes every row the tallest row's height, so all four controls match at every
+   width, which is what was actually asked for. */
+.final-dual-cta .cta-row{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));
+  grid-auto-rows:1fr;gap:var(--ds-space-sm);align-items:stretch}
+.final-dual-cta .cta-row .btn{width:100%;text-align:center;justify-content:center}
+@media (max-width:520px){
+  .final-dual-cta .cta-row{grid-template-columns:1fr}
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════════
+   THE FUNCTION BAND — restructured 2026-08-28, owner-requested ("restructure this
+   section, Function listed plainly, and make it visually appealing").
+
+   WHAT WAS WRONG, measured rather than judged. The band was the TALLEST section on the
+   home page at 1039px, and it was built as: a heading block filling the left 44% with
+   the right 56% empty, then two tall portrait plates with their copy STACKED BENEATH
+   them, then a trailing note row 42% empty.
+
+   That stacked shape is not a taste call — it is the anti-pattern named in the design
+   system's own SECTION-COMPONENTS.md #14b, the ⚖ COMPACT FEATURE-ROW LAW: "never a
+   full-width-MEDIA-then-CONTENT stack for a feature row ... stacking two tall blocks
+   vertically makes the section render sparse — the owner's 'scroll up and down just to
+   read one section'." The law's remedy is media and content SIDE-BY-SIDE with the media
+   height-CAPPED. That is exactly what the two rules below do.
+
+   1. THE HEAD USES `row--creed`, WHICH THIS TEMPLATE ALREADY OWNS. `.kit-creed` defines
+      `.row--creed` (line ~402) and its comment says why it exists: "The band ran a
+      full-width row with prose capped at 38rem, leaving its right ~45% empty ... Split
+      it: the claim is the figure, the prose is the ground." The band was the one
+      `kit-creed` section on the page NOT using it. Nothing new is invented — the fix was
+      sitting in the sheet, unused, exactly like `row--defs` was on the sibling bands.
+
+   2. THE ENTRIES BECOME HORIZONTAL CARDS WITH A CIRCLE-MASKED PLATE. The circle is the
+      medical-health vertical's own signature in the composition library ("organic
+      circle-masked imagery ... H2/H5"), so this is the sector blueprint's spice, not a
+      generic flourish. It also does real work: both photographs here are near-featureless
+      at 280px tall (a towel on a rail; a door), and a 112px disc reads as a deliberate
+      detail crop instead of a large photograph that says nothing.
+      NOT USED: the A2 arc divider, the other vertical signature — it was REMOVED from
+      this build on 2026-08-25 (line ~116) because zero of 59 pages adopted it, and the
+      sheet records that its fill resolves to the page ground so it renders dark-on-dark
+      inside `.surface-dark`, which is exactly the context here. Re-adding it would
+      reintroduce a defect this build already diagnosed and deleted.
+   ═══════════════════════════════════════════════════════════════════════════════ */
+.capability-switcher .kit-col{
+  display:grid;grid-template-columns:112px minmax(0,1fr);
+  column-gap:var(--ds-space-md);align-items:start;
+}
+/* the disc spans all three text rows and centres against them */
+.capability-switcher .kit-col > .kit-disc{grid-column:1;grid-row:1 / span 3;align-self:center}
+.capability-switcher .kit-col > .h,
+.capability-switcher .kit-col > .s,
+.capability-switcher .kit-col > .kit-entry2{grid-column:2}
+/* `.kit-col .kit-entry2{margin-top:auto}` (line ~618) is a FLEX rule; in this grid it
+   would push the link away from its copy, so the link sits directly under the line it
+   belongs to. */
+.capability-switcher .kit-col > .kit-entry2{margin-top:var(--ds-space-xs)}
+/* THE DISC. A fixed 112px square masked to a circle — height-capped by construction, which
+   is what #14b requires of the media half. min-width:0 is the G-MEDIA-TRACK anchor kept on
+   every grid-track media rule in this sheet. */
+.kit-disc{
+  display:block;position:relative;width:112px;height:112px;min-width:0;
+  overflow:hidden;border-radius:var(--ds-r-pill);
+  background:var(--ds-bg-surface-3);box-shadow:var(--ds-shadow-card);
+}
+.kit-disc img{width:100%;height:100%;object-fit:cover;display:block}
+/* the routing arrow — the affordance the heavy full-width bar was doing badly. Padding is
+   UNTOUCHED so the 44px+ tap target proven at line ~621 is preserved. */
+.capability-switcher .kit-entry2 .t::after{content:"\2192";margin-left:8px}
+@media (max-width:900px){
+  /* the disc shrinks but the card stays horizontal: at 390px a stacked image+text card
+     would rebuild the very media-then-content shape #14b forbids. */
+  .capability-switcher .kit-col{grid-template-columns:76px minmax(0,1fr)}
+  .kit-disc{width:76px;height:76px}
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════════
+   THE REVIEW RATING DISPLAY — 2026-08-28, owner asked to "display customer reviews".
+
+   WHY THERE IS NO DUMMY REVIEW TEXT HERE. The owner asked for dummy data if needed. This
+   site cannot take it: decisions-ledger **F2 is RESOLVED as `real-only` for ALL proof —
+   testimonials, reviews, before/after, credentials, awards, metrics, affiliations**, and it
+   says in terms that this "deliberately DECLINES the skill's fabricated-fallback default
+   because the vertical is regulated and the estate already carries a live misattribution
+   defect". Invented reviews on a medical practice are also the exact thing 16 CFR Part 465
+   and Cal. B&P 651 exist to stop. So none are invented.
+
+   NONE ARE NEEDED. The real corpus was already ON the page — as prose. `success-stories`
+   publishes: 96 Google reviews, 4.8 unrounded as Google reports it, and "of those 96, 6 sit
+   at 2 stars or below: two at 2 stars and four at 1 star, with none at 3 or 4 stars."
+   That is a COMPLETE distribution once the 5-star figure is derived: 96 - 2 - 4 = 90.
+   It self-checks against the published average — (90x5 + 2x2 + 4x1) / 96 = 458/96 = 4.77,
+   which rounds to the 4.8 the practice publishes. So every number rendered below is either
+   quoted from the page or arithmetic on it. Nothing is estimated.
+
+   Catalog pick: TRUST-STATS-SECTIONS.md #4 "Stats - big-number band" (the figures ARE the
+   message). Its dark-anchor treatment is deliberately NOT taken: that entry says "one anchor
+   band per page so it stays special", and both host pages already run their one dark band.
+   Its MOBILE-FLOOR RULE is taken in full — the numeral is named `rv-stat__n` inside
+   `rv-statband` precisely so `verify-stat-treatment.mjs` (G-STAT) DETECTS it and enforces the
+   >=34px-at-375 floor. The distribution counts deliberately use `__c`, not `__n`, so the gate
+   does not demand 34px of a 12px tally row.
+   ═══════════════════════════════════════════════════════════════════════════════ */
+.rv-statband{display:flex;align-items:baseline;gap:var(--ds-space-sm);flex-wrap:wrap;margin:0 0 var(--ds-space-md)}
+.rv-stat__n{font-family:var(--ds-font-display);font-size:clamp(44px,5vw,68px);line-height:.95;
+  letter-spacing:-.04em;color:var(--ds-accent);font-variant-numeric:tabular-nums}
+.rv-stat__of{font-size:15px;color:var(--ds-ink-soft)}
+/* THE STAR COLOURS ARE A MEASURED FIX, not a preference. The first pass painted the filled
+   glyphs `--ds-issued` (gold #c4ad67) on the cream ground, and client-visual-verify hard-failed
+   it at all four breakpoints: **1.85:1 against 4.5**. The glyphs are `aria-hidden` with the
+   rating announced in adjacent text, so WCAG's decorative-text exemption arguably covers them —
+   but that is a technicality worth ignoring here, because the stars ARE the thing a reader scans
+   for a rating, and 1.85:1 is genuinely hard to see. Gold stays on the distribution BARS, which
+   are graphics rather than text.
+   `--ds-accent` for the fill is the token that works in both themes without a second rule:
+   navy on cream = 9.80:1, and `.surface-dark` flips it to gold on navy = 7.35:1.
+   The empty track cannot be `--ds-line-strong` — on light that token IS the same navy, so the
+   fill would be invisible against it. `--ds-olive` is the lighter, duller tone that still clears
+   the gate on its own (5.95:1), so the fill reads as darker AND neither layer fails. */
+.rv-stars{position:relative;display:inline-block;white-space:nowrap;line-height:1;font-size:20px;letter-spacing:.08em}
+.rv-stars__bg{color:var(--ds-olive)}
+.rv-stars__fg{position:absolute;left:0;top:0;overflow:hidden;color:var(--ds-accent)}
+.rv-src{font-size:13px;line-height:1.6;color:var(--ds-ink-soft);margin:0 0 var(--ds-space-md)}
+/* THE REVIEW CARD — one REAL, attributed review. Deliberately UNDERSIZED type.
+   The brief authorises *"THE BEST MED SPA EVER"* (Google, Esme S., 5 stars) "**only** as a clearly
+   attributed customer quotation inside a review block — never as a heading, a pull-quote styled as
+   our claim, or site voice", because adopting a customer's superlative as our own is a superiority
+   claim under Cal. B&P 651(b)(6). So the quote sits at 20px, NOT at display scale: a giant
+   all-caps "THE BEST MED SPA EVER" would read as the practice shouting its own claim, which is the
+   precise failure the rail names. The attribution is given equal visual weight for the same reason,
+   and the element is a real <blockquote> so the markup says "someone else said this" too.
+   Platform named on the card, unedited and verbatim, per 16 C.F.R. Part 465. */
+.rv-card{padding:22px 24px;background:var(--ds-bg-surface);border-left:3px solid var(--ds-issued);
+  border-radius:var(--ds-r-surface);box-shadow:var(--ds-shadow-card);margin:0 0 var(--ds-space-md)}
+.rv-card .rv-stars{display:block;font-size:16px;margin-bottom:10px}
+.rv-card__q{font-family:var(--ds-font-display);font-size:20px;line-height:1.35;
+  color:var(--ds-accent);margin:0 0 10px}
+.rv-card__by{font-size:12.5px;letter-spacing:.04em;color:var(--ds-ink-soft);margin:0}
+.surface-dark .rv-card{background:var(--ds-bg-surface-2)}
+/* the distribution: label | proportional bar | count. tabular-nums keeps the counts aligned. */
+.rv-dist{margin:0;padding:0;list-style:none;max-width:34rem}
+.rv-dist__row{display:grid;grid-template-columns:44px minmax(0,1fr) 34px;gap:var(--ds-space-sm);
+  align-items:center;padding:5px 0}
+.rv-dist__k{font-size:12px;letter-spacing:.06em;color:var(--ds-ink-soft);font-variant-numeric:tabular-nums}
+.rv-dist__bar{display:block;position:relative;width:100%;min-width:0;height:8px;
+  border-radius:var(--ds-r-pill);background:var(--ds-line);overflow:hidden}
+.rv-dist__bar > i{display:block;height:100%;background:var(--ds-issued);border-radius:var(--ds-r-pill)}
+.rv-dist__c{font-size:12.5px;color:var(--ds-ink-soft);text-align:right;font-variant-numeric:tabular-nums}
+.surface-dark .rv-dist__bar{background:var(--ds-bg-surface-3)}
+@media (max-width:900px){
+  /* G-STAT floor: the numeral may not shrink below 34px at 375 — the clamp floor is 44px. */
+  .rv-dist__row{grid-template-columns:40px minmax(0,1fr) 30px}
+}
+
+/* THE ROUTE ROWS READ ACROSS, 2026-08-28 (owner: "vacant space in the right side").
+   `.kit-go` is a 2-column grid (`32px | 1fr`) with the description on a SECOND ROW under the
+   title, so each 162px-tall card ran its text to ~44% and left the rest of a 1200px card empty.
+   Measured: capability-index 56% dead, routing-band 53%. Moving the description into a third
+   column puts it BESIDE the title on one line, which uses the card's real width and reads as a
+   modern list row (label | explanation) rather than a title with an orphan sub-line.
+
+   APPLIED TO EVERY `.kit-go`, after an audit — first written scoped to two homepage sections, then
+   widened DELIBERATELY. Scoping it there would have left the home page reading across while 36
+   other pages stayed stacked, i.e. it would have manufactured exactly the kind of inconsistency
+   this run has been asked to remove. A site-wide row measurement found the same gap on 51 rows
+   across 36 pages (worst 70% dead, average row 309px tall), so it is one defect, not a homepage one.
+   Widened only after checking every instance can take the shape:
+     204 `.kit-go` on 59 pages · 0 WITHOUT a `.d` description · longest title 34 chars ·
+     longest description 82 chars · 200 of 204 sit in one section type (`cross-link-rail`).
+   At a 1200px container the tracks are 32 / ~507 / ~645px, so a 34-char display title and an
+   82-char description both fit their columns with room to spare.
+   Below 900px it returns to the stacked 2-column form — at phone width a title and its explanation
+   side by side would each get ~150px. */
+.kit-go{grid-template-columns:32px minmax(0,.44fr) minmax(0,1fr);align-items:center}
+.kit-go .t{align-self:center}
+.kit-go .d{grid-column:3;grid-row:1;align-self:center;margin:0}
+/* the arrow stays ALWAYS VISIBLE rather than appearing on hover: a hover-only affordance is
+   undiscoverable and simply absent on touch. */
+.kit-go .t::after{content:"\2192";margin-left:10px;color:var(--ds-issued)}
+@media (max-width:900px){
+  .kit-go{grid-template-columns:32px minmax(0,1fr)}
+  .kit-go .d{grid-column:2;grid-row:auto;margin-top:3px}
 }

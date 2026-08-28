@@ -1,15 +1,27 @@
 <!--META {"title":"Medical Aesthetics in San Anselmo - Physician Evaluation","desc":"Concerns come first at Marin Medical Aesthetics in San Anselmo: a physician health evaluation covering function as well as appearance, then your plan."}-->
 <!-- == §1 hero -->
-<!-- pick: HERO-COMPOSITIONS.md #1 Split with image, in the locked kit-open shell | considered: #10,#5 | why: this is the one page on the site that should carry a photograph beside its headline, because the H1 has to state three things at once, the practice, the place and the entry mechanism, and a room the reader will actually sit in makes the last of those concrete. The construction is deliberately indefinite, "a San Anselmo practice", never "the", because the definite article is itself a uniqueness claim under Cal. B&P 651(b)(6). #10 centered-headline is what every interior page uses and would leave the front door flatter than the pages behind it, and #5 full-bleed would put type over an image that has to stay legible. | rigor: heavy -->
+<!-- pick: HERO-COMPOSITIONS.md #5 Full-bleed image + overlay text, in the locked kit-open shell | considered: #1,#9 | why: the owner read the 2026-08-27 split on 2026-08-28 and rejected it on two measured grounds, that a 4/5 portrait plate does not match the height of the headline block set beside it, and that the composition did not resolve inside the first fold. Both are properties of the SPLIT rather than of the photograph, so the composition is what changes. #5 makes the room the GROUND the copy sits on instead of an object standing next to it, which is what lets the practice register at full width in the first fold, and the menu entry names the gradient scrim as its own key CSS hook, which is the answer to the legibility objection the superseded ledger raised against #5. The H1 construction is unchanged and still deliberately indefinite, "a San Anselmo practice", never "the", because the definite article is itself a uniqueness claim under Cal. B&P 651(b)(6). #1 is the pick just rejected. #9 cinematic letterbox caps the band near 50vh and would reintroduce the exact fold problem being fixed. | rigor: heavy -->
 <!-- src: D-IA-023 --> <!-- T0 foundation: the site front door and nav root of the concern-led entry layer -->
-<section class="kit-open hero surface-warm" style="background-image:url(../assets/texture-cream-band.jpg)">
+<!-- FULL-BLEED, owner-requested 2026-08-28. The photograph is the section's own background at
+     `cover`, not an image element in a column, and a left-to-right gradient scrim on ::before
+     carries the type. The scrim rides on a pseudo-element because an absolutely positioned span
+     placed as a direct child of the section element is G-DOM R4 orphan content inside the main
+     landmark. `surface-dark` replaces `surface-warm`: on this site a dark band works by
+     REDEFINING the --ds-* tokens, so the label, headline, standfirst and both button variants
+     flip to their light-on-navy values together with the ground.
+     min-height sits HERE rather than in the sheet, and is a PLAIN vh rather than a clamp, on
+     purpose — see the note on `.kit-open.hero.hero-fullbleed` in the structural sheet. G-HSANE
+     reads only inline style surfaces, and its cap detector accepts `var(--*)` or a plain length,
+     not a clamp(); a cap it cannot parse is a cap it cannot audit. 72vh is also the direct
+     answer to the owner's "cannot see it in the first fold" — it is a floor, never a ceiling,
+     so it cannot clip the copy at any width.
+     NOTE FOR THE NEXT EDITOR: do not write a literal html tag inside a comment on this page.
+     verify-not-flat's top-level-section scanner is a regex that matches tags inside comments
+     too, so one unbalanced tag in prose swallows every section after it and the gate reports
+     sections=0. That cost a blocked write on 2026-08-28. -->
+<section class="kit-open hero hero-fullbleed surface-dark" style="background-image:url(../assets/hero-band-consult-depth.jpg);min-height:72vh">
   <div class="container">
-    <!-- TWO COLUMNS, owner-requested 2026-08-27 — and this RESTORES the approved pick above:
-         HERO-COMPOSITIONS.md #1 is "Split with image", but the build stacked the plate UNDER the
-         copy at full container width, which is composition #10 in all but name. Text + buttons
-         left, the room photograph right. `row--split` is the design system's own 1fr/1fr grid and
-         already collapses to a single column at <=900px, so the mobile stack is unchanged. -->
-    <div class="row row--split row--split-hero">
+    <div class="row row--hero-band">
       <div class="col">
         <p class="kit-label">San Anselmo, Marin County</p>
         <h1 class="kit-title">A physician-supervised medical aesthetics practice where a doctor's health evaluation comes first</h1>
@@ -21,9 +33,6 @@
           <a class="btn btn-ghost" href="areas-of-concern.html">Explore areas of concern</a>
           <a class="btn btn-ghost" href="tel:+14157854604">Call (415) 785-4604</a>
         </div>
-      </div>
-      <div class="col">
-        <span class="kit-plate wow-lift"><img src="../assets/hero-consult-room.jpg" alt="A quiet consultation room with natural daylight"><span class="cap">The room the evaluation happens in, in San Anselmo.</span></span>
       </div>
     </div>
   </div>
@@ -111,8 +120,16 @@
 <!-- src: D-INCUMBENT-009 --> <!-- the verified regulator receipts; V13 and V15 are INTERNAL-ONLY and never appear here -->
 <section class="kit-plan inclusion-value">
   <div class="container">
-    <div class="row">
-      <div class="col">
+    <!-- SPLIT + IMAGE, owner-requested 2026-08-28 (right-hand balance). The catalog pick above is
+         unchanged; only the column count is. Measured before changing anything: this section ran
+         its copy to 52% of the container and left 48% empty, and it was one of seven image-less
+         sections that measured >=25% dead on the right, against four image-bearing sections that
+         all measured 3%. `row--stretch` + `col--grow` + `kit-frame` is the pattern 21 concern
+         pages already use for exactly this shape, so nothing new is invented here.
+         The photograph is a BLANK notebook page: the section's subject is the written plan you
+         leave with, and no legible text or printed matter may appear in any image on this site. -->
+    <div class="row row--stretch">
+      <div class="col col--grow">
         <p class="kit-label">What you get</p>
         <h2 class="kit-h2">The appointment, and what you leave with</h2>
         <p class="kit-p">A physician health evaluation covering function as well as appearance, and a
@@ -122,6 +139,9 @@
           and that examination may not be delegated to registered nurses. That is why the sequence
           here is the sequence it is, stated as the reason the process exists rather than as a claim
           about safety.</p>
+      </div>
+      <div class="col col--grow">
+        <span class="kit-frame wow-lift"><img src="../assets/plan-written-desk.jpg" alt="A blank notebook page and a slim pen on a pale oak desk in daylight"></span>
       </div>
     </div>
   </div>
@@ -135,18 +155,33 @@
      photographs are the ones generated FOR these exact leaves, replacing decoration with subject. -->
 <section class="kit-creed capability-switcher surface-dark" style="background-image:url(../assets/texture-navy-band.jpg)">
   <div class="container">
-    <div class="row">
+    <!-- RESTRUCTURED 2026-08-28, owner-requested. Three changes, each with a reason:
+         (1) The head now uses `row--creed`, the two-column row THIS TEMPLATE ALREADY DEFINES and
+             which this band alone was not using - claim left, prose right. Its own comment in the
+             sheet says it exists because the band "left its right ~45% empty".
+         (2) The trailing note moved UP into that right column. It was a full-width row carrying one
+             sentence at 42% dead space, and it belongs with the lead it qualifies.
+         (3) The two entries are now horizontal cards with a circle-masked plate instead of a tall
+             portrait plate with its copy stacked underneath. That stack is the shape
+             SECTION-COMPONENTS.md #14b (the COMPACT FEATURE-ROW LAW) forbids outright; the circle
+             is the medical-health vertical's own signature per the composition library.
+         Copy is untouched - every sentence is the same, only its position changed. -->
+    <div class="row row--creed">
       <div class="col">
         <p class="kit-label">Function, listed plainly</p>
         <h2 class="kit-h2">Some of what people come here for is not about appearance</h2>
+      </div>
+      <div class="col">
         <p class="kit-lead">Continence and sexual function are assessed in the same appointment as
           skin, face and body, by the same physician, and they are listed here at the same weight.</p>
+        <p class="kit-p">They are among the most common reasons people book and among the least often
+          named out loud, which is why they sit in the index rather than behind a euphemism.</p>
       </div>
     </div>
     <div class="row row--split">
       <div class="col">
         <div class="kit-col">
-          <span class="kit-plate wow-lift"><img src="../assets/concern-urinary-incontinence.jpg" alt="A folded white towel over a brass rail beside a plain basin in soft daylight"></span>
+          <span class="kit-disc wow-lift"><img src="../assets/concern-urinary-incontinence.jpg" alt="A folded white towel over a brass rail beside a plain basin in soft daylight"></span>
           <p class="h">Urinary incontinence</p>
           <p class="s">Leaking with a cough, a laugh, a lift, or on the way to the bathroom.</p>
           <a class="kit-entry2" href="areas-of-concern-urinary-incontinence.html"><span class="t">See urinary incontinence</span></a>
@@ -154,17 +189,11 @@
       </div>
       <div class="col">
         <div class="kit-col">
-          <span class="kit-plate wow-lift"><img src="../assets/concern-sexual-function-enhancement.jpg" alt="A quiet private consulting corner with one upholstered chair and a closed door"></span>
+          <span class="kit-disc wow-lift"><img src="../assets/concern-sexual-function-enhancement.jpg" alt="A quiet private consulting corner with one upholstered chair and a closed door"></span>
           <p class="h">Sexual function enhancement</p>
           <p class="s">Changes in comfort, sensation, or pelvic-floor strength.</p>
           <a class="kit-entry2" href="areas-of-concern-sexual-function-enhancement.html"><span class="t">See sexual function enhancement</span></a>
         </div>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col">
-        <p class="kit-p">They are among the most common reasons people book and among the least often
-          named out loud, which is why they sit in the index rather than behind a euphemism.</p>
       </div>
     </div>
   </div>
@@ -175,13 +204,22 @@
 <!-- src: D-IA-002 --> <!-- Treatments kept at /treatments/ but DEMOTED below the concern layer -->
 <section class="kit-next capability-index">
   <div class="container">
-    <div class="row">
+    <!-- SPLIT + IMAGE, owner-requested 2026-08-28 (right-hand balance). Only the HEADING row is
+         split; the two .kit-go route rows below keep the full container width, which is why the
+         rail still reads as a rail. The photograph is the treatment ROOM, deliberately not a
+         device: the imagery treatment requires devices stay "discreet, unbranded, never the
+         subject", because a device-hero photograph contradicts the positioning this very section
+         states — that the device is the OUTPUT of the evaluation, not the entry to it. -->
+    <div class="row row--split">
       <div class="col">
         <p class="kit-label">The devices</p>
         <h2 class="kit-h2">What the plan can draw on</h2>
         <p class="kit-p">Injectables, lasers and light, body and pelvic-floor devices, and two
           wellness sessions. Which one suits you is the output of the evaluation, not the entry to
           it.</p>
+      </div>
+      <div class="col">
+        <span class="kit-openshot wow-lift"><img src="../assets/capability-treatment-corner.jpg" alt="A treatment couch and a stainless instrument trolley beside oak cabinetry against a deep navy wall"></span>
       </div>
     </div>
     <div class="row">
@@ -196,12 +234,22 @@
 <!-- == §7 credential-floor -->
 <!-- pick: SECTION-COMPONENTS.md #16 Founder bio split, run WITHOUT its portrait in the locked kit-plan shell | considered: #17,#18 | why: the credential line is deliberately bounded to what is publicly verifiable, physician, MD, Internal Medicine, licensed in California since 1996, and everything the estate implied beyond that is held until it is documented. The brief specifies a first-party portrait slot; no first-party portrait exists, and the imagery standard forbids generating a likeness of a real named person, so the slot ships EMPTY rather than filled with a generated face. #17 centered manifesto bio and #18 team-grid both require the photograph this section cannot honestly carry. | rigor: heavy -->
 <!-- src: D-OFFER-023 --> <!-- the offer-level banned-claims list and its safe versions -->
-<section class="kit-plan credential-floor surface-warm" style="background-image:url(../assets/texture-cream-band.jpg)">
+<section class="kit-plan credential-floor surface-warm" style="background-image:url(../assets/texture-cream-linen.jpg)">
   <div class="container">
-    <div class="row">
+    <!-- TERM / DEFINITION, 2026-08-28 (right-hand balance). Measured at 49% dead space on the
+         right, and this section cannot take a photograph: it is Dr. Bacchi's credential line, no
+         likeness of a real named person may be generated, and any substitute image risks reading
+         as a credential claim. So the fix is typographic. `row--defs` (.42fr/1fr) is the sheet's
+         own definition-list row and this content already IS a definition - the eyebrow asks who
+         performs the evaluation, the heading names her, the prose defines the claim. It uses the
+         width WITHOUT lengthening the reading measure: .kit-p keeps its 38rem cap and simply stops
+         being an island in an empty band. Collapses to one column at <=900px (line ~446). -->
+    <div class="row row--defs">
       <div class="col">
         <p class="kit-label">Who performs the evaluation</p>
         <h2 class="kit-h2">Dr. Chris Bacchi, MD</h2>
+      </div>
+      <div class="col">
         <p class="kit-p">A physician licensed in California since 1996. Her registered specialty is
           Internal Medicine.</p>
         <p class="kit-note">That is the whole credential line, and it stops there on purpose. Anything
@@ -217,10 +265,32 @@
 <!-- src: D-OFFER-019 --> <!-- the review corpus is real and under-surfaced; Google only, unrounded, platform named -->
 <section class="kit-index data-proof surface-warm" style="background-image:url(../assets/texture-cream-band.jpg)">
   <div class="container">
-    <div class="row">
+    <!-- TERM / DEFINITION, 2026-08-28 (right-hand balance). Measured at 50% dead space on the
+         right, and no photograph belongs here: the subject is a Google rating, and nothing
+         photographic depicts a rating, so an image would be padding. The definition row earns its
+         keep here rather than just filling space - the NUMBER stands alone on the left, and the
+         qualification that makes it honest (not rounded up, platform named, six reviews at two
+         stars or below, nothing suppressed) sits beside it instead of trailing underneath it
+         where a skimming reader misses it. Reading measure is unchanged. -->
+    <div class="row row--defs">
       <div class="col">
         <p class="kit-label">What patients have said</p>
         <h2 class="kit-h2">4.8 across 96 Google reviews</h2>
+        <!-- RATING DISPLAY, 2026-08-28 (owner: "display customer reviews"). The headline rating
+             renders here; the full star-by-star breakdown lives on `success-stories`, which is the
+             page that owns the corpus — the home page states the figure, the proof page evidences
+             it. No review text is invented anywhere: decisions-ledger F2 is RESOLVED `real-only`
+             for ALL proof. Star fill is 4.8/5 = 96%, not a rounded 5. -->
+        <div class="rv-statband">
+          <span class="rv-stat__n">4.8</span>
+          <span class="rv-stat__of">out of 5</span>
+          <span class="rv-stars" role="img" aria-label="4.8 out of 5 stars">
+            <span class="rv-stars__bg" aria-hidden="true">★★★★★</span>
+            <span class="rv-stars__fg" aria-hidden="true" style="width:96%">★★★★★</span>
+          </span>
+        </div>
+      </div>
+      <div class="col">
         <p class="kit-p">Shown as Google reports it and not rounded up, with the platform named
           because the number means nothing without it.</p>
         <p class="kit-p">The reviews are not uniformly positive. Of those 96, six sit at two stars or
@@ -298,7 +368,7 @@
 <!-- == §11 pricing-teaser -->
 <!-- pick: SECTION-COMPONENTS.md #33 Custom-quote driver, in the locked kit-cost shell | considered: #31,#32 | why: no price ladder exists on any owned property, so the honest band is one paragraph explaining HOW pricing works rather than any figure, anchor or "from" number, and its primary content is that explanation rather than a button. The practice's own published sentence carries it. #31 pricing-3-tier and #32 pricing-single-product both require figures that do not exist and would have to be invented, which the real_only rail forbids outright. | rigor: heavy -->
 <!-- src: D-OFFER-007 --> <!-- quote-only / consultation-led pricing; no price published on any owned property -->
-<section class="kit-cost pricing-teaser surface-warm" style="background-image:url(../assets/texture-cream-band.jpg)">
+<section class="kit-cost pricing-teaser surface-warm" style="background-image:url(../assets/texture-cream-linen.jpg)">
   <div class="container">
     <div class="row row--defs">
       <div class="col">
@@ -322,10 +392,19 @@
 <!-- src: D-IA-009 --> <!-- repoint the pelvic-floor nav slot ON-DOMAIN to /treatments/emsella/ -->
 <section class="kit-next routing-band">
   <div class="container">
-    <div class="row">
+    <!-- TERM / DEFINITION on the HEADING row only, 2026-08-28 (right-hand balance), matching
+         `credential-floor` and `data-proof` above so the three text-led bands share one shape.
+         The measured 50% dead space here belongs to this heading block, NOT to the section: the two
+         .kit-go cards below already span the full container. So only the heading splits, and the
+         cards are untouched. No image was added on purpose — the band directly above
+         (`capability-index`) is the same kit-next template and now carries one, so a second would
+         make the two read as twins rather than as a rail and a route. -->
+    <div class="row row--defs">
       <div class="col">
         <p class="kit-label">Pelvic floor</p>
         <h2 class="kit-h2">Now handled on this site</h2>
+      </div>
+      <div class="col">
         <p class="kit-p">If you came looking for pelvic-floor treatment, both pages live here. Start
           with the concern rather than the device.</p>
       </div>
@@ -356,9 +435,14 @@
 <!-- == §13 final dual CTA -->
 <!-- pick: CTA-PATTERNS.md #7 Multi-CTA cluster (primary + secondary horizontal), in the locked kit-cost definition shell | considered: #11,#4 | why: the brief names a final dual CTA, but the locked chrome's own .precta already closes every page with "Start with the evaluation" and a Book button, so repeating that heading here would be the second closing band the owner objected to. This band therefore does the ONE thing the chrome's cannot: it explains why there are two doors and that neither is the wrong one, and only then offers them. The section_seq name rides the INNER kit-def block rather than the outer section element, exactly as closing-cta does on the hub pages, because verify-cta-singularity matches "cta" as a bare substring and `final-dual-cta` contains one. #11 full-width band CTA would genuinely BE the duplicate, and #4 phone-pill alone would drop the primary the brief names. | rigor: heavy -->
 <!-- src: D-OFFER-006 --> <!-- the primary conversion goal; /consultation/ is the single conversion endpoint of record -->
-<section class="kit-cost surface-warm" style="background-image:url(../assets/texture-cream-band.jpg)">
+<section class="kit-cost surface-warm" style="background-image:url(../assets/texture-cream-limewash.jpg)">
   <div class="container">
-    <div class="row">
+    <!-- SPLIT + IMAGE, owner-requested 2026-08-28 (right-hand balance). The closing band ran its
+         copy and its four CTAs to 70% and left 30% empty. The photograph is a doorway, which is
+         the one literal thing the copy beside it is about — "two doors, and neither is the wrong
+         one" — rather than a decorative interior chosen to fill space. It carries no sign, plate
+         or number, because signage is banned from every image on this site. -->
+    <div class="row row--split">
       <div class="col">
         <div class="kit-def final-dual-cta">
           <p class="say">Two doors, and neither is the wrong one</p>
@@ -377,6 +461,9 @@
             <a class="btn btn-ghost" href="tel:+14157854604">Call (415) 785-4604</a>
           </div>
         </div>
+      </div>
+      <div class="col">
+        <span class="kit-openshot wow-lift"><img src="../assets/entrance-doorway.jpg" alt="A pale oak door in a cream hallway with afternoon daylight falling across it"></span>
       </div>
     </div>
   </div>

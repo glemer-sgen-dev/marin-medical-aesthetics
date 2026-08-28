@@ -60,9 +60,12 @@ it is on a medical page.
 
 ---
 
-## §2 — THE LOCKED SET (10 assets, all generated)
+## §2 — THE LOCKED SET (46 assets — 16 curated below + 30 derived in §2b)
 
-Read from `_images.json` and verified present in `assets/`. **8 photographs + 2 seamless textures.**
+Read from `_images.json` and verified present in `assets/`. **COMPLETE as of 2026-08-28**: the table
+below plus §2b account for all 46 files in `assets/`, reconciled both ways (nothing on disk is
+undocumented; nothing documented is missing from disk). The 16 rows here were written and reviewed by
+hand; the 30 in §2b were derived from each asset's own recorded prompt and a grep of the pages.
 
 | id | kind | subject | where it is used today |
 |---|---|---|---|
@@ -73,9 +76,105 @@ Read from `_images.json` and verified present in `assets/`. **8 photographs + 2 
 | `skincare-still-life` | photo | unbranded frosted-glass containers, eucalyptus | T-FEATURE concept C §4 |
 | `marin-landscape` | photo | golden Marin hills, oaks, late light | T-FEATURE concept C §5 |
 | `community-town` | photo | leafy Northern California town street | reserved: `local-community-support` |
-| `detail-window-light` | photo | abstract daylight across a cream plaster wall | **currently unplaced** — see the note below |
+| `detail-window-light` | photo | abstract daylight across a cream plaster wall | 4 treatment/aesthetic pages as a WIDE plate (1200x520, ratio 2.31) — see the corrected note below |
 | `texture-cream-band` | texture | seamless matte cream plaster | quiet background bands |
 | `texture-navy-band` | texture | seamless matte deep navy | every `.surface-dark` anchored band |
+| `hero-band-consult-depth` | photo | consultation room shot wide along its depth — navy accent wall, oak cabinetry left, linen chair, daylight window right | **home §1 hero, as the section background** (full-bleed, `cover`) |
+| `texture-cream-linen` | texture | seamless warm off-white linen weave | home §7 `credential-floor`, §11 `pricing-teaser` |
+| `texture-cream-limewash` | texture | seamless warm cream limewash with gentle tonal drift | home §14 closing `kit-cost` band |
+| `plan-written-desk` | photo | a BLANK notebook page and a pen on a pale oak desk, navy chair behind | home §4 `inclusion-value`, right column |
+| `capability-treatment-corner` | photo | clinical treatment couch + stainless trolley, oak cabinetry, navy accent wall | home §6 `capability-index`, right column |
+| `entrance-doorway` | photo | a pale oak door in a cream hallway, afternoon daylight, no signage | home §14 `final-dual-cta`, right column |
+
+**Added 2026-08-28 (the three rows above), owner-requested right-hand balance.** Measured first: seven
+image-less home sections ran 25–57% dead space on the right, while all four image-bearing sections
+measured 3%. These three sections were chosen by one test — *does an image here make a claim the copy
+is not allowed to make?* Note what each prompt had to work around:
+
+- `plan-written-desk` — the section's subject is the written plan you leave with, but **no legible
+  text or printed matter may appear in any image on this site**, so the notebook page is blank.
+- `capability-treatment-corner` — the section is about devices, and this photograph deliberately is
+  **not** of a device: §1 requires devices stay "discreet, unbranded, never the subject", which is the
+  same point the section's own copy makes (the device is the OUTPUT of the evaluation, not the entry).
+  The first generation came back as a domestic bedroom and was **regenerated**, not shipped.
+- `entrance-doorway` — carries no plate, number or sign, because signage is banned outright.
+
+**Four sparse sections were deliberately left without an image, and should stay that way:**
+
+| section | dead right | why no image |
+|---|---|---|
+| `credential-floor` | 49% | It is Dr. Bacchi's credential line. **No likeness of a real named person may be generated** (§0), and any substitute photograph risks reading as a credential claim. |
+| `data-proof` | 50% | The subject is a Google rating. No photograph depicts a rating, so anything here is decoration — the §3 "no padding to hit an image count" rule. |
+| `routing-band` | 50% | Its `.kit-go` rows already span the full container; the space is *inside* the rows. Adding a fourth split band would also make it a twin of `capability-index` directly above. |
+| `stance-line` | 57% | A deliberately typographic dark creed band carrying one sentence. An image would weaken the one beat on the page that is meant to be type alone. |
+
+These four are a real, measured, **open** imbalance — recorded rather than papered over. Fixing them
+is a typographic/layout question (widening the measure, or the `row--creed` two-column split the
+`kit-creed` skin already defines), not an imagery one.
+
+**Added 2026-08-28 (the three rows above), owner-requested full-bleed hero.** Generated through
+`generate-images.mjs` per §5; prompts are in `_images.json`. Two candidate hero framings
+(`hero-band-consult-wide`, `hero-band-reception-wide`) were generated, read, rejected — both put a
+large featureless wall through the middle of the band — and then **deleted from `_images.json` and
+from `assets/`**, so the locked set still matches disk.
+
+**Why two more cream textures rather than one.** `texture-cream-band` was stamped on six bands of
+the home page. It passed G-IMG-CAP only because it happened to be the page's FIRST image and so took
+the gate's hero exemption; the moment a real photograph became the hero, the texture's five
+remaining uses breached the 2× per-asset cap. The choice was to strip the texture off four sections
+the owner had not asked about, or to widen the cream family. Widening it also answers what the cap
+is actually for: three plaster/linen grains across six bands is less monotonous than one stamped six
+times. Distribution is now `texture-cream-band` ×2, `texture-cream-linen` ×2, `texture-cream-limewash` ×1.
+
+### §2b — the remaining 30 assets, DERIVED (completed 2026-08-28)
+
+The 21 `concern-*`, 8 `marquee-*` and `detail-mirror-linen` assets were added by earlier work without
+being written back into §2, leaving the table at 16 of 46. An earlier note here said back-filling
+them would mean "guessing at intent". **That was wrong, and the note is retracted:** nothing here is
+guessed. Every row below is machine-derived from two on-disk sources —
+
+- **subject** = the `Subject:` clause of the asset's own recorded prompt in `_images.json`
+  (truncated, never paraphrased);
+- **where used** = a grep of `pages/*.content.html` for `assets/<id>.jpg`.
+
+Checked while deriving: **all 30 are referenced by at least one page — none is unplaced.** The set
+now matches `assets/` exactly (46 = 16 curated + 30 derived), which is what §2 requires of a locked
+set. These rows are kept in their own table rather than merged into the one above because their
+provenance differs: the rows above were written and reviewed by hand, these were derived. A human
+read can promote any of them upward; until then the distinction is worth keeping visible.
+
+| id | kind | subject (from its recorded prompt) | where it is used today |
+|---|---|---|---|
+| `detail-mirror-linen` | photo | a plain unframed oval hand mirror lying face-up on folded ivory linen beside a small matte ceramic dish,… | `index` |
+| `concern-acne-acne-scars` | photo | three plain frosted-glass cleanser bottles and a folded muslin cloth arranged on a pale limestone tray. | `areas-of-concern-acne-acne-scars` |
+| `concern-age-spots` | photo | a pair of tortoiseshell reading glasses and a small amber glass dropper bottle arranged on a cream stone tray. | `areas-of-concern-age-spots` |
+| `concern-broken-capillaries` | photo | a slender clear glass carafe of water on a stone shelf, daylight refracting through it into fine bright lines. | `areas-of-concern-broken-capillaries` |
+| `concern-cellulite` | photo | a neat stack of folded waffle-weave cotton towels on a pale oak bench. | `areas-of-concern-cellulite` |
+| `concern-core-strength` | photo | a rolled charcoal exercise mat standing upright beside a plain oak stool in a bright empty studio corner. | `areas-of-concern-core-strength` |
+| `concern-double-chin` | photo | a tall smooth matte navy ceramic vessel with a long clean silhouette, shot close from a low angle so the… | `areas-of-concern-double-chin` |
+| `concern-fine-lines` | photo | a sheet of ivory linen in raking window light, its fine creases catching the light. | `areas-of-concern-fine-lines` |
+| `concern-hyperpigmentation` | photo | a single wide shallow ceramic bowl with a mottled, unevenly speckled cream-and-clay glaze, photographed… | `areas-of-concern-hyperpigmentation` |
+| `concern-jowls` | photo | heavy ivory linen draped over the edge of a pale oak table, falling in soft weighted folds. | `areas-of-concern-jowls` |
+| `concern-loose-skin` | photo | crumpled ivory silk resting in a shallow wide ceramic bowl, soft daylight raking across its folds. | `areas-of-concern-loose-skin` |
+| `concern-melasma` | photo | two round ceramic bowls of dry mineral pigment in cream and warm brown, shot close and from slightly above… | `areas-of-concern-melasma` |
+| `concern-muscle-development` | photo | a coiled fabric resistance band and a pale wooden dowel resting on a clean oak bench. | `areas-of-concern-muscle-development` |
+| `concern-rosacea` | photo | a shallow wide ceramic bowl of clear water beside a folded pale linen cloth and a small green sprig on a… | `areas-of-concern-rosacea` |
+| `concern-sexual-function-enhancement` | photo | a quiet private consulting corner - one upholstered armchair beside a small side table holding a folded… | `areas-of-concern-sexual-function-enhancement`, `index` |
+| `concern-spider-veins` | photo | fine bare winter branches seen against a bright frosted window, tracing delicate lines across the light. | `areas-of-concern-spider-veins` |
+| `concern-stubborn-fat` | photo | a small balanced stack of smooth grey river stones on a pale linen runner. | `areas-of-concern-stubborn-fat` |
+| `concern-sun-damage` | photo | a wide-brimmed natural straw sun hat resting on a pale oak bench beside a plain glass bottle of water. | `areas-of-concern-sun-damage` |
+| `concern-turkey-neck` | photo | a tall slender stoneware vase casting a long elegant shadow across a cream surface. | `areas-of-concern-turkey-neck` |
+| `concern-uneven-skin-texture` | photo | three squares of natural sponge and a pumice stone on a pale limestone slab, raking light picking out… | `areas-of-concern-uneven-skin-texture` |
+| `concern-urinary-incontinence` | photo | a discreet private washroom detail - a folded white towel over a brass rail beside a plain basin, soft… | `areas-of-concern-urinary-incontinence`, `index` |
+| `concern-wrinkles` | photo | soft ivory linen gathered over the arm of an upholstered chair, daylight describing each fold. | `areas-of-concern-wrinkles` |
+| `marquee-corridor` | photo | a quiet daylit corridor in a small private practice, cream walls and a pale oak door standing ajar. | `index` |
+| `marquee-window-seat` | photo | a window seat with a linen cushion and a folded wool throw in morning light. | `index` |
+| `marquee-instrument-tray` | photo | an unbranded stainless steel tray holding folded gauze and one small covered ceramic dish on a clean counter. | `index` |
+| `marquee-oak-counter` | photo | the corner of a pale oak reception counter with a ceramic jug of dried grasses. | `index` |
+| `marquee-linen-stack` | photo | a tall neat stack of folded ivory treatment linens on an open oak shelf. | `index` |
+| `marquee-plant-corner` | photo | a large leafy potted plant in a bright corner against a cream wall. | `index` |
+| `marquee-waiting-bench` | photo | a simple upholstered bench against a cream wall with one folded throw at its end. | `index` |
+| `marquee-marin-oaks` | photo | golden Northern California hills with scattered oaks in late afternoon light, seen through a window frame. | `index` |
 
 **Note on `detail-window-light`:** it was placed in T-FEATURE concept B §2 and pulled at the owner
 read on 2026-08-21 — in a 3/4 portrait plate it renders as a near-featureless cream wash and carries
@@ -88,7 +187,21 @@ the full-res read: at `background-size:cover` across a 1440px band the asset str
 internal structure reads as a muddy gold wash with visible vertical seams. It is near-featureless
 but it is NOT seamless, and a full-width band needs a seamless texture. **For any band ground use
 `texture-cream-band` or `texture-navy-band`;** keep `detail-window-light` for a narrow horizontal
-strip where it is not stretched. It is therefore STILL UNPLACED.
+strip where it is not stretched.
+
+**CORRECTED 2026-08-28 — it is NOT unplaced, and has not been for some time.** The claim above was
+stale; a grep plus a render check found it on FOUR pages (`treatments-halo-laser-treatment`,
+`treatments-forever-young-bbl`, `treatments-lightstim-red-light-therapy`, `mommy-makeover`), each
+time in a `.kit-plate` measuring **1200x520px, ratio 2.31 — wide and horizontal**, which is exactly
+the orientation this note prescribes and NOT the portrait plate it warns against. Each carries a
+caption tying the light to the treatment ("Light on a wall. This treatment is light, and that is the
+whole of what it is.").
+
+Read at full size, it holds up: soft diagonal daylight shafts across cream, legible as an abstract
+light study rather than a muddy wash. **One caveat stands, measured not assumed:** a faint vertical
+seam is still visible at roughly a quarter across — the artifact this note predicted. It is far
+milder at a 2.31 crop than it was as a full-bleed background, and the caption bar anchors the frame,
+so it ships. If it is ever re-used at greater width, re-check that seam first.
 
 ---
 
